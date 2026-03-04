@@ -1,0 +1,47 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?:       string;
+  description?: string;
+  currentPage?: string;
+}
+
+const {
+  title       = 'Vylo – Household Finances, on Autopilot',
+  description = 'Vylo connects to your bank, automatically categorizes every transaction, and gives your whole household one clear picture of where money goes.',
+  currentPage = '',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <!-- OG / Social -->
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="https://www.myvylo.com/" />
+  <meta property="og:title"        content={title} />
+  <meta property="og:description"  content={description} />
+  <!-- <meta property="og:image"   content="https://www.myvylo.com/og-image.png" /> -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="antialiased">
+  <Nav currentPage={currentPage} />
+  <slot />
+  <Footer />
+</body>
+</html>

@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const shipped = [
+  {
+    date: 'March 2026',
+    tag: 'Feature',
+    tagColor: 'indigo',
+    title: 'Categories Manager',
+    description: 'Fully customize your category list — rename, merge, create new ones. The categorization engine learns your preferences automatically.',
+  },
+  {
+    date: 'February 2026',
+    tag: 'Feature',
+    tagColor: 'indigo',
+    title: 'Household Members',
+    description: 'Invite your partner or housemates by email. Everyone gets their own login and a shared view of all transactions and budgets.',
+  },
+  {
+    date: 'February 2026',
+    tag: 'Improvement',
+    tagColor: 'emerald',
+    title: 'Budget Tracking',
+    description: 'Set monthly limits per category and track spend against your goals in real time. Over-budget categories are flagged immediately.',
+  },
+  {
+    date: 'January 2026',
+    tag: 'Feature',
+    tagColor: 'indigo',
+    title: 'Spend Trends',
+    description: 'Week-over-week and month-over-month charts so you can spot patterns and see exactly where your money is going over time.',
+  },
+  {
+    date: 'January 2026',
+    tag: 'Feature',
+    tagColor: 'indigo',
+    title: 'Auto-Categorization Engine',
+    description: 'Every transaction categorized the moment it lands — no manual tagging required. Powered by merchant name intelligence.',
+  },
+  {
+    date: 'December 2025',
+    tag: 'Launch',
+    tagColor: 'violet',
+    title: 'Vylo is live',
+    description: 'Connect your bank via Plaid and get a complete, real-time picture of your household finances. Read-only, secure, zero manual entry.',
+  },
+];
+
+const coming = [
+  {
+    tag: 'Coming soon',
+    tagColor: 'amber',
+    title: 'Budget alerts',
+    description: 'Get notified by email or push notification when a category is approaching or over its monthly limit.',
+  },
+  {
+    tag: 'Coming soon',
+    tagColor: 'amber',
+    title: 'Custom categorization rules',
+    description: 'Create rules like "always categorize Starbucks as Coffee" so the engine gets smarter without you lifting a finger.',
+  },
+  {
+    tag: 'Coming soon',
+    tagColor: 'amber',
+    title: 'Mobile app',
+    description: 'Native iOS and Android apps so you can check your household spend on the go.',
+  },
+  {
+    tag: 'Coming soon',
+    tagColor: 'amber',
+    title: 'Export to CSV',
+    description: 'Download your transaction history for tax season, accountants, or your own analysis.',
+  },
+];
+
+const tagStyles: Record<string, string> = {
+  indigo:  'bg-indigo-500/15 text-indigo-300 border-indigo-500/20',
+  emerald: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/20',
+  violet:  'bg-violet-500/15 text-violet-300 border-violet-500/20',
+  amber:   'bg-amber-500/15 text-amber-300 border-amber-500/20',
+};
+---
+
+<Layout
+  title="Updates – Vylo"
+  description="What's new and what's coming to Vylo — recently shipped features and the roadmap ahead."
+  currentPage="updates"
+>
+
+<div class="pt-28 pb-20 px-4 sm:px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Changelog</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Updates</h1>
+      <p class="text-white/50 leading-relaxed">What we've shipped and what's on the way.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-1 p-1 glass rounded-xl mb-8 w-fit">
+      <button id="tab-shipped" onclick="switchTab('shipped')"
+              class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-500 text-white">
+        Recently Added
+      </button>
+      <button id="tab-coming" onclick="switchTab('coming')"
+              class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/55 hover:text-white">
+        Coming Soon
+      </button>
+    </div>
+
+    <!-- Recently Added -->
+    <div id="panel-shipped" class="tab-panel active">
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-white/[0.08]"></div>
+
+        <div class="space-y-8">
+          {shipped.map(item => (
+            <div class="relative pl-8">
+              <!-- Dot -->
+              <div class="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-mirage ring-2 ring-indigo-500/20"></div>
+
+              <div class="glass rounded-xl p-5 card-glow">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <span class={`px-2 py-0.5 rounded-full text-xs font-medium border ${tagStyles[item.tagColor]}`}>
+                    {item.tag}
+                  </span>
+                  <span class="text-xs text-white/30">{item.date}</span>
+                </div>
+                <h3 class="text-base font-semibold text-white mb-1.5">{item.title}</h3>
+                <p class="text-sm text-white/50 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div id="panel-coming" class="tab-panel">
+      <div class="space-y-4">
+        {coming.map(item => (
+          <div class="glass rounded-xl p-5 card-glow">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class={`px-2 py-0.5 rounded-full text-xs font-medium border ${tagStyles[item.tagColor]}`}>
+                {item.tag}
+              </span>
+            </div>
+            <h3 class="text-base font-semibold text-white mb-1.5">{item.title}</h3>
+            <p class="text-sm text-white/50 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function switchTab(tab: string) {
+    const tabs   = ['shipped', 'coming'];
+    const active = 'bg-indigo-500 text-white';
+    const inactive = 'text-white/55 hover:text-white';
+
+    tabs.forEach(t => {
+      const btn   = document.getElementById(`tab-${t}`)!;
+      const panel = document.getElementById(`panel-${t}`)!;
+      const isActive = t === tab;
+
+      panel.classList.toggle('active', isActive);
+      btn.classList.toggle('bg-indigo-500', isActive);
+      btn.classList.toggle('text-white', isActive);
+      btn.classList.toggle('text-white/55', !isActive);
+    });
+  }
+
+  (window as any).switchTab = switchTab;
+</script>
+
+</Layout>
