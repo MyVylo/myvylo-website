@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+  title="Vylo – Finance tracking that knows its place."
+  description="Connect your bank once. Every transaction shows up, automatically categorized and tracked. No spreadsheets. No dashboards. Just clarity."
+>
 
 <!-- ════════════════════════════════════════════════════════════════
      HERO
@@ -19,17 +22,17 @@ import Layout from '../layouts/Layout.astro';
                     bg-indigo-500/10 border border-indigo-500/20
                     text-indigo-300 text-xs font-medium mb-6 fade-in-up">
           <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
-          Built for households
+          Finance, without the noise.
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-bold leading-[1.1] tracking-tight gradient-text mb-5 fade-in-up delay-100">
-          Not everyone's<br/>a finance-bro
+          Finance tracking<br/>that knows<br/>its place.
         </h1>
 
         <p class="text-white/55 text-lg leading-relaxed mb-8 fade-in-up delay-200">
-          Connect your bank. Every transaction categorizes itself.
-          Your whole household gets one clean, real-time view of where
-          the money actually went — no spreadsheets, no manual entry.
+          Connect your accounts once. Every transaction shows up,
+          categorized and tracked, automatically. No spreadsheets.
+          No dashboards. No Sunday night catch-up sessions.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start fade-in-up delay-300">
@@ -177,42 +180,83 @@ import Layout from '../layouts/Layout.astro';
 
 
 <!-- ════════════════════════════════════════════════════════════════
+     NOT EVERYONE'S A FINANCE BRO
+════════════════════════════════════════════════════════════════ -->
+<section class="py-20 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Not everyone's a finance bro.</h2>
+      <p class="text-white/50 text-lg max-w-xl mx-auto">
+        Most people don't want a second job managing their money. They just want to know where it went.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="glass rounded-2xl card-glow p-6 sm:p-8 border border-white/[0.06]">
+        <p class="text-xs uppercase tracking-widest font-semibold text-white/35 mb-5">Before</p>
+        <div class="space-y-3.5">
+          <div class="flex items-start gap-3"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span class="text-sm text-white/55">Spreadsheet that's already out of date</span></div>
+          <div class="flex items-start gap-3"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span class="text-sm text-white/55">Manually entering every transaction</span></div>
+          <div class="flex items-start gap-3"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span class="text-sm text-white/55">Checking four different banking apps</span></div>
+          <div class="flex items-start gap-3"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span class="text-sm text-white/55">Sunday night catch-up sessions you keep skipping</span></div>
+          <div class="flex items-start gap-3"><span class="text-red-400 mt-0.5 flex-shrink-0">✗</span><span class="text-sm text-white/55">Discovering you went over budget after the month ends</span></div>
+        </div>
+      </div>
+
+      <div class="glass rounded-2xl card-glow p-6 sm:p-8 border border-indigo-500/20"
+           style="background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(32,43,65,0.75));">
+        <p class="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-5">With Vylo</p>
+        <div class="space-y-3.5">
+          <div class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span><span class="text-sm text-white/75">Every transaction categorized automatically</span></div>
+          <div class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span><span class="text-sm text-white/75">One clear view of where your money went</span></div>
+          <div class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span><span class="text-sm text-white/75">Budgets that track themselves</span></div>
+          <div class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span><span class="text-sm text-white/75">Takes two minutes to set up, then runs itself</span></div>
+          <div class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5 flex-shrink-0">✓</span><span class="text-sm text-white/75">Know where you stand any time you check</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
      WHY DIFFERENT
 ════════════════════════════════════════════════════════════════ -->
 <section class="py-20 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Finance was designed for one. Your household isn't.</h2>
-      <p class="text-white/50 text-lg max-w-xl mx-auto">Most money apps track you. Vylo tracks your household — shared spending, shared budgets, one view for everyone.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Designed to stay simple.</h2>
+      <p class="text-white/50 text-lg max-w-xl mx-auto">
+        Most finance apps kept adding. Vylo kept cutting. Here's what's left.
+      </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="glass rounded-xl p-6 card-glow">
         <div class="w-10 h-10 rounded-lg bg-indigo-500/15 flex items-center justify-center mb-4">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 7v6l8 5 8-5V7l-8-5z" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 7l8 5m0 0l8-5m-8 5v5" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Zero manual entry</h3>
-        <p class="text-white/50 text-sm leading-relaxed">Connect once. Every transaction is pulled in and categorized automatically. Nothing to enter, nothing to tag.</p>
+        <h3 class="font-semibold text-white text-sm mb-2">Connect once, done forever</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Link your bank once. Every transaction pulls in and categorizes itself — no logging in, no tagging, no updates to forget.</p>
       </div>
       <div class="glass rounded-xl p-6 card-glow">
         <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center mb-4">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10a7 7 0 1014 0A7 7 0 003 10z" stroke="#34d399" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#34d399" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Real-time picture</h3>
-        <p class="text-white/50 text-sm leading-relaxed">See where you stand against your budget right now — not at the end of the month when the damage is done.</p>
+        <h3 class="font-semibold text-white text-sm mb-2">Always up to date</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Open Vylo and you'll know exactly where you stand — not an estimate, but the actual number, right now, this month.</p>
       </div>
       <div class="glass rounded-xl p-6 card-glow">
         <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center mb-4">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 9a4 4 0 118 0c0 3-2 5-4 6-2-1-4-3-4-6z" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 9a4 4 0 118 0c0 3-2 5-4 6-2-1-4-3-4-6z" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="16" r="1" fill="#fbbf24"/><path d="M12 10a4 4 0 118 0c0 3-2 5-4 6" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Built for households</h3>
-        <p class="text-white/50 text-sm leading-relaxed">Invite your partner or housemates. Everyone gets their own login and a shared view of all spending — no more monthly money conversations.</p>
+        <h3 class="font-semibold text-white text-sm mb-2">Shared view, shared life</h3>
+        <p class="text-white/50 text-sm leading-relaxed">Add your partner or housemates. One login each, one picture together. No more "did you pay that?" texts.</p>
       </div>
       <div class="glass rounded-xl p-6 card-glow">
         <div class="w-10 h-10 rounded-lg bg-rose-500/15 flex items-center justify-center mb-4">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="10" rx="2" stroke="#f87171" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <h3 class="font-semibold text-white text-sm mb-2">Bank-grade security</h3>
-        <p class="text-white/50 text-sm leading-relaxed">Powered by Plaid. Read-only access to your transactions. We never see or store your credentials.</p>
+        <p class="text-white/50 text-sm leading-relaxed">Powered by Plaid. Read-only access. We never see or store your banking credentials.</p>
       </div>
     </div>
   </div>
@@ -226,8 +270,8 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Features</p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Everything you need. Nothing you don't.</h2>
-      <p class="text-white/50 text-lg max-w-xl mx-auto">Most finance apps keep adding features to justify charging you more. Vylo does the opposite — a focused set of tools that cover everything a household actually needs.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">The right features. None of the wrong ones.</h2>
+      <p class="text-white/50 text-lg max-w-xl mx-auto">We built what actually helps you stay on top of your money. The rest got cut.</p>
     </div>
 
     <div class="space-y-5">
@@ -236,8 +280,8 @@ import Layout from '../layouts/Layout.astro';
       <div class="glass rounded-2xl card-glow p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-4">⚡ Auto-categorization</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Transactions organize themselves</h3>
-          <p class="text-white/50 text-sm leading-relaxed">Every transaction is categorized the moment it arrives — Groceries, Dining, Transport, Subscriptions. No tagging, no reviewing, no input required.</p>
+          <h3 class="text-xl font-semibold text-white mb-3">Every transaction, filed before you even open the app.</h3>
+          <p class="text-white/50 text-sm leading-relaxed">The moment a charge posts, Vylo reads the merchant and drops it into the right bucket — groceries, dining, transport, subscriptions. No review queue. No weekend catch-up.</p>
         </div>
         <div class="space-y-2.5 bg-white/[0.02] rounded-xl p-4">
           <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
@@ -259,8 +303,8 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div class="glass rounded-2xl card-glow p-6 sm:p-8">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 text-xs font-medium mb-4">📈 Spend trends</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Patterns you didn't know you had</h3>
-          <p class="text-white/50 text-sm leading-relaxed mb-5">Week-over-week and month-over-month charts show exactly where the money went. Spot the dining creep. Notice the subscription pile-up.</p>
+          <h3 class="text-xl font-semibold text-white mb-3">Patterns you didn't know you had.</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-5">Week over week, month over month — the chart tells the story your bank statement buries in a list.</p>
           <div class="flex items-end gap-1.5 h-16 px-1">
             <div class="flex-1 rounded-t-sm" style="height:38%; background:rgba(99,102,241,.22)"></div>
             <div class="flex-1 rounded-t-sm" style="height:62%; background:rgba(99,102,241,.30)"></div>
@@ -272,8 +316,8 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="glass rounded-2xl card-glow p-6 sm:p-8">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs font-medium mb-4">🎯 Budget tracking</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Budgets that track themselves</h3>
-          <p class="text-white/50 text-sm leading-relaxed mb-5">Set a monthly limit per category. Vylo watches your spending in real time and flags when you're getting close. No checking required.</p>
+          <h3 class="text-xl font-semibold text-white mb-3">Set a limit. Know when you're close.</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-5">Budget per category. Vylo watches the number so you don't have to. When you're getting close, you'll know.</p>
           <div class="space-y-3">
             <div>
               <div class="flex justify-between mb-1.5"><span class="text-xs text-white/60">Groceries</span><span class="text-xs font-mono text-white">$842 / $1,000</span></div>
@@ -291,8 +335,8 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div class="glass rounded-2xl card-glow p-6 sm:p-8">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-300 text-xs font-medium mb-4">👥 Household members</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Everyone on the same page</h3>
-          <p class="text-white/50 text-sm leading-relaxed mb-5">Invite your partner or housemates by email. They get their own login, and you all share one view of spending and budgets — without anyone having to ask.</p>
+          <h3 class="text-xl font-semibold text-white mb-3">Everyone on the same page.</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-5">Invite your partner or housemates. They get their own login, you all get one shared view. No more reconstructing who spent what.</p>
           <div class="flex items-center gap-3">
             <div class="flex -space-x-2.5">
               <div class="w-9 h-9 rounded-full bg-indigo-500 border-2 border-card flex items-center justify-center text-xs font-bold">A</div>
@@ -304,8 +348,8 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="glass rounded-2xl card-glow p-6 sm:p-8">
           <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-300 text-xs font-medium mb-4">🏷️ Categories manager</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Built around how you spend</h3>
-          <p class="text-white/50 text-sm leading-relaxed mb-5">Rename, merge, or create categories that match your life. The engine picks up your preferences automatically.</p>
+          <h3 class="text-xl font-semibold text-white mb-3">Your categories, your rules.</h3>
+          <p class="text-white/50 text-sm leading-relaxed mb-5">Rename the defaults. Create your own. Move transactions between them. The app learns what you prefer and applies it going forward.</p>
           <div class="flex flex-wrap gap-2">
             <span class="px-2.5 py-1 rounded-full text-xs bg-indigo-500/15 text-indigo-300 border border-indigo-500/20">Groceries</span>
             <span class="px-2.5 py-1 rounded-full text-xs bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">Date nights</span>
@@ -329,8 +373,8 @@ import Layout from '../layouts/Layout.astro';
     <div class="glass rounded-2xl card-glow p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Security</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Read-only. Always.</h2>
-        <p class="text-white/55 leading-relaxed mb-6">We connect through Plaid — the same infrastructure behind Venmo and Robinhood — with read-only access to your transactions. We see what you spend. We cannot move money, make changes, or access your credentials.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Your data is yours. Always.</h2>
+        <p class="text-white/55 leading-relaxed mb-6">Vylo connects via Plaid — the same infrastructure used by Venmo and Robinhood. We get read-only access to your transactions. Your credentials never touch our servers.</p>
         <a href="https://app.myvylo.com/signup"
            class="button-shimmer inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400
                   text-white text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5">
@@ -342,22 +386,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.5 2.5 5.8 6 7 3.5-1.2 6-3.5 6-7V4L8 1z" stroke="#818cf8" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">Powered by Plaid</h4>
-          <p class="text-xs text-white/45 leading-relaxed">The most trusted name in bank connectivity. Used by Venmo, Robinhood, and thousands of other financial apps.</p>
+          <p class="text-xs text-white/45 leading-relaxed">The same trusted infrastructure used by Venmo, Robinhood, and thousands of financial apps.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="8" rx="1.5" stroke="#34d399" stroke-width="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="#34d399" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">Read-only access</h4>
-          <p class="text-xs text-white/45 leading-relaxed">Vylo sees your transaction history. It cannot move money, make payments, or modify your accounts in any way.</p>
+          <p class="text-xs text-white/45 leading-relaxed">Vylo can only view your transactions — it can never move money or make changes to your accounts.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 2a3 3 0 100 6 3 3 0 000-6zM2 13s1-3 6-3 6 3 6 3" stroke="#fbbf24" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">No stored credentials</h4>
-          <p class="text-xs text-white/45 leading-relaxed">Your username and password never touch our servers. Plaid handles authentication — we just receive the data.</p>
+          <p class="text-xs text-white/45 leading-relaxed">We never see your banking username or password. Plaid handles all authentication securely.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-rose-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="#f87171" stroke-width="1.3"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#f87171" stroke-width="1.3"/><path d="M6 8l1.5 1.5L10 7" stroke="#f87171" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">256-bit encryption</h4>
-          <p class="text-xs text-white/45 leading-relaxed">All data encrypted in transit and at rest using AES-256. Same standard as your bank.</p>
+          <p class="text-xs text-white/45 leading-relaxed">All data is encrypted in transit and at rest using AES-256 — the same standard as your bank.</p>
         </div>
       </div>
     </div>
@@ -377,12 +421,12 @@ import Layout from '../layouts/Layout.astro';
     <div class="space-y-2" id="faq-list">
 
       {[
-        { q: 'What is Vylo?', a: "Vylo is a household finance tracker. Connect your bank accounts and every transaction is categorized automatically — no manual entry. Invite your partner or housemates and your whole household shares one real-time view of spending and budgets." },
-        { q: 'How does automatic categorization work?', a: "Vylo reads the merchant name and assigns a category the moment the transaction arrives. It learns from your corrections over time, and you can always reassign anything manually." },
-        { q: 'Is my bank data secure?', a: "Yes. We use Plaid — the infrastructure behind Venmo and Robinhood — with read-only access to your transactions. We never see or store your banking credentials." },
-        { q: 'How do I add household members?', a: "Go to Settings and invite people by email. Once they accept and connect their accounts, your household gets a unified view of all transactions and shared budgets." },
-        { q: 'What does Vylo cost?', a: "Free to get started. Connect your accounts, invite your household, and explore the full app at no cost. We'll share pricing details as premium features launch." },
-        { q: 'Which banks are supported?', a: "Over 12,000 institutions through Plaid — Chase, Bank of America, Wells Fargo, Citi, Capital One, and most major US banks and credit unions." },
+        { q: 'What is Vylo?', a: "Vylo is a finance tracker that connects to your bank accounts and automatically categorizes every transaction. You get a clear, real-time view of where your money goes — without entering a single thing manually." },
+        { q: 'How does automatic categorization work?', a: "When a transaction arrives, Vylo reads the merchant name and assigns it to a category. You can correct any categorization, create custom categories, or bulk-reassign transactions. The more you use it, the smarter it gets." },
+        { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid to connect to your bank — the same technology behind Venmo and Robinhood. We get read-only access to your transactions. We never see your login credentials, and we can't move money." },
+        { q: 'How do I add household members?', a: "From settings, invite anyone by email. Once they accept and connect their accounts, your household gets a combined view of all spending and shared budget tracking." },
+        { q: 'What does Vylo cost?', a: "Free to start — sign up and connect your accounts at no cost. Premium features will be announced separately." },
+        { q: 'Which banks are supported?', a: "Vylo supports over 12,000 banks and credit unions through Plaid — Chase, Bank of America, Wells Fargo, Citi, Capital One, and most others." },
       ].map(({ q, a }) => (
         <div class="glass rounded-xl overflow-hidden border border-white/[0.06]">
           <button class="faq-btn w-full text-left px-5 py-4 flex items-center justify-between gap-4">
@@ -408,8 +452,8 @@ import Layout from '../layouts/Layout.astro';
 <section class="py-16 px-4 sm:px-6">
   <div class="max-w-3xl mx-auto text-center glass rounded-2xl card-glow px-8 py-14"
        style="background: linear-gradient(135deg, rgba(99,102,241,.14), rgba(32,43,65,.85));">
-    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Stop guessing where the money went.</h2>
-    <p class="text-white/50 text-lg mb-8 max-w-md mx-auto">Connect your bank. Invite your household. Vylo handles the rest.</p>
+    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Less noise. More clarity.</h2>
+    <p class="text-white/50 text-lg mb-8 max-w-md mx-auto">Takes two minutes to connect. From there, it runs itself.</p>
     <a href="https://app.myvylo.com/signup"
        class="button-shimmer inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-500 hover:bg-indigo-400
               text-white font-semibold rounded-xl text-sm transition-all duration-200
