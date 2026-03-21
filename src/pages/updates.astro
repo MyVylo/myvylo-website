@@ -210,6 +210,10 @@ const tagStyles: Record<string, string> = {
   }
 
   (window as any).switchTab = switchTab;
+
+  if (window.location.hash === '#coming-soon') {
+    switchTab('coming');
+  }
 </script>
 
 </Layout>

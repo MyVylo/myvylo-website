@@ -422,7 +422,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="glass rounded-2xl card-glow p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Security</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Your data is yours. Always.</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Bank grade security you can trust.</h2>
         <p class="text-white/55 leading-relaxed mb-6">Vylo connects via Plaid — the same infrastructure used by Venmo and Robinhood. We get read-only access to your transactions. Your credentials never touch our servers.</p>
         <a href="https://app.myvylo.com/signup"
            class="button-shimmer inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400
@@ -501,71 +501,72 @@ import Layout from '../layouts/Layout.astro';
 <section id="pricing" class="py-20 px-4 sm:px-6 relative overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 55% at 50% 65%, rgba(99,102,241,0.09), transparent);"></div>
 
-  <div class="max-w-sm mx-auto relative">
+  <div class="max-w-4xl mx-auto relative">
 
     <!-- Header -->
     <div class="text-center mb-10">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Pricing</p>
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-5">One plan.<br/>Everything included.</h2>
-      <p class="text-white/50 text-sm leading-relaxed mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
+      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One plan. Everything included.</h2>
+      <p class="text-white/50 text-sm mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
       <p class="text-white text-sm font-medium">Vylo is $5 a month. That's it. Everything included.</p>
     </div>
 
-    <!-- Card -->
-    <div class="glass card-glow rounded-2xl p-7" style="border: 1px solid rgba(99,102,241,0.18);">
+    <!-- Horizontal card -->
+    <div class="glass card-glow rounded-2xl overflow-hidden" style="border: 1px solid rgba(99,102,241,0.18);">
+      <div class="grid grid-cols-1 md:grid-cols-[5fr_7fr] divide-y md:divide-y-0 md:divide-x divide-white/[0.07]">
 
-      <!-- Trial badge -->
-      <div class="mb-6">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20">
-          <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-          Free for 7 days
-        </span>
+        <!-- Left: price + CTA -->
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20 mb-6 self-start">
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+            Free for 7 days
+          </span>
+
+          <div class="flex items-baseline gap-1.5 mb-1">
+            <span class="text-6xl font-bold text-white tracking-tight">$5</span>
+            <span class="text-white/40 text-lg">/mo</span>
+          </div>
+          <p class="text-white/30 text-xs mb-8">per household · billed monthly</p>
+
+          <a href="https://app.myvylo.com/signup"
+             class="button-shimmer flex items-center justify-center gap-2 w-full py-3
+                    bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-xl text-sm
+                    transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/25 hover:-translate-y-0.5 mb-3">
+            Start free trial
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="text-center text-xs text-white/30">Pay monthly. No annual fees. Cancel anytime.</p>
+        </div>
+
+        <!-- Right: what's included -->
+        <div class="p-8 sm:p-10 flex flex-col justify-center">
+          <p class="text-xs text-white/35 uppercase tracking-widest font-semibold mb-6">What's included</p>
+          <ul class="space-y-4">
+            {[
+              { label: 'Auto-categorization',    accent: false },
+              { label: 'Spend trends & budgets', accent: false },
+              { label: 'Household sharing',      accent: false },
+              { label: 'Net worth tracking',     accent: false },
+              { label: 'All future features',    accent: true, href: '/updates#coming-soon' },
+            ].map(({ label, accent, href }: { label: string; accent: boolean; href?: string }) => (
+              <li class={`flex items-center gap-3 text-sm ${accent ? 'text-white font-medium' : 'text-white/60'}`}>
+                <svg class={`flex-shrink-0 ${accent ? 'text-indigo-400' : 'text-emerald-400'}`} width="15" height="15" viewBox="0 0 15 15" fill="none">
+                  <path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {href
+                  ? <a href={href} class="text-indigo-300 hover:text-indigo-200 transition-colors underline underline-offset-2 decoration-indigo-500/40 hover:decoration-indigo-300/60">{label}</a>
+                  : label
+                }
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
-
-      <!-- Price -->
-      <div class="flex items-baseline gap-1.5 mb-1">
-        <span class="text-5xl font-bold text-white tracking-tight">$5</span>
-        <span class="text-white/40 text-base">/month</span>
-      </div>
-      <p class="text-white/30 text-xs mb-7">per household · billed monthly</p>
-
-      <!-- Divider -->
-      <div class="border-t border-white/[0.07] mb-6"></div>
-
-      <!-- Feature list -->
-      <ul class="space-y-3.5 mb-7">
-        {[
-          { label: 'Auto-categorization',    accent: false },
-          { label: 'Spend trends & budgets', accent: false },
-          { label: 'Household sharing',      accent: false },
-          { label: 'Net worth tracking',     accent: false },
-          { label: 'All future features',    accent: true  },
-        ].map(({ label, accent }) => (
-          <li class={`flex items-center gap-3 text-sm ${accent ? 'text-white font-medium' : 'text-white/60'}`}>
-            <svg class={`flex-shrink-0 ${accent ? 'text-indigo-400' : 'text-emerald-400'}`} width="15" height="15" viewBox="0 0 15 15" fill="none">
-              <path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            {label}
-          </li>
-        ))}
-      </ul>
-
-      <!-- CTA -->
-      <a href="https://app.myvylo.com/signup"
-         class="button-shimmer flex items-center justify-center gap-2 w-full py-3.5
-                bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-xl text-sm
-                transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/25 hover:-translate-y-0.5 mb-4">
-        Start free trial
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-
-      <!-- Trust note -->
-      <p class="text-center text-xs text-white/30">Pay monthly. No annual fees. Cancel anytime.</p>
     </div>
 
-    <!-- Footer note -->
-    <p class="text-center text-xs text-white/30 mt-6 leading-relaxed">
-      One price after trial. Everything included,<br/>including all future features. No surprises.
+    <p class="text-center text-xs text-white/25 mt-6">
+      One price after trial. Everything included, including all future features. No surprises.
     </p>
 
   </div>
