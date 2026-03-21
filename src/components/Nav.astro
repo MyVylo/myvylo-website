@@ -27,11 +27,13 @@ const { currentPage = '' } = Astro.props;
       <!-- Right CTAs -->
       <div class="hidden md:flex items-center gap-3">
         <a href="https://app.myvylo.com/signin"
-           class="text-[13px] text-white/60 hover:text-white transition-colors px-3 py-1.5">
+           class="text-[13px] text-white/60 hover:text-white transition-colors px-3 py-1.5 rounded-lg border border-transparent hover:border-white/10">
           Sign in
         </a>
         <a href="https://app.myvylo.com/signup"
-           class="button-shimmer text-[13px] font-semibold bg-indigo-500 hover:bg-indigo-400 text-white px-4 py-2 rounded-lg transition-colors">
+           class="button-shimmer text-[13px] font-semibold text-white px-4 py-2 rounded-lg transition-all duration-200
+                  hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/30"
+           style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
           Get started free
         </a>
       </div>
@@ -53,11 +55,12 @@ const { currentPage = '' } = Astro.props;
         <a href="/updates"   onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">Updates</a>
         <div class="pt-2 flex flex-col gap-2">
           <a href="https://app.myvylo.com/signin"
-             class="py-2.5 text-sm text-center text-white/65 border border-white/10 rounded-lg hover:border-white/20">
+             class="py-2.5 text-sm text-center text-white/65 border border-white/10 rounded-lg hover:border-white/20 hover:text-white transition-colors">
             Sign in
           </a>
           <a href="https://app.myvylo.com/signup"
-             class="button-shimmer py-2.5 text-sm text-center font-semibold bg-indigo-500 hover:bg-indigo-400 text-white rounded-lg transition-colors">
+             class="button-shimmer py-2.5 text-sm text-center font-semibold text-white rounded-lg transition-all duration-200"
+             style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
             Get started free
           </a>
         </div>

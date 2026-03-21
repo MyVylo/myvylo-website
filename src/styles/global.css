@@ -25,7 +25,7 @@ body  { background: var(--bg); color: var(--text); font-family: 'Inter', sans-se
 }
 
 .card-glow {
-  box-shadow: 0 0 0 1px rgba(99,102,241,0.08), 0 8px 32px rgba(0,0,0,0.35);
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.10), 0 4px 6px rgba(0,0,0,0.2), 0 24px 60px rgba(0,0,0,0.45);
 }
 
 .gradient-text {
@@ -45,6 +45,37 @@ body  { background: var(--bg); color: var(--text); font-family: 'Inter', sans-se
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 44px 44px;
 }
+
+/* ─── Card accent borders ─────────────────────────────────────── */
+.card-accent-indigo  { border-left: 2px solid rgba(99,102,241,0.50)  !important; }
+.card-accent-emerald { border-left: 2px solid rgba(52,211,153,0.45)  !important; }
+.card-accent-amber   { border-left: 2px solid rgba(251,191,36,0.45)  !important; }
+.card-accent-violet  { border-left: 2px solid rgba(139,92,246,0.45)  !important; }
+.card-accent-rose    { border-left: 2px solid rgba(248,113,113,0.45) !important; }
+
+/* ─── Bar animations ─────────────────────────────────────────── */
+.bar-grow {
+  width: 0 !important;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bar-grow.animated {
+  width: var(--bar-w) !important;
+}
+
+/* ─── Scroll-reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.10s; }
+.reveal-d2 { transition-delay: 0.20s; }
+.reveal-d3 { transition-delay: 0.30s; }
+.reveal-d4 { transition-delay: 0.40s; }
 
 /* ─── Shimmer CTA ─────────────────────────────────────────────── */
 .button-shimmer { position: relative; overflow: hidden; }
