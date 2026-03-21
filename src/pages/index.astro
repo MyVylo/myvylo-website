@@ -196,11 +196,11 @@ import Layout from '../layouts/Layout.astro';
       <div class="reveal glass rounded-2xl card-glow p-6 sm:p-8 border border-white/[0.06]">
         <p class="text-xs uppercase tracking-widest font-semibold text-white/35 mb-5">Before</p>
         <div class="space-y-3.5">
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/60">Spreadsheet that's already out of date</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/60">Manually entering every transaction</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/60">Checking four different banking apps</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/60">Sunday night catch-up sessions you keep skipping</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/60">Discovering you went over budget after the month ends</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Spreadsheet that's already out of date</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Manually entering every transaction</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Checking four different banking apps</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Sunday night catch-up sessions you keep skipping</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Discovering you went over budget after the month ends</span></div>
         </div>
       </div>
 
@@ -307,12 +307,12 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="text-xl font-semibold text-white mb-3">Patterns you didn't know you had.</h3>
           <p class="text-white/75 text-sm leading-relaxed mb-5">Week over week, month over month — the chart tells the story your bank statement buries in a list.</p>
           <div class="bar-section flex items-end gap-1.5 h-16 px-1">
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:38%; height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.05s"></div>
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:62%; height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s"></div>
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:45%; height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:82%; height:0; background:rgba(99,102,241,.40); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.35s"></div>
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:54%; height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.45s"></div>
-            <div class="flex-1 rounded-t-sm hbar-grow" style="--bar-h:95%; height:0; background:#6366f1;            transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="38%" style="height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.05s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="62%" style="height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="45%" style="height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="82%" style="height:0; background:rgba(99,102,241,.40); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.35s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="54%" style="height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.45s"></div>
+            <div class="flex-1 rounded-t-sm" data-h="95%" style="height:0; background:#6366f1;             transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
           </div>
         </div>
         <div class="reveal reveal-d1 glass rounded-2xl card-glow card-accent-amber p-6 sm:p-8">
@@ -322,11 +322,11 @@ import Layout from '../layouts/Layout.astro';
           <div class="bar-section space-y-3">
             <div>
               <div class="flex justify-between mb-1.5"><span class="text-xs text-white/60">Groceries</span><span class="text-xs font-mono text-white">$842 / $1,000</span></div>
-              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-emerald-400 rounded-full bar-grow" style="--bar-w:84%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.1s"></div></div>
+              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-emerald-400 rounded-full" data-w="84%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.1s"></div></div>
             </div>
             <div>
               <div class="flex justify-between mb-1.5"><span class="text-xs text-white/60">Dining out</span><span class="text-xs font-mono text-amber-400">Over budget</span></div>
-              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-amber-400 rounded-full bar-grow" style="--bar-w:100%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.3s"></div></div>
+              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-amber-400 rounded-full" data-w="100%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.3s"></div></div>
             </div>
           </div>
         </div>
@@ -344,7 +344,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="w-9 h-9 rounded-full bg-emerald-500 border-2 border-card flex items-center justify-center text-xs font-bold">J</div>
               <div class="w-9 h-9 rounded-full bg-amber-500 border-2 border-card flex items-center justify-center text-xs font-bold">K</div>
             </div>
-            <span class="text-xs text-white/45">3 household members</span>
+            <span class="text-xs text-white/70">3 household members</span>
           </div>
         </div>
         <div class="reveal reveal-d1 glass rounded-2xl card-glow card-accent-rose p-6 sm:p-8">
@@ -377,28 +377,28 @@ import Layout from '../layouts/Layout.astro';
             <div class="flex items-center gap-3">
               <span class="w-20 shrink-0 text-right text-xs text-white/40">Cash</span>
               <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-sky-400/55 bar-grow" style="--bar-w:37%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.10s"></div>
+                <div class="h-full rounded-full bg-sky-400/55" data-w="37%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.10s"></div>
               </div>
               <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$45,000</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="w-20 shrink-0 text-right text-xs text-white/40">Investments</span>
               <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-indigo-400/55 bar-grow" style="--bar-w:78%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
+                <div class="h-full rounded-full bg-indigo-400/55" data-w="78%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
               </div>
               <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$120,000</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="w-20 shrink-0 text-right text-xs text-white/40">Property</span>
               <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-emerald-400/55 bar-grow" style="--bar-w:100%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.40s"></div>
+                <div class="h-full rounded-full bg-emerald-400/55" data-w="100%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.40s"></div>
               </div>
               <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$160,000</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="w-20 shrink-0 text-right text-xs text-white/40">Liabilities</span>
               <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-rose-400/45 bar-grow" style="--bar-w:13%; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
+                <div class="h-full rounded-full bg-rose-400/45" data-w="13%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
               </div>
               <span class="w-16 shrink-0 text-right text-xs font-mono text-rose-300">−$40,500</span>
             </div>
@@ -424,7 +424,7 @@ import Layout from '../layouts/Layout.astro';
       <div>
         <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Security</p>
         <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Bank grade security you can trust.</h2>
-        <p class="text-white/55 leading-relaxed mb-6">Vylo connects via Plaid — the same infrastructure used by Venmo and Robinhood. We get read-only access to your transactions. Your credentials never touch our servers.</p>
+        <p class="text-white/75 leading-relaxed mb-6">Vylo connects via Plaid — the same infrastructure used by Venmo and Robinhood. We get read-only access to your transactions. Your credentials never touch our servers.</p>
         <a href="https://app.myvylo.com/signup"
            class="button-shimmer inline-flex items-center gap-2 px-5 py-2.5
                   text-white text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
@@ -437,22 +437,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.5 2.5 5.8 6 7 3.5-1.2 6-3.5 6-7V4L8 1z" stroke="#818cf8" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">Powered by Plaid</h4>
-          <p class="text-xs text-white/45 leading-relaxed">The same trusted infrastructure used by Venmo, Robinhood, and thousands of financial apps.</p>
+          <p class="text-xs text-white/70 leading-relaxed">The same trusted infrastructure used by Venmo, Robinhood, and thousands of financial apps.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="8" rx="1.5" stroke="#34d399" stroke-width="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="#34d399" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">Read-only access</h4>
-          <p class="text-xs text-white/45 leading-relaxed">Vylo can only view your transactions — it can never move money or make changes to your accounts.</p>
+          <p class="text-xs text-white/70 leading-relaxed">Vylo can only view your transactions — it can never move money or make changes to your accounts.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 2a3 3 0 100 6 3 3 0 000-6zM2 13s1-3 6-3 6 3 6 3" stroke="#fbbf24" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">No stored credentials</h4>
-          <p class="text-xs text-white/45 leading-relaxed">We never see your banking username or password. Plaid handles all authentication securely.</p>
+          <p class="text-xs text-white/70 leading-relaxed">We never see your banking username or password. Plaid handles all authentication securely.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-rose-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="#f87171" stroke-width="1.3"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#f87171" stroke-width="1.3"/><path d="M6 8l1.5 1.5L10 7" stroke="#f87171" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">256-bit encryption</h4>
-          <p class="text-xs text-white/45 leading-relaxed">All data is encrypted in transit and at rest using AES-256 — the same standard as your bank.</p>
+          <p class="text-xs text-white/70 leading-relaxed">All data is encrypted in transit and at rest using AES-256 — the same standard as your bank.</p>
         </div>
       </div>
     </div>
@@ -487,7 +487,7 @@ import Layout from '../layouts/Layout.astro';
             </svg>
           </button>
           <div class="faq-answer px-5 pb-4">
-            <p class="text-sm text-white/50 leading-relaxed">{a}</p>
+            <p class="text-sm text-white/70 leading-relaxed">{a}</p>
           </div>
         </div>
       ))}
@@ -509,7 +509,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="text-center mb-10">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Pricing</p>
       <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One plan. Everything included.</h2>
-      <p class="text-white/50 text-sm mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
+      <p class="text-white/70 text-sm mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
       <p class="text-white text-sm font-medium">Vylo is $5 a month. That's it. Everything included.</p>
     </div>
 
@@ -622,14 +622,14 @@ import Layout from '../layouts/Layout.astro';
     (entries) => entries.forEach(e => {
       if (!e.isIntersecting) return;
       // Horizontal bars (width)
-      e.target.querySelectorAll('.bar-grow').forEach((bar) => {
+      e.target.querySelectorAll('[data-w]').forEach((bar) => {
         const el = bar as HTMLElement;
-        el.style.width = el.style.getPropertyValue('--bar-w') || getComputedStyle(el).getPropertyValue('--bar-w');
+        el.style.width = el.dataset.w!;
       });
       // Vertical bars (height)
-      e.target.querySelectorAll('.hbar-grow').forEach((bar) => {
+      e.target.querySelectorAll('[data-h]').forEach((bar) => {
         const el = bar as HTMLElement;
-        el.style.height = el.style.getPropertyValue('--bar-h') || getComputedStyle(el).getPropertyValue('--bar-h');
+        el.style.height = el.dataset.h!;
       });
       barObserver.unobserve(e.target);
     }),

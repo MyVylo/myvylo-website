@@ -53,14 +53,9 @@ body  { background: var(--bg); color: var(--text); font-family: 'Inter', sans-se
 .card-accent-violet  { border-left: 2px solid rgba(139,92,246,0.45)  !important; }
 .card-accent-rose    { border-left: 2px solid rgba(248,113,113,0.45) !important; }
 
-/* ─── Bar animations ─────────────────────────────────────────── */
-.bar-grow {
-  width: 0 !important;
-  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.bar-grow.animated {
-  width: var(--bar-w) !important;
-}
+/* ─── Bar animations (driven purely via JS + inline styles) ──── */
+/* No CSS class needed — bars start at width/height:0 via inline style,
+   JS sets the target value from data-w / data-h on scroll entry. */
 
 /* ─── Scroll-reveal ──────────────────────────────────────────── */
 .reveal {
