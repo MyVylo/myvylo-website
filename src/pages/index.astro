@@ -179,7 +179,7 @@ import Layout from '../layouts/Layout.astro';
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     NOT EVERYONE'S A FINANCE BRO
+     NOT EVERYONE'S A FINANCE BRO — Before/After Slider
 ════════════════════════════════════════════════════════════════ -->
 <section class="py-20 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
@@ -190,29 +190,176 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <div class="reveal glass rounded-2xl card-glow p-6 sm:p-8 border border-white/[0.06]">
-        <p class="text-xs uppercase tracking-widest font-semibold text-white/35 mb-5">Before</p>
-        <div class="space-y-3.5">
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Spreadsheet that's already out of date</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Manually entering every transaction</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Checking four different banking apps</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Sunday night catch-up sessions you keep skipping</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Discovering you went over budget after the month ends</span></div>
-        </div>
-      </div>
+    <div class="reveal reveal-d1 max-w-4xl mx-auto">
 
-      <div class="reveal reveal-d1 glass rounded-2xl card-glow p-6 sm:p-8 border border-indigo-500/20"
-           style="background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(32,43,65,0.75));">
-        <p class="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-5">With Vylo</p>
-        <div class="space-y-3.5">
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Every transaction categorized automatically</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">One clear view of where your money went</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Budgets that track themselves</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Takes two minutes to set up, then runs itself</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Know where you stand any time you check</span></div>
+      <!-- Slider container -->
+      <div
+        id="vylo-slider"
+        tabindex="0"
+        role="img"
+        aria-label="Interactive before/after comparison. Drag or use arrow keys to reveal managing finances before Vylo versus with Vylo."
+        class="relative rounded-2xl overflow-hidden select-none cursor-ew-resize"
+        style="height:420px;"
+      >
+
+        <!-- ── BEFORE scene (base layer, always visible) ──────── -->
+        <div class="absolute inset-0 overflow-hidden" style="background:#161c2c;">
+
+          <!-- Warm ambient glow: frustration, late-night tension -->
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 60% 70% at 18% 70%, rgba(251,146,60,0.08), transparent 65%), radial-gradient(ellipse 45% 45% at 40% 20%, rgba(239,68,68,0.04), transparent 65%);"></div>
+
+          <!-- Time indicator -->
+          <p style="position:absolute; top:18px; left:18px; font-size:10px; font-family:monospace; letter-spacing:0.05em; color:rgba(255,255,255,0.22);">11:47 PM · Sun</p>
+
+          <!-- Banking app badges: the cognitive overhead of 4 apps -->
+          <div style="position:absolute; top:13px; left:90px; display:flex; flex-wrap:wrap; gap:5px; max-width:200px;">
+            <span style="font-size:9px; padding:3px 8px; border-radius:5px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09); color:rgba(255,255,255,0.42);">Chase</span>
+            <span style="font-size:9px; padding:3px 8px; border-radius:5px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); color:rgba(255,255,255,0.32);">Amex</span>
+            <span style="font-size:9px; padding:3px 8px; border-radius:5px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); color:rgba(255,255,255,0.24);">Venmo</span>
+            <span style="font-size:9px; padding:3px 8px; border-radius:5px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); color:rgba(255,255,255,0.18);">PayPal</span>
+          </div>
+
+          <!-- Messy spreadsheet fragment -->
+          <div style="position:absolute; top:66px; left:18px; width:min(230px, 44%);">
+            <div style="border-radius:8px; border:1px solid rgba(255,255,255,0.08); overflow:hidden; background:rgba(12,16,26,0.65);">
+              <div style="display:grid; grid-template-columns:58px 1fr 52px; border-bottom:1px solid rgba(255,255,255,0.05); font-size:8px;">
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.22); border-right:1px solid rgba(255,255,255,0.05);">Date</div>
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.22); border-right:1px solid rgba(255,255,255,0.05);">Description</div>
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.22); text-align:right;">Amt</div>
+              </div>
+              <div style="display:grid; grid-template-columns:58px 1fr 52px; border-bottom:1px solid rgba(255,255,255,0.04); font-size:8px;">
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.38); border-right:1px solid rgba(255,255,255,0.04);">Mar 2</div>
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.48); border-right:1px solid rgba(255,255,255,0.04);">Grocery?</div>
+                <div style="padding:4px 7px; color:rgba(245,158,11,0.60); text-align:right;">???</div>
+              </div>
+              <div style="display:grid; grid-template-columns:58px 1fr 52px; border-bottom:1px solid rgba(255,255,255,0.04); font-size:8px;">
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.28); border-right:1px solid rgba(255,255,255,0.04);">Feb 27</div>
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.40); border-right:1px solid rgba(255,255,255,0.04);">Amazon (x3?)</div>
+                <div style="padding:4px 7px; color:rgba(245,158,11,0.65); text-align:right;">-$847</div>
+              </div>
+              <div style="display:grid; grid-template-columns:58px 1fr 52px; border-bottom:1px solid rgba(255,255,255,0.03); font-size:8px;">
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.14); border-right:1px solid rgba(255,255,255,0.03);">???</div>
+                <div style="padding:4px 7px; color:rgba(255,255,255,0.14); border-right:1px solid rgba(255,255,255,0.03);">need to fill in</div>
+                <div style="padding:4px 7px;"></div>
+              </div>
+              <div style="display:grid; grid-template-columns:58px 1fr 52px; font-size:8px;">
+                <div style="padding:4px 7px; border-right:1px solid rgba(255,255,255,0.02);"></div>
+                <div style="padding:4px 7px; border-right:1px solid rgba(255,255,255,0.02);"></div>
+                <div style="padding:4px 7px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thought fragments: the emotional truth of financial avoidance -->
+          <p style="position:absolute; bottom:96px; left:18px; font-size:14px; font-style:italic; color:rgba(255,255,255,0.36); transform:rotate(-1.5deg);">"I'll do it tomorrow."</p>
+          <p style="position:absolute; bottom:62px; left:24px; font-size:11px; font-style:italic; color:rgba(255,255,255,0.22); transform:rotate(-0.5deg);">"Where did it all go?"</p>
+          <p style="position:absolute; top:270px; left:18px; font-size:10px; font-style:italic; color:rgba(255,255,255,0.18);">"Did I already pay that?"</p>
+          <p style="position:absolute; bottom:18px; left:18px; font-size:9px; font-style:italic; color:rgba(255,255,255,0.12);">"I'll catch up on Sunday."</p>
+
+        </div><!-- /before -->
+
+
+        <!-- ── WITH VYLO scene (clipped — drag left to reveal) ── -->
+        <div
+          id="slider-after"
+          class="absolute inset-0 overflow-hidden"
+          style="background:#1a2437; clip-path:inset(0 0 0 60%);"
+        >
+          <!-- Cool indigo glow: calm, organized, clear -->
+          <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 65% 60% at 78% 45%, rgba(99,102,241,0.13), transparent 65%), radial-gradient(ellipse 40% 40% at 68% 80%, rgba(52,211,153,0.06), transparent 65%);"></div>
+
+          <!-- Vylo card: clean, centered in the right zone -->
+          <div style="position:absolute; top:50%; left:68%; transform:translate(-50%,-50%); width:220px;">
+            <div style="background:rgba(32,43,65,0.93); border:1px solid rgba(99,102,241,0.20); border-radius:16px; padding:18px; box-shadow:0 0 0 1px rgba(99,102,241,0.08), 0 8px 40px rgba(0,0,0,0.55);">
+
+              <!-- All accounts summary -->
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+                <div>
+                  <p style="font-size:9px; color:rgba(255,255,255,0.42); text-transform:uppercase; letter-spacing:0.07em; margin:0 0 3px;">All accounts</p>
+                  <p style="font-size:20px; font-weight:700; color:white; line-height:1.1; margin:0;">$12,847<span style="font-size:12px; font-weight:400; color:rgba(255,255,255,0.38);">.32</span></p>
+                </div>
+                <div style="display:flex; align-items:center; gap:5px;">
+                  <div style="width:6px; height:6px; border-radius:50%; background:#34d399; flex-shrink:0;"></div>
+                  <span style="font-size:9px; color:#34d399; font-weight:500;">Synced</span>
+                </div>
+              </div>
+
+              <!-- Transaction rows (auto-categorized) -->
+              <div style="display:flex; flex-direction:column; gap:9px; margin-bottom:14px;">
+                <div style="display:flex; align-items:center; justify-content:space-between;">
+                  <div>
+                    <p style="font-size:11px; color:white; font-weight:500; margin:0; line-height:1.25;">Whole Foods</p>
+                    <p style="font-size:9px; color:rgba(52,211,153,0.80); margin:0; line-height:1.3;">→ Groceries</p>
+                  </div>
+                  <span style="font-size:10px; font-family:monospace; color:rgba(255,255,255,0.78);">−$94.12</span>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:space-between;">
+                  <div>
+                    <p style="font-size:11px; color:white; font-weight:500; margin:0; line-height:1.25;">Netflix</p>
+                    <p style="font-size:9px; color:rgba(129,140,248,0.80); margin:0; line-height:1.3;">→ Entertainment</p>
+                  </div>
+                  <span style="font-size:10px; font-family:monospace; color:rgba(255,255,255,0.78);">−$15.99</span>
+                </div>
+                <div style="display:flex; align-items:center; justify-content:space-between;">
+                  <div>
+                    <p style="font-size:11px; color:white; font-weight:500; margin:0; line-height:1.25;">Direct Deposit</p>
+                    <p style="font-size:9px; color:rgba(56,189,248,0.80); margin:0; line-height:1.3;">→ Income</p>
+                  </div>
+                  <span style="font-size:10px; font-family:monospace; color:#34d399;">+$3,200</span>
+                </div>
+              </div>
+
+              <!-- Budget bar -->
+              <div style="padding-top:12px; border-top:1px solid rgba(255,255,255,0.07);">
+                <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                  <span style="font-size:9px; color:rgba(255,255,255,0.48);">Groceries</span>
+                  <span style="font-size:9px; font-family:monospace; color:rgba(255,255,255,0.68);">$642 / $1,000</span>
+                </div>
+                <div style="height:5px; background:rgba(255,255,255,0.08); border-radius:4px; overflow:hidden;">
+                  <div style="height:100%; width:64%; background:#34d399; border-radius:4px;"></div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /vylo card -->
+
+          <!-- Thought fragments: the exhale -->
+          <p style="position:absolute; top:24px; right:22px; font-size:13px; font-style:italic; color:rgba(165,180,252,0.52); transform:rotate(0.5deg);">"Finally."</p>
+          <p style="position:absolute; bottom:26px; right:26px; font-size:10px; font-style:italic; color:rgba(52,211,153,0.45);">"Still on budget."</p>
+
+        </div><!-- /after -->
+
+
+        <!-- ── Labels (always on top of both scenes) ─────────── -->
+        <div style="position:absolute; top:14px; left:14px; z-index:20; pointer-events:none;">
+          <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:rgba(0,0,0,0.42); border:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.55); font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Before</span>
         </div>
-      </div>
+        <div style="position:absolute; top:14px; right:14px; z-index:20; pointer-events:none;">
+          <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:rgba(99,102,241,0.18); border:1px solid rgba(99,102,241,0.30); color:rgba(165,180,252,0.90); font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">With Vylo</span>
+        </div>
+
+
+        <!-- ── Drag handle ─────────────────────────────────────── -->
+        <div
+          id="slider-handle"
+          style="position:absolute; top:0; bottom:0; left:60%; transform:translateX(-50%); display:flex; align-items:center; z-index:30; pointer-events:none;"
+        >
+          <!-- Vertical glow line -->
+          <div style="position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:1px; background:rgba(255,255,255,0.30); box-shadow:0 0 12px rgba(255,255,255,0.15);"></div>
+          <!-- Grip circle -->
+          <div class="slider-grip" style="position:relative; width:42px; height:42px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; flex-shrink:0; z-index:1;">
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+              <path d="M6 8.5l-3-2.5 3-2.5" stroke="#1a2437" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 8.5l3-2.5-3-2.5" stroke="#1a2437" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="5.5" y1="8.5" x2="11.5" y2="8.5" stroke="#1a2437" stroke-width="1.7" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+      </div><!-- /slider -->
+
+      <p style="text-align:center; margin-top:14px; font-size:11px; color:rgba(255,255,255,0.28);">Drag to compare &nbsp;·&nbsp; Arrow keys also work</p>
+
     </div>
   </div>
 </section>
@@ -634,6 +781,86 @@ import Layout from '../layouts/Layout.astro';
     { threshold: 0.25 }
   );
   document.querySelectorAll('.bar-section').forEach(el => barObserver.observe(el));
+
+  // ── Before/After Slider ─────────────────────────────────────────
+  {
+    const slider   = document.getElementById('vylo-slider')   as HTMLElement | null;
+    const afterEl  = document.getElementById('slider-after')  as HTMLElement | null;
+    const handleEl = document.getElementById('slider-handle') as HTMLElement | null;
+
+    if (slider && afterEl && handleEl) {
+      let dragging   = false;
+      let currentPct = 60;
+
+      function applyPos(pct: number) {
+        currentPct = Math.max(5, Math.min(95, pct));
+        const p = currentPct + '%';
+        afterEl.style.clipPath = `inset(0 0 0 ${p})`;
+        handleEl.style.left    = p;
+      }
+
+      function pctFromX(clientX: number) {
+        const r = slider.getBoundingClientRect();
+        return ((clientX - r.left) / r.width) * 100;
+      }
+
+      // Mouse
+      slider.addEventListener('mousedown', (e) => { dragging = true; applyPos(pctFromX((e as MouseEvent).clientX)); });
+      document.addEventListener('mousemove', (e) => { if (dragging) applyPos(pctFromX((e as MouseEvent).clientX)); });
+      document.addEventListener('mouseup',   () => { dragging = false; });
+
+      // Touch (on the slider itself to avoid interfering with page scroll elsewhere)
+      slider.addEventListener('touchstart', (e) => {
+        dragging = true;
+        applyPos(pctFromX((e as TouchEvent).touches[0].clientX));
+        e.preventDefault();
+      }, { passive: false });
+      slider.addEventListener('touchmove', (e) => {
+        if (!dragging) return;
+        applyPos(pctFromX((e as TouchEvent).touches[0].clientX));
+        e.preventDefault();
+      }, { passive: false });
+      document.addEventListener('touchend', () => { dragging = false; });
+
+      // Keyboard
+      slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft')  { applyPos(currentPct - 5); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { applyPos(currentPct + 5); e.preventDefault(); }
+      });
+
+      // Scroll-triggered hint animation (reveals Vylo side, then returns)
+      function easeInOut(t: number) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const hintObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting || slider.dataset.hinted) return;
+          slider.dataset.hinted = '1';
+
+          if (!prefersReducedMotion) {
+            let startTime: number | null = null;
+            const fromPct = 60, toPct = 30, duration = 1600;
+
+            function hintFrame(ts: number) {
+              if (startTime === null) startTime = ts;
+              const t = Math.min((ts - startTime) / duration, 1);
+              // Ease out to Vylo side, ease back to start
+              const pos = t < 0.5
+                ? fromPct + (toPct - fromPct) * easeInOut(t * 2)
+                : toPct   + (fromPct - toPct) * easeInOut((t - 0.5) * 2);
+              applyPos(pos);
+              if (t < 1) requestAnimationFrame(hintFrame);
+            }
+
+            setTimeout(() => requestAnimationFrame(hintFrame), 800);
+          }
+
+          hintObserver.unobserve(slider);
+        });
+      }, { threshold: 0.55 });
+      hintObserver.observe(slider);
+    }
+  }
 
   // FAQ accordion
   document.querySelectorAll('.faq-btn').forEach(btn => {
