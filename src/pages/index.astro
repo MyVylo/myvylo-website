@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Vylo – Finance tracking that knows its place."
+  title="Vylo – Simple finance tracking for the common household."
   description="Connect your bank once. Every transaction shows up, automatically categorized and tracked. No spreadsheets. No dashboards. Just clarity."
 >
 
@@ -26,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-bold leading-[1.1] tracking-tight gradient-text mb-5 fade-in-up delay-100">
-          Finance tracking<br/>that knows<br/>its place.
+          Simple finance tracking for the common household.
         </h1>
 
         <p class="text-white/55 text-lg leading-relaxed mb-8 fade-in-up delay-200">
@@ -49,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <p class="mt-5 text-xs text-white/30 fade-in-up delay-400">
-          Bank-level encryption · Powered by Plaid · No credit card required
+          7-day free trial · Bank-level encryption · No credit card required
         </p>
       </div>
 
@@ -474,7 +474,7 @@ import Layout from '../layouts/Layout.astro';
         { q: 'How does automatic categorization work?', a: "When a transaction arrives, Vylo reads the merchant name and assigns it to a category. You can correct any categorization, create custom categories, or bulk-reassign transactions. The more you use it, the smarter it gets." },
         { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid to connect to your bank — the same technology behind Venmo and Robinhood. We get read-only access to your transactions. We never see your login credentials, and we can't move money." },
         { q: 'How do I add household members?', a: "From settings, invite anyone by email. Once they accept and connect their accounts, your household gets a combined view of all spending and shared budget tracking." },
-        { q: 'What does Vylo cost?', a: "Free to start — sign up and connect your accounts at no cost. Premium features will be announced separately." },
+        { q: 'What does Vylo cost?', a: "$5 a month after a free 7-day trial. That covers your whole household and every feature — including everything we ship in the future. No annual plans, no tiers, no surprises." },
         { q: 'Which banks are supported?', a: "Vylo supports over 12,000 banks and credit unions through Plaid — Chase, Bank of America, Wells Fargo, Citi, Capital One, and most others." },
       ].map(({ q, a }) => (
         <div class="glass rounded-xl overflow-hidden border border-white/[0.06]">
@@ -491,6 +491,83 @@ import Layout from '../layouts/Layout.astro';
       ))}
 
     </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════
+     PRICING
+════════════════════════════════════════════════════════════════ -->
+<section id="pricing" class="py-20 px-4 sm:px-6 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 55% at 50% 65%, rgba(99,102,241,0.09), transparent);"></div>
+
+  <div class="max-w-sm mx-auto relative">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Pricing</p>
+      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-5">One plan.<br/>Everything included.</h2>
+      <p class="text-white/50 text-sm leading-relaxed mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
+      <p class="text-white text-sm font-medium">Vylo is $5 a month. That's it. Everything included.</p>
+    </div>
+
+    <!-- Card -->
+    <div class="glass card-glow rounded-2xl p-7" style="border: 1px solid rgba(99,102,241,0.18);">
+
+      <!-- Trial badge -->
+      <div class="mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20">
+          <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+          Free for 7 days
+        </span>
+      </div>
+
+      <!-- Price -->
+      <div class="flex items-baseline gap-1.5 mb-1">
+        <span class="text-5xl font-bold text-white tracking-tight">$5</span>
+        <span class="text-white/40 text-base">/month</span>
+      </div>
+      <p class="text-white/30 text-xs mb-7">per household · billed monthly</p>
+
+      <!-- Divider -->
+      <div class="border-t border-white/[0.07] mb-6"></div>
+
+      <!-- Feature list -->
+      <ul class="space-y-3.5 mb-7">
+        {[
+          { label: 'Auto-categorization',    accent: false },
+          { label: 'Spend trends & budgets', accent: false },
+          { label: 'Household sharing',      accent: false },
+          { label: 'Net worth tracking',     accent: false },
+          { label: 'All future features',    accent: true  },
+        ].map(({ label, accent }) => (
+          <li class={`flex items-center gap-3 text-sm ${accent ? 'text-white font-medium' : 'text-white/60'}`}>
+            <svg class={`flex-shrink-0 ${accent ? 'text-indigo-400' : 'text-emerald-400'}`} width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {label}
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA -->
+      <a href="https://app.myvylo.com/signup"
+         class="button-shimmer flex items-center justify-center gap-2 w-full py-3.5
+                bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-xl text-sm
+                transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/25 hover:-translate-y-0.5 mb-4">
+        Start free trial
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <!-- Trust note -->
+      <p class="text-center text-xs text-white/30">Pay monthly. No annual fees. Cancel anytime.</p>
+    </div>
+
+    <!-- Footer note -->
+    <p class="text-center text-xs text-white/30 mt-6 leading-relaxed">
+      One price after trial. Everything included,<br/>including all future features. No surprises.
+    </p>
+
   </div>
 </section>
 

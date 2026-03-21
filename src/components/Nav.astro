@@ -16,6 +16,7 @@ const { currentPage = '' } = Astro.props;
       <div class="hidden md:flex items-center gap-7 text-[13px] text-white/60">
         <a href="/#features" class="hover:text-white transition-colors">Features</a>
         <a href="/#security" class="hover:text-white transition-colors">Security</a>
+        <a href="/#pricing"  class="hover:text-white transition-colors">Pricing</a>
         <a href="/#faq"      class="hover:text-white transition-colors">FAQ</a>
         <a href="/updates"
            class:list={['hover:text-white transition-colors', { 'text-white': currentPage === 'updates' }]}>
@@ -47,6 +48,7 @@ const { currentPage = '' } = Astro.props;
       <div class="flex flex-col gap-1 pb-4 pt-2 border-t border-white/[0.06]">
         <a href="/#features" onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">Features</a>
         <a href="/#security" onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">Security</a>
+        <a href="/#pricing"  onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">Pricing</a>
         <a href="/#faq"      onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">FAQ</a>
         <a href="/updates"   onclick="closeMobileMenu()" class="px-2 py-2.5 text-sm text-white/65 hover:text-white">Updates</a>
         <div class="pt-2 flex flex-col gap-2">
