@@ -179,7 +179,7 @@ import Layout from '../layouts/Layout.astro';
 
 
 <!-- ════════════════════════════════════════════════════════════════
-     NOT EVERYONE'S A FINANCE BRO — Emotional World Slider
+     NOT EVERYONE'S A FINANCE BRO
 ════════════════════════════════════════════════════════════════ -->
 <section class="py-20 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
@@ -190,219 +190,31 @@ import Layout from '../layouts/Layout.astro';
       </p>
     </div>
 
-    <div class="reveal reveal-d1 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div class="reveal glass rounded-2xl card-glow p-6 sm:p-8 border border-white/[0.06]">
+        <p class="text-xs uppercase tracking-widest font-semibold text-white/35 mb-5">Before</p>
+        <div class="space-y-3.5">
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Spreadsheet that's already out of date</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Manually entering every transaction</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Checking four different banking apps</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Sunday night catch-up sessions you keep skipping</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Discovering you went over budget after the month ends</span></div>
+        </div>
+      </div>
 
-      <!-- Slider container -->
       <div
-        id="vylo-slider"
-        tabindex="0"
-        role="img"
-        aria-label="Interactive scene comparison. Drag to reveal the emotional difference between managing finances before Vylo and with Vylo."
-        class="vylo-scene relative rounded-2xl overflow-hidden select-none cursor-ew-resize"
+        class="reveal reveal-d1 glass rounded-2xl card-glow p-6 sm:p-8 border border-indigo-500/20"
+        style="background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(32,43,65,0.75));"
       >
-
-        <!-- ══════════════════════════════════════════════════════
-             BEFORE WORLD — stressed, late-night, overwhelmed
-             Base layer: always fully visible beneath the after panel
-        ══════════════════════════════════════════════════════ -->
-        <div class="absolute inset-0 overflow-hidden" style="background:#06090f;">
-
-          <!-- Cold atmospheric gradient: harsh blue-white overhead light, no warmth -->
-          <div class="absolute inset-0 pointer-events-none" style="background:
-            radial-gradient(ellipse 55% 45% at 50% 0%,   rgba(60,100,200,0.14), transparent 60%),
-            radial-gradient(ellipse 80% 35% at 50% 100%, rgba(2,4,10,0.95),     transparent);"></div>
-
-          <!-- Wall (upper ~63% of scene) -->
-          <div style="position:absolute; top:0; left:0; right:0; height:63%; background:linear-gradient(180deg, #0b1120 0%, #080e1c 100%);"></div>
-
-          <!-- Window: same position as after-side — behind person, rainy & gloomy -->
-          <div style="position:absolute; top:5%; left:50%; transform:translateX(-50%); width:min(185px,46%); aspect-ratio:185/235; border-radius:5px 5px 2px 2px; overflow:hidden; border:1px solid rgba(255,255,255,0.07);">
-            <!-- Dark rainy interior -->
-            <div style="position:absolute; inset:0; background:linear-gradient(180deg, #03070e 0%, #020609 100%);"></div>
-            <!-- Cold blue ambient from outside -->
-            <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 55% at 50% 20%, rgba(50,90,200,0.14), transparent 65%);"></div>
-            <!-- Rain streaks (CSS animated) -->
-            <div class="rain-bg" style="position:absolute; inset:-30px; opacity:1;"></div>
-            <!-- Frame cross-bars -->
-            <div style="position:absolute; top:0; bottom:0; left:50%; width:1px; background:rgba(255,255,255,0.06);"></div>
-            <div style="position:absolute; left:0; right:0; top:48%; height:1px; background:rgba(255,255,255,0.06);"></div>
-          </div>
-
-          <!-- Window sill -->
-          <div style="position:absolute; top:calc(5% + min(235px,59.5%)); left:50%; transform:translateX(-50%); width:min(205px,51%); height:7px; background:#0c1828; border-radius:2px;"></div>
-
-          <!-- Desk surface: cold dark plane, y≈63% -->
-          <div style="position:absolute; top:63%; left:0; right:0; bottom:0; background:#050810;"></div>
-          <!-- Desk edge/surface line -->
-          <div style="position:absolute; top:63%; left:0; right:0; height:5px; background:#0e1a2a;"></div>
-
-          <!-- Scattered papers (on desk, left of center) -->
-          <div style="position:absolute; top:58%; left:4%;  width:min(110px,27%); height:min(70px,17%); background:#0f1726; border:1px solid rgba(255,255,255,0.07); border-radius:2px; transform:rotate(-11deg);"></div>
-          <div style="position:absolute; top:56%; left:8%;  width:min(90px,22%);  height:min(60px,15%); background:#0d1423; border:1px solid rgba(255,255,255,0.05); border-radius:2px; transform:rotate(7deg);"></div>
-          <div style="position:absolute; top:60%; left:2%;  width:min(75px,18%);  height:min(50px,12%); background:#0b1220; border:1px solid rgba(255,255,255,0.04); border-radius:2px; transform:rotate(-4deg);"></div>
-          <!-- Crumpled ball -->
-          <div style="position:absolute; top:59.5%; left:24%; width:min(18px,4%); height:min(18px,4%); background:#10192a; border:1px solid rgba(255,255,255,0.05); border-radius:50%;"></div>
-
-          <!-- Coffee mug (right of center, desk level) -->
-          <div style="position:absolute; top:59%; left:60%; width:min(26px,6%); height:min(32px,8%); border:2px solid rgba(255,255,255,0.12); border-radius:2px 2px 4px 4px; background:#080e1a;">
-            <div style="position:absolute; right:-9px; top:5px; width:9px; height:min(17px,4%); border:2px solid rgba(255,255,255,0.12); border-left:none; border-radius:0 6px 6px 0;"></div>
-          </div>
-
-          <!-- Dim desk lamp (left side, casting limited cold pool) -->
-          <div style="position:absolute; top:48%; left:15%; width:6px; height:min(60px,15%); background:#0e1828; border-radius:3px;"></div>
-          <div style="position:absolute; top:46%; left:12%; width:min(22px,5.5%); height:min(14px,3.5%); background:#0e1828; border-radius:8px 8px 2px 2px;"></div>
-
-          <!-- Person: sitting at desk, hunched and exhausted
-               Right arm raised toward forehead (facepalm / frustration).
-               Left arm resting forward on desk. Slight forward lean. -->
-          <div style="position:absolute; bottom:35%; left:50%; transform:translateX(-50%); width:min(130px,34%);">
-            <svg viewBox="0 0 130 240" style="width:100%; height:auto; display:block;" fill="none">
-              <!-- Head: tilted forward/down via rotation — exhaustion posture -->
-              <ellipse cx="68" cy="34" rx="23" ry="26" fill="#13202e" transform="rotate(10 68 50)"/>
-              <!-- Neck -->
-              <rect x="61" y="57" width="13" height="11" rx="4" fill="#101c2e"/>
-              <!-- Body/torso: hunched — slightly forward lean -->
-              <path d="M17 76 C15 68 28 64 45 66 L60 66 L60 62 L70 62 L70 66 L85 66 C102 64 115 68 113 76 C116 95 113 130 109 162 L21 162 C17 130 14 95 17 76 Z" fill="#101c2e"/>
-              <!-- Right arm: RAISED toward head — the facepalm of financial fatigue -->
-              <path d="M109 85 C120 74 126 60 120 46" stroke="#101c2e" stroke-width="19" fill="none" stroke-linecap="round"/>
-              <ellipse cx="118" cy="42" rx="12" ry="9" fill="#101c2e" transform="rotate(-22 118 42)"/>
-              <!-- Left arm: forward and down, leaning on desk -->
-              <path d="M21 85 C9 106 5 132 6 162" stroke="#101c2e" stroke-width="19" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-
-          <!-- Thought fragments: the internal monologue of financial avoidance -->
-          <!-- Primary — large, the one that resonates most -->
-          <p style="position:absolute; bottom:27%; left:4%; font-size:clamp(11px,1.5vw,14px); font-style:italic; color:rgba(255,255,255,0.38); transform:rotate(-2deg);">"I'll do it tomorrow."</p>
-          <!-- Secondary thoughts, progressively fainter -->
-          <p style="position:absolute; top:42%; left:3%;  font-size:clamp(9px,1.2vw,11px); font-style:italic; color:rgba(255,255,255,0.24); transform:rotate(-1deg);">"I'm too tired for this."</p>
-          <p style="position:absolute; top:20%; left:5%;  font-size:clamp(8px,1.1vw,10px); font-style:italic; color:rgba(255,255,255,0.18);">"Did I already pay that?"</p>
-          <p style="position:absolute; bottom:14%; left:3%; font-size:clamp(7px,1vw,9px);   font-style:italic; color:rgba(255,255,255,0.14); transform:rotate(-0.5deg);">"I'll catch up on Sunday."</p>
-          <!-- Right side — visible through the initial clip -->
-          <p style="position:absolute; top:28%; right:36%; font-size:clamp(8px,1.1vw,10px); font-style:italic; color:rgba(255,255,255,0.16);">"Where did it all go?"</p>
-
-        </div><!-- /before world -->
-
-
-        <!-- ══════════════════════════════════════════════════════
-             AFTER WORLD — calm, clear, handled, lighter
-             Clipped panel: revealed as user drags left
-        ══════════════════════════════════════════════════════ -->
-        <div
-          id="slider-after"
-          class="absolute inset-0 overflow-hidden"
-          style="background:#0d1828; clip-path:inset(0 0 0 62%);"
-        >
-          <!-- Warm natural-light atmosphere: sunlight from the window, breathing room -->
-          <div class="absolute inset-0 pointer-events-none" style="background:
-            radial-gradient(ellipse 60% 55% at 50% 2%,  rgba(255,200,100,0.10), transparent 60%),
-            radial-gradient(ellipse 45% 40% at 72% 55%, rgba(52,211,153,0.04),  transparent 60%),
-            radial-gradient(ellipse 80% 35% at 50% 100%, rgba(5,10,22,0.92),    transparent);"></div>
-
-          <!-- Wall (same proportion — now warm-tinted) -->
-          <div style="position:absolute; top:0; left:0; right:0; height:63%; background:linear-gradient(180deg, #111d30 0%, #0e1828 100%);"></div>
-
-          <!-- Soft sunlight shaft from window, falling diagonally across wall -->
-          <div class="absolute pointer-events-none" style="top:0; left:calc(50% - 15%); width:30%; height:65%; background:linear-gradient(175deg, rgba(255,210,120,0.06) 0%, transparent 70%); transform-origin:top center; transform:rotate(3deg);"></div>
-
-          <!-- Window: same exact position — now warm, clear, daylight -->
-          <div style="position:absolute; top:5%; left:50%; transform:translateX(-50%); width:min(185px,46%); aspect-ratio:185/235; border-radius:5px 5px 2px 2px; overflow:hidden; border:1px solid rgba(255,215,120,0.12);">
-            <!-- Warm clear sky interior -->
-            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,210,130,0.10) 0%, rgba(160,210,255,0.07) 55%, rgba(90,160,255,0.06) 100%);"></div>
-            <!-- Warm ambient glow (morning sun) -->
-            <div style="position:absolute; inset:0; background:radial-gradient(ellipse 85% 55% at 50% 15%, rgba(255,220,140,0.16), transparent 70%);"></div>
-            <!-- Frame cross-bars (warm tint) -->
-            <div style="position:absolute; top:0; bottom:0; left:50%; width:1px; background:rgba(255,210,100,0.10);"></div>
-            <div style="position:absolute; left:0; right:0; top:48%; height:1px; background:rgba(255,210,100,0.10);"></div>
-          </div>
-
-          <!-- Window sill (same position, slightly warmer) -->
-          <div style="position:absolute; top:calc(5% + min(235px,59.5%)); left:50%; transform:translateX(-50%); width:min(205px,51%); height:7px; background:#172535; border-radius:2px;"></div>
-
-          <!-- Desk surface: same plane, now clean -->
-          <div style="position:absolute; top:63%; left:0; right:0; bottom:0; background:#0a1422;"></div>
-          <!-- Desk edge -->
-          <div style="position:absolute; top:63%; left:0; right:0; height:5px; background:#142234;"></div>
-
-          <!-- Small potted plant — single calm life detail on desk right side -->
-          <div style="position:absolute; top:54%; left:62%;">
-            <svg viewBox="0 0 52 98" style="width:min(52px,13%); height:auto; display:block;" fill="none">
-              <!-- Pot -->
-              <path d="M11 86 C10 78 9 70 17 67 L35 67 C43 70 42 78 41 86 Z" fill="#182e24"/>
-              <rect x="8" y="65" width="36" height="6" rx="3" fill="#1c3629"/>
-              <!-- Stem -->
-              <path d="M26 65 C26 56 25 44 25 32" stroke="#1c3629" stroke-width="2.5" stroke-linecap="round"/>
-              <!-- Leaf 1 -->
-              <path d="M25 46 C20 40 13 31 16 21 C18 15 25 17 25 31" fill="#1c3629" opacity="0.95"/>
-              <!-- Leaf 2 -->
-              <path d="M25 42 C31 36 38 27 35 17 C33 11 25 14 25 28" fill="#1c3629" opacity="0.85"/>
-              <!-- Leaf 3 (small, top) -->
-              <path d="M25 33 C23 28 19 22 21 15 C23 10 27 12 25 26" fill="#1c3629" opacity="0.70"/>
-            </svg>
-          </div>
-
-          <!-- Clean coffee mug (same position, no chaos around it) -->
-          <div style="position:absolute; top:59%; left:60%; width:min(24px,6%); height:min(30px,7.5%); border:1.5px solid rgba(255,255,255,0.09); border-radius:2px 2px 4px 4px; background:#0c1828;">
-            <div style="position:absolute; right:-8px; top:5px; width:8px; height:min(15px,4%); border:1.5px solid rgba(255,255,255,0.09); border-left:none; border-radius:0 5px 5px 0;"></div>
-          </div>
-
-          <!-- Person: sitting at desk, upright and calm
-               Both arms resting at sides — open, relaxed posture.
-               Head level. Shoulders down. -->
-          <div style="position:absolute; bottom:35%; left:50%; transform:translateX(-50%); width:min(130px,34%);">
-            <svg viewBox="0 0 130 240" style="width:100%; height:auto; display:block;" fill="none">
-              <!-- Head: level, upright — ease and presence -->
-              <circle cx="65" cy="30" r="23" fill="#1c2d44"/>
-              <!-- Neck -->
-              <rect x="58" y="50" width="14" height="11" rx="4" fill="#192640"/>
-              <!-- Body: upright, open, relaxed -->
-              <path d="M15 70 C13 62 27 58 45 60 L58 60 L58 56 L72 56 L72 60 L85 60 C103 58 117 62 115 70 C119 89 117 124 113 156 L17 156 C13 124 11 89 15 70 Z" fill="#192640"/>
-              <!-- Both arms resting down — the exhale of someone not bracing -->
-              <path d="M19 78 C8 100 5 126 6 156" stroke="#192640" stroke-width="19" fill="none" stroke-linecap="round"/>
-              <path d="M111 78 C122 100 125 126 124 156" stroke="#192640" stroke-width="19" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-
-          <!-- Thought fragments: the quiet relief of clarity -->
-          <!-- Always visible in initial right-zone (right of 62%) -->
-          <p style="position:absolute; top:5%;   right:4%; font-size:clamp(11px,1.5vw,14px); font-style:italic; color:rgba(165,180,252,0.55); transform:rotate(0.5deg);">"Finally."</p>
-          <p style="position:absolute; top:30%;  right:3%; font-size:clamp(9px,1.2vw,11px);  font-style:italic; color:rgba(255,255,255,0.35);">"I know where I stand."</p>
-          <p style="position:absolute; bottom:16%; right:4%; font-size:clamp(8px,1.1vw,10px);  font-style:italic; color:rgba(52,211,153,0.45);">"No catch-up tonight."</p>
-          <!-- Revealed progressively as user drags left -->
-          <p style="position:absolute; top:42%;  left:45%; font-size:clamp(8px,1.1vw,10px);  font-style:italic; color:rgba(255,255,255,0.28);">"That was easy."</p>
-          <p style="position:absolute; bottom:26%; left:40%; font-size:clamp(7px,1vw,9px);    font-style:italic; color:rgba(255,255,255,0.22);">"Oh — I'm good."</p>
-
-        </div><!-- /after world -->
-
-
-        <!-- ── Labels — always on top ──────────────────────────── -->
-        <div style="position:absolute; top:14px; left:14px; z-index:20; pointer-events:none;">
-          <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.10); color:rgba(255,255,255,0.55); font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">Before</span>
+        <p class="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-5">With Vylo</p>
+        <div class="space-y-3.5">
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Every transaction categorized automatically</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">One clear view of where your money went</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Budgets that track themselves</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Takes two minutes to set up, then runs itself</span></div>
+          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Know where you stand any time you check</span></div>
         </div>
-        <div style="position:absolute; top:14px; right:14px; z-index:20; pointer-events:none;">
-          <span style="font-size:10px; padding:3px 10px; border-radius:20px; background:rgba(99,102,241,0.18); border:1px solid rgba(99,102,241,0.30); color:rgba(165,180,252,0.90); font-weight:600; letter-spacing:0.05em; text-transform:uppercase;">With Vylo</span>
-        </div>
-
-
-        <!-- ── Drag handle ─────────────────────────────────────── -->
-        <div
-          id="slider-handle"
-          style="position:absolute; top:0; bottom:0; left:62%; transform:translateX(-50%); display:flex; align-items:center; z-index:30; pointer-events:none;"
-        >
-          <div style="position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:1px; background:rgba(255,255,255,0.28); box-shadow:0 0 14px rgba(255,255,255,0.14);"></div>
-          <div class="slider-grip" style="position:relative; width:42px; height:42px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; flex-shrink:0; z-index:1;">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
-              <path d="M6 8.5l-3-2.5 3-2.5" stroke="#0d1828" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M11 8.5l3-2.5-3-2.5" stroke="#0d1828" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="5.5" y1="8.5" x2="11.5" y2="8.5" stroke="#0d1828" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-
-      </div><!-- /slider -->
-
-      <p style="text-align:center; margin-top:16px; font-size:11px; color:rgba(255,255,255,0.28);">From <em style="color:rgba(255,255,255,0.38);">"I'll deal with it tomorrow."</em> &nbsp;to&nbsp; <em style="color:rgba(165,180,252,0.55);">"Oh — it's already handled."</em></p>
-
+      </div>
     </div>
   </div>
 </section>
@@ -824,86 +636,6 @@ import Layout from '../layouts/Layout.astro';
     { threshold: 0.25 }
   );
   document.querySelectorAll('.bar-section').forEach(el => barObserver.observe(el));
-
-  // ── Before/After Slider ─────────────────────────────────────────
-  {
-    const slider   = document.getElementById('vylo-slider')   as HTMLElement | null;
-    const afterEl  = document.getElementById('slider-after')  as HTMLElement | null;
-    const handleEl = document.getElementById('slider-handle') as HTMLElement | null;
-
-    if (slider && afterEl && handleEl) {
-      let dragging   = false;
-      let currentPct = 62;
-
-      function applyPos(pct: number) {
-        currentPct = Math.max(5, Math.min(95, pct));
-        const p = currentPct + '%';
-        afterEl.style.clipPath = `inset(0 0 0 ${p})`;
-        handleEl.style.left    = p;
-      }
-
-      function pctFromX(clientX: number) {
-        const r = slider.getBoundingClientRect();
-        return ((clientX - r.left) / r.width) * 100;
-      }
-
-      // Mouse
-      slider.addEventListener('mousedown', (e) => { dragging = true; applyPos(pctFromX((e as MouseEvent).clientX)); });
-      document.addEventListener('mousemove', (e) => { if (dragging) applyPos(pctFromX((e as MouseEvent).clientX)); });
-      document.addEventListener('mouseup',   () => { dragging = false; });
-
-      // Touch (on the slider itself to avoid interfering with page scroll elsewhere)
-      slider.addEventListener('touchstart', (e) => {
-        dragging = true;
-        applyPos(pctFromX((e as TouchEvent).touches[0].clientX));
-        e.preventDefault();
-      }, { passive: false });
-      slider.addEventListener('touchmove', (e) => {
-        if (!dragging) return;
-        applyPos(pctFromX((e as TouchEvent).touches[0].clientX));
-        e.preventDefault();
-      }, { passive: false });
-      document.addEventListener('touchend', () => { dragging = false; });
-
-      // Keyboard
-      slider.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft')  { applyPos(currentPct - 5); e.preventDefault(); }
-        if (e.key === 'ArrowRight') { applyPos(currentPct + 5); e.preventDefault(); }
-      });
-
-      // Scroll-triggered hint animation (reveals Vylo side, then returns)
-      function easeInOut(t: number) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const hintObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting || slider.dataset.hinted) return;
-          slider.dataset.hinted = '1';
-
-          if (!prefersReducedMotion) {
-            let startTime: number | null = null;
-            const fromPct = 62, toPct = 28, duration = 1800;
-
-            function hintFrame(ts: number) {
-              if (startTime === null) startTime = ts;
-              const t = Math.min((ts - startTime) / duration, 1);
-              // Ease out to Vylo side, ease back to start
-              const pos = t < 0.5
-                ? fromPct + (toPct - fromPct) * easeInOut(t * 2)
-                : toPct   + (fromPct - toPct) * easeInOut((t - 0.5) * 2);
-              applyPos(pos);
-              if (t < 1) requestAnimationFrame(hintFrame);
-            }
-
-            setTimeout(() => requestAnimationFrame(hintFrame), 800);
-          }
-
-          hintObserver.unobserve(slider);
-        });
-      }, { threshold: 0.55 });
-      hintObserver.observe(slider);
-    }
-  }
 
   // FAQ accordion
   document.querySelectorAll('.faq-btn').forEach(btn => {

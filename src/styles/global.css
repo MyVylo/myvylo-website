@@ -53,36 +53,6 @@ body  { background: var(--bg); color: var(--text); font-family: 'Inter', sans-se
 .card-accent-violet  { border-left: 2px solid rgba(139,92,246,0.45)  !important; }
 .card-accent-rose    { border-left: 2px solid rgba(248,113,113,0.45) !important; }
 
-/* ─── Before/After Slider ────────────────────────────────────── */
-.vylo-scene { height: 400px; }
-@media (min-width: 640px) { .vylo-scene { height: 520px; } }
-
-@keyframes grip-pulse {
-  0%, 100% { box-shadow: 0 2px 14px rgba(0,0,0,0.50), 0 0 0 3px rgba(255,255,255,0.12); }
-  50%       { box-shadow: 0 2px 14px rgba(0,0,0,0.50), 0 0 0 7px rgba(255,255,255,0.05); }
-}
-.slider-grip { animation: grip-pulse 2.5s ease-in-out infinite; }
-#vylo-slider:focus-visible { outline: 2px solid rgba(99,102,241,0.6); outline-offset: 2px; }
-
-/* Rain in the before-world window */
-@keyframes rain-drift {
-  from { background-position: 0 0; }
-  to   { background-position: -8px 52px; }
-}
-.rain-bg {
-  background-image: repeating-linear-gradient(
-    172deg,
-    transparent 0, transparent 2px,
-    rgba(90,130,220,0.10) 2px, rgba(90,130,220,0.10) 3px
-  );
-  background-size: 10px 38px;
-  animation: rain-drift 0.6s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .slider-grip { animation: none; }
-  .rain-bg      { animation: none; }
-}
-
 /* ─── Bar animations (driven purely via JS + inline styles) ──── */
 /* No CSS class needed — bars start at width/height:0 via inline style,
    JS sets the target value from data-w / data-h on scroll entry. */
