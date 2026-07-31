@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="Vylo – Simple finance tracking for the common household."
-  description="Connect your bank once. Every transaction shows up, automatically categorized and tracked. No spreadsheets. No dashboards. Just clarity."
+  title="Vylo – Household finances, organized automatically."
+  description="Connect your accounts once. Vylo organizes transactions, budgets, net worth, and household spending into one clear shared view."
 >
 
 <!-- ════════════════════════════════════════════════════════════════
@@ -21,34 +21,34 @@ import Layout from '../layouts/Layout.astro';
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
                     bg-indigo-500/10 border border-indigo-500/20
                     text-indigo-300 text-xs font-medium mb-6 fade-in-up">
-          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
           Finance, without the noise.
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-bold leading-[1.1] tracking-tight gradient-text mb-5 fade-in-up delay-100">
-          Simple finance tracking for the common household.
+          Simple finance tracking for the common <span class="title-accent">household.</span>
         </h1>
 
         <p class="text-white/75 text-lg leading-relaxed mb-8 fade-in-up delay-200">
-          Your full financial picture in less than 2 minutes. No spreadsheets. No manual tracking. No Sunday-night catch-up. Vylo is simple finance tracking for the everyday household, without the inflated price tag.
+          Connect your accounts and let Vylo do the rest—categorized transactions, updated budgets, and one household view, without the dreaded Sunday spreadsheet session you always skip.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start fade-in-up delay-300">
           <a href="https://app.myvylo.com/signup"
              class="button-shimmer px-6 py-3 text-white text-sm font-semibold
                     rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-0.5"
-             style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
-            Get started — it's free
+             style="background: linear-gradient(135deg, var(--cta-start), var(--cta-end));">
+            Get started
           </a>
           <a href="#features"
              class="px-6 py-3 border border-white/10 hover:border-white/25 text-white/75
                     hover:text-white text-sm font-medium rounded-xl transition-all duration-200">
-            See how it works
+            See how Vylo works
           </a>
         </div>
 
         <p class="mt-5 text-xs text-white/30 fade-in-up delay-400">
-          7-day free trial · Bank-level encryption · No credit card required
+          First month $2 · Read-only bank connections
         </p>
       </div>
 
@@ -56,24 +56,22 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex-1 w-full max-w-[420px] lg:max-w-none mx-auto lg:mx-0">
         <div class="relative" style="max-width:420px; margin:0 auto;">
           <div class="absolute -inset-6 rounded-3xl bg-indigo-500/10 blur-3xl pointer-events-none"></div>
+          <div class="hero-float-card hero-float-card-a">
+            <span>Transaction sorted</span>
+            <strong>Whole Foods · Groceries</strong>
+          </div>
+          <div class="hero-float-card hero-float-card-b">
+            <span>Budget status</span>
+            <strong>Projected $180 under</strong>
+          </div>
 
-          <div class="relative glass rounded-2xl card-glow overflow-hidden">
-            <!-- Window chrome -->
-            <div class="flex items-center gap-1.5 px-4 py-3 border-b border-white/[0.06]">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
-              <div class="ml-3 flex-1 bg-white/[0.05] rounded h-5 flex items-center px-2.5">
-                <span class="text-[10px] text-white/25 font-mono">app.myvylo.com</span>
-              </div>
-            </div>
-
+          <div class="relative app-surface glass rounded-2xl card-glow overflow-hidden">
             <div class="relative p-4" style="min-height:340px;">
 
               <!-- Screen 1: Dashboard -->
               <div class="screen-1 absolute inset-4">
-                <p class="text-[10px] uppercase tracking-widest text-white/35 font-semibold mb-1">Total spend · March</p>
-                <p class="text-2xl font-bold font-mono text-white mb-4">$3,241<span class="text-sm text-white/35 font-sans font-normal">.58</span></p>
+                <p class="text-[10px] uppercase tracking-widest text-white/35 font-semibold mb-1">Household overview · April</p>
+                <p class="text-2xl font-bold font-mono text-white mb-4">$612<span class="text-sm text-white/35 font-sans font-normal"> left to spend</span></p>
                 <div class="flex items-end gap-1.5 h-20 mb-4">
                   <div class="flex-1 rounded-t-sm bg-indigo-500/25" style="height:42%"></div>
                   <div class="flex-1 rounded-t-sm bg-indigo-500/30" style="height:60%"></div>
@@ -101,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
 
               <!-- Screen 2: Auto-categorization -->
               <div class="screen-2 absolute inset-4">
-                <p class="text-[10px] uppercase tracking-widest text-white/35 font-semibold mb-3">Auto-categorizing</p>
+                <p class="text-[10px] uppercase tracking-widest text-white/35 font-semibold mb-3">Transactions reviewed</p>
                 <div class="space-y-2">
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
                     <div class="flex items-center gap-2.5">
@@ -120,7 +118,7 @@ import Layout from '../layouts/Layout.astro';
                   <div class="flex items-center justify-between p-2.5 rounded-lg bg-indigo-500/10 border border-indigo-500/25">
                     <div class="flex items-center gap-2.5">
                       <div class="w-7 h-7 rounded-md bg-indigo-500/20 text-indigo-400 text-[11px] font-bold flex items-center justify-center">N</div>
-                      <div><p class="text-[11px] text-white font-medium">Netflix</p><p class="text-[10px] text-indigo-400">→ Subscriptions ✓</p></div>
+                      <div><p class="text-[11px] text-white font-medium">Netflix</p><p class="text-[10px] text-indigo-400">→ Subscriptions</p></div>
                     </div>
                     <span class="text-[11px] font-mono text-white">$15.99</span>
                   </div>
@@ -165,10 +163,12 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- indicator dots -->
-          <div class="flex justify-center gap-2 mt-4">
-            <div class="dot w-1.5 h-1.5 rounded-full bg-indigo-400" data-index="0"></div>
-            <div class="dot w-1.5 h-1.5 rounded-full bg-white/20"   data-index="1"></div>
-            <div class="dot w-1.5 h-1.5 rounded-full bg-white/20"   data-index="2"></div>
+          <div class="hero-demo-footer">
+            <div class="flex justify-center gap-2">
+              <div class="dot w-1.5 h-1.5 rounded-full bg-indigo-400" data-index="0"></div>
+              <div class="dot w-1.5 h-1.5 rounded-full bg-white/20"   data-index="1"></div>
+              <div class="dot w-1.5 h-1.5 rounded-full bg-white/20"   data-index="2"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -176,240 +176,287 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 </section>
-
 
 <!-- ════════════════════════════════════════════════════════════════
      NOT EVERYONE'S A FINANCE BRO
 ════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-4 sm:px-6">
+<section id="clarity" class="clarity-section scroll-mt-28 py-20 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12 reveal">
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Not everyone's a finance bro.</h2>
-      <p class="text-white/75 text-lg max-w-xl mx-auto">
-        You shouldn't need a spreadsheet, a "money guy," or a second job just to stay on top of your finances.
+    <div class="clarity-heading reveal">
+      <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">One household view</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-4">From scattered tools to a <span class="title-accent">shared financial picture.</span></h2>
+      <p class="text-white/75 text-lg max-w-2xl">
+        Household finances usually live across bank apps, cards, receipts, and conversations. Vylo brings the important pieces together: what was spent, what is left, what is projected, and which categories need attention.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <div class="reveal glass rounded-2xl card-glow p-6 sm:p-8 border border-white/[0.06]">
-        <p class="text-xs uppercase tracking-widest font-semibold text-white/35 mb-5">Before</p>
-        <div class="space-y-3.5">
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Spreadsheet that's already out of date</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Manually entering every transaction</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Checking four different banking apps</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Sunday night catch-up sessions you keep skipping</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-red-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 3l9 9M12 3l-9 9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg><span class="text-sm text-white/70">Discovering you went over budget after the month ends</span></div>
+    <div class="clarity-cinema reveal reveal-d1" aria-label="Animated comparison of messy finances becoming a clear Vylo dashboard">
+      <div class="mess-side" aria-hidden="true">
+        <div class="mess-label">Chaos before Vylo</div>
+        <div class="mess-grid"></div>
+        <div class="mess-tangle">
+          <span></span><span></span><span></span><span></span><span></span>
         </div>
+        <div class="mess-item mess-sheet">
+          <div class="mess-sheet-top">budget-final-v7.xlsx</div>
+          <div class="mess-cells">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="mess-item mess-sheet mess-sheet-alt">
+          <div class="mess-sheet-top">actual-budget-copy.xlsx</div>
+          <div class="mess-cells">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="mess-item mess-receipt">
+          <span>Receipt</span>
+          <strong>$84.21</strong>
+          <i></i><i></i><i></i>
+        </div>
+        <div class="mess-item mess-receipt mess-receipt-alt">
+          <span>Subscription</span>
+          <strong>$17.99?</strong>
+          <i></i><i></i><i></i>
+        </div>
+        <div class="mess-item mess-bank">
+          <span>Bank app 3 of 4</span>
+          <strong>Pending...</strong>
+        </div>
+        <div class="mess-item mess-bank mess-bank-alt">
+          <span>Card balance</span>
+          <strong>$1,268?</strong>
+        </div>
+        <div class="mess-item mess-text">
+          <span>Did we pay this?</span>
+        </div>
+        <div class="mess-item mess-text mess-text-alt">
+          <span>Split this later</span>
+        </div>
+        <div class="mess-item mess-alert">
+          <span>Budget status</span>
+          <strong>Unclear</strong>
+        </div>
+        <div class="mess-item mess-calendar">
+          <span>Sunday</span>
+          <strong>catch up?</strong>
+        </div>
+        <div class="mess-item mess-note">
+          <span>Groceries or household?</span>
+        </div>
+        <div class="mess-noise mess-noise-a">duplicate?</div>
+        <div class="mess-noise mess-noise-b">uncategorized</div>
+        <div class="mess-noise mess-noise-c">who paid?</div>
+        <div class="mess-noise mess-noise-d">old file</div>
+        <div class="mess-noise mess-noise-e">pending</div>
       </div>
 
-      <div
-        class="reveal reveal-d1 glass rounded-2xl card-glow p-6 sm:p-8 border border-indigo-500/20"
-        style="background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(32,43,65,0.75));"
-      >
-        <p class="text-xs uppercase tracking-widest font-semibold text-indigo-400 mb-5">With Vylo</p>
-        <div class="space-y-3.5">
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Every transaction categorized automatically</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">One clear view of where your money went</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Budgets that track themselves</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Takes two minutes to set up, then runs itself</span></div>
-          <div class="flex items-start gap-3"><svg class="flex-shrink-0 mt-0.5 text-emerald-400" width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-white/85">Know where you stand any time you check</span></div>
+      <div class="clarity-beam" aria-hidden="true">
+        <span></span>
+      </div>
+
+      <div class="clear-side" aria-hidden="true">
+        <div class="sunwash"></div>
+        <div class="sun-ray sun-ray-a"></div>
+        <div class="sun-ray sun-ray-b"></div>
+        <div class="mess-label clear-label">Clarity with Vylo</div>
+        <div class="clarity-dashboard">
+          <div class="clarity-dashboard-body">
+            <div class="budget-hero-row">
+              <div class="budget-balance">
+                <p class="clarity-eyebrow">Budget health</p>
+                <strong>$612</strong>
+                <span>left to spend</span>
+                <small>$3,388 spent of $4,000 budgeted</small>
+              </div>
+              <div class="budget-halo" style="--p: 85%">
+                <span>85%</span>
+                <small>used</small>
+              </div>
+            </div>
+
+            <div class="budget-forecast-strip">
+              <div>
+                <span>Projected</span>
+                <strong>$3,820</strong>
+                <small>$180 under plan</small>
+              </div>
+              <div>
+                <span>Daily pace</span>
+                <strong>$67</strong>
+                <small>safe for April</small>
+              </div>
+              <div>
+                <span>Watchlist</span>
+                <strong>2</strong>
+                <small>watch closely</small>
+              </div>
+            </div>
+
+            <div class="budget-watchlist">
+              <div class="budget-watch-heading">
+                <span>Top categories to watch</span>
+                <strong><i></i> Updated now</strong>
+              </div>
+              <div class="budget-watch-row watch-amber">
+                <div>
+                  <span>Dining out</span>
+                  <small>Projected $715 / $760</small>
+                  <i style="--w: 94%"></i>
+                </div>
+                <strong>$45 left</strong>
+              </div>
+              <div class="budget-watch-row watch-emerald">
+                <div>
+                  <span>Groceries</span>
+                  <small>Projected $872 / $1,000</small>
+                  <i style="--w: 87%"></i>
+                </div>
+                <strong>$128 left</strong>
+              </div>
+              <div class="budget-watch-row watch-indigo">
+                <div>
+                  <span>Transport</span>
+                  <small>Projected $332 / $500</small>
+                  <i style="--w: 66%"></i>
+                </div>
+                <strong>$168 left</strong>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="clarity-pill clarity-pill-a">$612 left to spend</div>
+        <div class="clarity-pill clarity-pill-b">Projected under plan</div>
+        <div class="clarity-pill clarity-pill-c">2 categories to watch</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ════════════════════════════════════════════════════════════════
-     WHY DIFFERENT
-════════════════════════════════════════════════════════════════ -->
-<section class="py-20 px-4 sm:px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-12 reveal">
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Designed to stay simple.</h2>
-      <p class="text-white/75 text-lg max-w-xl mx-auto">
-        Most finance apps keep adding useless, complex features you never use to justify charging you $200/year. Vylo is the opposite: simple, clear, and built for everyday households.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="reveal glass rounded-xl p-6 card-glow card-accent-indigo">
-        <div class="w-10 h-10 rounded-lg bg-indigo-500/15 flex items-center justify-center mb-4">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 7v6l8 5 8-5V7l-8-5z" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 7l8 5m0 0l8-5m-8 5v5" stroke="#818cf8" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Connect once, done forever</h3>
-        <p class="text-white/75 text-sm leading-relaxed">Link your bank once. Every transaction pulls in and categorizes itself — no logging in, no tagging, no updates to forget.</p>
-      </div>
-      <div class="reveal reveal-d1 glass rounded-xl p-6 card-glow card-accent-emerald">
-        <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center mb-4">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10a7 7 0 1014 0A7 7 0 003 10z" stroke="#34d399" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#34d399" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Always up to date</h3>
-        <p class="text-white/75 text-sm leading-relaxed">Open Vylo and you'll know exactly where you stand — not an estimate, but the actual number, right now, this month.</p>
-      </div>
-      <div class="reveal reveal-d2 glass rounded-xl p-6 card-glow card-accent-amber">
-        <div class="w-10 h-10 rounded-lg bg-amber-500/15 flex items-center justify-center mb-4">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 9a4 4 0 118 0c0 3-2 5-4 6-2-1-4-3-4-6z" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="16" r="1" fill="#fbbf24"/><path d="M12 10a4 4 0 118 0c0 3-2 5-4 6" stroke="#fbbf24" stroke-width="1.5" stroke-linejoin="round"/></svg>
-        </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Shared view, shared life</h3>
-        <p class="text-white/75 text-sm leading-relaxed">Add your partner or housemates. One login each, one picture together. No more "did you pay that?" texts.</p>
-      </div>
-      <div class="reveal reveal-d3 glass rounded-xl p-6 card-glow card-accent-rose">
-        <div class="w-10 h-10 rounded-lg bg-rose-500/15 flex items-center justify-center mb-4">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="10" rx="2" stroke="#f87171" stroke-width="1.5"/><path d="M7 7V5a3 3 0 016 0v2" stroke="#f87171" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
-        <h3 class="font-semibold text-white text-sm mb-2">Bank-grade security</h3>
-        <p class="text-white/75 text-sm leading-relaxed">Powered by Plaid. Read-only access. We never see or store your banking credentials.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ════════════════════════════════════════════════════════════════
      FEATURES
 ════════════════════════════════════════════════════════════════ -->
-<section id="features" class="py-20 px-4 sm:px-6">
+<section id="features" class="scroll-mt-24 pt-16 pb-6 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-14 reveal">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Features</p>
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">All the features you need. None of the bloat.</h2>
-      <p class="text-white/75 text-lg max-w-xl mx-auto">Track spending, stay organized, and understand your money — without needing an advanced calculus degree.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Everything you need. None of the <span class="title-accent">finance-bro fluff.</span></h2>
+      <p class="text-white/75 text-lg max-w-2xl mx-auto">Most finance apps have become expensive, overly complex, and oddly intense. Vylo keeps things simple: automatic tracking, clear budgets, and one shared household view built for real life — not spreadsheet hobbyists.</p>
     </div>
 
-    <div class="space-y-5">
+    <div class="feature-story grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-12 items-start">
+      <div class="feature-steps">
+        {[
+          {
+            eyebrow: '01 · Auto-categorization',
+            title: 'Transactions categorize themselves.',
+            copy: 'Merchant details are mapped to the right categories automatically, with easy corrections when your household wants to fine-tune the rules.',
+            accent: 'indigo',
+          },
+          {
+            eyebrow: '02 · Budget status',
+            title: 'See where the month is headed.',
+            copy: 'Vylo shows what is left to spend, what you are projected to spend by month-end, and which categories are starting to drift before they turn into a problem.',
+            accent: 'amber',
+          },
+          {
+            eyebrow: '03 · Household view',
+            title: 'Keep everyone aligned.',
+            copy: 'Partners, housemates, or family members can each connect their own accounts and see one current household picture.',
+            accent: 'emerald',
+          },
+          {
+            eyebrow: '04 · Net worth',
+            title: 'See assets and debt together.',
+            copy: 'Cash, investments, property, debt, and other assets roll into one clear net-worth snapshot.',
+            accent: 'violet',
+          },
+        ].map((feature, index) => (
+          <div class="feature-step" data-feature={index}>
+            <article class={`feature-beat reveal ${index === 0 ? 'is-active' : ''}`}>
+              <p class={`feature-kicker feature-kicker-${feature.accent}`}>{feature.eyebrow}</p>
+              <h3>{feature.title}</h3>
+              <p>{feature.copy}</p>
+            </article>
+          </div>
+        ))}
+      </div>
 
-      <!-- Feature 1: Auto-categorization -->
-      <div class="reveal glass rounded-2xl card-glow card-accent-indigo p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-4">⚡ Auto-categorization</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Every transaction, filed before you even open the app.</h3>
-          <p class="text-white/75 text-sm leading-relaxed">The moment a charge posts, Vylo reads the merchant and drops it into the right bucket — groceries, dining, transport, subscriptions. No review queue. No weekend catch-up.</p>
-        </div>
-        <div class="space-y-2.5 bg-white/[0.02] rounded-xl p-4">
-          <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
-            <div class="flex items-center gap-2.5"><div class="w-7 h-7 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold flex items-center justify-center">T</div><span class="text-sm text-white">Trader Joe's</span></div>
-            <span class="text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">Groceries</span>
+      <div class="feature-demo-wrap">
+        <div class="feature-demo app-surface glass card-glow">
+          <div class="feature-scenes">
+            <div class="feature-scene is-active" data-scene="0">
+              <div class="transaction-stack">
+                {[
+                  ['T', "Trader Joe's", 'Groceries', '$84.21', 'emerald'],
+                  ['S', 'Spotify', 'Subscriptions', '$11.99', 'indigo'],
+                  ['C', 'Chipotle', 'Dining out', '$18.44', 'rose'],
+                  ['U', 'Uber', 'Transport', '$24.10', 'amber'],
+                ].map(([letter, merchant, category, amount, accent]) => (
+                  <div class={`demo-transaction demo-transaction-${accent}`}>
+                    <div class="merchant-mark">{letter}</div>
+                    <div>
+                      <p>{merchant}</p>
+                      <span>{category}</span>
+                    </div>
+                    <strong>{amount}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="feature-scene" data-scene="1">
+              <div class="budget-radar">
+                <div class="budget-ring">
+                  <span>82%</span>
+                  <small>month used</small>
+                </div>
+                <div class="budget-lines">
+                  <div><span>Groceries</span><strong>$842 / $1,000</strong></div>
+                  <div><span>Dining out</span><strong class="text-amber-300">$614 / $600</strong></div>
+                  <div><span>Transport</span><strong>$390 / $500</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-scene" data-scene="2">
+              <div class="household-orbit">
+                <div class="household-person person-a">A</div>
+                <div class="household-person person-b">J</div>
+                <div class="household-person person-c">K</div>
+                <div class="household-center">
+                  <span>$3,241</span>
+                  <small>shared spend</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-scene" data-scene="3">
+              <div class="worth-board">
+                <div class="worth-total">
+                  <span>Household net worth</span>
+                  <strong>$284,500</strong>
+                </div>
+                <div class="worth-bars">
+                  <div style="--w: 37%"><span>Cash</span><i></i><strong>$45k</strong></div>
+                  <div style="--w: 78%"><span>Investments</span><i></i><strong>$120k</strong></div>
+                  <div style="--w: 100%"><span>Property</span><i></i><strong>$160k</strong></div>
+                  <div style="--w: 13%"><span>Debt</span><i></i><strong>-$40.5k</strong></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
-            <div class="flex items-center gap-2.5"><div class="w-7 h-7 rounded-md bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center">C</div><span class="text-sm text-white">Chipotle</span></div>
-            <span class="text-xs text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full">Dining out</span>
-          </div>
-          <div class="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] border border-white/[0.06]">
-            <div class="flex items-center gap-2.5"><div class="w-7 h-7 rounded-md bg-indigo-500/20 text-indigo-400 text-xs font-bold flex items-center justify-center">S</div><span class="text-sm text-white">Spotify</span></div>
-            <span class="text-xs text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full">Subscriptions</span>
+
+          <div class="demo-caption">
+            <span class="caption-dot"></span>
+            <p id="feature-caption">New transactions are organized as they arrive.</p>
           </div>
         </div>
       </div>
-
-      <!-- Feature 2 + 3 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="reveal glass rounded-2xl card-glow card-accent-emerald p-6 sm:p-8">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 text-xs font-medium mb-4">📈 Spend trends</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Patterns you didn't know you had.</h3>
-          <p class="text-white/75 text-sm leading-relaxed mb-5">Week over week, month over month — the chart tells the story your bank statement buries in a list.</p>
-          <div class="bar-section flex items-end gap-1.5 h-16 px-1">
-            <div class="flex-1 rounded-t-sm" data-h="38%" style="height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.05s"></div>
-            <div class="flex-1 rounded-t-sm" data-h="62%" style="height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s"></div>
-            <div class="flex-1 rounded-t-sm" data-h="45%" style="height:0; background:rgba(99,102,241,.22); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
-            <div class="flex-1 rounded-t-sm" data-h="82%" style="height:0; background:rgba(99,102,241,.40); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.35s"></div>
-            <div class="flex-1 rounded-t-sm" data-h="54%" style="height:0; background:rgba(99,102,241,.30); transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.45s"></div>
-            <div class="flex-1 rounded-t-sm" data-h="95%" style="height:0; background:#6366f1;             transition:height 0.7s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
-          </div>
-        </div>
-        <div class="reveal reveal-d1 glass rounded-2xl card-glow card-accent-amber p-6 sm:p-8">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs font-medium mb-4">🎯 Budget tracking</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Set a limit. Know when you're close.</h3>
-          <p class="text-white/75 text-sm leading-relaxed mb-5">Budget per category. Vylo watches the number so you don't have to. When you're getting close, you'll know.</p>
-          <div class="bar-section space-y-3">
-            <div>
-              <div class="flex justify-between mb-1.5"><span class="text-xs text-white/60">Groceries</span><span class="text-xs font-mono text-white">$842 / $1,000</span></div>
-              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-emerald-400 rounded-full" data-w="84%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.1s"></div></div>
-            </div>
-            <div>
-              <div class="flex justify-between mb-1.5"><span class="text-xs text-white/60">Dining out</span><span class="text-xs font-mono text-amber-400">Over budget</span></div>
-              <div class="h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full bg-amber-400 rounded-full" data-w="100%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.3s"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 4 + 5 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="reveal glass rounded-2xl card-glow card-accent-violet p-6 sm:p-8">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-300 text-xs font-medium mb-4">👥 Household members</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Everyone on the same page.</h3>
-          <p class="text-white/75 text-sm leading-relaxed mb-5">Invite your partner or housemates. They get their own login, you all get one shared view. No more reconstructing who spent what.</p>
-          <div class="flex items-center gap-3">
-            <div class="flex -space-x-2.5">
-              <div class="w-9 h-9 rounded-full bg-indigo-500 border-2 border-card flex items-center justify-center text-xs font-bold">A</div>
-              <div class="w-9 h-9 rounded-full bg-emerald-500 border-2 border-card flex items-center justify-center text-xs font-bold">J</div>
-              <div class="w-9 h-9 rounded-full bg-amber-500 border-2 border-card flex items-center justify-center text-xs font-bold">K</div>
-            </div>
-            <span class="text-xs text-white/70">3 household members</span>
-          </div>
-        </div>
-        <div class="reveal reveal-d1 glass rounded-2xl card-glow card-accent-rose p-6 sm:p-8">
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-300 text-xs font-medium mb-4">🏷️ Categories manager</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Your categories, your rules.</h3>
-          <p class="text-white/75 text-sm leading-relaxed mb-5">Rename the defaults. Create your own. Move transactions between them. The app learns what you prefer and applies it going forward.</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-full text-xs bg-indigo-500/15 text-indigo-300 border border-indigo-500/20">Groceries</span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">Date nights</span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-amber-500/15 text-amber-300 border border-amber-500/20">Kids</span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-rose-500/15 text-rose-300 border border-rose-500/20">Home</span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/[0.06] text-white/40 border border-white/10">+ Add new</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 6: Net worth tracking -->
-      <div class="reveal glass rounded-2xl card-glow card-accent-emerald p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 text-xs font-medium mb-4">📊 Net worth tracking</div>
-          <h3 class="text-xl font-semibold text-white mb-3">Know exactly where you stand financially.</h3>
-          <p class="text-white/75 text-sm leading-relaxed">Connect your accounts and add anything we can't pull in automatically — from property and vehicles to investments and even your Pokémon card collection. Vylo calculates your household net worth automatically, tracks how it changes over time, and breaks it down across every asset and liability.</p>
-        </div>
-        <div class="bar-section bg-white/[0.02] rounded-xl p-4 space-y-3">
-          <div>
-            <p class="text-[10px] uppercase tracking-widest text-white/35 font-semibold">Household Net Worth</p>
-            <p class="text-2xl font-bold font-mono text-white mt-1">$284,500</p>
-          </div>
-          <div class="space-y-2">
-            <div class="flex items-center gap-3">
-              <span class="w-20 shrink-0 text-right text-xs text-white/40">Cash</span>
-              <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-sky-400/55" data-w="37%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.10s"></div>
-              </div>
-              <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$45,000</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-20 shrink-0 text-right text-xs text-white/40">Investments</span>
-              <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-indigo-400/55" data-w="78%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.25s"></div>
-              </div>
-              <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$120,000</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-20 shrink-0 text-right text-xs text-white/40">Property</span>
-              <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-emerald-400/55" data-w="100%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.40s"></div>
-              </div>
-              <span class="w-16 shrink-0 text-right text-xs font-mono text-white">$160,000</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="w-20 shrink-0 text-right text-xs text-white/40">Liabilities</span>
-              <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div class="h-full rounded-full bg-rose-400/45" data-w="13%" style="width:0; transition:width 0.9s cubic-bezier(0.4,0,0.2,1) 0.55s"></div>
-              </div>
-              <span class="w-16 shrink-0 text-right text-xs font-mono text-rose-300">−$40,500</span>
-            </div>
-            <div class="border-t border-white/[0.06] pt-2 flex items-center justify-between">
-              <span class="text-xs text-white/35">Net worth</span>
-              <span class="text-sm font-bold font-mono text-emerald-400">+$284,500</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -418,17 +465,17 @@ import Layout from '../layouts/Layout.astro';
 <!-- ════════════════════════════════════════════════════════════════
      SECURITY
 ════════════════════════════════════════════════════════════════ -->
-<section id="security" class="py-20 px-4 sm:px-6">
+<section id="security" class="scroll-mt-24 pt-8 pb-16 px-4 sm:px-6">
   <div class="max-w-6xl mx-auto">
     <div class="glass rounded-2xl card-glow p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Security</p>
-        <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Bank grade security you can trust.</h2>
-        <p class="text-white/75 leading-relaxed mb-6">Vylo connects via Plaid — the same infrastructure used by Venmo and Robinhood. We get read-only access to your transactions. Your credentials never touch our servers.</p>
+        <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Bank-grade security <span class="title-accent">you can trust.</span></h2>
+        <p class="text-white/75 leading-relaxed mb-6">Vylo connects through Plaid, the same infrastructure used by Venmo and Robinhood. Vylo receives read-only transaction data. Your banking credentials never touch our servers.</p>
         <a href="https://app.myvylo.com/signup"
            class="button-shimmer inline-flex items-center gap-2 px-5 py-2.5
                   text-white text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
-           style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
+           style="background: linear-gradient(135deg, var(--cta-start), var(--cta-end));">
           Get started securely
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -463,7 +510,7 @@ import Layout from '../layouts/Layout.astro';
 <!-- ════════════════════════════════════════════════════════════════
      FAQ
 ════════════════════════════════════════════════════════════════ -->
-<section id="faq" class="py-20 px-4 sm:px-6">
+<section id="faq" class="scroll-mt-24 py-16 px-4 sm:px-6">
   <div class="max-w-2xl mx-auto">
     <div class="text-center mb-12 reveal">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">FAQ</p>
@@ -472,11 +519,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="space-y-2" id="faq-list">
 
       {[
-        { q: 'What is Vylo?', a: "Vylo is a finance tracker that connects to your bank accounts and automatically categorizes every transaction. You get a clear, real-time view of where your money goes — without entering a single thing manually." },
-        { q: 'How does automatic categorization work?', a: "When a transaction arrives, Vylo reads the merchant name and assigns it to a category. You can correct any categorization, create custom categories, or bulk-reassign transactions. The more you use it, the smarter it gets." },
-        { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid to connect to your bank — the same technology behind Venmo and Robinhood. We get read-only access to your transactions. We never see your login credentials, and we can't move money." },
+        { q: 'What is Vylo?', a: "Vylo is a household money app that connects to your bank accounts, categorizes transactions automatically, tracks budgets, and gives everyone in the household one shared view." },
+        { q: 'How does automatic categorization work?', a: "When a transaction arrives, Vylo uses the merchant details and your category rules to place it in the right budget category. You can correct a category, create custom categories, or bulk-reassign transactions anytime." },
+        { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid to connect to your bank — the same technology behind Venmo and Robinhood. Vylo receives read-only transaction data. We never see your login credentials, and we can't move money." },
         { q: 'How do I add household members?', a: "From settings, invite anyone by email. Once they accept and connect their accounts, your household gets a combined view of all spending and shared budget tracking." },
-        { q: 'What does Vylo cost?', a: "$5 a month after a free 7-day trial. That covers your whole household and every feature — including everything we ship in the future. No annual plans, no tiers, no surprises." },
+        { q: 'What does Vylo cost?', a: "Your first month is $2. After that, Vylo is $7/month for the whole household. Every current feature is included, and future features are included too. No annual plans, no tiers." },
         { q: 'Which banks are supported?', a: "Vylo supports over 12,000 banks and credit unions through Plaid — Chase, Bank of America, Wells Fargo, Citi, Capital One, and most others." },
       ].map(({ q, a }) => (
         <div class="glass rounded-xl overflow-hidden border border-white/[0.06]">
@@ -500,21 +547,21 @@ import Layout from '../layouts/Layout.astro';
 <!-- ════════════════════════════════════════════════════════════════
      PRICING
 ════════════════════════════════════════════════════════════════ -->
-<section id="pricing" class="py-20 px-4 sm:px-6 relative overflow-hidden">
-  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 55% at 50% 65%, rgba(99,102,241,0.09), transparent);"></div>
+<section id="pricing" class="scroll-mt-24 py-16 px-4 sm:px-6 relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, transparent, rgba(238,243,247,0.55));"></div>
 
   <div class="max-w-4xl mx-auto relative">
 
     <!-- Header -->
     <div class="text-center mb-10">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Pricing</p>
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One simple household plan.</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One simple <span class="title-accent">household plan.</span></h2>
       <p class="text-white/70 text-sm mb-1">Your first month is just $2, then $7/month.</p>
       <p class="text-white text-sm font-medium">Unlimited household members and all features included.</p>
     </div>
 
     <!-- Horizontal card -->
-    <div class="glass card-glow rounded-2xl overflow-hidden" style="border: 1px solid rgba(99,102,241,0.18);">
+    <div class="glass card-glow rounded-2xl overflow-hidden" style="border: 1px solid rgba(81,71,217,0.16);">
       <div class="grid grid-cols-1 md:grid-cols-[5fr_7fr] divide-y md:divide-y-0 md:divide-x divide-white/[0.07]">
 
         <!-- Left: price + CTA -->
@@ -534,8 +581,8 @@ import Layout from '../layouts/Layout.astro';
              class="button-shimmer flex items-center justify-center gap-2 w-full py-3
                     text-white font-semibold rounded-xl text-sm
                     transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/25 hover:-translate-y-0.5 mb-3"
-             style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
-            Start free trial
+             style="background: linear-gradient(135deg, var(--cta-start), var(--cta-end));">
+            Get started
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <p class="text-center text-xs text-white/30">No annual commitment. Cancel anytime.</p>
@@ -547,9 +594,9 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-4">
             {[
               { label: 'Smart AI-based transaction categorization', accent: false },
-              { label: 'Easy budget tracking', accent: false },
-              { label: 'Add your household for the full picture', accent: false },
-              { label: 'Net worth tracking', accent: false },
+              { label: 'Easy budget tracking',                      accent: false },
+              { label: 'Add your household for the full picture',    accent: false },
+              { label: 'Net worth tracking',                         accent: false },
               { label: 'Every new feature we add', accent: true, href: '/updates#coming-soon' },
             ].map(({ label, accent, href }: { label: string; accent: boolean; href?: string }) => (
               <li class={`flex items-center gap-3 text-sm ${accent ? 'text-white font-medium' : 'text-white/60'}`}>
@@ -568,10 +615,6 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <p class="text-center text-xs text-white/25 mt-6">
-      Your first month is just $2, then $7/month.
-    </p>
-
   </div>
 </section>
 
@@ -581,15 +624,15 @@ import Layout from '../layouts/Layout.astro';
 ════════════════════════════════════════════════════════════════ -->
 <section class="py-16 px-4 sm:px-6">
   <div class="reveal max-w-3xl mx-auto text-center glass rounded-2xl card-glow px-8 py-14"
-       style="background: linear-gradient(135deg, rgba(99,102,241,.14), rgba(32,43,65,.85));">
-    <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Less noise. More clarity.</h2>
-    <p class="text-white/75 text-lg mb-8 max-w-md mx-auto">Takes two minutes to connect. From there, it runs itself.</p>
+       style="background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(241,245,249,.92));">
+    <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Ready for a <span class="title-accent">clearer month?</span></h2>
+    <p class="text-white/75 text-lg mb-8 max-w-md mx-auto">Connect your accounts in minutes. Vylo keeps the household view current from there.</p>
     <a href="https://app.myvylo.com/signup"
        class="button-shimmer inline-flex items-center gap-2 px-7 py-3.5
               text-white font-semibold rounded-xl text-sm transition-all duration-200
               hover:shadow-xl hover:shadow-indigo-500/30 hover:-translate-y-0.5"
-       style="background: linear-gradient(135deg, #6366f1, #7c3aed);">
-      Get started — it's free
+       style="background: linear-gradient(135deg, var(--cta-start), var(--cta-end));">
+      Get started
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
@@ -636,6 +679,90 @@ import Layout from '../layouts/Layout.astro';
     { threshold: 0.25 }
   );
   document.querySelectorAll('.bar-section').forEach(el => barObserver.observe(el));
+
+  // Feature story scene sync
+  const featureSteps = Array.from(document.querySelectorAll<HTMLElement>('.feature-step'));
+  const featureBeats = Array.from(document.querySelectorAll<HTMLElement>('.feature-beat'));
+  const featureScenes = Array.from(document.querySelectorAll<HTMLElement>('.feature-scene'));
+  const featureCaption = document.querySelector<HTMLElement>('#feature-caption');
+  const featureDemoWrap = document.querySelector<HTMLElement>('.feature-demo-wrap');
+  const captions = [
+    'New transactions are organized as they arrive.',
+    'Budget status updates as spending changes.',
+    'Household members share one current view of spending.',
+    'Assets and debt roll into one net-worth snapshot.',
+  ];
+  const featureDemoAnchor = document.createComment('feature-demo-anchor');
+
+  if (featureDemoWrap?.parentNode) {
+    featureDemoWrap.parentNode.insertBefore(featureDemoAnchor, featureDemoWrap);
+  }
+
+  function useInlineMobileFeatureDemo() {
+    return window.innerWidth < 1024;
+  }
+
+  function syncFeatureDemoPlacement(index: number) {
+    if (!featureDemoWrap || !featureDemoAnchor) return;
+
+    if (useInlineMobileFeatureDemo()) {
+      featureDemoWrap.classList.add('feature-demo-inline');
+      featureSteps[index]?.appendChild(featureDemoWrap);
+      return;
+    }
+
+    featureDemoWrap.classList.remove('feature-demo-inline');
+    featureDemoAnchor.parentNode?.insertBefore(featureDemoWrap, featureDemoAnchor.nextSibling);
+  }
+
+  function setFeatureScene(index: number) {
+    syncFeatureDemoPlacement(index);
+    featureBeats.forEach((beat, i) => beat.classList.toggle('is-active', i === index));
+    featureScenes.forEach((scene, i) => scene.classList.toggle('is-active', i === index));
+    if (featureCaption) featureCaption.textContent = captions[index] ?? captions[0];
+  }
+
+  let featureScrollTicking = false;
+
+  function featureTriggerY() {
+    const nav = document.querySelector<HTMLElement>('#nav');
+    const navHeight = nav?.getBoundingClientRect().height ?? 0;
+
+    if (useInlineMobileFeatureDemo()) {
+      return navHeight + Math.min(176, Math.max(96, window.innerHeight * 0.18));
+    }
+
+    return navHeight + Math.min(140, Math.max(96, window.innerHeight * 0.16));
+  }
+
+  function syncFeatureSceneToScroll() {
+    const triggers = featureSteps.length ? featureSteps : featureBeats;
+    if (!triggers.length) return;
+
+    const triggerY = featureTriggerY();
+    let activeIndex = 0;
+
+    triggers.forEach((trigger, index) => {
+      if (trigger.getBoundingClientRect().top <= triggerY) {
+        activeIndex = index;
+      }
+    });
+
+    setFeatureScene(activeIndex);
+  }
+
+  function requestFeatureSceneSync() {
+    if (featureScrollTicking) return;
+    featureScrollTicking = true;
+    requestAnimationFrame(() => {
+      syncFeatureSceneToScroll();
+      featureScrollTicking = false;
+    });
+  }
+
+  window.addEventListener('scroll', requestFeatureSceneSync, { passive: true });
+  window.addEventListener('resize', requestFeatureSceneSync);
+  syncFeatureSceneToScroll();
 
   // FAQ accordion
   document.querySelectorAll('.faq-btn').forEach(btn => {
