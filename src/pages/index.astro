@@ -508,9 +508,9 @@ import Layout from '../layouts/Layout.astro';
     <!-- Header -->
     <div class="text-center mb-10">
       <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Pricing</p>
-      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One plan. Everything included.</h2>
-      <p class="text-white/70 text-sm mb-1">Seriously, why do expense tracking apps cost $200+ a year?</p>
-      <p class="text-white text-sm font-medium">Vylo is $5 a month. That's it. Everything included.</p>
+      <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">One simple household plan.</h2>
+      <p class="text-white/70 text-sm mb-1">Your first month is just $2, then $7/month.</p>
+      <p class="text-white text-sm font-medium">Unlimited household members and all features included.</p>
     </div>
 
     <!-- Horizontal card -->
@@ -521,14 +521,14 @@ import Layout from '../layouts/Layout.astro';
         <div class="p-8 sm:p-10 flex flex-col justify-center">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/20 mb-6 self-start">
             <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-            Free for 7 days
+            Welcome offer
           </span>
 
           <div class="flex items-baseline gap-1.5 mb-1">
-            <span class="text-6xl font-bold text-white tracking-tight">$5</span>
-            <span class="text-white/40 text-lg">/mo</span>
+            <span class="text-6xl font-bold text-white tracking-tight">$2</span>
+            <span class="text-white/40 text-lg">/ first month</span>
           </div>
-          <p class="text-white/30 text-xs mb-8">per household · billed monthly</p>
+          <p class="text-white/30 text-xs mb-8">Then $7/month · billed monthly</p>
 
           <a href="https://app.myvylo.com/signup"
              class="button-shimmer flex items-center justify-center gap-2 w-full py-3
@@ -538,19 +538,19 @@ import Layout from '../layouts/Layout.astro';
             Start free trial
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <p class="text-center text-xs text-white/30">Pay monthly. No annual fees. Cancel anytime.</p>
+          <p class="text-center text-xs text-white/30">No annual commitment. Cancel anytime.</p>
         </div>
 
         <!-- Right: what's included -->
         <div class="p-8 sm:p-10 flex flex-col justify-center">
-          <p class="text-xs text-white/35 uppercase tracking-widest font-semibold mb-6">What's included</p>
+          <p class="text-xs text-white/35 uppercase tracking-widest font-semibold mb-6">Everything’s included</p>
           <ul class="space-y-4">
             {[
-              { label: 'Auto-categorization',    accent: false },
-              { label: 'Spend trends & budgets', accent: false },
-              { label: 'Household sharing',      accent: false },
-              { label: 'Net worth tracking',     accent: false },
-              { label: 'All future features',    accent: true, href: '/updates#coming-soon' },
+              { label: 'Smart AI-based transaction categorization', accent: false },
+              { label: 'Easy budget tracking', accent: false },
+              { label: 'Add your household for the full picture', accent: false },
+              { label: 'Net worth tracking', accent: false },
+              { label: 'Every new feature we add', accent: true, href: '/updates#coming-soon' },
             ].map(({ label, accent, href }: { label: string; accent: boolean; href?: string }) => (
               <li class={`flex items-center gap-3 text-sm ${accent ? 'text-white font-medium' : 'text-white/60'}`}>
                 <svg class={`flex-shrink-0 ${accent ? 'text-indigo-400' : 'text-emerald-400'}`} width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -569,7 +569,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <p class="text-center text-xs text-white/25 mt-6">
-      One price after trial. Everything included, including all future features. No surprises.
+      Your first month is just $2, then $7/month.
     </p>
 
   </div>
