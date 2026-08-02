@@ -1,0 +1,101 @@
+---
+interface Props {
+  variant: 'desktop' | 'mobile';
+  scene?: number;
+  caption?: string;
+}
+
+const {
+  variant,
+  scene = 0,
+  caption = 'New transactions are organized as they arrive.',
+} = Astro.props;
+
+const rendersScene = (index: number) => variant === 'desktop' || scene === index;
+const sceneClass = (index: number) =>
+  `feature-scene ${variant === 'mobile' || index === 0 ? 'is-active' : ''}`;
+---
+
+<div
+  class={`feature-demo-wrap feature-demo-wrap-${variant}`}
+  data-feature-demo={variant}
+  data-feature-scene={variant === 'mobile' ? scene : undefined}
+>
+  <div class="feature-demo app-surface card-glow">
+    <div class="feature-scenes">
+      {rendersScene(0) && (
+        <div class={sceneClass(0)} data-scene="0">
+          <div class="transaction-stack">
+            {[
+              ['T', "Trader Joe's", 'Groceries', '$84.21', 'emerald'],
+              ['S', 'Spotify', 'Subscriptions', '$11.99', 'indigo'],
+              ['C', 'Chipotle', 'Dining out', '$18.44', 'rose'],
+              ['U', 'Uber', 'Transport', '$24.10', 'amber'],
+            ].map(([letter, merchant, category, amount, accent]) => (
+              <div class={`demo-transaction demo-transaction-${accent}`}>
+                <div class="merchant-mark">{letter}</div>
+                <div>
+                  <p>{merchant}</p>
+                  <span>{category}</span>
+                </div>
+                <strong>{amount}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {rendersScene(1) && (
+        <div class={sceneClass(1)} data-scene="1">
+          <div class="budget-radar">
+            <div class="budget-ring">
+              <span>82%</span>
+              <small>month used</small>
+            </div>
+            <div class="budget-lines">
+              <div><span>Groceries</span><strong>$842 / $1,000</strong></div>
+              <div><span>Dining out</span><strong class="text-amber-300">$614 / $600</strong></div>
+              <div><span>Transport</span><strong>$390 / $500</strong></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {rendersScene(2) && (
+        <div class={sceneClass(2)} data-scene="2">
+          <div class="household-orbit">
+            <div class="household-person person-a">A</div>
+            <div class="household-person person-b">J</div>
+            <div class="household-person person-c">K</div>
+            <div class="household-center">
+              <span>$3,241</span>
+              <small>shared spend</small>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {rendersScene(3) && (
+        <div class={sceneClass(3)} data-scene="3">
+          <div class="worth-board">
+            <div class="worth-total">
+              <span>Household net worth</span>
+              <strong>$284,500</strong>
+            </div>
+            <div class="worth-bars">
+              <div style="--w: 37%"><span>Cash</span><i></i><strong>$45k</strong></div>
+              <div style="--w: 78%"><span>Investments</span><i></i><strong>$120k</strong></div>
+              <div style="--w: 100%"><span>Property</span><i></i><strong>$160k</strong></div>
+              <div style="--w: 13%"><span>Debt</span><i></i><strong>-$40.5k</strong></div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <div class="demo-caption">
+      <span class="caption-dot"></span>
+      <p data-feature-caption>{caption}</p>
+    </div>
+  </div>
+</div>
