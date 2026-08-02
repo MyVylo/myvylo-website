@@ -819,17 +819,23 @@ body  {
   line-height: 1.7;
 }
 
-.feature-demo-wrap {
+.feature-demo-wrap-desktop {
   position: sticky;
   top: 5.25rem;
   align-self: start;
+}
+
+.feature-demo-wrap-mobile {
+  display: none;
 }
 
 .feature-demo {
   position: relative;
   min-height: 470px;
   overflow: hidden;
+  border: 1px solid var(--line);
   border-radius: 16px;
+  background: rgba(255,255,255,.98);
   padding: 1.1rem;
 }
 
@@ -1628,14 +1634,23 @@ svg [stroke="#f87171"] { stroke: var(--muted-rose); }
     right: 8%;
   }
 
-  .feature-demo-wrap {
-    order: 0;
+  .feature-demo-wrap-desktop {
+    display: none;
+  }
+
+  .feature-demo-wrap-mobile {
+    display: block;
     position: relative;
     top: auto;
     z-index: 1;
     align-self: stretch;
     width: 100%;
     margin-top: 1rem;
+  }
+
+  .feature-demo-wrap-mobile .feature-scene {
+    transform: none;
+    transition: none;
   }
 
   .feature-demo {
@@ -1646,9 +1661,6 @@ svg [stroke="#f87171"] { stroke: var(--muted-rose); }
     min-height: auto;
   }
 
-  .feature-demo-wrap.feature-demo-inline {
-    margin-top: 1rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -1805,7 +1817,7 @@ svg [stroke="#f87171"] { stroke: var(--muted-rose); }
     white-space: nowrap;
   }
 
-  .feature-demo-wrap {
+  .feature-demo-wrap-mobile {
     position: relative;
     top: auto;
     z-index: 1;
@@ -1867,6 +1879,29 @@ svg [stroke="#f87171"] { stroke: var(--muted-rose); }
   .budget-ring {
     max-width: 155px;
     margin: 0 auto;
+  }
+
+  .feature-demo-wrap-mobile[data-feature-scene="1"] .feature-scenes {
+    min-height: 360px;
+  }
+
+  .feature-demo-wrap-mobile[data-feature-scene="1"] .budget-ring {
+    width: 112px;
+    max-width: none;
+    grid-template-rows: auto auto;
+    row-gap: .3rem;
+    background:
+      radial-gradient(circle, rgba(255,255,255,.94) 62%, transparent 63%),
+      conic-gradient(var(--muted-amber) 0 82%, rgba(15,23,42,.10) 82% 100%);
+  }
+
+  .feature-demo-wrap-mobile[data-feature-scene="1"] .budget-ring span {
+    font-size: 1.55rem;
+    line-height: 1;
+  }
+
+  .feature-demo-wrap-mobile[data-feature-scene="1"] .budget-ring small {
+    line-height: 1;
   }
 
   .budget-ring span {
