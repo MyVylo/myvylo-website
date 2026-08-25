@@ -401,7 +401,7 @@ import FeatureDemo from '../components/FeatureDemo.astro';
     <div class="glass rounded-2xl card-glow p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       <div>
         <h2 class="text-3xl sm:text-4xl font-bold gradient-text mb-4">Bank-grade security <span class="title-accent">you can trust.</span></h2>
-        <p class="text-white/75 leading-relaxed mb-6">Vylo connects through Plaid, the same infrastructure used by Venmo and Robinhood. Vylo receives read-only transaction data. Your banking credentials never touch our servers.</p>
+        <p class="text-white/75 leading-relaxed mb-6">Vylo connects through Plaid and Finicity, a Mastercard company. Vylo receives read-only transaction data. Your banking credentials never touch our servers.</p>
         <a href="https://app.myvylo.com/signup"
            class="button-shimmer inline-flex items-center gap-2 px-5 py-2.5
                   text-white text-sm font-semibold rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25"
@@ -413,8 +413,8 @@ import FeatureDemo from '../components/FeatureDemo.astro';
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.5 2.5 5.8 6 7 3.5-1.2 6-3.5 6-7V4L8 1z" stroke="#818cf8" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
-          <h4 class="text-sm font-semibold text-white mb-1">Powered by Plaid</h4>
-          <p class="text-xs text-white/70 leading-relaxed">The same trusted infrastructure used by Venmo, Robinhood, and thousands of financial apps.</p>
+          <h4 class="text-sm font-semibold text-white mb-1">Plaid + Finicity</h4>
+          <p class="text-xs text-white/70 leading-relaxed">Secure connections through trusted financial data providers. Finicity is a Mastercard company.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="2" y="7" width="12" height="8" rx="1.5" stroke="#34d399" stroke-width="1.3"/><path d="M5 7V5a3 3 0 016 0v2" stroke="#34d399" stroke-width="1.3" stroke-linecap="round"/></svg></div>
@@ -424,7 +424,7 @@ import FeatureDemo from '../components/FeatureDemo.astro';
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 2a3 3 0 100 6 3 3 0 000-6zM2 13s1-3 6-3 6 3 6 3" stroke="#fbbf24" stroke-width="1.3" stroke-linecap="round"/></svg></div>
           <h4 class="text-sm font-semibold text-white mb-1">No stored credentials</h4>
-          <p class="text-xs text-white/70 leading-relaxed">We never see your banking username or password. Plaid handles all authentication securely.</p>
+          <p class="text-xs text-white/70 leading-relaxed">We never see your banking username or password. Authentication is handled securely by Plaid and by Finicity, a Mastercard company.</p>
         </div>
         <div class="p-4 rounded-xl bg-white/[0.04] border border-white/[0.06]">
           <div class="w-9 h-9 rounded-lg bg-rose-500/20 flex items-center justify-center mb-3"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="#f87171" stroke-width="1.3"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#f87171" stroke-width="1.3"/><path d="M6 8l1.5 1.5L10 7" stroke="#f87171" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -450,10 +450,10 @@ import FeatureDemo from '../components/FeatureDemo.astro';
       {[
         { q: 'What is Vylo?', a: "Vylo is a household money app that connects to your bank accounts, categorizes transactions automatically, tracks budgets, and gives everyone in the household one shared view." },
         { q: 'How does automatic categorization work?', a: "When a transaction arrives, Vylo uses the merchant details and your category rules to place it in the right budget category. You can correct a category, create custom categories, or bulk-reassign transactions anytime." },
-        { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid to connect to your bank — the same technology behind Venmo and Robinhood. Vylo receives read-only transaction data. We never see your login credentials, and we can't move money." },
+        { q: 'Is my bank data secure?', a: "Yes. Vylo uses Plaid and Finicity, a Mastercard company, to connect to your bank. Vylo receives read-only transaction data. We never see your login credentials, and we can't move money." },
         { q: 'How do I add household members?', a: "From settings, invite anyone by email. Once they accept and connect their accounts, your household gets a combined view of all spending and shared budget tracking." },
         { q: 'What does Vylo cost?', a: "Your first month is $2. After that, Vylo is $7/month for the whole household. Every current feature is included, and future features are included too. No annual plans, no tiers." },
-        { q: 'Which banks are supported?', a: "Vylo supports over 12,000 banks and credit unions through Plaid — Chase, Bank of America, Wells Fargo, Citi, Capital One, and most others." },
+        { q: 'Which banks are supported?', a: "Vylo supports thousands of banks and credit unions through Plaid and Finicity, a Mastercard company — including Chase, Bank of America, Wells Fargo, Citi, Capital One, and most others." },
       ].map(({ q, a }) => (
         <div class="glass rounded-xl overflow-hidden border border-white/[0.06]">
           <button class="faq-btn w-full text-left px-5 py-4 flex items-center justify-between gap-4">
