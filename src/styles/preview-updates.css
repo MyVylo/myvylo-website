@@ -1,0 +1,56 @@
+.main-nav [aria-current="page"] { color: var(--purple); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+.updates-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; padding-block: 74px 63px; border-bottom: 1px solid var(--rule); }
+.updates-intro h1 { font-size: clamp(3.5rem, 7vw, 6.4rem); font-weight: 750; line-height: 1.04; letter-spacing: -.065em; }
+.updates-intro h1 em { font-family: 'Lora', Georgia, serif; color: var(--purple); font-weight: 500; }
+.updates-intro > div { padding-bottom: 8px; }
+.updates-intro p { font-size: 19px; color: var(--muted); }
+.updates-sections { display: flex; gap: 30px; margin-top: 26px; }
+.updates-sections a { font-weight: 650; font-size: 15px; }
+.shipped-section { padding-block: 57px 76px; }
+.shipped-section > h2 { font-size: 32px; font-weight: 650; letter-spacing: -.045em; margin-bottom: 35px; }
+.shipped-month { display: grid; grid-template-columns: 240px 1fr; gap: 65px; padding-block: 38px; border-top: 1px solid var(--rule); }
+.shipped-month > h3 { display: flex; flex-direction: column; align-items: flex-start; font-size: 25px; font-weight: 600; letter-spacing: -.04em; line-height: 1.3; }
+.shipped-month > h3 > span:last-child { font-size: 15px; font-weight: 450; color: var(--muted); letter-spacing: 0; margin-top: 7px; }
+.shipped-month.latest-release { border-top: 2px solid var(--purple); }
+.latest-release > h3 > span:first-child { color: var(--purple); }
+.shipped-items { max-width: 690px; }
+.shipped-items article + article { margin-top: 30px; }
+.shipped-items h4 { margin: 0 0 9px; font-size: 22px; font-weight: 650; letter-spacing: -.035em; line-height: 1.35; }
+.shipped-items p { color: var(--muted); font-size: 17px; line-height: 1.75; }
+.shipped-items a { color: var(--purple); }
+.latest-release .shipped-items h4 { font-size: 30px; }
+.coming-section { padding-block: 65px 72px; background: var(--lilac); border-block: 1px solid #d4ccdf; }
+.coming-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 45px; }
+.coming-heading h2 { font-family: 'Lora', Georgia, serif; font-size: 44px; letter-spacing: -.05em; font-style: italic; font-weight: 500; color: var(--purple); line-height: 1.2; margin-bottom: 15px; }
+.coming-heading p { color: var(--muted); font-size: 17px; }
+.coming-heading > a { white-space: nowrap; margin-bottom: 4px; }
+.coming-items { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 65px; }
+.coming-items article { border-top: 1px solid #c6bed2; padding-top: 24px; }
+.coming-items h3 { font-size: 21px; font-weight: 650; letter-spacing: -.035em; margin-bottom: 9px; }
+.coming-items p { font-size: 16px; line-height: 1.75; color: #5d5768; max-width: 480px; }
+.updates-return { padding-block: 36px; text-align: right; }
+@media (max-width: 950px) {
+  .updates-intro { gap: 30px; }
+  .updates-intro p { font-size: 16px; }
+  .shipped-month { grid-template-columns: 170px minmax(0, 1fr); gap: 35px; }
+  .coming-items { column-gap: 35px; }
+}
+@media (max-width: 700px) {
+  .updates-intro { display: block; padding-block: 44px 38px; }
+  .updates-intro h1 { font-size: 60px; }
+  .updates-intro > div { margin-top: 25px; padding: 0; }
+  .updates-sections { gap: 25px; margin-top: 20px; }
+  .shipped-section { padding-block: 34px 40px; }
+  .shipped-section > h2 { font-size: 28px; margin-bottom: 25px; }
+  .shipped-month { display: block; padding-block: 26px; }
+  .shipped-month > h3 { flex-direction: row; align-items: baseline; gap: 9px; font-size: 19px; margin-bottom: 20px; }
+  .shipped-month > h3 > span:last-child { margin: 0; font-size: 14px; }
+  .shipped-items h4 { font-size: 21px; }
+  .latest-release .shipped-items h4 { font-size: 27px; }
+  .shipped-items p { font-size: 16px; }
+  .coming-section { padding-block: 40px 45px; }
+  .coming-heading { display: block; margin-bottom: 30px; }
+  .coming-heading h2 { font-size: 37px; }
+  .coming-heading > a { display: inline-block; margin-top: 18px; }
+  .coming-items { grid-template-columns: 1fr; gap: 26px; }
+}

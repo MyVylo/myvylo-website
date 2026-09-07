@@ -1,0 +1,18 @@
+---
+import FounderFeatureDemo from './FounderFeatureDemo.astro';
+import '../styles/feature-walkthroughs.css';
+import type { featureWalkthroughs } from '../data/feature-walkthroughs';
+interface Props { view: (typeof featureWalkthroughs)[number]; }
+const { view } = Astro.props;
+---
+<div class="feature-walkthrough" data-walkthrough={view.id}>
+  <div class="walkthrough-chapters" role="group" aria-label={`${view.name} chapters`}>
+    {view.chapters.map((chapter, index) => <button type="button" data-chapter-select={index} aria-current={index === 0 ? 'step' : undefined} aria-controls={`chapter-${chapter.scene}`}><span>{chapter.label}</span></button>)}
+  </div>
+  <div class="walkthrough-track" data-walkthrough-track tabindex="0" role="region" aria-roledescription="carousel" aria-label={`${view.name} walkthrough`}>
+    {view.chapters.map((chapter, index) => <article id={`chapter-${chapter.scene}`} class="walkthrough-slide" data-chapter={index} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${view.chapters.length}: ${chapter.label}`}>
+      <div class="walkthrough-copy"><h3>{chapter.title}</h3><p>{chapter.copy}</p></div>
+      <FounderFeatureDemo scene={chapter.scene} />
+    </article>)}
+  </div>
+</div>

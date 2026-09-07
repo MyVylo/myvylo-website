@@ -1,0 +1,84 @@
+---
+import '../styles/clutter-comparison.css';
+const accounts = [
+  { name: 'Checking', detail: 'Alex · 4242', value: '$4,280', letter: 'C' },
+  { name: 'Savings', detail: 'Alex · 9018', value: '$8,500', letter: 'S' },
+  { name: 'Credit card', detail: 'Sam · 8106', value: '−$860', letter: 'V' },
+];
+const purchases = [
+  { merchant: 'Whole Foods', date: 'Sep 7', value: '−$67.43', category: 'Groceries', color: 'green' },
+  { merchant: 'Uber', date: 'Sep 6', value: '−$14.20', category: 'Transport', color: 'blue' },
+  { merchant: 'Netflix', date: 'Sep 5', value: '−$15.99', category: 'Subscriptions', color: 'purple' },
+];
+const budgets = [
+  { category: 'Groceries', budget: '$600', spent: '$480', percent: 80 },
+  { category: 'Dining out', budget: '$300', spent: '$210', percent: 70 },
+  { category: 'Transport', budget: '$250', spent: '$150', percent: 60 },
+  { category: 'Other', budget: '$1,850', spent: '$1,000', percent: 54 },
+];
+---
+
+<div class="clutter-comparison" data-comparison data-view="with">
+  <div class="comparison-toolbar">
+    <div class="comparison-controls" role="group" aria-label="Compare before and with Vylo">
+      <button type="button" data-comparison-view="before" aria-pressed="false" aria-controls="comparison-scene">Before</button>
+      <button type="button" data-comparison-view="with" aria-pressed="true" aria-controls="comparison-scene">With Vylo</button>
+    </div>
+  </div>
+
+  <div id="comparison-scene" class="comparison-scene" role="img" aria-label="With Vylo: the same accounts, transactions, and budget are organized into one household overview.">
+    <div class="comparison-visual" aria-hidden="true">
+      <div class="unified-window">
+        <div class="unified-header"><span class="unified-wordmark">vylo<span>.</span></span><span class="unified-title">Household overview</span><span class="unified-month">September 2026</span></div>
+        <div class="unified-totals"><div><span>Income</span><strong>$6,500</strong></div><div><span>Spent this month</span><strong>$1,840</strong></div><div><span>Left in the budget</span><strong>$1,160</strong></div></div>
+      </div>
+
+      <div class="comparison-window accounts-window">
+        <div class="scattered-title"><span class="tiny-window-dots">● ● ●</span><span>Banking · Alex</span></div>
+        <h3><span class="before-content">Account balances</span><span class="with-content">Accounts</span><span class="window-count with-content">3 connected</span></h3>
+        <div class="comparison-account-list">{accounts.map((account, index) => <div class:list={['comparison-account', { 'third-account': index === 2 }]}><span class="account-symbol">{account.letter}</span><div><strong>{account.name}</strong><span>{account.detail}</span></div><strong>{account.value}</strong></div>)}</div>
+        <p class="account-sharing with-content"><span class="small-member">A</span><span class="small-member sam-member">S</span> Alex & Sam’s household</p>
+      </div>
+
+      <div class="comparison-window transactions-window">
+        <div class="scattered-title"><span class="tiny-window-dots">● ● ●</span><span>Credit card · Sam</span></div>
+        <h3><span class="before-content">Card activity</span><span class="with-content">Recent transactions</span></h3>
+        <p class="card-amount-due before-content">Current balance <strong>$860.00</strong></p>
+        <div class="comparison-purchases">{purchases.map(purchase => <div class="comparison-purchase"><div><strong>{purchase.merchant}</strong><span class="purchase-date before-content">{purchase.date}</span><span class={`purchase-category with-content ${purchase.color}`}>{purchase.category}</span></div><strong>{purchase.value}</strong></div>)}</div>
+        <p class="transactions-organized with-content"><span>✓</span> Categorized as they arrive</p>
+      </div>
+
+      <div class="comparison-window budget-window">
+        <div class="scattered-title"><span class="sheet-app-icon">▦</span><span>household_budget_final_v3.xlsx</span><span>×</span></div>
+        <h3><span class="before-content">September budget</span><span class="with-content">Budget progress</span><span class="budget-health with-content">On track</span></h3>
+        <div class="spreadsheet-toolbar before-content"><span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>fx</span></div>
+        <div class="comparison-budget-list"><div class="spreadsheet-column-heads before-content"><span></span><span>A</span><span>B</span><span>C</span></div>{budgets.map((budget, index) => <div class="comparison-budget-row"><span class="spreadsheet-row-number before-content">{index + 1}</span><strong>{budget.category}</strong><span class="budget-limit before-content">{budget.budget}</span><span class="budget-spent">{budget.spent}<span class="with-content"> / {budget.budget}</span></span><div class="comparison-budget-track with-content"><span style={`width:${budget.percent}%`}></span></div></div>)}</div>
+        <p class="spreadsheet-question before-content">Does this include Sam’s card?</p>
+      </div>
+
+      <div class="clutter-extra message-window"><div class="message-header"><span class="message-avatar">S</span><strong>Sam</strong><span>Messages</span></div><div class="message-bubble">What was that $67.43 charge?</div><div class="message-bubble message-response">Which account?</div><span class="message-time">Delivered</span></div>
+      <div class="clutter-extra reminder-window"><span class="reminder-mark">1</span><div><strong>Budget reminder</strong><p>Update the spreadsheet.</p><span>Again.</span></div></div>
+      <div class="clutter-extra browser-tabs"><span>Checking</span><span>Credit card</span><span>Budget.xlsx</span><span>+3</span></div>
+    </div>
+  </div>
+
+  <noscript><style>.comparison-controls { display:none; }</style><p class="comparison-no-script">Separate bank tabs, a spreadsheet, and messages become one shared household view in Vylo.</p></noscript>
+</div>
+
+<script>
+  const comparison = document.querySelector<HTMLElement>('[data-comparison]');
+  if (comparison) {
+    const viewButtons = Array.from(comparison.querySelectorAll<HTMLButtonElement>('[data-comparison-view]'));
+    const scene = comparison.querySelector<HTMLElement>('.comparison-scene')!;
+    const setView = (view: 'before' | 'with') => {
+      const isClear = view === 'with';
+      comparison.dataset.view = view;
+      viewButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.comparisonView === view)));
+      scene.setAttribute('aria-label', isClear
+        ? 'With Vylo: the same accounts, transactions, and budget are organized into one household overview.'
+        : 'Before Vylo: separate bank and credit card windows overlap a household spreadsheet, a budget reminder, and unanswered messages.');
+    };
+    viewButtons.forEach(button => button.addEventListener('click', () => setView(button.dataset.comparisonView as 'before' | 'with')));
+    setView('before');
+  }
+</script>
