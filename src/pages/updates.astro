@@ -1,234 +1,71 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-const shipped = [
-  {
-    date: 'April 2026',
-    tag: 'Beta',
-    tagColor: 'amber',
-    title: 'iPhone App Beta',
-    description: 'The iPhone app is now in beta. Want to participate? Email hi@myvylo.com. Full launch is planned for May 7, 2026.',
-  },
-  {
-    date: 'April 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Projected Spend',
-    description: 'See where the month is headed before it ends. Vylo projects your month-end spend, shows what is left to spend, and flags the categories starting to drift while there is still time to adjust.',
-  },
-  {
-    date: 'March 2026',
-    tag: 'Improvement',
-    tagColor: 'emerald',
-    title: 'AI Expense Categorization',
-    description: 'We upgraded Vylo\'s transaction classification engine and raised categorization accuracy from roughly 75% to 90%+, which means fewer manual fixes and more reliable automatic sorting across your expenses.',
-  },
-  {
-    date: 'March 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Net Worth Tracking',
-    description: 'Connect your accounts and add assets Plaid can\'t see — property, vehicles, investments. Vylo calculates your household net worth automatically, tracks how it changes over time, and breaks it down across every asset and liability.',
-  },
-  {
-    date: 'March 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Manual Transactions & Income',
-    description: 'Add expenses or income that aren\'t linked to a bank account — cash purchases, e-transfers, side income, anything Plaid doesn\'t capture. Keeps your full financial picture in one place.',
-  },
-  {
-    date: 'March 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Automated Income Tracking',
-    description: 'Vylo automatically detects and tracks incoming deposits — paycheques, transfers, side income — so you always have a clear picture of money in as well as money out.',
-  },
-  {
-    date: 'March 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Categories Manager',
-    description: 'Fully customize your category list — rename, merge, create new ones. The categorization engine learns your preferences automatically.',
-  },
-  {
-    date: 'February 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Household Members',
-    description: 'Invite your partner or housemates by email. Everyone gets their own login and a shared view of all transactions and budgets.',
-  },
-  {
-    date: 'February 2026',
-    tag: 'Improvement',
-    tagColor: 'emerald',
-    title: 'Budget Tracking',
-    description: 'Set monthly limits per category and track spend against your goals in real time. Over-budget categories are flagged immediately.',
-  },
-  {
-    date: 'January 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Spend Trends',
-    description: 'Week-over-week and month-over-month charts so you can spot patterns and see exactly where your money is going over time.',
-  },
-  {
-    date: 'January 2026',
-    tag: 'Feature',
-    tagColor: 'indigo',
-    title: 'Auto-Categorization Engine',
-    description: 'Every transaction categorized the moment it lands — no manual tagging required. Powered by merchant name intelligence.',
-  },
-  {
-    date: 'December 2025',
-    tag: 'Launch',
-    tagColor: 'violet',
-    title: 'Vylo is live',
-    description: 'Connect your bank via Plaid and get a complete, real-time picture of your household finances. Read-only, secure, zero manual entry.',
-  },
-];
-
-const coming = [
-  {
-    tag: 'AI',
-    tagColor: 'cyan',
-    title: 'AI spending insights',
-    description: 'Plain-English summaries of your household\'s spending delivered weekly. "You spent 34% more on dining this month — mostly weekend evenings." No dashboard required.',
-  },
-  {
-    tag: 'AI',
-    tagColor: 'cyan',
-    title: 'AI budget recommendations',
-    description: 'Based on your actual spending history, Vylo will suggest realistic budget limits for each category — not generic rules of thumb, but numbers calibrated to how your household actually lives.',
-  },
-  {
-    tag: 'AI',
-    tagColor: 'cyan',
-    title: 'Anomaly detection',
-    description: 'Vylo flags transactions that look unusual — a charge 4x your normal grocery bill, a subscription you forgot about, a duplicate payment. Catch problems before they compound.',
-  },
-  {
-    tag: 'AI',
-    tagColor: 'cyan',
-    title: 'Predictive spend forecasting',
-    description: 'See where you\'ll end the month before you get there. Vylo projects your closing balance and category totals based on current-month pace and recurring patterns.',
-  },
-  {
-    tag: 'AI',
-    tagColor: 'cyan',
-    title: 'Ask Vylo anything',
-    description: 'A natural language interface for your finances. "How much did we spend eating out in January?" "Which month was our highest grocery spend?" Just ask.',
-  },
-];
-
-const tagStyles: Record<string, string> = {
-  indigo:  'bg-indigo-500/15 text-indigo-300 border-indigo-500/20',
-  emerald: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/20',
-  violet:  'bg-violet-500/15 text-violet-300 border-violet-500/20',
-  amber:   'bg-amber-500/15 text-amber-300 border-amber-500/20',
-  cyan:    'bg-cyan-500/15 text-cyan-300 border-cyan-500/20',
-};
+import '../styles/founder-preview.css';
+import '../styles/preview-updates.css';
+import { releases, comingSoon } from '../data/preview-updates';
+const signup = 'https://app.myvylo.com/signup';
 ---
-
-<Layout
-  title="Updates – Vylo"
-  description="What's new and what's coming to Vylo — recently shipped features and the roadmap ahead."
-  currentPage="updates"
->
-
-<div class="pt-28 pb-20 px-4 sm:px-6">
-  <div class="max-w-2xl mx-auto">
-
-    <!-- Header -->
-    <div class="mb-10">
-      <p class="text-indigo-400 text-xs uppercase tracking-widest font-semibold mb-3">Changelog</p>
-      <h1 class="text-3xl sm:text-4xl font-bold text-white mb-3">Updates</h1>
-      <p class="text-white/50 leading-relaxed">What we've shipped and what's on the way.</p>
-    </div>
-
-    <!-- Tabs -->
-    <div class="flex gap-1 p-1 glass rounded-xl mb-8 w-fit">
-      <button id="tab-shipped" onclick="switchTab('shipped')"
-              class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all bg-indigo-500 text-white">
-        Recently Added
-      </button>
-      <button id="tab-coming" onclick="switchTab('coming')"
-              class="tab-btn px-4 py-2 rounded-lg text-sm font-medium transition-all text-white/55 hover:text-white">
-        Coming Soon
-      </button>
-    </div>
-
-    <!-- Recently Added -->
-    <div id="panel-shipped" class="tab-panel active">
-      <div class="relative">
-        <!-- Timeline line -->
-        <div class="absolute left-[7px] top-2 bottom-2 w-px bg-white/[0.08]"></div>
-
-        <div class="space-y-8">
-          {shipped.map(item => (
-            <div class="relative pl-8">
-              <!-- Dot -->
-              <div class="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-mirage ring-2 ring-indigo-500/20"></div>
-
-              <div class="glass rounded-xl p-5 card-glow">
-                <div class="flex flex-wrap items-center gap-2 mb-2">
-                  <span class={`px-2 py-0.5 rounded-full text-xs font-medium border ${tagStyles[item.tagColor]}`}>
-                    {item.tag}
-                  </span>
-                  <span class="text-xs text-white/30">{item.date}</span>
-                </div>
-                <h3 class="text-base font-semibold text-white mb-1.5">{item.title}</h3>
-                <p class="text-sm text-white/50 leading-relaxed">{item.description}</p>
-              </div>
-            </div>
-          ))}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="description" content="What’s shipped in Vylo and what’s coming next." />
+    <link rel="canonical" href="https://www.myvylo.com/updates/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260309" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=20260309" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png?v=20260309" />
+    <link rel="shortcut icon" href="/icons/favicon.ico?v=20260309" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.myvylo.com/updates/" />
+    <meta property="og:title" content="What’s new — Vylo" />
+    <meta property="og:description" content="What’s shipped in Vylo and what’s coming next." />
+    <meta property="og:image" content="https://www.myvylo.com/icons/icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="What’s new — Vylo" />
+    <meta name="twitter:description" content="What’s shipped in Vylo and what’s coming next." />
+    <meta name="twitter:image" content="https://www.myvylo.com/icons/icon-512.png" />
+    <title>What’s new — Vylo</title>
+  </head>
+  <body class="founder-preview">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead page-width">
+      <a href="/" class="wordmark" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" /></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#the-story">Why Vylo</a>
+        <a href="/#inside-vylo">Features</a>
+        <a href="/#security">Security</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/updates/" aria-current="page">Updates</a>
+      </nav>
+      <div class="nav-actions"><a class="signin" href="https://app.myvylo.com/signin">Sign in</a><a class="button button-small" href={signup}>Try Vylo</a></div>
+    </header>
+    <main id="main" class="preview-updates">
+      <header class="updates-intro page-width">
+        <h1>What’s new<br /><em>in Vylo.</em></h1>
+        <div><p>Recent releases and what’s next.</p><nav class="updates-sections" aria-label="Product updates"><a href="#shipped">Shipped</a><a href="#coming-soon">Coming soon</a></nav></div>
+      </header>
+      <section class="shipped-section page-width" id="shipped" aria-labelledby="shipped-title">
+        <h2 id="shipped-title">Shipped</h2>
+        <div class="shipped-months">
+          {releases.map((release, index) => <section class:list={['shipped-month', {'latest-release': index === 0}]} aria-labelledby={`month-${index}`}>
+            <h3 id={`month-${index}`}><span>{release.month.split(' ')[0]}</span><span>{release.month.split(' ')[1]}</span></h3>
+            <div class="shipped-items">{release.items.map(item => <article><h4>{item.title}</h4>{item.email ? <p>Email <a href="mailto:hi@myvylo.com">hi@myvylo.com</a> to ask about joining the iPhone beta.</p> : <p>{item.description}</p>}</article>)}</div>
+          </section>)}
         </div>
-      </div>
-    </div>
-
-    <!-- Coming Soon -->
-    <div id="panel-coming" class="tab-panel">
-      <div class="space-y-4">
-        {coming.map(item => (
-          <div class="glass rounded-xl p-5 card-glow">
-            <div class="flex flex-wrap items-center gap-2 mb-2">
-              <span class={`px-2 py-0.5 rounded-full text-xs font-medium border ${tagStyles[item.tagColor]}`}>
-                {item.tag}
-              </span>
-            </div>
-            <h3 class="text-base font-semibold text-white mb-1.5">{item.title}</h3>
-            <p class="text-sm text-white/50 leading-relaxed">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function switchTab(tab: string) {
-    const tabs   = ['shipped', 'coming'];
-    const active = 'bg-indigo-500 text-white';
-    const inactive = 'text-white/55 hover:text-white';
-
-    tabs.forEach(t => {
-      const btn   = document.getElementById(`tab-${t}`)!;
-      const panel = document.getElementById(`panel-${t}`)!;
-      const isActive = t === tab;
-
-      panel.classList.toggle('active', isActive);
-      btn.classList.toggle('bg-indigo-500', isActive);
-      btn.classList.toggle('text-white', isActive);
-      btn.classList.toggle('text-white/55', !isActive);
-    });
-  }
-
-  (window as any).switchTab = switchTab;
-
-  if (window.location.hash === '#coming-soon') {
-    switchTab('coming');
-  }
-</script>
-
-</Layout>
+      </section>
+      <section class="coming-section" id="coming-soon" aria-labelledby="coming-title">
+        <div class="page-width"><div class="coming-heading"><div><h2 id="coming-title">Coming soon</h2></div><a class="text-link" href="mailto:hi@myvylo.com?subject=Vylo%20product%20feedback">Share an idea</a></div>
+        <div class="coming-items">{comingSoon.map(item => <article><h3>{item.title}</h3><p>{item.description}</p></article>)}</div></div>
+      </section>
+      <div class="updates-return page-width"><a class="text-link" href="/#inside-vylo">Explore Vylo</a></div>
+    </main>
+    <footer class="site-end page-width">
+      <div class="footer-top"><div><a href="/" class="footer-brand">vylo.</a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="/#the-story">The founder’s letter</a><a href="/#inside-vylo">Features</a><a href="/#pricing">Pricing</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="/#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-bottom"><span>© 2026 Vylo</span></div>
+    </footer>
+  </body>
+</html>

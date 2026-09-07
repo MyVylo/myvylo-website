@@ -1,0 +1,77 @@
+---
+interface Props { scene: string; }
+const { scene } = Astro.props;
+const suggestedBudgets = [['Groceries', '$580', '$600'], ['Dining out', '$340', '$350'], ['Transport', '$240', '$250'], ['Everything else', '$1,780', '$1,850']];
+---
+
+{scene === 'categorize' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Recent transactions</h3><span class="walk-date">September</span></div>
+  <div class="walk-transaction"><div class="walk-merchant"><span class="walk-icon">W</span><div><strong>Whole Foods</strong><small>Checking · Alex</small></div></div><strong>−$42.00</strong><span class="walk-chip green" data-in="900">Groceries</span></div>
+  <div class="walk-transaction" data-in="1400"><div class="walk-merchant"><span class="walk-icon">P</span><div><strong>Poulet Rouge</strong><small>Credit card · Sam</small></div></div><strong>−$27.17</strong><span class="walk-chip purple" data-in="5200">Dining out</span></div>
+  <div class="walk-consent" data-in="2200"><div class="walk-consent-heading"><strong>AI categorization</strong><span class="walk-consent-state"><span data-in="2200" data-out="4500">Off</span><span data-in="4500">On</span></span></div><p>Help with unfamiliar merchants.</p><div class="walk-consent-action" data-in="2200" data-out="4500">Enable AI categorization</div><p class="walk-positive" data-in="5200">✓ Poulet Rouge added to Dining out</p></div>
+  <div class="walk-review-banner" data-in="7100"><span class="walk-icon amber">?</span><div><strong>1 transaction to review</strong><small>Choose a category in Review.</small></div></div>
+</div>}
+
+{scene === 'review' && <div class="walk-scene walk-review-scene">
+  <div class="demo-section-title"><h3>Let’s review</h3><span class="walk-date"><span data-text='["3 to review","3 to review","3 to review","2 to review"]'>2 to review</span></span></div>
+  <div class="walk-review-stack"><div class="walk-review-card" data-in="0" data-out="6600"><span class="walk-chip amber">Uncategorized</span><h4>Poulet Rouge</h4><strong class="walk-big-amount">$27.17</strong><p>September 6 · Sam’s credit card</p><div class="walk-category-picker"><span>Choose a category</span><div><span>Groceries</span><span class="walk-choice-highlight">Dining out <i data-in="2600">✓</i></span><span>Transport</span></div></div><div class="walk-save-bar" data-in="4300">Confirm category</div></div><div class="walk-review-card" data-in="6600"><span class="walk-chip amber">Uncategorized</span><h4>City Parking</h4><strong class="walk-big-amount">$8.00</strong><p>September 5 · Alex’s checking</p><div class="walk-category-picker"><span>Choose a category</span><div><span>Transport</span><span>Shopping</span><span>Other</span></div></div><div class="walk-review-complete">✓ Previous transaction reviewed</div></div></div>
+</div>}
+
+{scene === 'remember' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Transaction details</h3><span class="walk-date">September 6</span></div>
+  <div class="walk-detail-card"><div class="walk-merchant"><span class="walk-icon">C</span><div><strong>Corner Café</strong><small>Sam’s credit card</small></div><strong class="walk-detail-amount">−$12.50</strong></div><div class="walk-detail-row"><span>Category</span><span class="walk-chip purple" data-in="1100">Dining out</span></div><div class="walk-remember" data-in="2500"><span class="walk-checked">✓</span><div><strong>Remember merchant</strong><small>Use this category for future purchases here.</small></div></div><div class="walk-save-bar" data-in="4400">✓ Category saved</div></div>
+  <div class="walk-next-purchase" data-in="6600"><span class="walk-date">The next visit</span><div class="walk-transaction"><div class="walk-merchant"><span class="walk-icon">C</span><div><strong>Corner Café</strong><small>Remembered merchant</small></div></div><strong>−$8.75</strong><span class="walk-chip purple">Dining out</span></div><p class="walk-positive">No correction needed.</p></div>
+</div>}
+
+{scene === 'categories' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Your categories</h3><span class="walk-date">Edit anytime</span></div>
+  <div class="walk-category-list"><div><span class="walk-icon green">G</span><strong>Groceries</strong><span>$522</span></div><div class="walk-renamed"><span class="walk-icon purple">☕</span><strong data-text='["Dining out","Eating out","Eating out","Eating out"]'>Eating out</strong><span class="walk-chip purple" data-in="2200">Renamed</span></div><div class="walk-created" data-in="4100"><span class="walk-icon blue">P</span><strong>Pottery</strong><span class="walk-chip blue">New category</span></div></div>
+  <div class="walk-custom-purchase" data-in="5800"><span class="walk-date">New transaction</span><div class="walk-transaction"><div><strong>Clay Studio</strong><small>Workshop · $65.00</small></div><span class="walk-chip blue">Pottery</span></div><div class="walk-remember"><span class="walk-checked">✓</span><strong>Remember merchant</strong></div></div>
+  <p class="walk-positive walk-bottom-note" data-in="7900">✓ Next visit to Clay Studio: Pottery</p>
+</div>}
+
+{scene === 'reports' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Monthly report</h3><span class="walk-date">August 2026</span></div>
+  <div class="walk-report-summary"><div><span>Spent this month</span><strong>$2,820</strong></div><span class="walk-chip green" data-in="2200">$300 less than July</span></div>
+  <div class="walk-report-bars"><div><span>July</span><div><i style="--fill:94%"></i></div><strong>$3,120</strong></div><div><span>August</span><div><i style="--fill:85%" data-bar="0,85,1600,1600"></i></div><strong>$2,820</strong></div></div>
+  <div class="walk-report-changes" data-in="4400"><h4>What changed</h4><div><span>Dining out</span><strong class="walk-positive">−$100</strong></div><div><span>Transport</span><strong class="walk-caution">+$40</strong></div><div><span>Other categories</span><strong>−$240</strong></div></div>
+  <div class="walk-report-finding" data-in="6800"><strong>6 of 8 categories within budget</strong><p>Up from 4 in July. Dining out fell $100; transport rose $40.</p></div>
+</div>}
+
+{scene === 'budget-build' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Auto-build your budget</h3><span class="walk-chip purple">From spending</span></div>
+  <p class="walk-explainer">Based on recent spending.</p>
+  <div class="walk-budget-table"><div class="walk-table-head"><span>Category</span><span>Avg / month</span><span>Budget</span></div>{suggestedBudgets.map(([name, average, amount], i) => <div class="walk-budget-suggestion" data-in={700 + i * 450}><strong>{name}</strong><span>{average}</span><span class:list={['walk-budget-input', {'walk-budget-adjust':i===1}]}>{i===1 ? <span data-text='["$350","$350","$300","$300"]'>$300</span> : amount}</span></div>)}</div>
+  <div class="walk-budget-total"><span>Monthly budget</span><strong data-number="3050,3000,4400,700">$3,000</strong></div>
+  <div class="walk-save-bar" data-in="2600" data-out="7100"><span data-text='["Review amounts","Review amounts","Apply budget","Apply budget"]'>Apply budget</span></div>
+  <div class="walk-report-finding" data-in="7100"><strong>✓ Your budget is ready</strong><p>New purchases will count toward these amounts.</p></div>
+</div>}
+
+{scene === 'budget-trends' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Budget trends</h3><span class="walk-date">June – August</span></div>
+  <div class="walk-trend-chart"><div class="walk-budget-line"><span>$3,000 budget</span></div><div class="walk-chart-columns">{[['June',2950],['July',3120],['August',2820]].map(([month,amount],i)=><div><strong data-in={900+i*650}>${Number(amount).toLocaleString('en-US')}</strong><div><i style={`--fill:${Number(amount)/36}%`} data-bar={`0,${Number(amount)/36},${450+i*650},1100`}></i></div><span>{month}</span></div>)}</div></div>
+  <div class="walk-trend-insights" data-in="4400"><div><span>Dining out</span><strong class="walk-positive">−$100</strong><small>Less than July</small></div><div><span>Transport</span><strong class="walk-caution">+$40</strong><small>More than July</small></div></div>
+  <div class="walk-habit-progress" data-in="6900"><strong>Categories within budget</strong><div><span>July</span><span class="walk-habit-dots">● ● ● ● <i>● ● ● ●</i></span><span>4 / 8</span></div><div><span>August</span><span class="walk-habit-dots">● ● ● ● ● ● <i>● ●</i></span><span>6 / 8</span></div></div>
+</div>}
+
+{scene === 'invite' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Your household</h3><span class="walk-date">Members</span></div>
+  <div class="walk-member-row"><span class="walk-avatar">A</span><div><strong>Alex</strong><small>Household owner</small></div><span class="walk-chip green">Active</span></div>
+  <div class="walk-invite-form" data-in="1800"><h4>Invite a household member</h4><span class="walk-field-label">Email address</span><div class="walk-input">sam@example.com</div><div class="walk-save-bar" data-in="2500" data-out="4900">Send invitation</div><p class="walk-positive" data-in="4900">✓ Invitation sent</p></div>
+  <div class="walk-member-row" data-in="7000"><span class="walk-avatar sam">S</span><div><strong>Sam</strong><small>Member</small></div><span class="walk-chip green">Joined</span></div>
+</div>}
+
+{scene === 'shared' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Groceries</h3><span class="walk-date">Whole household</span></div>
+  <div class="walk-shared-total"><span>Household spending</span><strong data-number="42,109.43,4300,1000" data-decimals="2">$109.43</strong><small>of $600 budgeted</small></div><div class="category-track"><span style="--fill:18.24%" data-bar="7,18.24,4300,1000"></span></div>
+  <div class="walk-shared-purchase" data-in="600"><span class="walk-avatar">A</span><div><strong>Alex · Whole Foods</strong><small>Checking account</small></div><strong>$42.00</strong></div><div class="walk-shared-purchase" data-in="3000"><span class="walk-avatar sam">S</span><div><strong>Sam · Groceries</strong><small>Credit card</small></div><strong>$67.43</strong></div>
+  <div class="walk-shared-confirm" data-in="6500"><span>Alex’s view <strong>$109.43</strong></span><span class="walk-equal">=</span><span>Sam’s view <strong>$109.43</strong></span></div>
+</div>}
+
+{scene === 'worth-history' && <div class="walk-scene">
+  <div class="demo-section-title"><h3>Net worth trends</h3><span class="walk-date">June – August</span></div>
+  <div class="walk-report-summary"><div><span>Household net worth</span><strong data-number="115800,120800,1400,2300">$120,800</strong></div><span class="walk-chip green" data-in="3700">+$5,000</span></div>
+  <div class="walk-worth-chart"><svg viewBox="0 0 520 155" role="presentation"><path d="M15 25 H505 M15 75 H505 M15 125 H505" stroke="#354055" stroke-width="1" fill="none"/><path d="M20 127 C110 127 145 91 260 83 S385 40 500 24" stroke="#b2a0ed" stroke-width="4" fill="none" pathLength="100" class="walk-drawn-line" data-draw="100,1400,2300"/><circle cx="20" cy="127" r="5" fill="#b2a0ed"/><circle cx="260" cy="83" r="5" fill="#b2a0ed" data-in="2500"/><circle cx="500" cy="24" r="5" fill="#cde8b1" data-in="3800"/></svg><div><span>June · $115,800</span><span>July · $118,100</span><span>August · $120,800</span></div></div>
+  <div class="walk-trend-insights" data-in="4700"><div><span>Assets</span><strong>+$3,000</strong><small>$364,800 to $367,800</small></div><div><span>Debt</span><strong class="walk-positive">−$2,000</strong><small>$249,000 to $247,000</small></div></div>
+  <p class="walk-positive walk-bottom-note" data-in="7100">$3,000 more in assets + $2,000 less in debt.</p>
+</div>}
