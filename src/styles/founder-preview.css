@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700;750;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
 
+@font-face {
+  font-family: 'Faraz Signature';
+  src: url('/fonts/faraz-signature.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .founder-preview {
   --paper: #f8f7f2;
   --ink: #24222a;
@@ -76,11 +84,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 .letter-body strong { font-weight: 650; color: var(--ink); }
 .letter-body .letter-emphasis { margin-block: 35px; font-family: 'Lora', Georgia, serif; font-size: 25px; line-height: 1.7; font-weight: 600; letter-spacing: -.03em; }
 .letter-emphasis mark { color: var(--ink); background: var(--lime); box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 3px 4px; }
-.founder-signoff { margin-block: 34px; }
-.founder-identity { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .35em; font-size: 1.25rem; line-height: 1.5; }
-.founder-identity strong { font-weight: 700; }
-.founder-role { margin-top: 5px !important; color: var(--muted); font-size: 1.125rem; line-height: 1.5; }
-.founder-signoff a { color: var(--purple); }
+.founder-signoff { display: grid; justify-items: start; margin-block: 28px 34px; }
+.founder-signature { font-family: 'Faraz Signature', 'Snell Roundhand', 'Brush Script MT', cursive; font-size: clamp(4.5rem, 8vw, 5.5rem); font-weight: 400; line-height: 1.2; color: var(--ink); transform: rotate(-4deg); transform-origin: left center; }
+.founder-role { margin-top: 10px !important; color: var(--ink); font-size: 1.125rem; font-weight: 550; line-height: 1.6; }
+.founder-signoff .founder-email { margin-top: 2px; color: var(--purple); font-size: 1.0625rem; text-decoration-thickness: 1px; }
 .letter-body .letter-ps { font-size: 15px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 23px; }
 .footer-brand { font-weight: 800; font-size: 32px; letter-spacing: -.08em; text-decoration: none; color: var(--purple) !important; }
 .product-chapter { padding-block: 83px 75px; background: #eeece5; border-block: 1px solid var(--rule); }
@@ -345,6 +352,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 /* The letter keeps its own reading rhythm within the full page width. */
 .letter-body h2 { font-size: clamp(3rem, 5.7vw, 4.7rem); margin-bottom: 32px; }
 .letter-body h2 em { font-family: 'Lora', Georgia, serif; font-weight: 500; color: var(--purple); letter-spacing: -.055em; }
+.letter-body > .letter-attribution { margin-top: -12px; margin-bottom: 34px; font-size: 1.0625rem; line-height: 1.5; color: var(--muted); }
 .letter-body > .letter-introduction { font-size: clamp(1.35rem, 2.35vw, 1.8rem); line-height: 1.55; letter-spacing: -.025em; color: var(--ink); margin-bottom: 42px; }
 .letter-body .letter-subheading { font-size: clamp(1.7rem, 3.2vw, 2.25rem); font-weight: 650; line-height: 1.4; letter-spacing: -.04em; margin-block: 47px 22px; }
 .letter-subheading > span, .letter-underline { background-image: linear-gradient(transparent 68%, #f0e899 68%, #f0e899 95%, transparent 95%); padding-inline: 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
