@@ -3,6 +3,8 @@ import '../styles/founder-preview.css';
 import FeatureWalkthrough from '../components/FeatureWalkthrough.astro';
 import { featureWalkthroughs as views } from '../data/feature-walkthroughs';
 import ClutterComparison from '../components/ClutterComparison.astro';
+import { marketCopy } from '../edge/screenshot-market.js';
+const countryCopy = marketCopy('US');
 const signup = 'https://app.myvylo.com/signup';
 const questions = [
   { q: 'What am I actually getting?', a: 'Connected accounts, transactions, budgets, income, and net worth for your household. Vylo categorizes transactions automatically; you can change categories or add cash purchases anytime.' },
@@ -16,7 +18,7 @@ const questions = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-screenshot-market="US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +53,7 @@ const questions = [
         <a href="#security">Security</a>
         <a href="#pricing">Pricing</a>
         <a href="/updates/">Updates</a>
+      <a href="/help/">Help</a>
       </nav>
       <div class="nav-actions"><a class="signin" href="https://app.myvylo.com/signin">Sign in</a><a class="button button-small" href={signup}>Try Vylo</a></div>
     </header>
@@ -65,7 +68,7 @@ const questions = [
 
       <section class="first-look page-width" aria-label="Vylo dashboard">
         <div class="product-stage">
-          <div class="hero-product-image"><img src="/product/dashboard-demo-september-2026.jpg" alt="The current Vylo dashboard showing a demo household’s income, spending, savings, budget health, and recent transactions." width="1200" height="897" fetchpriority="high" /></div>
+          <div class="hero-product-image"><img data-market-image="dashboard-hero.jpg" src="/product/current-20260914/us/dashboard-hero.jpg" alt="The current Vylo dashboard showing a demo household’s income, spending, savings, and budget health." width="2560" height="2000" fetchpriority="high" /></div>
           <a href="#inside-vylo" class="screen-invitation">Have a look around</a>
         </div>
 
@@ -74,22 +77,23 @@ const questions = [
 
       <section class="founder-letter page-width" id="the-story" aria-labelledby="letter-title">
         <article class="letter-body">
-          <h2 id="letter-title">Where did all<br /><em>my money go?</em></h2>
-          <p class="letter-attribution">A letter from Vylo’s founder</p>
-          <p class="letter-introduction">I know there are plenty of money apps out there. I built Vylo because I kept ending up back in Excel.</p>
-          <h3 class="letter-subheading"><span>A little background.</span></h3>
-          <p>No matter how much I earned, I’d reach the end of the month wondering where it had gone. I knew the big expenses. It was everything in between that got away from me. Without a clear picture, I wasn’t sure what to change.</p>
-          <p>Then I got married and had a kid. I wanted to feel confident we were looking after our family, and “I think we’re doing okay” was starting to feel like a fairly loose financial plan.</p>
-          <p>So I started trying money apps. Some were complicated. Others were expensive and full of features I didn’t need. Getting a handle on our money was becoming another thing to get a handle on.</p>
-          <h3 class="letter-subheading"><span>Back to Excel.</span></h3>
-          <p>I copied expenses over, categorized them how I wanted, and built the views that helped me see what was happening. That was the appeal: I could make it work for our household. Our categories. Our rules. Everything where it made sense to us.</p>
-          <p>It worked. But somewhere along the way, I’d given myself an <strong class="letter-underline">unpaid Sunday job.</strong> I wanted the clarity and flexibility without all the upkeep. It seemed reasonable to think something like that should exist.</p>
-          <h3 class="letter-subheading"><span>That’s why I built Vylo.</span></h3>
-          <p>It brings your accounts and transactions together and handles most of the sorting. You choose your categories, set your rules, and build a budget around how your household actually lives. You can follow your spending and net worth over time, and keep everyone on the same page.</p>
-          <p>There’s no annual commitment, either. You should have time to see whether it fits.</p>
-          <p>And once you’re set up, the idea is to need it a little less. Let Vylo handle the routine work in the background, flag what needs your attention, and give you a clear picture when you sit down at the end of the month.</p>
-          <p class="letter-resolution">Money can be hard enough to figure out. Keeping track of it should make life easier. I hope Vylo does that for you, and gives you a little more of your Sunday back.</p>
-          <p>If something isn’t working for you, or you have an idea, email me at <a href="mailto:hi@myvylo.com">hi@myvylo.com</a>. I read and reply to every email myself.</p>
+          <h2 id="letter-title">Where did all<br /><em>your money go?</em></h2>
+          <p class="letter-attribution">A note from the Vylo team</p>
+          <p class="letter-introduction">Does it seem like no matter how much you earn, you reach the end of the month wondering where it all went?</p>
+          <p>You know the big expenses. It’s everything in between that’s harder to pin down. And when your household’s money is spread across different accounts, getting a clear picture can take a surprising amount of work.</p>
+          <h3 class="letter-subheading"><span>Another money app? Really?</span></h3>
+          <p>Fair question. Some apps are complicated. Others are expensive or packed with features you don’t need. You want to understand your money, but first you have to learn a whole system for managing it.</p>
+          <p>So maybe you end up back in Excel.</p>
+          <h3 class="letter-subheading"><span>Spreadsheets get something right.</span></h3>
+          <p>You can organize things however you want. Give categories names that make sense to you. Keep side-gig income separate from salary. Build a budget around the way your household actually lives.</p>
+          <p>But the control comes with sorting, formulas, and upkeep. Keeping track of your money becomes an <strong class="letter-underline">unpaid Sunday job.</strong></p>
+          <h3 class="letter-subheading"><span>That’s why we built Vylo.</span></h3>
+          <p>Vylo brings your household’s accounts, transactions, budgets, and net worth together. It handles most of the sorting while you choose your categories, set your rules, and decide how everything is organized.</p>
+          <p>You get automation for the repetitive work and spreadsheet-like flexibility for everything else. Everyone in your household can see the same numbers, without passing a spreadsheet back and forth.</p>
+          <p>Once you’re set up, Vylo keeps things moving in the background and flags what needs a closer look. When you sit down to check the month, you can spend your time deciding what to do next.</p>
+          <p>There’s no annual commitment. You should have time to see whether it fits, and be free to leave if it doesn’t.</p>
+          <p class="letter-resolution">Keeping track of your money should make life easier—and leave you with a little more of your Sunday.</p>
+          <p>If something isn’t working for you, or you have an idea, email us at <a href="mailto:hi@myvylo.com">hi@myvylo.com</a>. We’d love to hear it.</p>
           <p>Thanks for giving Vylo a try.</p>
           <div class="founder-signoff" id="faraz-signature">
             <p class="founder-signature">Faraz</p>
@@ -145,18 +149,19 @@ const questions = [
       </section>
 
       <section class="questions-chapter page-width" id="faq" aria-labelledby="faq-title">
-        <div class="questions-heading"><h2 id="faq-title">Before you<br />connect an account.</h2><p>For anything else:<br /><a href="mailto:hi@myvylo.com">hi@myvylo.com</a></p></div>
+        <div class="questions-heading"><h2 id="faq-title">Before you<br />connect an account.</h2><a class="all-faqs-link" href="/help/">Browse all FAQs</a><p>For anything else:<br /><a href="mailto:hi@myvylo.com">hi@myvylo.com</a></p></div>
         <div class="question-list">{questions.map(({ q, a }) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
       </section>
 
       <section class="closing-chapter page-width" aria-labelledby="closing-title"><h2 id="closing-title">Ready to give<br /><em>Vylo a try?</em></h2><a href={signup} class="button">Try Vylo for $2</a><p class="price-note">$2 for your first month, then $7/month after that. No annual commitments. Cancel anytime.</p></section>
     </main>
     <footer class="site-end page-width">
-      <div class="footer-top"><div><a href="/" class="footer-brand">vylo.</a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="#the-story">The founder’s letter</a><a href="#inside-vylo">Features</a><a href="#pricing">Pricing</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
-      <div class="footer-bottom"><span>© 2026 Vylo</span></div>
+      <div class="footer-top"><div><a href="/" class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="#the-story">Why we built Vylo</a><a href="#inside-vylo">Features</a><a href="#pricing">Pricing</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-bottom"><span>© 2026 Vylo</span><div class="screenshot-market-choice"><span data-screenshot-market-description aria-live="polite">{countryCopy.viewing}</span><a data-screenshot-market-switch href={`?market=${countryCopy.next}`}>{countryCopy.switchLabel}</a></div></div>
     </footer>
     <script>
       import '../scripts/founder-demos';
+      import '../scripts/screenshot-market';
     </script>
     <noscript><style>.product-tabs, .walkthrough-chapters { display: none; } .walkthrough-track { display: block; } .walkthrough-slide { margin-top: 40px; } .product-explorer { grid-template-columns: 1fr; } .product-panels [hidden] { display: block !important; margin-top: 40px; }</style></noscript>
   </body>

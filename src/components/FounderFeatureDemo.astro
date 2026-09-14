@@ -1,81 +1,25 @@
 ---
-import '../styles/founder-demos.css';
-import WalkthroughScenes from './WalkthroughScenes.astro';
-import { walkthroughDemoContent } from '../data/feature-walkthroughs';
-interface Props { scene: string; }
-const { scene } = Astro.props;
-const content: Record<string, { title: string; description: string; captions: string[] }> = {
-  ...walkthroughDemoContent,
-  budget: {
-    title: 'Budgets',
-    description: 'Illustrative budget demo: a $42 grocery transaction increases monthly spending from $1,840 to $1,882 and leaves $1,118 of a $3,000 budget.',
-    captions: ['You’ve spent $1,840 so far.', 'A $42 grocery purchase comes in.', 'Groceries and total spending both update.', '$1,118 left in the budget.'],
-  },
-  household: {
-    title: 'Household',
-    description: 'Illustrative household demo: Alex and Sam connect three accounts with a combined balance of $15,800. They share one household view with separate logins.',
-    captions: ['Alex connects checking and savings.', 'Sam connects a checking account.', 'Three accounts, with $15,800 combined.', 'Alex and Sam see the same balances.'],
-  },
-  worth: {
-    title: 'Net worth',
-    description: 'Illustrative net worth demo: $15,800 in cash, $32,000 in investments, and a $320,000 home total $367,800 in assets. Subtracting a $247,000 mortgage gives $120,800 net worth.',
-    captions: ['Cash and investments total $47,800.', 'Add the home’s $320,000 value.', 'Subtract the $247,000 mortgage.', 'Household net worth: $120,800.'],
-  },
-  overview: {
-    title: 'Transactions',
-    description: 'Illustrative categorization demo: Whole Foods $42 goes to Groceries, Hydro $86.40 to Utilities, and a café purchase of $12.50 to Dining out. Total spending is $140.90.',
-    captions: ['A new transaction arrives.', 'The merchant gets a category.', 'The next transactions are organized, too.', 'Three purchases. $140.90. Ready to review.'],
-  },
-};
-const { title, description, captions } = content[scene];
+import '../styles/app-screen-demos.css';
+import captures from '../data/app-screen-captures.json';
+interface Props { scene: keyof typeof captures; }
+const {scene} = Astro.props;
+const frames = captures[scene];
+const captions = frames.map(frame=>frame.caption);
+const path = '/product/current-20260914/us/';
 ---
-
-<div class="feature-demo-player" data-demo={scene} data-captions={JSON.stringify(captions)}>
-  <div class="demo-surface" role="img" aria-label={description}>
-    <div class="demo-topbar" aria-hidden="true"><span class="demo-wordmark">vylo<span>.</span></span><span class="demo-breadcrumb">/ {title}</span></div>
-    <div class="demo-canvas" aria-hidden="true">
-      <WalkthroughScenes scene={scene} />
-      {scene === 'budget' && <>
-        <div class="demo-section-title"><h3>This month’s budget</h3><span class="demo-date">SEP 2026</span></div>
-        <div class="budget-totals"><div><span>Spent so far</span><strong data-number="1840,1882,3400,900">$1,882</strong><small>of $3,000 budgeted</small></div><div class="remaining-total"><span>Left to spend</span><strong data-number="1160,1118,3400,900">$1,118</strong><small><span class="demo-status-dot"></span> Within budget</small></div></div>
-        <div class="total-budget-track"><span style="--fill:62.73%" data-bar="61.33,62.73,3400,900"></span><i style="left:61.33%"></i></div>
-        <div class="demo-budget-rows">
-          <div class="demo-budget-row"><div><span><i class="category-dot grocery-dot"></i> Groceries</span><span><strong data-number="480,522,3400,900">$522</strong> / $600</span></div><div class="category-track"><span style="--fill:87%" data-bar="80,87,3400,900"></span></div></div>
-          <div class="demo-budget-row"><div><span><i class="category-dot dining-dot"></i> Dining out</span><span><strong>$210</strong> / $300</span></div><div class="category-track dining-track"><span style="--fill:70%"></span></div></div>
-          <div class="demo-budget-row"><div><span><i class="category-dot transport-dot"></i> Transport</span><span><strong>$150</strong> / $250</span></div><div class="category-track transport-track"><span style="--fill:60%"></span></div></div>
-        </div>
-        <div class="demo-toast demo-transient" data-in="1700" data-out="5700"><span class="toast-check">✓</span><div><strong>Whole Foods <span>−$42.00</span></strong><small>Added to Groceries</small></div></div>
-      </>}
-
-      {scene === 'household' && <>
-        <div class="demo-section-title"><h3>One household</h3><span class="demo-date">2 MEMBERS</span></div>
-        <div class="member-pair">
-          <div class="member-account"><div class="member-identity"><span class="member-avatar">A</span><div><strong>Alex</strong><small>Own login</small></div><span class="member-connected">✓</span></div><div class="member-balance"><span>Checking + Savings</span><strong>$12,700</strong></div><span class="account-count">2 connected accounts</span></div>
-          <div class="member-account sam-account" data-in="1600"><div class="member-identity"><span class="member-avatar sam-avatar">S</span><div><strong>Sam</strong><small>Own login</small></div><span class="member-connected">✓</span></div><div class="member-balance"><span>Checking</span><strong>$3,100</strong></div><span class="account-count">1 connected account</span></div>
-        </div>
-        <div class="household-connectors" data-in="3300"><span></span><span></span><i></i></div>
-        <div class="household-combined" data-in="3500"><div><span>Household balance</span><strong data-number="12700,15800,3500,1100">$15,800</strong></div><div class="shared-account-tags"><span>Checking</span><span>Savings</span><span>Checking</span></div><p><span class="demo-status-dot"></span> 3 accounts · 2 members · 1 shared view</p></div>
-      </>}
-
-      {scene === 'worth' && <>
-        <div class="demo-section-title"><h3>Household net worth</h3><span class="demo-date">NET WORTH</span></div>
-        <div class="worth-headline"><span>Assets minus liabilities</span><strong data-net-worth>$120,800</strong><small>Household net worth</small></div>
-        <div class="asset-equation"><div class="asset-total"><span>Assets</span><strong data-number="47800,367800,1600,1000" data-total="assets">$367,800</strong></div><span class="equation-minus">−</span><div class="debt-total"><span>Liabilities</span><strong data-number="0,247000,3400,1000" data-total="liabilities">$247,000</strong></div></div>
-        <div class="asset-breakdown"><div><span><i class="asset-icon">$</i> Cash</span><strong>$15,800</strong></div><div><span><i class="asset-icon">I</i> Investments</span><strong>$32,000</strong></div><div data-in="1600"><span><i class="asset-icon">⌂</i> Home</span><strong>$320,000</strong></div><div class="liability-row" data-in="3400"><span><i class="asset-icon">−</i> Mortgage</span><strong>−$247,000</strong></div></div>
-      </>}
-
-      {scene === 'overview' && <>
-        <div class="demo-section-title"><h3>Recent transactions</h3><span class="demo-date">SEP 2026</span></div>
-        <div class="transactions-summary"><div><span>Spending in this example</span><strong data-number="42,140.90,3500,1100" data-decimals="2">$140.90</strong></div><span class="organized-pill" data-in="5400">✓ Categorized</span></div>
-        <div class="transaction-table"><div class="transaction-table-heading"><span>MERCHANT</span><span>AMOUNT</span><span>CATEGORY</span></div>
-          <div class="animated-transaction" data-in="300"><div><span class="merchant-icon merchant-grocery">W</span><span><strong>Whole Foods</strong><small>Checking · 4242</small></span></div><strong>−$42.00</strong><span class="animated-category category-grocery" data-in="1800">Groceries</span></div>
-          <div class="animated-transaction" data-in="3100"><div><span class="merchant-icon merchant-utility">H</span><span><strong>Hydro</strong><small>Checking · 4242</small></span></div><strong>−$86.40</strong><span class="animated-category category-utility" data-in="4200">Utilities</span></div>
-          <div class="animated-transaction" data-in="3500"><div><span class="merchant-icon merchant-cafe">C</span><span><strong>Café</strong><small>Credit · 8106</small></span></div><strong>−$12.50</strong><span class="animated-category category-cafe" data-in="4800">Dining out</span></div>
-        </div>
-        <div class="category-review-note" data-in="5600"><span>✓</span><p>Categories are assigned automatically.<br /><strong>Change any of them whenever you need to.</strong></p></div>
-      </>}
+<div class="feature-demo-player app-screen-player" data-demo={scene} data-captions={JSON.stringify(captions)}>
+  <div class="demo-surface" role="img" aria-label={captions[0]}>
+    <div class="app-screen-viewport" aria-hidden="true">
+      {frames.map((frame,index)=>{
+        return <div class="app-screen-frame" data-screen-frame={index} data-image={`${path}${frame.file}`} data-visible={String(index===0)}>
+          <img data-market-image={frame.file} src={`${path}${frame.file}`} alt="" width={frame.width} height={frame.height} loading="lazy" decoding="async" />
+        </div>;
+      })}
     </div>
     <div class="demo-timeline" aria-hidden="true"><span></span></div>
   </div>
-  <div class="demo-controls" hidden><p data-demo-caption>{captions[3]}</p><div><button type="button" data-demo-toggle aria-label={`Pause ${title.toLowerCase()} animation`}>Pause</button><button type="button" data-demo-replay aria-label={`Replay ${title.toLowerCase()} animation`}>Replay</button></div></div>
+  <div class="demo-controls" hidden>
+    <p data-demo-caption>{captions[0]}</p>
+    <div><button type="button" data-demo-toggle>Pause</button><button type="button" data-demo-replay>Replay</button><a data-market-image-link={frames[0].file} data-demo-image-link href={`${path}${frames[0].file}`} target="_blank" rel="noopener" aria-label="Enlarge app screenshot">Enlarge</a></div>
+  </div>
 </div>

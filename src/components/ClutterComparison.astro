@@ -26,12 +26,9 @@ const budgets = [
     </div>
   </div>
 
-  <div id="comparison-scene" class="comparison-scene" role="img" aria-label="With Vylo: the same accounts, transactions, and budget are organized into one household overview.">
+  <div id="comparison-scene" class="comparison-scene" role="img" aria-label="With Vylo: the current dashboard shows household income, spending, savings, and budget health together.">
     <div class="comparison-visual" aria-hidden="true">
-      <div class="unified-window">
-        <div class="unified-header"><span class="unified-wordmark">vylo<span>.</span></span><span class="unified-title">Household overview</span><span class="unified-month">September 2026</span></div>
-        <div class="unified-totals"><div><span>Income</span><strong>$6,500</strong></div><div><span>Spent this month</span><strong>$1,840</strong></div><div><span>Left in the budget</span><strong>$1,160</strong></div></div>
-      </div>
+      <div class="comparison-real-screen"><img data-market-image="dashboard-hero.jpg" src="/product/current-20260914/us/dashboard-hero.jpg" alt="" width="2560" height="2000" loading="lazy" /></div>
 
       <div class="comparison-window accounts-window">
         <div class="scattered-title"><span class="tiny-window-dots">● ● ●</span><span>Banking · Alex</span></div>
@@ -75,7 +72,7 @@ const budgets = [
       comparison.dataset.view = view;
       viewButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.comparisonView === view)));
       scene.setAttribute('aria-label', isClear
-        ? 'With Vylo: the same accounts, transactions, and budget are organized into one household overview.'
+        ? 'With Vylo: the current dashboard shows household income, spending, savings, and budget health together.'
         : 'Before Vylo: separate bank and credit card windows overlap a household spreadsheet, a budget reminder, and unanswered messages.');
     };
     viewButtons.forEach(button => button.addEventListener('click', () => setView(button.dataset.comparisonView as 'before' | 'with')));

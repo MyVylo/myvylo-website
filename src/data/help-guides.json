@@ -1,0 +1,3755 @@
+{
+  "rename-a-category": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Choose Categories in the left navigation.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            48.89,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the group",
+          "text": "Click View on the group containing the category. This example uses Flexible.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            89.21,
+            41.11,
+            4.08,
+            4.44
+          ],
+          "alt": "Vylo on the web: Open the group. The relevant control is outlined."
+        },
+        {
+          "title": "Click the category name",
+          "text": "Click Groceries, or the category you want to rename. The name becomes an editable field.",
+          "image": "category-list.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            22,
+            37,
+            18,
+            7
+          ],
+          "alt": "Vylo on the web: Click the category name. The relevant control is outlined."
+        },
+        {
+          "title": "Enter the new name",
+          "text": "Replace the name and press Enter. Press Escape to leave it unchanged.",
+          "image": "category-rename.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            22,
+            37,
+            18,
+            7
+          ],
+          "alt": "Vylo on the web: Enter the new name. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Tap the settings control at the top right of the app, then Categories.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            42.05,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category",
+          "text": "Tap the category name. Expand its group first if the list is collapsed.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8,
+            66.5,
+            84,
+            6.5
+          ],
+          "alt": "Vylo for iPhone: Open the category. The relevant control is outlined."
+        },
+        {
+          "title": "Change the name",
+          "text": "Replace the text in Category name. The existing transactions stay in this category.",
+          "image": "category-edit.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            65,
+            80,
+            6
+          ],
+          "alt": "Vylo for iPhone: Change the name. The relevant control is outlined."
+        },
+        {
+          "title": "Save the change",
+          "text": "Tap Save at the top of the sheet.",
+          "image": "category-edit.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            76,
+            49.7,
+            18,
+            4.8
+          ],
+          "alt": "Vylo for iPhone: Save the change. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "add-a-category": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Choose Categories in the left navigation.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            48.89,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the group",
+          "text": "Click View on the group where the category should go. Choose Income for earnings, Excluded for transactions outside your budget, or an expense group for spending. The screenshots below use Flexible.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            89.21,
+            41.11,
+            4.08,
+            4.44
+          ],
+          "alt": "Vylo on the web: Open the group. The relevant control is outlined."
+        },
+        {
+          "title": "Add a category",
+          "text": "Click + Add category at the top of the group.",
+          "image": "category-list.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            84.29,
+            2.78,
+            10.4,
+            6.11
+          ],
+          "alt": "Vylo on the web: Add a category. The relevant control is outlined."
+        },
+        {
+          "title": "Give it a name",
+          "text": "Enter the category name and press Enter. You can set its budget separately.",
+          "image": "category-add.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            19.45,
+            19.31,
+            79.53,
+            5.28
+          ],
+          "alt": "Vylo on the web: Give it a name. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Tap the settings control at the top right of the app, then Categories.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            42.05,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Tap the plus beside the group",
+          "text": "Tap the plus beside the group where the category should go: Income for earnings, Excluded for transactions outside your budget, or an expense group for spending. This example uses Flexible.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            81,
+            60.6,
+            9.5,
+            4
+          ],
+          "alt": "Vylo for iPhone: Tap the plus beside the group. The relevant control is outlined."
+        },
+        {
+          "title": "Name and save the category",
+          "text": "Enter a category name, then tap Save. You can add a monthly amount by editing the category afterward.",
+          "image": "category-add.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            65,
+            80,
+            6
+          ],
+          "alt": "Vylo for iPhone: Name and save the category. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "category-groups": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Choose Categories in the left navigation.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            48.89,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Add a group",
+          "text": "Click Add group above the category cards.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            89.53,
+            11.94,
+            7.97,
+            6.11
+          ],
+          "alt": "Vylo on the web: Add a group. The relevant control is outlined."
+        },
+        {
+          "title": "Name the group",
+          "text": "Enter a name. A short description and icon are optional. Click Create Group when you’re ready.",
+          "image": "group-add.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            28,
+            31,
+            44,
+            45
+          ],
+          "alt": "Vylo on the web: Name the group. The relevant control is outlined."
+        },
+        {
+          "title": "Rename an existing group",
+          "text": "Open the group’s three-dot menu and choose Edit Name. Enter the name and press Enter.",
+          "image": "group-actions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            79.53,
+            35.56,
+            13.75,
+            5
+          ],
+          "alt": "Vylo on the web: Rename an existing group. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Tap the settings control at the top right of the app, then Categories.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            42.05,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Add a group",
+          "text": "Tap Add group above the category list.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            67,
+            14,
+            28,
+            4.5
+          ],
+          "alt": "Vylo for iPhone: Add a group. The relevant control is outlined."
+        },
+        {
+          "title": "Name and save it",
+          "text": "Enter the group name and tap Save.",
+          "image": "group-add.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            60.5,
+            80,
+            6
+          ],
+          "alt": "Vylo for iPhone: Name and save it. The relevant control is outlined."
+        },
+        {
+          "title": "Edit an existing group",
+          "text": "Tap the adjustment control beside the group name to rename it or open its delete options.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            69,
+            60.6,
+            9,
+            4
+          ],
+          "alt": "Vylo for iPhone: Edit an existing group. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "category-rules": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Choose Categories in the left navigation.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            48.89,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the group",
+          "text": "Click View on the group containing the category. This example uses Flexible.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            89.21,
+            41.11,
+            4.08,
+            4.44
+          ],
+          "alt": "Vylo on the web: Open the group. The relevant control is outlined."
+        },
+        {
+          "title": "View the category’s rules",
+          "text": "Click View in the Rules column on the category’s row.",
+          "image": "category-list.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            57.97,
+            39.58,
+            2.09,
+            2.22
+          ],
+          "alt": "Vylo on the web: View the category’s rules. The relevant control is outlined."
+        },
+        {
+          "title": "Add a useful keyword",
+          "text": "Under custom keywords, enter a distinctive word that appears in the bank description. Click Add.",
+          "image": "category-rules.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            70,
+            52,
+            28,
+            9
+          ],
+          "alt": "Vylo on the web: Add a useful keyword. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Tap the settings control at the top right of the app, then Categories.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            42.05,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category",
+          "text": "Tap the category name. Expand its group first if the list is collapsed.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8,
+            66.5,
+            84,
+            6.5
+          ],
+          "alt": "Vylo for iPhone: Open the category. The relevant control is outlined."
+        },
+        {
+          "title": "Look at the existing rules",
+          "text": "Scroll down in the category editor to How this category works. The merchant examples and keywords explain what Vylo recognizes.",
+          "image": "category-rules.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            7,
+            45,
+            85,
+            25
+          ],
+          "alt": "Vylo for iPhone: Look at the existing rules. The relevant control is outlined."
+        },
+        {
+          "title": "Add your keyword",
+          "text": "Under Your custom keywords, enter a word or phrase and tap Add. Tap Save to finish editing.",
+          "image": "category-rules.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9,
+            80,
+            82,
+            10
+          ],
+          "alt": "Vylo for iPhone: Add your keyword. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "change-transaction-category": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Transactions",
+          "text": "Choose Transactions in the left navigation.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            20,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Transactions. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category picker",
+          "text": "Click the category on the transaction’s row.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            63.13,
+            60.12,
+            7.7,
+            3.89
+          ],
+          "alt": "Vylo on the web: Open the category picker. The relevant control is outlined."
+        },
+        {
+          "title": "Find the right category",
+          "text": "Type part of the category name, then click the matching result.",
+          "image": "transaction-category.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            63.2,
+            48.89,
+            24.84,
+            5
+          ],
+          "alt": "Vylo on the web: Find the right category. The relevant control is outlined."
+        },
+        {
+          "title": "Decide whether to remember the merchant",
+          "text": "Leave Remember this merchant checked if future purchases from this merchant should use the same category. Uncheck it for a one-off correction.",
+          "image": "transaction-category.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            63,
+            89,
+            20,
+            5
+          ],
+          "alt": "Vylo on the web: Decide whether to remember the merchant. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Activity",
+          "text": "Tap Activity in the bottom navigation.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            31.14,
+            91.74,
+            15.91,
+            5.75
+          ],
+          "alt": "Vylo for iPhone: Open Activity. The relevant control is outlined."
+        },
+        {
+          "title": "Tap the transaction’s category",
+          "text": "Tap the category chip beneath the merchant, such as Electricity.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            16.82,
+            60.88,
+            27.05,
+            3.97
+          ],
+          "alt": "Vylo for iPhone: Tap the transaction’s category. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a category",
+          "text": "Search for a category or tap one in the list. Turn Always use this category off if the choice should apply only to this transaction.",
+          "image": "activity-category.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            51.88,
+            86.59,
+            13.28
+          ],
+          "alt": "Vylo for iPhone: Choose a category. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "remember-merchant": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Transactions",
+          "text": "Choose Transactions in the left navigation.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            20,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Transactions. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category picker",
+          "text": "Click the category on the transaction’s row.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            63.13,
+            60.12,
+            7.7,
+            3.89
+          ],
+          "alt": "Vylo on the web: Open the category picker. The relevant control is outlined."
+        },
+        {
+          "title": "Keep the merchant rule on",
+          "text": "Leave Remember this merchant checked. Choose the category to save that choice for future matching purchases.",
+          "image": "transaction-category.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            63,
+            89,
+            21,
+            5
+          ],
+          "alt": "Vylo on the web: Keep the merchant rule on. The relevant control is outlined."
+        },
+        {
+          "title": "In the review queue, confirm the choice",
+          "text": "The review queue has the same checkbox below the category. Scroll within the card if needed. Check Remember this merchant, then click Looks Good.",
+          "image": "review-confirm.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            26,
+            77,
+            18,
+            4
+          ],
+          "alt": "Vylo on the web: In the review queue, confirm the choice. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open the review queue",
+          "text": "Tap Review transactions on Home.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.17,
+            89.32,
+            8.89
+          ],
+          "alt": "Vylo for iPhone: Open the review queue. The relevant control is outlined."
+        },
+        {
+          "title": "Choose whether Vylo should remember it",
+          "text": "Always use this category applies your choice to future matching purchases. Turn it off for an exception.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            12,
+            55.8,
+            77,
+            4.3
+          ],
+          "alt": "Vylo for iPhone: Choose whether Vylo should remember it. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm the transaction",
+          "text": "After choosing the category, swipe the card right to categorize it. Swipe left to leave it for later.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10.23,
+            91.11,
+            82.05,
+            3.56
+          ],
+          "alt": "Vylo for iPhone: Confirm the transaction. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "review-transactions": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open the review queue",
+          "text": "Click the review banner at the top of Dashboard.",
+          "image": "dashboard.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.38,
+            22.5,
+            88.13,
+            14.44
+          ],
+          "alt": "Vylo on the web: Open the review queue. The relevant control is outlined."
+        },
+        {
+          "title": "Check the purchase",
+          "text": "Read the merchant, amount, date, and account. Click Assign Category if it needs one.",
+          "image": "review.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            25.39,
+            72.36,
+            49.22,
+            8.06
+          ],
+          "alt": "Vylo on the web: Check the purchase. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the category",
+          "text": "Search by name and click the matching category.",
+          "image": "review-category.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            23.59,
+            52.75,
+            52.81,
+            5
+          ],
+          "alt": "Vylo on the web: Choose the category. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm or skip",
+          "text": "Check Remember this merchant below the category only if the choice should carry forward. Scroll inside the card if needed. Click Looks Good to finish, or Skip if you need to check the purchase first.",
+          "image": "review-confirm.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            25,
+            76.8,
+            50,
+            19
+          ],
+          "alt": "Vylo on the web: Confirm or skip. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open the review queue",
+          "text": "Tap Review transactions on Home.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.17,
+            89.32,
+            8.89
+          ],
+          "alt": "Vylo for iPhone: Open the review queue. The relevant control is outlined."
+        },
+        {
+          "title": "Check the purchase",
+          "text": "Read the merchant, date, amount, and account. Tap the category to change it.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            11.5,
+            48.7,
+            77,
+            6.8
+          ],
+          "alt": "Vylo for iPhone: Check the purchase. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the category",
+          "text": "Search for a category and tap the matching result. Always use this category saves a merchant rule for future purchases.",
+          "image": "review-category.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            7,
+            72.7,
+            86,
+            7
+          ],
+          "alt": "Vylo for iPhone: Choose the category. The relevant control is outlined."
+        },
+        {
+          "title": "Swipe to finish",
+          "text": "Swipe right to categorize the transaction. Swipe left to skip it for now. Skipping does not delete the purchase.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10.23,
+            91.11,
+            82.05,
+            3.56
+          ],
+          "alt": "Vylo for iPhone: Swipe to finish. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "transaction-notes": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Transactions",
+          "text": "Choose Transactions in the left navigation.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            20,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Transactions. The relevant control is outlined."
+        },
+        {
+          "title": "Open the note field",
+          "text": "Click Add note on the transaction’s row. Click an existing note to edit it.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            80.31,
+            60.96,
+            15.94,
+            2.22
+          ],
+          "alt": "Vylo on the web: Open the note field. The relevant control is outlined."
+        },
+        {
+          "title": "Write and save the note",
+          "text": "Type the detail you want to remember, then press Enter or click outside the field.",
+          "image": "transaction-note.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            79,
+            47,
+            18,
+            6
+          ],
+          "alt": "Vylo on the web: Write and save the note. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open a transaction for review",
+          "text": "Tap Review transactions on Home.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.17,
+            89.32,
+            8.89
+          ],
+          "alt": "Vylo for iPhone: Open a transaction for review. The relevant control is outlined."
+        },
+        {
+          "title": "Add a note",
+          "text": "Tap Add note on the transaction card.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            12,
+            42.4,
+            76,
+            5
+          ],
+          "alt": "Vylo for iPhone: Add a note. The relevant control is outlined."
+        },
+        {
+          "title": "Write the note",
+          "text": "Enter your note. Continue reviewing the transaction when you’re done.",
+          "image": "review-note.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            11.59,
+            44.77,
+            77.5,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Write the note. The relevant control is outlined."
+        }
+      ],
+      "note": "You can add a note while reviewing a transaction or entering a new one. For an older transaction, you can also edit its Notes column on the web."
+    }
+  },
+  "find-transactions": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Transactions",
+          "text": "Choose Transactions in the left navigation.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            20,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Transactions. The relevant control is outlined."
+        },
+        {
+          "title": "Search the list",
+          "text": "Type a merchant or a word from the transaction into Search transactions.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.38,
+            40.47,
+            23.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Search the list. The relevant control is outlined."
+        },
+        {
+          "title": "Narrow the results",
+          "text": "Open Filter and choose a group or Uncategorized. Use All to return to the complete list.",
+          "image": "transaction-filter.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            41,
+            47,
+            19,
+            38
+          ],
+          "alt": "Vylo on the web: Narrow the results. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Activity",
+          "text": "Tap Activity in the bottom navigation.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            31.14,
+            91.74,
+            15.91,
+            5.75
+          ],
+          "alt": "Vylo for iPhone: Open Activity. The relevant control is outlined."
+        },
+        {
+          "title": "Search for a purchase",
+          "text": "Type a merchant or description into Search transactions.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            27.3,
+            88.41,
+            4.6
+          ],
+          "alt": "Vylo for iPhone: Search for a purchase. The relevant control is outlined."
+        },
+        {
+          "title": "Filter the list",
+          "text": "Tap a chip such as Uncategorized, Expenses, or Income. Swipe the chip row sideways for more groups.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            35.15,
+            88.41,
+            3.77
+          ],
+          "alt": "Vylo for iPhone: Filter the list. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "add-a-transaction": {
+    "web": {
+      "steps": [
+        {
+          "title": "Start a transaction",
+          "text": "Click Add transaction above the list.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            83.58,
+            23.91,
+            13.92,
+            6.67
+          ],
+          "alt": "Vylo on the web: Start a transaction. The relevant control is outlined."
+        },
+        {
+          "title": "Enter the purchase details",
+          "text": "Enter the merchant, amount, and date. Add a note if it will help you remember the purchase.",
+          "image": "transaction-add.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            29,
+            18,
+            43,
+            42
+          ],
+          "alt": "Vylo on the web: Enter the purchase details. The relevant control is outlined."
+        },
+        {
+          "title": "Choose its category",
+          "text": "Click Assign Category, then search for and choose the category.",
+          "image": "transaction-add.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            29.14,
+            62.16,
+            41.72,
+            7.22
+          ],
+          "alt": "Vylo on the web: Choose its category. The relevant control is outlined."
+        },
+        {
+          "title": "Add the transaction",
+          "text": "Check the date and amount, then click Add Transaction.",
+          "image": "transaction-add.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            59.38,
+            85.21,
+            11.48,
+            6.11
+          ],
+          "alt": "Vylo on the web: Add the transaction. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Tap the plus",
+          "text": "Use the plus button in the bottom navigation.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            44.32,
+            88.81,
+            11.59,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Tap the plus. The relevant control is outlined."
+        },
+        {
+          "title": "Enter the purchase details",
+          "text": "Enter the merchant, amount, and date. Add a note if you need one.",
+          "image": "transaction-add.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            11.36,
+            18.1,
+            77.73,
+            25.63
+          ],
+          "alt": "Vylo for iPhone: Enter the purchase details. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a category",
+          "text": "Tap Assign Category, then search for and choose the category.",
+          "image": "transaction-assign.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            57.74,
+            86.36,
+            5.75
+          ],
+          "alt": "Vylo for iPhone: Choose a category. The relevant control is outlined."
+        },
+        {
+          "title": "Add the transaction",
+          "text": "Check the details and tap Add transaction.",
+          "image": "transaction-ready.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            88.91,
+            89.32,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Add the transaction. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "edit-a-budget": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open budget editing",
+          "text": "Go to Budgets and click Edit Budget.",
+          "image": "budget.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            86.39,
+            27.08,
+            8.53,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open budget editing. The relevant control is outlined."
+        },
+        {
+          "title": "Change the category amounts",
+          "text": "Enter the monthly amount beside each category you want to change. You can collapse groups to focus on one part of the budget.",
+          "image": "budget-edit.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            72,
+            30,
+            11,
+            39
+          ],
+          "alt": "Vylo on the web: Change the category amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Save the budget",
+          "text": "Check the month in the heading, then click Save budget.",
+          "image": "budget-edit.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            65.86,
+            84.86,
+            17.19,
+            6.67
+          ],
+          "alt": "Vylo on the web: Save the budget. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open budget editing",
+          "text": "On Budget, tap the pencil in the Budget Health card.",
+          "image": "budget.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            78.18,
+            17.47,
+            10.68,
+            4.92
+          ],
+          "alt": "Vylo for iPhone: Open budget editing. The relevant control is outlined."
+        },
+        {
+          "title": "Change the amounts",
+          "text": "Edit the amount next to a category. Scroll for the remaining groups.",
+          "image": "budget-edit.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            61.36,
+            26.67,
+            30,
+            18.51
+          ],
+          "alt": "Vylo for iPhone: Change the amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Save the budget",
+          "text": "Check the month above the category list, then tap Save.",
+          "image": "budget-edit.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            77.05,
+            8.79,
+            18.18,
+            4.71
+          ],
+          "alt": "Vylo for iPhone: Save the budget. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "appearance": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Appearance",
+          "text": "In Settings, choose Appearance.",
+          "image": "appearance.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            14.32,
+            18.8,
+            7.24,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Appearance. The relevant control is outlined."
+        },
+        {
+          "title": "Choose Light or Dark",
+          "text": "Select the theme you prefer. This changes the appearance on this device.",
+          "image": "appearance.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            22,
+            49,
+            25,
+            9
+          ],
+          "alt": "Vylo on the web: Choose Light or Dark. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Appearance",
+          "text": "Tap the settings control at the top right of the app, then Appearance.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            62.24,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Appearance. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the theme",
+          "text": "Tap Light or Dark. The change applies on this iPhone.",
+          "image": "appearance.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10.68,
+            25.94,
+            79.32,
+            16.11
+          ],
+          "alt": "Vylo for iPhone: Choose the theme. The relevant control is outlined."
+        },
+        {
+          "title": "Hide financial values",
+          "text": "On a main screen, tap the eye at the top left. The amounts are hidden on this iPhone.",
+          "image": "hide-balances.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            4.5,
+            6.5,
+            12,
+            5
+          ],
+          "alt": "Vylo for iPhone: the eye control for hiding financial values."
+        },
+        {
+          "title": "Show the values again",
+          "text": "Tap the eye again and complete device authentication. Depending on your iPhone, Vylo offers Face ID or your passcode.",
+          "image": "unlock-values.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            7,
+            83,
+            86,
+            8
+          ],
+          "alt": "Vylo for iPhone: device authentication before showing hidden values."
+        }
+      ]
+    }
+  },
+  "notifications": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Notifications",
+          "text": "Go to Settings, then choose Notifications.",
+          "image": "notifications.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            21.8,
+            18,
+            8,
+            7
+          ],
+          "alt": "Vylo on the web: Open Notifications. The relevant control is outlined."
+        },
+        {
+          "title": "Choose which alerts you receive",
+          "text": "Set In-app + push and Email separately for each alert. Scroll down for all four alert types.",
+          "image": "notifications.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            68,
+            49,
+            18,
+            10
+          ],
+          "alt": "Vylo on the web: Choose which alerts you receive. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Notifications",
+          "text": "Tap the settings control at the top right of the app, then Notifications.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            69.14,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Notifications. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the alerts",
+          "text": "Set In-app + push and Email separately for each alert. Scroll for budget alerts and monthly reports.",
+          "image": "notifications.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9.32,
+            51.05,
+            81.59,
+            36.82
+          ],
+          "alt": "Vylo for iPhone: Choose the alerts. The relevant control is outlined."
+        },
+        {
+          "title": "Allow iPhone notifications",
+          "text": "If push permission is Not Set, tap Turn on notifications and respond to the iPhone permission prompt. You can change the system permission later in iPhone Settings.",
+          "image": "notifications.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9.09,
+            24.9,
+            82.05,
+            8.05
+          ],
+          "alt": "Vylo for iPhone: Allow iPhone notifications. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "ai-categorization": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open the AI setting",
+          "text": "Go to Settings, then Privacy & Security. The AI setting shows whether it’s on or off.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            34.24,
+            18.8,
+            9.87,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open the AI setting. The relevant control is outlined."
+        },
+        {
+          "title": "Read the permission request",
+          "text": "Click Turn on to open the disclosure. Opening it does not enable AI.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            78.48,
+            49.44,
+            6.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Read the permission request. The relevant control is outlined."
+        },
+        {
+          "title": "Make your choice",
+          "text": "Read what information is used. Choose Enable only if you agree, or Cancel to leave AI off.",
+          "image": "ai-consent.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            33,
+            29,
+            34,
+            47
+          ],
+          "alt": "Vylo on the web: Make your choice. The relevant control is outlined."
+        }
+      ],
+      "note": "To turn AI off later, return to this setting and use Turn off. Vylo stops new AI requests for your connected accounts; your existing transaction categories remain."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Tap the settings control at the top right of the app, then Privacy & Security.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            83.37,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Open AI Merchant Categorization",
+          "text": "Tap AI Merchant Categorization at the top of Privacy & Security.",
+          "image": "privacy.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            14.02,
+            89.09,
+            7.43
+          ],
+          "alt": "Vylo for iPhone: Open AI Merchant Categorization. The relevant control is outlined."
+        },
+        {
+          "title": "Read Privacy details",
+          "text": "Tap Privacy details to read what is sent and how the permission works.",
+          "image": "ai-off.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            32.27,
+            52.72,
+            35.23,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Read Privacy details. The relevant control is outlined."
+        },
+        {
+          "title": "Enable it only if you agree",
+          "text": "Tap Turn on, then Enable in the confirmation. Dismiss the confirmation to leave AI off.",
+          "image": "ai-consent.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            25.23,
+            29.39,
+            49.55,
+            5.65
+          ],
+          "alt": "Vylo for iPhone: Enable it only if you agree. The relevant control is outlined."
+        }
+      ],
+      "note": "To turn AI off later, return to this page, tap Turn off, and confirm. Each person controls consent for the bank accounts they connected."
+    }
+  },
+  "move-or-delete-categories": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Choose Categories in the left navigation.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            48.89,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the group",
+          "text": "Click View on the group containing the category. This example uses Flexible.",
+          "image": "categories.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            89.21,
+            41.11,
+            4.08,
+            4.44
+          ],
+          "alt": "Vylo on the web: Open the group. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category’s menu",
+          "text": "Click the three dots on the category row. Choose Move to change its group, or Delete to remove the category.",
+          "image": "category-actions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            84,
+            49,
+            15,
+            12
+          ],
+          "alt": "Vylo on the web: Open the category’s menu. The relevant control is outlined."
+        },
+        {
+          "title": "Move it to a different group",
+          "text": "Choose the destination group, then click Move Category.",
+          "image": "category-move.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            31,
+            36,
+            38,
+            27
+          ],
+          "alt": "Vylo on the web: Move it to a different group. The relevant control is outlined."
+        },
+        {
+          "title": "Choose where its transactions should go",
+          "text": "For deletion, leave Move transactions to Uncategorized checked, or uncheck it and choose another category. Click Delete Category only after checking that choice.",
+          "image": "category-delete.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            30,
+            36,
+            40,
+            29
+          ],
+          "alt": "Vylo on the web: Choose where its transactions should go. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Categories",
+          "text": "Tap the settings control at the top right of the app, then Categories.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            42.05,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Categories. The relevant control is outlined."
+        },
+        {
+          "title": "Open the category",
+          "text": "Tap the category name. Expand its group first if the list is collapsed.",
+          "image": "categories.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8,
+            66.5,
+            84,
+            6.5
+          ],
+          "alt": "Vylo for iPhone: Open the category. The relevant control is outlined."
+        },
+        {
+          "title": "Open Delete category",
+          "text": "Scroll to the bottom of the category editor and tap Delete category.",
+          "image": "category-rules.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6,
+            93,
+            88,
+            7
+          ],
+          "alt": "Vylo for iPhone: Open Delete category. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a destination and confirm",
+          "text": "Move the transactions to Uncategorized, or select another category. Tap Delete Category to remove the old category.",
+          "image": "category-delete.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9,
+            57,
+            82,
+            34
+          ],
+          "alt": "Vylo for iPhone: Choose a destination and confirm. The relevant control is outlined."
+        }
+      ],
+      "note": "Moving a category between groups is available on the web. On iPhone, you can rename it, change its budget, or delete it and reassign its transactions."
+    }
+  },
+  "connect-a-bank": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Accounts",
+          "text": "Choose Accounts in the left navigation.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            57.78,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Accounts. The relevant control is outlined."
+        },
+        {
+          "title": "Add a bank account",
+          "text": "Click Add new account.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            85.95,
+            11.94,
+            11.55,
+            6.11
+          ],
+          "alt": "Vylo on the web: Add a bank account. The relevant control is outlined."
+        },
+        {
+          "title": "Choose your bank",
+          "text": "Select a bank, or use Search for your bank. Continue through the provider’s sign-in and verification screens and select the accounts you want to share.",
+          "image": "bank-picker.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            11,
+            24,
+            78,
+            66
+          ],
+          "alt": "Vylo on the web: Choose your bank. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Accounts",
+          "text": "Tap the settings control at the top right of the app, then Accounts.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            27.93,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Accounts. The relevant control is outlined."
+        },
+        {
+          "title": "Add your bank",
+          "text": "Tap Add Account. Follow the bank provider’s sign-in and verification screens, then choose the accounts to share.",
+          "image": "accounts.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            64.09,
+            14.33,
+            30.91,
+            4.18
+          ],
+          "alt": "Vylo for iPhone: Add your bank. The relevant control is outlined."
+        }
+      ],
+      "note": "Bank sign-in screens vary by institution. Enter credentials only in the bank connection flow; never send them to support."
+    }
+  },
+  "remove-a-bank": {
+    "web": {
+      "steps": [
+        {
+          "title": "Find the institution",
+          "text": "Open Accounts and check the accounts listed under the institution you want to remove.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            23,
+            35,
+            70,
+            55
+          ],
+          "alt": "Vylo on the web: Find the institution. The relevant control is outlined."
+        },
+        {
+          "title": "Open the disconnect options",
+          "text": "Click Disconnect beside that institution.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            81.43,
+            54.44,
+            10.28,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open the disconnect options. The relevant control is outlined."
+        },
+        {
+          "title": "Decide what happens to imported data",
+          "text": "Read the confirmation. The additional checkbox removes imported transactions and changes their category totals. Confirm with Disconnect bank only when that is what you intend.",
+          "image": "bank-disconnect.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            31,
+            43,
+            39,
+            25
+          ],
+          "alt": "Vylo on the web: Decide what happens to imported data. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [],
+      "note": "For a full bank disconnection, sign in to Vylo in your browser and follow the web steps. The iPhone Accounts screen shows connection status and offers repair when a bank needs attention."
+    }
+  },
+  "export-transactions": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open the transactions you want to export",
+          "text": "Go to Transactions. Choose the month and narrow the list if needed.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            20,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open the transactions you want to export. The relevant control is outlined."
+        },
+        {
+          "title": "Open the actions menu",
+          "text": "Click the three-dot menu beside Filter.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            60.14,
+            40.89,
+            3.28,
+            5.28
+          ],
+          "alt": "Vylo on the web: Open the actions menu. The relevant control is outlined."
+        },
+        {
+          "title": "Download the CSV",
+          "text": "Choose Export CSV. Your browser saves the file.",
+          "image": "transaction-actions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            45.37,
+            54.08,
+            17.34,
+            5.56
+          ],
+          "alt": "Vylo on the web: Download the CSV. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [],
+      "note": "CSV transaction export is available on the web. Sign in from a browser and follow the web steps. For a copy of your wider account data, use Settings → Privacy & Security → Prepare Export in the iPhone app."
+    }
+  },
+  "cancel-subscription": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Choose Settings, then Billing.",
+          "image": "billing.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            30.07,
+            18.8,
+            4.56,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Choose Cancel",
+          "text": "Click Cancel beside your active plan. This opens a confirmation.",
+          "image": "billing.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            80.28,
+            45,
+            6.27,
+            6.11
+          ],
+          "alt": "Vylo on the web: Choose Cancel. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm cancellation",
+          "text": "Check the date your access ends. Click Cancel subscription to stop renewal, or Keep to leave it running.",
+          "image": "billing-cancel.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            51.49,
+            60.8,
+            12.77,
+            6.67
+          ],
+          "alt": "Vylo on the web: Confirm cancellation. The relevant control is outlined."
+        }
+      ],
+      "note": "These steps are for a subscription purchased on the web. If Billing says Apple manages your plan, cancel with Apple instead."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Tap the settings control at the top right of the app, then Billing.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            76.36,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Open Apple subscription management",
+          "text": "Tap Manage in App Store. Apple opens its subscription settings; choose Vylo to see its renewal and cancellation options.",
+          "image": "billing-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            31.28,
+            80.68,
+            8.58
+          ],
+          "alt": "Vylo for iPhone: Open Apple subscription management. The relevant control is outlined."
+        }
+      ],
+      "note": "For an App Store subscription, complete cancellation in Apple’s subscription settings. If you subscribed on the web, open Vylo in your browser and use the web steps above."
+    }
+  },
+  "apple-subscription": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Choose Settings, then Billing.",
+          "image": "billing.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            30.07,
+            18.8,
+            4.56,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Billing. The relevant control is outlined."
+        }
+      ],
+      "note": "Billing shows whether your household’s plan is managed by Apple. Apple purchases are managed through the Apple Account that paid for them."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Tap the settings control at the top right of the app, then Billing.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            76.36,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Open Apple subscription management",
+          "text": "Tap Manage in App Store. Apple opens its subscription settings; choose Vylo to see its renewal and cancellation options.",
+          "image": "billing-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            31.28,
+            80.68,
+            8.58
+          ],
+          "alt": "Vylo for iPhone: Open Apple subscription management. The relevant control is outlined."
+        }
+      ],
+      "note": "In Apple’s subscription settings, choose Vylo to see the price, renewal date, and cancellation option. Apple’s screens can vary with your iOS version."
+    }
+  },
+  "restore-subscription": {
+    "web": {
+      "steps": [],
+      "note": "Restore purchases is an iPhone action for App Store subscriptions. For a web payment that is missing from Billing, email hi@myvylo.com with the account email and payment date."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Tap the settings control at the top right of the app, then Billing.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            76.36,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Restore the purchase",
+          "text": "Tap Restore purchases while signed in to the Apple Account used to subscribe. Allow the check to finish, then review your plan status.",
+          "image": "billing-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9.77,
+            42.05,
+            65.91,
+            4.81
+          ],
+          "alt": "Vylo for iPhone: Restore the purchase. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "payment-details": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Choose Settings, then Billing.",
+          "image": "billing.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            30.07,
+            18.8,
+            4.56,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Update your card",
+          "text": "Click Update under Payment Method. Enter the replacement card in the secure payment form and save it.",
+          "image": "billing.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            72.48,
+            85,
+            6.48,
+            6.11
+          ],
+          "alt": "Vylo on the web: Update your card. The relevant control is outlined."
+        },
+        {
+          "title": "Open an invoice",
+          "text": "Under Invoices, click the payment date to open its receipt. You can download it from the invoice page.",
+          "image": "billing-invoices.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            22.37,
+            86.39,
+            6.38,
+            2.5
+          ],
+          "alt": "Vylo on the web: Open an invoice. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Billing",
+          "text": "Tap the settings control at the top right of the app, then Billing.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            76.36,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Billing. The relevant control is outlined."
+        },
+        {
+          "title": "Open Apple subscription management",
+          "text": "Tap Manage in App Store. Apple opens its subscription settings; choose Vylo to see its renewal and cancellation options.",
+          "image": "billing-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            10,
+            31.28,
+            80.68,
+            8.58
+          ],
+          "alt": "Vylo for iPhone: Open Apple subscription management. The relevant control is outlined."
+        }
+      ],
+      "note": "Apple handles payment methods and receipts for App Store subscriptions. For a web subscription, sign in to Vylo in your browser and follow the web steps."
+    }
+  },
+  "delete-account": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Choose Settings in the navigation, then Privacy & Security.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            34.24,
+            18.8,
+            9.87,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Open Delete account",
+          "text": "Scroll to the bottom and click Delete.",
+          "image": "privacy-bottom.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            77.14,
+            82.64,
+            7.79,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Delete account. The relevant control is outlined."
+        },
+        {
+          "title": "Read what will be deleted",
+          "text": "Check whether this deletes your account or the whole household. The preview also explains what happens to your subscription.",
+          "image": "delete-account.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            30.57,
+            24,
+            39.75,
+            25
+          ],
+          "alt": "Vylo on the web: Read what will be deleted. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm only when you’re ready",
+          "text": "Enter your password and type DELETE. The final button names what will be deleted. This action is permanent.",
+          "image": "delete-account.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            30.57,
+            48,
+            39.75,
+            36
+          ],
+          "alt": "Vylo on the web: Confirm only when you’re ready. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Tap the settings control at the top right of the app, then Privacy & Security.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            83.37,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Open Delete account",
+          "text": "Scroll to the bottom and tap Delete account.",
+          "image": "export-ready.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            84.41,
+            89.09,
+            7.43
+          ],
+          "alt": "Vylo for iPhone: Open Delete account. The relevant control is outlined."
+        },
+        {
+          "title": "Check the household and subscription warnings",
+          "text": "Read what will be deleted. If Apple bills you, use Manage Apple Subscription and cancel renewal before continuing.",
+          "image": "delete-account-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            16.53,
+            88.64,
+            35.77
+          ],
+          "alt": "Vylo for iPhone: Check the household and subscription warnings. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm deletion",
+          "text": "Enter your password and type DELETE. Tap the final deletion button only after saving any records you need.",
+          "image": "delete-account-apple.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.64,
+            55.33,
+            82.27,
+            28.56
+          ],
+          "alt": "Vylo for iPhone: Confirm deletion. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "download-your-data": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Choose Settings in the navigation, then Privacy & Security.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            34.24,
+            18.8,
+            9.87,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Request an export",
+          "text": "Under Export data, click Request export.",
+          "image": "privacy-bottom.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            74.54,
+            20.83,
+            10.38,
+            6.11
+          ],
+          "alt": "Vylo on the web: Request an export. The relevant control is outlined."
+        },
+        {
+          "title": "Prepare the file",
+          "text": "Click Prepare export in the confirmation.",
+          "image": "export-confirm.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            55.37,
+            65.97,
+            10.18,
+            6.11
+          ],
+          "alt": "Vylo on the web: Prepare the file. The relevant control is outlined."
+        },
+        {
+          "title": "Download your export",
+          "text": "When the status is Ready, click Download. Keep the file somewhere private; it contains your household’s financial information.",
+          "image": "export-ready.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            78.73,
+            20.83,
+            7.82,
+            6.11
+          ],
+          "alt": "Vylo on the web: Download your export. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Tap the settings control at the top right of the app, then Privacy & Security.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            83.37,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Prepare the export",
+          "text": "Scroll to Export Data and tap Prepare Export. Wait for the export to be ready.",
+          "image": "privacy-bottom.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.64,
+            88.08,
+            82.95,
+            5.75
+          ],
+          "alt": "Vylo for iPhone: Prepare the export. The relevant control is outlined."
+        },
+        {
+          "title": "Download the file",
+          "text": "Tap Download Export. Choose where to save it in the iPhone share sheet.",
+          "image": "export-ready.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.86,
+            75.31,
+            82.73,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Download the file. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "signed-in-devices": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Choose Settings in the navigation, then Privacy & Security.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            34.24,
+            18.8,
+            9.87,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Review your devices",
+          "text": "Scroll to Signed-in devices. The Current label marks this browser.",
+          "image": "signed-in-devices.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            21.5,
+            19.5,
+            64,
+            44
+          ],
+          "alt": "Vylo on the web: Review your devices. The relevant control is outlined."
+        },
+        {
+          "title": "Choose which devices to sign out",
+          "text": "Click Sign out beside one device, or Sign out all other devices below the list.",
+          "image": "signed-in-devices.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            21.95,
+            56.81,
+            15.37,
+            6.11
+          ],
+          "alt": "Vylo on the web: Choose which devices to sign out. The relevant control is outlined."
+        },
+        {
+          "title": "Sign out other devices",
+          "text": "Click Confirm to end those sessions. The current browser stays signed in.",
+          "image": "devices-confirm.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            59.96,
+            60.97,
+            6.84,
+            6.11
+          ],
+          "alt": "Vylo on the web: Sign out other devices. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Privacy & Security",
+          "text": "Tap the settings control at the top right of the app, then Privacy & Security.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            83.37,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Privacy & Security. The relevant control is outlined."
+        },
+        {
+          "title": "Review signed-in devices",
+          "text": "Scroll to Signed-In Devices. Each entry shows the device and when it was last active.",
+          "image": "export-ready.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            17.36,
+            89.09,
+            38.28
+          ],
+          "alt": "Vylo for iPhone: Review signed-in devices. The relevant control is outlined."
+        },
+        {
+          "title": "Choose which sessions to end",
+          "text": "Tap Sign Out beside one device, or Sign Out Other Devices below the list.",
+          "image": "export-ready.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9.09,
+            46.34,
+            82.05,
+            7.53
+          ],
+          "alt": "Vylo for iPhone: Choose which sessions to end. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm the sign-out",
+          "text": "Tap Sign Out Others to require the other devices to sign in again. You stay signed in here.",
+          "image": "devices-confirm.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            26.36,
+            23.43,
+            47.5,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Confirm the sign-out. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "change-email": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Profile",
+          "text": "Choose Settings, then Profile. Use Change beside your email address.",
+          "image": "settings-profile.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.41,
+            18.8,
+            4.67,
+            6.02
+          ],
+          "alt": "Vylo on the web: Open Profile. The relevant control is outlined."
+        },
+        {
+          "title": "Enter the new email and current password",
+          "text": "Enter the email address you want to use and your current Vylo password. Send the verification code when the address is correct.",
+          "image": "change-email.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            33,
+            45,
+            34,
+            24
+          ],
+          "alt": "Vylo on the web: Enter the new email and current password. The relevant control is outlined."
+        },
+        {
+          "title": "Verify the new address",
+          "text": "Enter the six-digit code sent to your new address, then click Verify email. Your current address stays active until verification succeeds.",
+          "image": "change-email-code.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            35.11,
+            63.19,
+            31.68,
+            6.67
+          ],
+          "alt": "Vylo on the web: Verify the new address. The relevant control is outlined."
+        },
+        {
+          "title": "To change your password",
+          "text": "Open Privacy & Security and click Send link under Change password. Follow the reset email.",
+          "image": "privacy.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            77.72,
+            85.42,
+            7.2,
+            6.11
+          ],
+          "alt": "Vylo on the web: To change your password. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Profile",
+          "text": "Tap the settings control at the top right of the app, then Profile.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            20.61,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Profile. The relevant control is outlined."
+        },
+        {
+          "title": "Enter the new address",
+          "text": "In Email Address, enter the new email and your current password, then tap Send code.",
+          "image": "profile.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.86,
+            38.49,
+            82.95,
+            44.46
+          ],
+          "alt": "Vylo for iPhone: Enter the new address. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm the code",
+          "text": "Enter the six-digit code from the new inbox and tap Confirm new email. Confirming signs out your other devices.",
+          "image": "change-email-code.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.86,
+            64.12,
+            82.5,
+            20.4
+          ],
+          "alt": "Vylo for iPhone: Confirm the code. The relevant control is outlined."
+        },
+        {
+          "title": "To change your password",
+          "text": "Open Privacy & Security and tap Email reset link. Follow the link in your email.",
+          "image": "privacy.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.86,
+            32.43,
+            82.73,
+            8.05
+          ],
+          "alt": "Vylo for iPhone: To change your password. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "invite-household": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Household",
+          "text": "Choose Household in the navigation.",
+          "image": "household.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            65,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Household. The relevant control is outlined."
+        },
+        {
+          "title": "Add a member",
+          "text": "Click Add Household Member.",
+          "image": "household.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            82.57,
+            11.94,
+            14.93,
+            6.11
+          ],
+          "alt": "Vylo on the web: Add a member. The relevant control is outlined."
+        },
+        {
+          "title": "Send the invitation",
+          "text": "Enter their email address and click Send invite. They should use that email to accept the invitation.",
+          "image": "household-invite.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            32.5,
+            45.97,
+            35,
+            6.94
+          ],
+          "alt": "Vylo on the web: Send the invitation. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Household Members",
+          "text": "Tap the settings control at the top right of the app, then Household Members.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            35.04,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Household Members. The relevant control is outlined."
+        },
+        {
+          "title": "Invite a member",
+          "text": "Tap Invite member above the member list.",
+          "image": "household.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            59.55,
+            13.91,
+            35.45,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Invite a member. The relevant control is outlined."
+        },
+        {
+          "title": "Send the invitation",
+          "text": "Enter their email address and tap Send invite.",
+          "image": "household-invite.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            74.48,
+            86.82,
+            15.17
+          ],
+          "alt": "Vylo for iPhone: Send the invitation. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "remove-household-member": {
+    "web": {
+      "steps": [
+        {
+          "title": "Find the member",
+          "text": "Open Household and find the person in the member list.",
+          "image": "household.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            65,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Find the member. The relevant control is outlined."
+        },
+        {
+          "title": "Remove the member",
+          "text": "Click Remove beside their name. Check the name in the browser confirmation before accepting.",
+          "image": "household.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            87.81,
+            46.94,
+            6.66,
+            6.11
+          ],
+          "alt": "Vylo on the web: Remove the member. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Household Members",
+          "text": "Tap the settings control at the top right of the app, then Household Members.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            35.04,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Household Members. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the member",
+          "text": "Tap Remove on that person’s card.",
+          "image": "household.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            76.82,
+            39.54,
+            16.14,
+            4.18
+          ],
+          "alt": "Vylo for iPhone: Choose the member. The relevant control is outlined."
+        },
+        {
+          "title": "Confirm the name",
+          "text": "Check the person named in the pop-up, then tap Remove.",
+          "image": "household-remove.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            22.95,
+            7.85,
+            54.32,
+            17.57
+          ],
+          "alt": "Vylo for iPhone: Confirm the name. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "build-a-budget": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open budget setup",
+          "text": "Choose Spend in the navigation, then Add Budget. Once a budget exists, this section is called Budgets.",
+          "image": "budget-empty.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            86.37,
+            32.78,
+            10.68,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open budget setup. The relevant control is outlined."
+        },
+        {
+          "title": "Choose how to start",
+          "text": "Choose Auto-build from spending to use your recent purchases as a starting point.",
+          "image": "budget-setup.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            17.28,
+            34.72,
+            67.36,
+            16.39
+          ],
+          "alt": "Vylo on the web: Choose how to start. The relevant control is outlined."
+        },
+        {
+          "title": "Check the suggested amounts",
+          "text": "Review each category. The recent total and monthly average explain the suggestion; change any amount that doesn’t fit your plans.",
+          "image": "budget-auto.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            72.5,
+            48.6,
+            9.8,
+            15.4
+          ],
+          "alt": "Vylo on the web: Check the suggested amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Apply your budget",
+          "text": "Check the total and click Apply budget. You can edit individual category amounts afterward.",
+          "image": "budget-auto.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            65.86,
+            84.86,
+            17.19,
+            6.67
+          ],
+          "alt": "Vylo on the web: Apply your budget. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Add a budget",
+          "text": "Tap Spend in the bottom navigation, then Add Budget.",
+          "image": "budget-empty.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            28.66,
+            89.09,
+            7.64
+          ],
+          "alt": "Vylo for iPhone: Add a budget. The relevant control is outlined."
+        },
+        {
+          "title": "Use your past spending",
+          "text": "Tap Auto-build from spending.",
+          "image": "budget-setup.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            60.88,
+            86.82,
+            17.57
+          ],
+          "alt": "Vylo for iPhone: Use your past spending. The relevant control is outlined."
+        },
+        {
+          "title": "Review the amounts",
+          "text": "Change any category amount that needs adjusting. Scroll for the remaining groups.",
+          "image": "budget-auto.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            59.32,
+            57.32,
+            30,
+            22.59
+          ],
+          "alt": "Vylo for iPhone: Review the amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Apply the budget",
+          "text": "Check the total, then tap Apply budget.",
+          "image": "budget-auto.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            90.17,
+            89.32,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Apply the budget. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "budget-from-scratch": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open budget setup",
+          "text": "Choose Spend in the navigation, then Add Budget. Once a budget exists, this section is called Budgets.",
+          "image": "budget-empty.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            86.37,
+            32.78,
+            10.68,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open budget setup. The relevant control is outlined."
+        },
+        {
+          "title": "Start with your own amounts",
+          "text": "Choose Start from scratch.",
+          "image": "budget-setup.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            17.28,
+            53.33,
+            67.36,
+            13.06
+          ],
+          "alt": "Vylo on the web: Start with your own amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Set category amounts",
+          "text": "Enter the monthly amount beside each category. Leave categories at zero if you don’t want to budget for them.",
+          "image": "budget-scratch.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            69.3,
+            24,
+            15.29,
+            42
+          ],
+          "alt": "Vylo on the web: Set category amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Apply the budget",
+          "text": "Check the total, then click Apply budget.",
+          "image": "budget-scratch.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            67.12,
+            84.86,
+            17.52,
+            6.67
+          ],
+          "alt": "Vylo on the web: Apply the budget. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Add a budget",
+          "text": "Tap Spend in the bottom navigation, then Add Budget.",
+          "image": "budget-empty.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            28.66,
+            89.09,
+            7.64
+          ],
+          "alt": "Vylo for iPhone: Add a budget. The relevant control is outlined."
+        },
+        {
+          "title": "Start from scratch",
+          "text": "Choose Start from scratch.",
+          "image": "budget-setup.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            79.92,
+            86.82,
+            9.1
+          ],
+          "alt": "Vylo for iPhone: Start from scratch. The relevant control is outlined."
+        },
+        {
+          "title": "Enter your amounts",
+          "text": "Enter a monthly amount for each category. Scroll for all groups.",
+          "image": "budget-scratch.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            60,
+            49.48,
+            28.86,
+            17.78
+          ],
+          "alt": "Vylo for iPhone: Enter your amounts. The relevant control is outlined."
+        },
+        {
+          "title": "Apply the budget",
+          "text": "Check the total, then tap Apply budget.",
+          "image": "budget-scratch.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            90.17,
+            89.32,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Apply the budget. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "budget-trends": {
+    "web": {
+      "steps": [
+        {
+          "title": "Switch to Trends",
+          "text": "Open Budgets and choose Trends at the top.",
+          "image": "budget-trends.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            16.75,
+            18.8,
+            4.99,
+            6.02
+          ],
+          "alt": "Vylo on the web: Switch to Trends. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the time range",
+          "text": "Choose 3M, 6M, YTD, 1Y, or All. Compare completed months; the current month is still in progress.",
+          "image": "budget-trends.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            22.44,
+            18.8,
+            3.38,
+            6.02
+          ],
+          "alt": "Vylo on the web: Choose the time range. The relevant control is outlined."
+        },
+        {
+          "title": "Read the exact numbers",
+          "text": "Use View data table below a chart to see its values as a table.",
+          "image": "budget-trends-detail.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            11.33,
+            1.53,
+            9.27,
+            6.11
+          ],
+          "alt": "Vylo on the web: Read the exact numbers. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Switch to Trends",
+          "text": "On Spend, tap the month/Trends switch at the top of the screen.",
+          "image": "budget-empty.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            35,
+            7.43,
+            30,
+            3.14
+          ],
+          "alt": "Vylo for iPhone: Switch to Trends. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a time range",
+          "text": "Use the range control above Budget vs Actual.",
+          "image": "budget-trends.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.27,
+            54.32,
+            5.33
+          ],
+          "alt": "Vylo for iPhone: Choose a time range. The relevant control is outlined."
+        },
+        {
+          "title": "Open the data table",
+          "text": "Tap View data table below the chart for the monthly figures.",
+          "image": "budget-trends.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.64,
+            64.54,
+            33.18,
+            3.77
+          ],
+          "alt": "Vylo for iPhone: Open the data table. The relevant control is outlined."
+        },
+        {
+          "title": "Compare the months",
+          "text": "Each row shows actual spending and the budget for that month. Tap Done to return to the chart.",
+          "image": "budget-table.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.14,
+            58.16,
+            87.95,
+            34.83
+          ],
+          "alt": "Vylo for iPhone: Compare the months. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "monthly-reports": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Reports",
+          "text": "Choose Reports in the navigation.",
+          "image": "reports.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            1.71,
+            41.67,
+            3.51,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Reports. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a month",
+          "text": "Click a month’s report card.",
+          "image": "reports.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            9.56,
+            24.17,
+            44.27,
+            55
+          ],
+          "alt": "Vylo on the web: Choose a month. The relevant control is outlined."
+        },
+        {
+          "title": "Follow up on the numbers",
+          "text": "Use View all transactions to check the purchases behind the report, or Edit budget to adjust your plan.",
+          "image": "report-detail.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            60.94,
+            48.3,
+            28.54,
+            7.2
+          ],
+          "alt": "Vylo on the web: Follow up on the numbers. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Reports",
+          "text": "Tap the settings control at the top right of the app, then Reports.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            49.16,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Reports. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the month",
+          "text": "Tap a month’s card to open the report.",
+          "image": "reports.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            20.82,
+            89.32,
+            20.82
+          ],
+          "alt": "Vylo for iPhone: Choose the month. The relevant control is outlined."
+        },
+        {
+          "title": "Check purchases or adjust the budget",
+          "text": "Use View all transactions to inspect the purchases, or Edit budget to change the amounts.",
+          "image": "report-detail.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            72.38,
+            89.32,
+            12.87
+          ],
+          "alt": "Vylo for iPhone: Check purchases or adjust the budget. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "manual-assets": {
+    "web": {
+      "note": "Use the iPhone app to add or update a manual asset or debt. On the web, Net Worth lists those items alongside connected accounts. The three-dot menu lets you rename or remove an item.",
+      "steps": [
+        {
+          "title": "Find the item’s menu",
+          "text": "In Net Worth, open the three dots beside the manual item. Edit Name changes its label; Remove takes it out of net worth.",
+          "image": "net-worth-item-menu.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            79.5,
+            79.8,
+            14,
+            11.2
+          ],
+          "alt": "Vylo on the web: Find the item’s menu. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Net Worth",
+          "text": "Tap Net Worth in the bottom navigation.",
+          "image": "net-worth.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            73.86,
+            91.32,
+            18.18,
+            6.17
+          ],
+          "alt": "Vylo for iPhone: Open Net Worth. The relevant control is outlined."
+        },
+        {
+          "title": "Add a manual item",
+          "text": "Tap the plus beside Assets Breakdown.",
+          "image": "net-worth.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            83.41,
+            48.12,
+            11.36,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Add a manual item. The relevant control is outlined."
+        },
+        {
+          "title": "Choose the type",
+          "text": "In the form, tap Type and select the kind of asset or liability. Scroll for debt types.",
+          "image": "manual-asset-type.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            59.41,
+            86.82,
+            5.65
+          ],
+          "alt": "Vylo for iPhone: Choose the type. The relevant control is outlined."
+        },
+        {
+          "title": "Name and value the item",
+          "text": "Enter a name you’ll recognize and its current value or amount owed.",
+          "image": "manual-asset.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            6.82,
+            68.41,
+            86.82,
+            18.1
+          ],
+          "alt": "Vylo for iPhone: Name and value the item. The relevant control is outlined."
+        },
+        {
+          "title": "Save it",
+          "text": "Tap Save. Open the item again when you need to update its value.",
+          "image": "manual-asset.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            80.45,
+            49.79,
+            12.95,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Save it. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "find-your-way": {
+    "web": {
+      "steps": [
+        {
+          "title": "Use the navigation",
+          "text": "Dashboard is the overview. Transactions lists purchases; Budgets, Net Worth, and Reports show different views of your household’s money.",
+          "image": "dashboard.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            0.7,
+            11,
+            5.4,
+            80
+          ],
+          "alt": "Vylo on the web: Use the navigation. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Use the bottom navigation",
+          "text": "Home shows the overview. Activity lists transactions, Spend contains budgets, and Net Worth tracks assets and debts.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            9.77,
+            91.32,
+            81.59,
+            6.17
+          ],
+          "alt": "Vylo for iPhone: Use the bottom navigation. The relevant control is outlined."
+        },
+        {
+          "title": "Open settings",
+          "text": "The control at the top right opens accounts, household members, categories, billing, and privacy settings.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            82.95,
+            6.49,
+            12.5,
+            5.13
+          ],
+          "alt": "Vylo for iPhone: Open settings. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "getting-set-up": {
+    "web": {
+      "steps": [
+        {
+          "title": "Connect your first bank",
+          "text": "Open Accounts and choose Add new account. Complete your bank’s verification and select the accounts to share.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            85.95,
+            11.94,
+            11.55,
+            6.11
+          ],
+          "alt": "Vylo on the web: Connect your first bank. The relevant control is outlined."
+        },
+        {
+          "title": "Review what needs a decision",
+          "text": "After the import finishes, open the review banner. Choose categories for purchases Vylo couldn’t place.",
+          "image": "dashboard.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.38,
+            22.5,
+            88.13,
+            14.44
+          ],
+          "alt": "Vylo on the web: Review what needs a decision. The relevant control is outlined."
+        },
+        {
+          "title": "Open budget setup",
+          "text": "Choose Spend in the navigation, then Add Budget. Once a budget exists, this section is called Budgets.",
+          "image": "budget-empty.jpg",
+          "width": 1256,
+          "height": 720,
+          "box": [
+            86.37,
+            32.78,
+            10.68,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open budget setup. The relevant control is outlined."
+        }
+      ],
+      "note": "The linked articles below walk through each task in more detail."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Accounts",
+          "text": "Tap the settings control at the top right of the app, then Accounts.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            27.93,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Accounts. The relevant control is outlined."
+        },
+        {
+          "title": "Connect your bank",
+          "text": "Tap Add Account and complete the bank provider’s verification.",
+          "image": "accounts.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            64.09,
+            14.33,
+            30.91,
+            4.18
+          ],
+          "alt": "Vylo for iPhone: Connect your bank. The relevant control is outlined."
+        },
+        {
+          "title": "Review your imported purchases",
+          "text": "On Home, tap Review transactions to sort the purchases that need your input.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.17,
+            89.32,
+            8.89
+          ],
+          "alt": "Vylo for iPhone: Review your imported purchases. The relevant control is outlined."
+        },
+        {
+          "title": "Add a budget",
+          "text": "Tap Spend in the bottom navigation, then Add Budget.",
+          "image": "budget-empty.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            28.66,
+            89.09,
+            7.64
+          ],
+          "alt": "Vylo for iPhone: Add a budget. The relevant control is outlined."
+        }
+      ],
+      "note": "The first import usually takes about five minutes. The app shows its progress; some banks take longer."
+    }
+  },
+  "reconnect-a-bank": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Accounts",
+          "text": "Choose Accounts in the navigation.",
+          "image": "accounts.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            57.78,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Accounts. The relevant control is outlined."
+        },
+        {
+          "title": "Reconnect the existing bank",
+          "text": "Find the institution marked as needing attention and click Reconnect Bank. Complete the provider’s sign-in and verification prompts.",
+          "image": "bank-reconnect.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            79.03,
+            69.44,
+            12.68,
+            6.11
+          ],
+          "alt": "Vylo on the web: Reconnect the existing bank. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open Accounts",
+          "text": "Tap the settings control at the top right of the app, then Accounts.",
+          "image": "settings.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.68,
+            27.93,
+            88.64,
+            6.28
+          ],
+          "alt": "Vylo for iPhone: Open Accounts. The relevant control is outlined."
+        },
+        {
+          "title": "Manage the connection",
+          "text": "Find the bank marked Needs attention and tap Manage connection. Complete the provider’s sign-in and verification prompts.",
+          "image": "bank-reconnect.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.86,
+            38.39,
+            48.86,
+            4.6
+          ],
+          "alt": "Vylo for iPhone: Manage the connection. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "net-worth-history": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open Net Worth",
+          "text": "Choose Net Worth in the navigation.",
+          "image": "net-worth-history.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            1.68,
+            34.44,
+            3.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Open Net Worth. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a period",
+          "text": "Use the range buttons above the chart. Shorter ranges make recent changes easier to inspect.",
+          "image": "net-worth-history.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            83.96,
+            23.8,
+            3.35,
+            6.02
+          ],
+          "alt": "Vylo on the web: Choose a period. The relevant control is outlined."
+        },
+        {
+          "title": "See the recorded balances",
+          "text": "Use View data table for the figures behind the chart. Missing earlier history is not a zero balance.",
+          "image": "net-worth-history.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            10.7,
+            63.19,
+            9.27,
+            6.11
+          ],
+          "alt": "Vylo on the web: See the recorded balances. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open the history view",
+          "text": "On Net Worth, tap the Net Worth/Trends switch at the top.",
+          "image": "net-worth.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            35,
+            7.43,
+            30,
+            3.14
+          ],
+          "alt": "Vylo for iPhone: Open the history view. The relevant control is outlined."
+        },
+        {
+          "title": "Choose a time range",
+          "text": "Select a range above the chart. The line follows the balance observations Vylo has collected.",
+          "image": "net-worth-history.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.27,
+            64.77,
+            5.23
+          ],
+          "alt": "Vylo for iPhone: Choose a time range. The relevant control is outlined."
+        },
+        {
+          "title": "Read the numbers",
+          "text": "Tap View data table below the chart to see the recorded balances.",
+          "image": "net-worth-history.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            8.41,
+            66.74,
+            40.91,
+            4.29
+          ],
+          "alt": "Vylo for iPhone: Read the numbers. The relevant control is outlined."
+        }
+      ]
+    }
+  },
+  "how-transactions-get-sorted": {
+    "web": {
+      "steps": [
+        {
+          "title": "Open the review queue",
+          "text": "Click the review banner at the top of Dashboard.",
+          "image": "dashboard.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.38,
+            22.5,
+            88.13,
+            14.44
+          ],
+          "alt": "Vylo on the web: Open the review queue. The relevant control is outlined."
+        },
+        {
+          "title": "Check the purchase",
+          "text": "Read the merchant, amount, date, and account. Click Assign Category if it needs one.",
+          "image": "review.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            25.39,
+            72.36,
+            49.22,
+            8.06
+          ],
+          "alt": "Vylo on the web: Check the purchase. The relevant control is outlined."
+        }
+      ],
+      "note": "The review queue is where you make the decisions the automatic rules couldn’t. The related review guide shows how to confirm a category and save a merchant rule."
+    },
+    "ios": {
+      "steps": [
+        {
+          "title": "Open the review queue",
+          "text": "Tap Review transactions on Home.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            15.17,
+            89.32,
+            8.89
+          ],
+          "alt": "Vylo for iPhone: Open the review queue. The relevant control is outlined."
+        },
+        {
+          "title": "Check the purchase",
+          "text": "Read the merchant, date, amount, and account. Tap the category to change it.",
+          "image": "review.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            11.5,
+            48.7,
+            77,
+            6.8
+          ],
+          "alt": "Vylo for iPhone: Check the purchase. The relevant control is outlined."
+        }
+      ],
+      "note": "Open a purchase in the review queue to check the category, correct it, or skip it until you know what it is."
+    }
+  },
+  "income-basics": {
+    "web": {
+      "note": "For an income payment that won’t arrive through a connected bank, add it manually and choose an income category such as Salary. The linked Add a transaction guide shows every entry field.",
+      "steps": [
+        {
+          "title": "Open Income from Dashboard",
+          "text": "Click the Income card on Dashboard to open the selected month’s income.",
+          "image": "income-dashboard.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            12,
+            57,
+            19.5,
+            18.5
+          ],
+          "alt": "Vylo on the web: Open Income from Dashboard. The relevant area is outlined."
+        },
+        {
+          "title": "Check Income activity",
+          "text": "The list shows each payment’s date, amount, and income category. Custom income categories appear here beside the payment.",
+          "image": "income.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            8,
+            55,
+            84,
+            22
+          ],
+          "alt": "Vylo on the web: Check Income activity. The relevant area is outlined."
+        },
+        {
+          "title": "Find income in your transactions",
+          "text": "Open Transactions and search for the payer. Check the category to make sure the deposit is classified as income.",
+          "image": "transactions.jpg",
+          "width": 1280,
+          "height": 720,
+          "box": [
+            9.38,
+            40.47,
+            23.44,
+            6.11
+          ],
+          "alt": "Vylo on the web: Find income in your transactions. The relevant control is outlined."
+        }
+      ]
+    },
+    "ios": {
+      "note": "Use an income category for earnings. A transfer between your own accounts or a refund is not new salary.",
+      "steps": [
+        {
+          "title": "Open Income from Home",
+          "text": "Tap the Income card on Home to see the selected month’s income.",
+          "image": "home.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.5,
+            26.5,
+            43,
+            11.3
+          ],
+          "alt": "Vylo for iPhone: Open Income from Home. The relevant area is outlined."
+        },
+        {
+          "title": "Check the payments and their categories",
+          "text": "Keep Total selected to see all income types in Income activity. This example has a consulting payment labelled Freelance alongside Salary.",
+          "image": "income.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.5,
+            63.8,
+            89,
+            11.2
+          ],
+          "alt": "Vylo for iPhone: Check the payments and their categories. The relevant area is outlined."
+        },
+        {
+          "title": "Find the income payment",
+          "text": "Open Activity. Use the Income filter to see earnings, or search for the payer.",
+          "image": "activity.png",
+          "width": 1320,
+          "height": 2868,
+          "box": [
+            5.45,
+            26.88,
+            88.86,
+            12.55
+          ],
+          "alt": "Vylo for iPhone: Find the income payment. The relevant control is outlined."
+        }
+      ]
+    }
+  }
+}

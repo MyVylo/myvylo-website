@@ -1,0 +1,340 @@
+{
+  "categorize": [
+    {
+      "file": "transactions.jpg",
+      "caption": "Purchases arrive with categories.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "transactions.jpg",
+      "caption": "Check the merchant, amount, and category.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "ai-consent.jpg",
+      "caption": "Enable optional AI only if you want its help.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "review.jpg",
+      "caption": "Anything still unclear goes to review.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "review": [
+    {
+      "file": "review.jpg",
+      "caption": "Check the purchase before assigning a category.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "review-category.jpg",
+      "caption": "Find the category that fits.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "review-confirm.jpg",
+      "caption": "Keep the merchant choice if it should apply next time.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "review-confirm.jpg",
+      "caption": "Confirm the category, or skip it for now.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "remember": [
+    {
+      "file": "transactions.jpg",
+      "caption": "Open a purchase’s category.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "transaction-category.jpg",
+      "caption": "Choose where this merchant belongs.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "transaction-category.jpg",
+      "caption": "Keep “Remember this merchant” checked.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "review-confirm.jpg",
+      "caption": "You can remember merchants in the review queue too.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "categories": [
+    {
+      "file": "categories.jpg",
+      "caption": "Choose a group to organize.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "category-list.jpg",
+      "caption": "Open the categories inside it.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "category-rename.jpg",
+      "caption": "Give a category a name that makes sense to you.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "category-add.jpg",
+      "caption": "Add one for something you track separately.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "reports": [
+    {
+      "file": "reports.jpg",
+      "caption": "Open a completed month’s report.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "report-detail.jpg",
+      "caption": "Read the summary of the month.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "report-categories.jpg",
+      "caption": "See which categories changed most.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "report-detail.jpg",
+      "caption": "Check the transactions or adjust your budget.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "budget-build": [
+    {
+      "file": "budget-setup.jpg",
+      "caption": "Start with your recent spending.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-auto.jpg",
+      "caption": "See the suggested amounts.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-auto.jpg",
+      "caption": "Change any amount that doesn’t fit your plans.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-auto.jpg",
+      "caption": "Apply the budget when you’re ready.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "budget": [
+    {
+      "file": "budget.jpg",
+      "caption": "See what’s left in this month’s budget.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget.jpg",
+      "caption": "Check spending across the groups.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-edit.jpg",
+      "caption": "Open the category amounts for a closer look.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget.jpg",
+      "caption": "Spot the groups that need attention.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "budget-trends": [
+    {
+      "file": "budget-trends.jpg",
+      "caption": "Compare completed months.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-trends.jpg",
+      "caption": "See budgeted spending alongside actual spending.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-trends.jpg",
+      "caption": "Check how the spending mix changes.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget-trends-detail.jpg",
+      "caption": "Look closer at the categories behind the change.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "invite": [
+    {
+      "file": "household.jpg",
+      "caption": "Everyone has their own login.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "household-invite.jpg",
+      "caption": "Invite someone by email.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "household-invite.jpg",
+      "caption": "Household members share the same plan.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "household.jpg",
+      "caption": "Keep track of members and pending invitations.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "household": [
+    {
+      "file": "accounts.jpg",
+      "caption": "See the household’s connected accounts.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "bank-picker.jpg",
+      "caption": "Choose a bank to connect.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "accounts.jpg",
+      "caption": "Check balances and connection status.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "household.jpg",
+      "caption": "Each member uses a separate login.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "shared": [
+    {
+      "file": "dashboard-hero.jpg",
+      "caption": "Start with the household’s spending and savings.",
+      "width": 2560,
+      "height": 2000
+    },
+    {
+      "file": "transactions.jpg",
+      "caption": "See purchases together in Transactions.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "budget.jpg",
+      "caption": "Track the same household budget.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "dashboard-hero.jpg",
+      "caption": "Check the month together.",
+      "width": 2560,
+      "height": 2000
+    }
+  ],
+  "worth": [
+    {
+      "file": "net-worth-viewport.jpg",
+      "caption": "See assets and debt in one place.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-assets.jpg",
+      "caption": "Include your home and other manually tracked assets.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-debts.jpg",
+      "caption": "Review what the household owes.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-viewport.jpg",
+      "caption": "Assets minus liabilities gives your net worth.",
+      "width": 2560,
+      "height": 1600
+    }
+  ],
+  "worth-history": [
+    {
+      "file": "net-worth-viewport.jpg",
+      "caption": "Follow the change in your net worth.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-viewport.jpg",
+      "caption": "Use the chart to look back over time.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-viewport.jpg",
+      "caption": "See how assets and liabilities contribute.",
+      "width": 2560,
+      "height": 1600
+    },
+    {
+      "file": "net-worth-assets.jpg",
+      "caption": "Keep your account and manual values up to date.",
+      "width": 2560,
+      "height": 1600
+    }
+  ]
+}

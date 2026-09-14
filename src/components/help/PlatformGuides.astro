@@ -1,0 +1,22 @@
+---
+const { guide } = Astro.props;
+---
+{guide && <div class="platform-guides">
+
+{['web','ios'].map(platform => {
+ const data=guide[platform];
+ return <section class={`platform-guide ${platform}`} aria-labelledby={platform==='web'?'on-the-web':'on-iphone'}>
+ <h2 id={platform==='web'?'on-the-web':'on-iphone'}>{platform==='web'?'On the web':'On iPhone'}</h2>
+ {data?.note && <p>{data.note}</p>}
+ {data?.steps?.length > 0 && <ol class="illustrated-steps">{data.steps.map((step:any,i:number) => <li id={`${platform}-step-${i+1}`}>
+ <div class="step-copy"><h3><span aria-hidden="true">{i+1}.</span> {step.title}</h3><p>{step.text}</p></div>
+ {step.image && <figure class={`step-figure ${platform}`}>
+ <a href={`/help/steps/${platform}/${step.image}`} target="_blank" rel="noopener" aria-label={`Enlarge screenshot: ${step.title}`}>
+ <img src={`/help/steps/${platform}/${step.image}`} alt={step.alt||step.title} width={step.width|| (platform==='web'?1440:1320)} height={step.height||(platform==='web'?900:2868)} loading="lazy" />
+ {step.box && <span class="step-highlight" style={`left:${step.box[0]}%;top:${step.box[1]}%;width:${step.box[2]}%;height:${step.box[3]}%`} aria-hidden="true"><span>{i+1}</span></span>}
+ </a><figcaption>{step.caption||step.title}<span>Tap to enlarge</span></figcaption>
+ </figure>}
+ </li>)}</ol>}
+ </section>
+})}
+</div>}
