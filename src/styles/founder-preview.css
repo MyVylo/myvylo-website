@@ -165,8 +165,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 .pricing-story > p:not(.section-number) { font-size: 18px; line-height: 1.7; color: #e6e1f6; max-width: 390px; }
 .pricing-hand-note { display: inline-block; color: var(--lime); font-size: 22px; margin-top: 33px; }
 .plan-card { border: 1.5px solid var(--ink); border-radius: 8px; padding: 33px 36px 25px; background: var(--paper); color: var(--ink); box-shadow: 7px 7px 0 #342578; }
-.plan-label { font-size: 12px; font-weight: 750; letter-spacing: .08em; border-bottom: 1px solid var(--rule); padding-bottom: 21px; }
-.plan-price { display: flex; gap: 8px; align-items: center; margin-top: 23px; }
+.plan-price { display: flex; gap: 8px; align-items: center; }
 .plan-price .currency { align-self: flex-start; padding-top: 11px; font-size: 35px; font-weight: 600; }
 .plan-price strong { font-size: 108px; font-weight: 650; letter-spacing: -.08em; line-height: 1; }
 .plan-price > span:last-child { margin-left: 26px; font-size: 18px; line-height: 1.35; color: var(--muted); }
