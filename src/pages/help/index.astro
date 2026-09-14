@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import HelpLayout from '../../layouts/HelpLayout.astro';
+import guides from '../../data/help-guides.json';
+import { helpCategories, articleUrl } from '../../lib/help';
+const articles = (await getCollection('help')).sort((a,b) => a.data.order - b.data.order);
+const index = articles.map(a => ({slug:a.slug, ...a.data, body:[a.body,...Object.values((guides as Record<string,any>)[a.slug]||{}).flatMap((p:any)=>[p.note||'',...(p.steps||[]).map((s:any)=>s.title+' '+s.text)])].join(' ')}));
+const safeIndex = JSON.stringify(index).replace(/</g, '\\u003c');
+---
+<HelpLayout title="How can we help?" description="Search Vylo help for bank connections, transactions, custom categories, budgets, household sharing, billing, and more.">
+<main id="main" class="page-width help-home">
+  <header class="help-intro"><h1>How can we help?</h1><p>Find an answer below, or email <a href="mailto:hi@myvylo.com">hi@myvylo.com</a>.</p>
+    <form class="help-search" role="search" action="/help/" id="help-search-form"><label class="sr-only" for="help-query">Search Vylo help</label><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="help-query" type="search" name="q" placeholder="Try “rename a category” or “cancel subscription”" autocomplete="off" /><button type="button" id="clear-search" hidden>Clear</button><button class="search-submit" type="submit">Search</button></form>
+    <noscript><p>Search needs JavaScript. All articles are listed by topic below.</p></noscript>
+    <div class="help-quick"><span>Quick answers</span>{['getting-set-up','rename-a-category','how-often-transactions-sync','cancel-subscription'].map(slug=>{const a=articles.find(a=>a.slug===slug);return a&&<a href={articleUrl(slug)}>{a.data.title}</a>})}</div>
+  </header>
+  <div class="help-directory"><aside class="help-topics"><details open id="topic-browser"><summary>Browse by topic</summary><nav aria-label="Help topics"><a href="/help/" data-topic="" aria-current="true">All topics <span>{articles.length}</span></a>{helpCategories.map(c=><a href={`#${c.id}`} data-topic={c.id}>{c.title}<span>{articles.filter(a=>a.data.category===c.id).length}</span></a>)}</nav></details><div class="idea-note"><h2>Have an idea?</h2><p>We love hearing what would make Vylo better for your household. Customer ideas shape what we build, and we work quickly to put useful changes in your hands.</p><a href="mailto:hi@myvylo.com?subject=An%20idea%20for%20Vylo">Tell us what you have in mind</a></div></aside>
+  <div class="help-list"><div id="search-results" hidden><h2 id="results-heading" tabindex="-1">Search results</h2><p id="result-status" role="status" aria-live="polite"></p><ul id="result-list"></ul><div id="no-results" hidden><h3>No matching articles yet.</h3><p>Try a shorter search, browse another topic, or <a href="mailto:hi@myvylo.com">ask us by email</a>.</p><button type="button" id="reset-search">Show all articles</button></div></div><div id="topic-sections">{helpCategories.map(c=><section class="help-topic-section" id={c.id} data-section={c.id}><div class="topic-title"><h2>{c.title}</h2><span>{articles.filter(a=>a.data.category===c.id).length} articles</span></div><p>{c.description}</p><ul>{articles.filter(a=>a.data.category===c.id).map(a=><li><a href={articleUrl(a.slug)}>{a.data.title}</a><p>{a.data.description}</p></li>)}</ul></section>)}</div></div></div>
+</main><script type="application/json" id="help-index" set:html={safeIndex} />
+<script>
+import { searchArticles, articleUrl } from '../../lib/help';
+const articles = JSON.parse(document.querySelector('#help-index')!.textContent!);
+const input = document.querySelector<HTMLInputElement>('#help-query')!;
+const results = document.querySelector<HTMLElement>('#search-results')!;
+const sections = document.querySelector<HTMLElement>('#topic-sections')!;
+const list = document.querySelector<HTMLElement>('#result-list')!;
+const clear = document.querySelector<HTMLButtonElement>('#clear-search')!;
+let topic = new URLSearchParams(location.search).get('topic') || '';
+if(!articles.some((a:any)=>a.category===topic)) topic='';
+input.value = new URLSearchParams(location.search).get('q') || '';
+function render(updateUrl=true) {
+ const q = input.value.trim(); clear.hidden = !input.value; results.hidden = !q; sections.hidden = !!q;
+ // Searching is always global; topic navigation is for browsing.
+ if(q) topic='';
+ document.querySelectorAll<HTMLElement>('[data-section]').forEach(s=>s.hidden=!!topic && s.dataset.section!==topic);
+ document.querySelectorAll<HTMLElement>('[data-topic]').forEach(a=>{if(a.dataset.topic===topic)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+ const matches = searchArticles(articles,q,topic); list.replaceChildren();
+ document.querySelector('#result-status')!.textContent = `${matches.length} ${matches.length===1?'article':'articles'} found${q?` for “${q}”`:''}${topic?' in this topic':''}.`;
+ document.querySelector<HTMLElement>('#no-results')!.hidden=matches.length>0;
+ for(const article of matches){const li=document.createElement('li'),a=document.createElement('a'),p=document.createElement('p');a.href=articleUrl(article.slug);a.textContent=article.title;p.textContent=article.description;li.append(a,p);list.append(li);}
+ if(updateUrl){const params=new URLSearchParams();if(q)params.set('q',q);if(topic)params.set('topic',topic);history.replaceState(null,'',location.pathname+(params.size?'?'+params:''));}
+}
+let timer: ReturnType<typeof setTimeout>;
+input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>render(),100);});
+document.querySelector('#help-search-form')!.addEventListener('submit',e=>{e.preventDefault();clearTimeout(timer);render();if(input.value.trim())document.querySelector<HTMLElement>('#results-heading')!.focus();});
+clear.addEventListener('click',()=>{input.value='';render();input.focus();});
+document.querySelector('#reset-search')!.addEventListener('click',()=>{topic='';input.value='';render();input.focus();});
+document.querySelectorAll<HTMLAnchorElement>('[data-topic]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();topic=a.dataset.topic||'';input.value='';render();if(matchMedia('(max-width: 760px)').matches)document.querySelector<HTMLDetailsElement>('#topic-browser')!.open=false;}));
+window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);input.value=p.get('q')||'';topic=p.get('topic')||'';render(false);});
+if(matchMedia('(max-width: 760px)').matches)document.querySelector<HTMLDetailsElement>('#topic-browser')!.open=false;
+render();
+</script></HelpLayout>

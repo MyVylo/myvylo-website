@@ -1,6 +1,6 @@
 // One clock plays the visible chapter. Native scrolling handles touch and trackpads.
-const duration = 11000;
-const stageDuration = 2200;
+const duration = 16000;
+const stageDuration = 4000;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const explorer = document.querySelector<HTMLElement>('.product-explorer');
 const tabs = Array.from(explorer?.querySelectorAll<HTMLButtonElement>('.product-tabs [role="tab"]') ?? []);
@@ -11,11 +11,6 @@ let lastTimestamp: number | null = null;
 let frame: number | null = null;
 let activeIndex = 0;
 
-const interpolate = ([from, to, start, length]: number[], time: number) => {
-  const progress = Math.min(1, Math.max(0, (time - start) / length));
-  return from + (to - from) * (1 - Math.pow(1 - progress, 3));
-};
-
 const demos = Array.from(explorer?.querySelectorAll<HTMLElement>('[data-demo]') ?? []).map(root => {
   const surface = root.querySelector<HTMLElement>('.demo-surface')!;
   const controls = root.querySelector<HTMLElement>('.demo-controls')!;
@@ -24,41 +19,23 @@ const demos = Array.from(explorer?.querySelectorAll<HTMLElement>('[data-demo]') 
   const replay = root.querySelector<HTMLButtonElement>('[data-demo-replay]')!;
   const progress = root.querySelector<HTMLElement>('.demo-timeline > span')!;
   const captions = JSON.parse(root.dataset.captions!) as string[];
-  const reveals = Array.from(root.querySelectorAll<HTMLElement>('[data-in]')).map(element => ({ element, start: Number(element.dataset.in), end: Number(element.dataset.out ?? Infinity) }));
-  const counters = Array.from(root.querySelectorAll<HTMLElement>('[data-number]')).map(element => ({ element, values: element.dataset.number!.split(',').map(Number), format: new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: Number(element.dataset.decimals ?? 0), maximumFractionDigits: Number(element.dataset.decimals ?? 0) }) }));
-  const bars = Array.from(root.querySelectorAll<HTMLElement>('[data-bar]')).map(element => ({ element, values: element.dataset.bar!.split(',').map(Number) }));
-  const texts = Array.from(root.querySelectorAll<HTMLElement>('[data-text]')).map(element => ({ element, values: JSON.parse(element.dataset.text!) as string[] }));
-  const lines = Array.from(root.querySelectorAll<SVGElement>('[data-draw]')).map(element => ({ element, values: element.dataset.draw!.split(',').map(Number) }));
-  const netWorth = root.querySelector<HTMLElement>('[data-net-worth]');
-  const assets = counters.find(counter => counter.element.dataset.total === 'assets');
-  const liabilities = counters.find(counter => counter.element.dataset.total === 'liabilities');
+  const frames = Array.from(root.querySelectorAll<HTMLElement>('[data-screen-frame]'));
+  const enlarge = root.querySelector<HTMLAnchorElement>('[data-demo-image-link]')!;
   const render = (time: number) => {
     const stage = Math.min(captions.length - 1, Math.floor(time / stageDuration));
-    if (root.dataset.demoStage !== String(stage)) root.dataset.demoStage = String(stage);
-    if (caption.textContent !== captions[stage]) caption.textContent = captions[stage];
-    progress.style.transform = `scaleX(${Math.min(1, time / duration)})`;
-    reveals.forEach(({ element, start, end }) => {
-      const visible = String(time >= start && time < end);
-      if (element.dataset.visible !== visible) element.dataset.visible = visible;
-    });
-    texts.forEach(({ element, values }) => {
-      const text = values[Math.min(stage, values.length - 1)];
-      if (element.textContent !== text) element.textContent = text;
-    });
-    counters.forEach(({ element, values, format }) => {
-      const value = format.format(interpolate(values, time));
-      if (element.textContent !== value) element.textContent = value;
-    });
-    if (netWorth && assets && liabilities) {
-      const value = assets.format.format(Math.round(interpolate(assets.values, time)) - Math.round(interpolate(liabilities.values, time)));
-      if (netWorth.textContent !== value) netWorth.textContent = value;
+    if (root.dataset.demoStage !== String(stage)) {
+      root.dataset.demoStage = String(stage);
+      caption.textContent = captions[stage];
+      surface.setAttribute('aria-label', captions[stage]);
+      frames.forEach((element,index)=>{element.dataset.visible=String(index===stage);});
+      enlarge.href = frames[stage].dataset.image!;
+      enlarge.dataset.marketImageLink = frames[stage].dataset.image!.split('/').pop()!;
     }
-    bars.forEach(({ element, values }) => element.style.setProperty('--fill', `${interpolate(values, time)}%`));
-    lines.forEach(({ element, values: [length, start, timeToDraw] }) => element.style.setProperty('--draw-offset', String(length - interpolate([0, length, start, timeToDraw], time))));
+    progress.style.transform = `scaleX(${Math.min(1, time / duration)})`;
   };
   controls.hidden = false;
   surface.dataset.enhanced = 'true';
-  render(duration);
+  render(0);
   return { root, toggle, replay, render };
 });
 
@@ -112,7 +89,7 @@ const selectChapter = (groupIndex: number, index: number, scroll = true) => {
     group.track.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
   }
   if (changed && groupIndex === activeIndex) {
-    elapsed = paused ? duration : 0;
+    elapsed = 0;
     currentDemo()?.render(elapsed);
     group.buttons[nextIndex].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
     syncPlayback();
@@ -134,7 +111,7 @@ const selectTab = (index: number, focus = false) => {
     group.track.scrollTo({ left: group.slides[group.index].offsetLeft - group.slides[0].offsetLeft, behavior: 'auto' });
     selectChapter(index, group.index, false);
   }
-  elapsed = paused ? duration : 0;
+  elapsed = 0;
   currentDemo()?.render(elapsed);
   if (focus) tabs[index]?.focus();
   syncPlayback();
@@ -217,7 +194,7 @@ if (explorer && walkthroughs.length) {
   document.addEventListener('visibilitychange', syncPlayback);
   reducedMotion.addEventListener('change', () => {
     paused = reducedMotion.matches;
-    elapsed = paused ? duration : 0;
+    elapsed = 0;
     currentDemo()?.render(elapsed);
     syncPlayback();
   });
