@@ -4,6 +4,7 @@ import FeatureWalkthrough from '../components/FeatureWalkthrough.astro';
 import { featureWalkthroughs as views } from '../data/feature-walkthroughs';
 import ClutterComparison from '../components/ClutterComparison.astro';
 import { marketCopy } from '../edge/screenshot-market.js';
+import SearchMetadata from '../components/SearchMetadata.astro';
 const countryCopy = marketCopy('US');
 const signup = 'https://app.myvylo.com/signup';
 const questions = [
@@ -23,8 +24,11 @@ const questions = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8f7f2" />
-    <meta name="description" content="Track household accounts, spending, budgets, and net worth with Vylo. $2 for your first month, then $7/month for the whole household. Cancel anytime." />
-    <link rel="canonical" href="https://www.myvylo.com/" />
+    <meta name="google-site-verification" content="Ux4vKc2prEg89oTn9kJR810VMvk8FUHlospttXJxRO4" />
+    <SearchMetadata
+      title="Vylo — Shared Budgeting & Household Finance App"
+      description="Connect accounts, organize spending automatically, and track budgets and net worth together. One subscription for your whole household."
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260309" />
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=20260309" />
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png?v=20260309" />
@@ -32,16 +36,6 @@ const questions = [
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.myvylo.com/" />
-    <meta property="og:title" content="Vylo — Know where your money goes." />
-    <meta property="og:description" content="Track household accounts, spending, budgets, and net worth with Vylo. $2 for your first month, then $7/month for the whole household. Cancel anytime." />
-    <meta property="og:image" content="https://www.myvylo.com/icons/icon-512.png" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Vylo — Know where your money goes." />
-    <meta name="twitter:description" content="Track household accounts, spending, budgets, and net worth with Vylo. $2 for your first month, then $7/month for the whole household. Cancel anytime." />
-    <meta name="twitter:image" content="https://www.myvylo.com/icons/icon-512.png" />
-    <title>Vylo — Know where your money goes.</title>
   </head>
   <body class="founder-preview">
     <a class="skip-link" href="#main">Skip to content</a>

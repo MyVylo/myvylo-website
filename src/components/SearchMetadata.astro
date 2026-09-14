@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+// Search/filter parameters and country choices share the same public page.
+const pathname = Astro.url.pathname.replace(/\/?$/, '/');
+const canonical = new URL(pathname, Astro.site).href;
+const image = new URL('/icons/icon-512.png', Astro.site).href;
+const website = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': new URL('/#website', Astro.site).href,
+  name: 'Vylo',
+  alternateName: 'myvylo.com',
+  url: new URL('/', Astro.site).href,
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Vylo" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+{pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(website).replace(/</g, '\\u003c')} />}

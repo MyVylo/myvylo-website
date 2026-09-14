@@ -2,8 +2,9 @@
 import '../styles/founder-preview.css';
 import '../styles/help.css';
 import HelpHeader from '../components/help/HelpHeader.astro';
+import SearchMetadata from '../components/SearchMetadata.astro';
 const {title, description} = Astro.props;
 ---
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content={description} /><meta name="theme-color" content="#f8f7f2" /><link rel="icon" href="/favicon.svg" /><title>{title} · Vylo Help</title></head>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><SearchMetadata title={Astro.url.pathname.replace(/\/?$/, '/') === '/help/' ? 'Help Center — Vylo' : `${title} · Vylo Help`} description={description} /><meta name="theme-color" content="#f8f7f2" /><link rel="icon" href="/favicon.svg" /></head>
 <body class="founder-preview help-site"><a class="skip-link" href="#main">Skip to content</a><HelpHeader /><slot /><footer class="help-footer page-width"><a href="/">Vylo</a><p>Need a hand? <a href="mailto:hi@myvylo.com">hi@myvylo.com</a></p><a href="/updates/">What’s new</a></footer></body></html>
