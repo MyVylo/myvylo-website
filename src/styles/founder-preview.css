@@ -85,8 +85,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 .letter-body .letter-emphasis { margin-block: 35px; font-family: 'Lora', Georgia, serif; font-size: 25px; line-height: 1.7; font-weight: 600; letter-spacing: -.03em; }
 .letter-emphasis mark { color: var(--ink); background: var(--lime); box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 3px 4px; }
 .founder-signoff { display: grid; justify-items: start; margin-block: 28px 34px; }
-.founder-signature { font-family: 'Faraz Signature', 'Snell Roundhand', 'Brush Script MT', cursive; font-size: clamp(4.5rem, 8vw, 5.5rem); font-weight: 400; line-height: 1.2; color: var(--ink); transform: rotate(-4deg); transform-origin: left center; }
-.founder-role { margin-top: 10px !important; color: var(--ink); font-size: 1.125rem; font-weight: 550; line-height: 1.6; }
+.founder-signature { font-family: 'Faraz Signature', 'Snell Roundhand', 'Brush Script MT', cursive; font-size: clamp(2.25rem, 4vw, 2.75rem); font-weight: 400; line-height: 1.1; color: var(--ink); transform: rotate(-2deg); transform-origin: left center; }
+.founder-role { margin-top: 6px !important; color: var(--ink); font-size: 1.125rem; font-weight: 550; line-height: 1.6; }
 .founder-signoff .founder-email { margin-top: 2px; color: var(--purple); font-size: 1.0625rem; text-decoration-thickness: 1px; }
 .letter-body .letter-ps { font-size: 15px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 23px; }
 .footer-brand { display: inline-block; width: 108px; }
