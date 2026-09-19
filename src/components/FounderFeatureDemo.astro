@@ -1,20 +1,27 @@
 ---
 import '../styles/app-screen-demos.css';
 import captures from '../data/app-screen-captures.json';
+import { iphoneCaptures } from '../data/iphone-screen-captures';
 interface Props { scene: keyof typeof captures; }
 const {scene} = Astro.props;
 const frames = captures[scene];
+const phoneFrames = iphoneCaptures[scene];
 const captions = frames.map(frame=>frame.caption);
 const path = '/product/current-20260914/us/';
 ---
 <div class="feature-demo-player app-screen-player" data-demo={scene} data-captions={JSON.stringify(captions)}>
   <div class="demo-surface" role="img" aria-label={captions[0]}>
-    <div class="app-screen-viewport" aria-hidden="true">
+    <div class="device-composition" aria-hidden="true">
+    <div class="app-screen-viewport">
       {frames.map((frame,index)=>{
         return <div class="app-screen-frame" data-screen-frame={index} data-image={`${path}${frame.file}`} data-visible={String(index===0)}>
           <img data-market-image={frame.file} src={`${path}${frame.file}`} alt="" width={frame.width} height={frame.height} loading="lazy" decoding="async" />
         </div>;
       })}
+    </div>
+    <div class="iphone-screen-viewport">
+      {phoneFrames.map((file, index) => <div class="iphone-screen-frame" data-phone-frame={index} data-visible={String(index === 0)}><img src={`/product/iphone/${file}.jpg`} alt="" width="828" height="1800" loading="lazy" decoding="async" /></div>)}
+    </div>
     </div>
     <div class="demo-timeline" aria-hidden="true"><span></span></div>
   </div>

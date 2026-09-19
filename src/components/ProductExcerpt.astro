@@ -1,0 +1,21 @@
+---
+interface Props {
+  src: string;
+  srcUS?: string;
+  alt: string;
+  sourceWidth?: number;
+  sourceHeight?: number;
+  crop: [number, number, number, number];
+  eager?: boolean;
+}
+const { src, srcUS, alt, sourceWidth = 828, sourceHeight = 1800, crop, eager = false } = Astro.props;
+const [x, y, width, height] = crop;
+---
+<div class="product-excerpt" style={`aspect-ratio:${width}/${height}`}>
+  <img data-demo-market={srcUS ? "CA" : undefined} src={src} alt={alt} width={1320} height={2868} loading={eager ? 'eager' : 'lazy'} style={`width:${sourceWidth / width * 100}%;left:${-x / width * 100}%;top:${-y / height * 100}%`} />
+  {srcUS && <img data-demo-market="US" src={srcUS} alt={alt} width={1320} height={2868} loading={eager ? 'eager' : 'lazy'} style={`width:${sourceWidth / width * 100}%;left:${-x / width * 100}%;top:${-y / height * 100}%`} />}
+</div>
+<style>
+  .product-excerpt { position: relative; overflow: hidden; width: 100%; }
+  .product-excerpt img { position: absolute; display: block; max-width: none; height: auto; }
+</style>

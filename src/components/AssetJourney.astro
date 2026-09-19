@@ -1,0 +1,9 @@
+---
+import NativeCapture from './NativeCapture.astro';
+import ProductExcerpt from './ProductExcerpt.astro';
+const size={sourceWidth:828,sourceHeight:1799};
+---
+<div class="native-page worth-start"><NativeCapture name="net-worth" src="/product/build83/net-worth.png" crop={[16,250,796,1300]} top={25}/></div>
+{['asset','liability'].map(name=><div class={`native-page worth-saved worth-${name}-saved`}><div class={`native-page worth-${name}-scroll`}><NativeCapture name={`${name}-saved`} src={`/product/build83/${name}-saved.png`} crop={[16,250,796,1300]} top={25}/>{name==='liability' && <div class="liability-us-label" data-demo-market="US"><strong>Chase Freedom</strong><span>Chase • Credit Card • 4242</span></div>}</div></div>)}
+<div class="native-dimmer"></div>
+{[['asset','Family Car','28000'],['liability','Renovation Loan','12000']].map(([name,label,value])=><div class={`native-sheet worth-form worth-${name}-form`}><ProductExcerpt {...size} src={`/product/build83/${name}-filled.png`} crop={[16,851,796,735]} alt=""/><span class="worth-name-field"><span>{label}</span></span><span class="worth-value-field"><span>{value}</span></span></div>)}

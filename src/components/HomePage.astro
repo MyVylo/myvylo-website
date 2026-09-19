@@ -1,0 +1,142 @@
+---
+import '../styles/founder-preview.css';
+import ClutterComparison from '../components/ClutterComparison.astro';
+import { marketCopy } from '../edge/screenshot-market.js';
+import SearchMetadata from '../components/SearchMetadata.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
+import ProductHero from './ProductHero.astro';
+import ProductMoments from './ProductMoments.astro';
+import '../styles/app-showcase.css';
+interface Props { designPreview?: boolean; }
+const { designPreview = false } = Astro.props;
+const homeHref = designPreview ? '/design-direction/' : '/';
+const countryCopy = marketCopy('US');
+const signup = 'https://app.myvylo.com/signup';
+const questions = [
+  { q: 'What am I actually getting?', a: 'Connected accounts, transactions, budgets, income, and net worth for your household. Vylo categorizes transactions automatically; you can change categories or add cash purchases anytime.' },
+  { q: 'How long does setup take?', a: 'When you first connect your accounts, Vylo imports and categorizes the past 90 days of transactions. This takes about five minutes. After that, new transactions sort themselves—even while you sleep.' },
+  { q: 'Can I use Vylo with my partner?', a: 'Yes. Invite them by email. They get their own login and connect their accounts to your shared household. There’s no extra charge for household members.' },
+  { q: 'Can Vylo move my money?', a: 'No. Connections are read-only: Vylo can see balances and transactions, but cannot make payments or transfers. It does not store your banking password.' },
+  { q: 'What if a transaction lands in the wrong category?', a: 'Change the category, and the budget updates too. You can also create, rename, or merge categories and update several transactions at once.' },
+  { q: 'What does it cost after the first month?', a: 'After your $2 first month, it’s $7/month for the whole household. All features are included. No annual commitment; cancel anytime.' },
+  { q: 'Where can I ask a question before signing up?', a: 'Email hi@myvylo.com with any questions.' },
+];
+---
+
+<!doctype html>
+<html lang="en" data-screenshot-market="US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="google-site-verification" content="Ux4vKc2prEg89oTn9kJR810VMvk8FUHlospttXJxRO4" />
+    {designPreview ? <><title>Vylo — Website preview</title><meta name="robots" content="noindex, nofollow" /></> : <SearchMetadata
+      title="Vylo — Shared Budgeting & Household Finance App"
+      description="Connect accounts, organize spending automatically, and track budgets and net worth together. One subscription for your whole household."
+    />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260309" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=20260309" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png?v=20260309" />
+    <link rel="shortcut icon" href="/icons/favicon.ico?v=20260309" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png" />
+  </head>
+  <body class="founder-preview product-moments-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead page-width">
+      <a href={homeHref} class="wordmark" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" /></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#the-story">Why Vylo</a>
+        <a href="#inside-vylo">Features</a>
+        <a href="#security">Security</a>
+        <a href="#pricing">Pricing</a>
+        <a href="/updates/">Updates</a>
+      <a href="/help/">Help</a>
+      </nav>
+      <div class="nav-actions"><a class="signin" href="https://app.myvylo.com/signin">Sign in</a><a class="button button-small" href={signup}>Try Vylo</a></div>
+    </header>
+
+    <main id="main">
+      <section class="opening page-width" aria-labelledby="opening-title">
+        <h1 id="opening-title">Know where your money goes.<br /><em>Without the extra work.</em></h1>
+        <p class="opening-copy">Track your household’s accounts, spending, budgets, and net worth together. Vylo sorts the transactions and keeps everyone up to date.</p>
+        <div class="opening-actions"><a class="button" href={signup}>Try Vylo for $2</a><a class="text-link" href="#the-story">Why another money app?</a></div>
+        <p class="price-note">$2 for your first month, then $7/month after that. No annual commitments. Cancel anytime.</p>
+      </section>
+
+      <ProductHero />
+
+      <section class="founder-letter page-width" id="the-story" aria-labelledby="letter-title">
+        <article class="letter-body">
+          <h2 id="letter-title">Where did all<br /><em>your money go?</em></h2>
+          <p class="letter-introduction">Does it seem like no matter how much you earn, you reach the end of the month wondering where it all went?</p>
+          <p>You know the big expenses. It’s everything in between that’s harder to pin down. And when your household’s money is spread across different accounts, getting a clear picture can take a surprising amount of work.</p>
+          <h3 class="letter-subheading"><span>Another money app? Really?</span></h3>
+          <p>Fair question. Some apps are complicated. Others are expensive or packed with features you don’t need. You want to understand your money, but first you have to learn a whole system for managing it.</p>
+          <p>So maybe you end up back in Excel.</p>
+          <h3 class="letter-subheading"><span>Spreadsheets get something right.</span></h3>
+          <p>You can organize things however you want. Give categories names that make sense to you. Keep side-gig income separate from salary. Build a budget around the way your household actually lives.</p>
+          <p>But the control comes with sorting, formulas, and upkeep. Keeping track of your money becomes an <strong class="letter-underline">unpaid Sunday job.</strong></p>
+          <h3 class="letter-subheading"><span>That’s why we built Vylo.</span></h3>
+          <p>Vylo brings your household’s accounts, transactions, budgets, and net worth together. It handles most of the sorting while you choose your categories, set your rules, and decide how everything is organized.</p>
+          <p>You get automation for the repetitive work and spreadsheet-like flexibility for everything else. Everyone in your household can see the same numbers, without passing a spreadsheet back and forth.</p>
+          <p>Once you’re set up, Vylo keeps things moving in the background and flags what needs a closer look. When you sit down to check the month, you can spend your time deciding what to do next.</p>
+          <p>There’s no annual commitment. You should have time to see whether it fits, and be free to leave if it doesn’t.</p>
+          <p class="letter-resolution">Keeping track of your money should make life easier—and leave you with a little more of your Sunday.</p>
+          <p>Thanks for giving Vylo a try.</p>
+          <div class="team-signoff">
+            <p class="team-signature">— The Vylo Team</p>
+          </div>
+          <p>P.S. If something isn’t working for you, or you have an idea, email us at <a href="mailto:hi@myvylo.com">hi@myvylo.com</a>. We’d love to hear it.</p>
+        </article>
+      </section>
+
+      <ProductMoments />
+
+      <section class="manifesto page-width" id="before-and-after" aria-labelledby="manifesto-title">
+
+        <h2 id="manifesto-title">Track your money.<br /><span>Skip the busywork.</span></h2>
+        <ClutterComparison />
+      </section>
+
+      <section class="security-chapter" id="security" aria-labelledby="trust-title">
+        <div class="page-width">
+          <div class="security-heading"><div><h2 id="trust-title">Vylo can see your balances.<br /><em>It can’t move your money.</em></h2></div><p>Vylo connects through <strong>Plaid</strong> and <strong>Finicity, a Mastercard company.</strong> Plaid is the same bank-connection provider used by <a href="https://plaid.com/en-gb/what-is-plaid/" target="_blank" rel="noopener">Venmo</a>, <a href="https://help.wealthsimple.com/hc/en-ca/articles/360056580394-Link-a-bank-account" target="_blank" rel="noopener">Wealthsimple</a>, and <a href="https://robinhood.com/us/en/support/articles/robinhood-banking-money-movements/" target="_blank" rel="noopener">Robinhood</a>. Vylo never stores your banking password.</p></div>
+          <div class="connection-flow" aria-label="Your bank sends account data through Plaid or Finicity to Vylo after you authorize the connection.">
+            <div class="flow-bank"><strong>Your bank</strong><p>You choose the accounts to connect.</p></div>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <div class="flow-provider"><strong>Plaid <span class="provider-or">or</span> Finicity</strong><p>The provider handles the connection.</p></div>
+            <span class="flow-connector" aria-hidden="true"></span>
+            <div class="flow-vylo"><strong>Vylo<span class="read-only-tag">Read-only</span></strong><p>Account balances and transactions, organized.</p></div>
+          </div>
+          <div class="security-details"><article><span class="security-symbol" aria-hidden="true">≡</span><h3>No payments or transfers.</h3><p>Vylo can read connected account data. It cannot transfer money, make payments, or change your bank accounts.</p></article><article><span class="security-symbol" aria-hidden="true">•••</span><h3>No bank password stored.</h3><p>Authentication happens through your bank or connection provider. Vylo does not see or store your banking username or password.</p></article><article><span class="security-symbol" aria-hidden="true">✓</span><h3>Disconnect when you need to.</h3><p>Choose which accounts to share. Disconnect them in Vylo or manage access through the provider.</p></article></div>
+          <div class="security-links"><p>Read the details:</p><a href="https://app.myvylo.com/privacy-policy">Vylo privacy policy</a><a href="https://plaid.com/trust-safety/" target="_blank" rel="noopener">Plaid security</a><a href="https://www.finicity.com/terms-privacy/en-US/" target="_blank" rel="noopener">Finicity privacy & data access</a></div>
+        </div>
+      </section>
+
+      <section class="pricing-chapter" id="pricing" aria-labelledby="pricing-title">
+        <div class="page-width pricing-inner">
+          <div class="pricing-story"><h2 id="pricing-title">One household.<br />One plan.<br /><em>All of Vylo.</em></h2><p>All features and unlimited household members are included.</p></div>
+          <div class="plan-card"><div class="plan-price"><span class="currency">$</span><strong>2</strong><span>for your<br />first month</span></div><p class="plan-renewal">Then <strong>$7/month</strong> for your whole household.</p><ul><li>All your connected accounts</li><li>Transactions & automatic categorization</li><li>Budgets, income & net-worth tracking</li><li>Unlimited household members</li></ul><a href={signup} class="button plan-button">Try Vylo for $2</a><p class="plan-fineprint">No annual commitment. Cancel anytime.</p></div>
+        </div>
+      </section>
+
+      <section class="questions-chapter page-width" id="faq" aria-labelledby="faq-title">
+        <div class="questions-heading"><h2 id="faq-title">Before you<br />connect an account.</h2><a class="all-faqs-link" href="/help/">Browse all FAQs</a><p>For anything else:<br /><a href="mailto:hi@myvylo.com">hi@myvylo.com</a></p></div>
+        <div class="question-list">{questions.map(({ q, a }) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
+      </section>
+
+      <section class="closing-chapter page-width" aria-labelledby="closing-title"><h2 id="closing-title">Ready to give<br /><em>Vylo a try?</em></h2><a href={signup} class="button">Try Vylo for $2</a><p class="price-note">$2 for your first month, then $7/month after that. No annual commitments. Cancel anytime.</p></section>
+    </main>
+    <footer class="site-end page-width">
+      <div class="footer-top"><div><a href={homeHref} class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="#the-story">Why we built Vylo</a><a href="#inside-vylo">Features</a><a href="#pricing">Pricing</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-download"><AppStoreBadge /></div>
+      <div class="footer-bottom"><span>© 2026 Vylo</span><div class="screenshot-market-choice"><span data-screenshot-market-description aria-live="polite">{countryCopy.viewing}</span><a data-screenshot-market-switch href={`?market=${countryCopy.next}`}>{countryCopy.switchLabel}</a></div></div>
+      <p class="apple-trademark">Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+    </footer>
+    <script>
+      import '../scripts/screenshot-market';
+    </script>
+  </body>
+</html>

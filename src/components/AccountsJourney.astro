@@ -1,0 +1,20 @@
+---
+import NativeCapture from './NativeCapture.astro';
+---
+{['CA','US'].map(market=>{
+ const file=`/product/build83/accounts-${market.toLowerCase()}.png`;
+ const first=market==='CA'?448:793;
+ return <div class="native-page accounts-market" data-demo-market={market}>
+  <div class="native-page account-initial">
+   <NativeCapture name="accounts" src={file} crop={[16,250,796,180]} top={25}/>
+   <NativeCapture name="accounts" src={file} crop={[46,first,736,315]} top={224} left={30} width={736}/>
+  </div>
+  <div class="native-page account-preparing">
+   <NativeCapture name="accounts" src={file} crop={[16,250,796,100]} top={25}/>
+   <NativeCapture name="accounts-progress" src={`/product/build83/accounts-connecting-${market.toLowerCase()}.png`} crop={[46,370,736,235]} top={145} left={30} width={736}/>
+   <NativeCapture name="accounts" src={file} crop={[16,370,796,65]} top={425}/>
+   <NativeCapture name="accounts" src={file} crop={[46,first,736,315]} top={505} left={30} width={736}/>
+  </div>
+  <div class="native-page account-connected"><NativeCapture name="accounts" src={file} crop={[16,250,796,910]} top={25}/></div>
+ </div>
+})}

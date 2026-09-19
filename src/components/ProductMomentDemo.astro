@@ -1,0 +1,62 @@
+---
+import ProductExcerpt from './ProductExcerpt.astro';
+import NativeFeatureSequence from './NativeFeatureSequence.astro';
+import ReviewJourney from './ReviewJourney.astro';
+import '../styles/product-moment-demos.css';
+interface Props { scene: string; }
+const { scene } = Astro.props;
+// Coordinates refer to the 828px reference viewport. The PNGs are untouched native captures.
+const native = (name: string) => ['net-worth', 'net-worth-history'].includes(name) ? `/product/build83/${name}.png` : `/help/steps/ios/${name}.png`;
+const size = { sourceWidth: 828, sourceHeight: 2868 * 828 / 1320 };
+const descriptions: Record<string, string> = {
+  categorize: 'Vylo auto-categorization. Watch two purchases arrive and change from Uncategorized to Groceries and Coffee & snacks. Merchant and account examples match your selected country.',
+  remember: 'Vylo merchant categories. Open a purchase’s category picker and turn on Always use this category, then save Electricity.',
+  categories: 'Vylo categories. Create Baby stuff, then add Diapers, Formula and Clothing.',
+  reports: 'Vylo monthly reports. Open August and scroll through the spending, budget outcome, and month-to-month change.',
+  'budget-build': 'Vylo auto-build budget. Choose Auto-build, review and scroll through the suggested categories, then apply the budget.',
+  budget: 'Vylo monthly budget. See what is left and what is over budget, then explore Fixed, Flexible, Non-monthly, and Digital subscriptions, and open Restaurants.',
+  household: 'Vylo connected accounts. Add an account, wait for it to connect, then see both connected accounts.',
+  shared: 'Vylo shared household spending. Open Recent Transactions and scroll through the household’s purchases.',
+  worth: 'Vylo net worth. Add a vehicle and a personal loan, save both, and see them in the asset and liability breakdowns.',
+  review: 'Vylo transaction review. Open the category picker, choose Groceries, then swipe right to review the purchase and move to the next transaction.',
+  'budget-trends': 'Vylo Budget Health. Swipe to budget trends, scroll through the charts and select June to see actual spending against the budget.',
+  invite: 'Vylo household members. Open an invitation, enter an email, and send it. The invitation appears as pending.',
+  'worth-history': 'Vylo net worth. Swipe to history, scroll past assets and liabilities to the accounts, then open an investment and its growth chart.',
+};
+---
+<div class={`moment-demo demo-${scene}`} data-moment-demo={scene} data-state="idle" tabindex="0" role="img" aria-label={descriptions[scene]}>
+  <div class="native-viewport" aria-hidden="true">
+    {scene === 'review' && <ReviewJourney />}
+    {scene === 'budget-trends' && <>
+      <div class="native-page native-overview"><div class="native-budget-health"><ProductExcerpt {...size} src="/product/build83/budget-tracking.png" crop={[46,269,736,618]} alt="" /></div></div>
+      <div class="native-page native-trends"><div class="budget-trend-scroll">
+        <div class="budget-chart-states">
+          <ProductExcerpt {...size} src="/product/build83/budget-trends-selected.png" crop={[46,415,736,960]} alt="" />
+          <div class="budget-chart-unselected"><ProductExcerpt {...size} src="/product/build83/budget-trends.png" crop={[46,415,736,852]} alt="" /></div>
+        </div>
+        <div class="budget-mix-chart"><ProductExcerpt {...size} src="/product/build83/budget-trends-mix.png" crop={[46,250,736,900]} alt="" /></div>
+      </div></div>
+    </>}
+    {scene === 'invite' && <>
+      <div class="native-members"><ProductExcerpt {...size} src={native('household')} crop={[46, 224, 736, 610]} alt="" /></div>
+      <div class="native-invitation"><ProductExcerpt {...size} src={native('household')} crop={[46, 871, 736, 288]} alt="" /><span class="native-invite-age">Invited just now</span></div>
+      <div class="native-dimmer"></div>
+      <div class="native-sheet household-sheet"><ProductExcerpt {...size} src={native('household-invite')} crop={[16, 1142, 796, 642]} alt="" /><span class="native-email" data-demo-email></span></div>
+    </>}
+    {scene === 'worth-history' && <>
+      <div class="native-page native-overview">
+        <div class="native-worth-total"><ProductExcerpt {...size} src={native('net-worth')} crop={[46, 269, 736, 534]} alt="" /></div>
+      </div>
+      <div class="native-page native-trends"><div class="native-history-scroll">
+        <ProductExcerpt {...size} src={native('net-worth-history')} crop={[46,415,736,891]} alt="" />
+        <div class="native-history-assets"><ProductExcerpt {...size} src={native('net-worth-history')} crop={[46,1350,736,260]} alt="" /></div>
+        <div class="native-history-assets"><ProductExcerpt {...size} src="/product/build83/net-worth-accounts.png" srcUS="/product/build83/net-worth-accounts-us.png" crop={[46,218,736,255]} alt="" /></div>
+        <div class="native-history-assets"><ProductExcerpt {...size} src="/product/build83/net-worth-accounts.png" srcUS="/product/build83/net-worth-accounts-us.png" crop={[46,518,736,1035]} alt="" /></div>
+      </div></div>
+      <div class="native-dimmer"></div>
+      <div class="native-sheet investment-sheet"><div class="investment-detail-scroll"><ProductExcerpt {...size} src="/product/build83/investment-detail.png" srcUS="/product/build83/investment-detail-us.png" crop={[16,120,796,1210]} alt="" /></div></div>
+    </>}
+    <NativeFeatureSequence scene={scene} />
+    <span class="gesture-touch"></span><span class="gesture-ripple"></span>
+  </div>
+</div>

@@ -1,5 +1,4 @@
-// One clock plays the visible chapter. Native scrolling handles touch and trackpads.
-const duration = 16000;
+// A single clock animates only the selected, visible walkthrough.
 const stageDuration = 4000;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const explorer = document.querySelector<HTMLElement>('.product-explorer');
@@ -20,25 +19,26 @@ const demos = Array.from(explorer?.querySelectorAll<HTMLElement>('[data-demo]') 
   const progress = root.querySelector<HTMLElement>('.demo-timeline > span')!;
   const captions = JSON.parse(root.dataset.captions!) as string[];
   const frames = Array.from(root.querySelectorAll<HTMLElement>('[data-screen-frame]'));
+  const phoneFrames = Array.from(root.querySelectorAll<HTMLElement>('[data-phone-frame]'));
   const enlarge = root.querySelector<HTMLAnchorElement>('[data-demo-image-link]')!;
+  const duration = captions.length * stageDuration;
   const render = (time: number) => {
     const stage = Math.min(captions.length - 1, Math.floor(time / stageDuration));
     if (root.dataset.demoStage !== String(stage)) {
       root.dataset.demoStage = String(stage);
       caption.textContent = captions[stage];
       surface.setAttribute('aria-label', captions[stage]);
-      frames.forEach((element,index)=>{element.dataset.visible=String(index===stage);});
+      frames.forEach((element, index) => { element.dataset.visible = String(index === stage); });
+      phoneFrames.forEach((element, index) => { element.dataset.visible = String(index === stage); });
       enlarge.href = frames[stage].dataset.image!;
       enlarge.dataset.marketImageLink = frames[stage].dataset.image!.split('/').pop()!;
     }
     progress.style.transform = `scaleX(${Math.min(1, time / duration)})`;
   };
   controls.hidden = false;
-  surface.dataset.enhanced = 'true';
   render(0);
-  return { root, toggle, replay, render };
+  return { root, toggle, replay, render, duration };
 });
-
 const walkthroughs = Array.from(explorer?.querySelectorAll<HTMLElement>('[data-walkthrough]') ?? []).map(root => ({
   root,
   track: root.querySelector<HTMLElement>('[data-walkthrough-track]')!,
@@ -46,22 +46,16 @@ const walkthroughs = Array.from(explorer?.querySelectorAll<HTMLElement>('[data-w
   buttons: Array.from(root.querySelectorAll<HTMLButtonElement>('[data-chapter-select]')),
   demos: demos.filter(demo => root.contains(demo.root)),
   index: 0,
-  pendingIndex: null as number | null,
-  scrollFrame: null as number | null,
 }));
 const currentDemo = () => walkthroughs[activeIndex]?.demos[walkthroughs[activeIndex].index];
-const updateControls = () => demos.forEach(({ root, toggle }) => {
-  const action = paused ? 'Play' : 'Pause';
-  toggle.textContent = action;
-  toggle.setAttribute('aria-label', `${action} ${root.dataset.demo!.replaceAll('-', ' ')} animation`);
-});
 const canPlay = () => !paused && inView && !document.hidden && Boolean(currentDemo());
 const tick = (timestamp: number) => {
   frame = null;
-  if (!canPlay()) { lastTimestamp = null; return; }
-  if (lastTimestamp !== null) elapsed = (elapsed + Math.min(timestamp - lastTimestamp, 100)) % duration;
+  const demo = currentDemo();
+  if (!canPlay() || !demo) { lastTimestamp = null; return; }
+  if (lastTimestamp !== null) elapsed = (elapsed + Math.min(timestamp - lastTimestamp, 100)) % demo.duration;
   lastTimestamp = timestamp;
-  currentDemo()?.render(elapsed);
+  demo.render(elapsed);
   frame = requestAnimationFrame(tick);
 };
 const syncPlayback = () => {
@@ -69,29 +63,24 @@ const syncPlayback = () => {
   frame = null;
   lastTimestamp = null;
   if (canPlay()) frame = requestAnimationFrame(tick);
-  updateControls();
+  demos.forEach(({ root, toggle }) => {
+    const action = paused ? 'Play' : 'Pause';
+    toggle.textContent = action;
+    toggle.setAttribute('aria-label', `${action} ${root.dataset.demo!.replaceAll('-', ' ')} animation`);
+  });
 };
-
-const selectChapter = (groupIndex: number, index: number, scroll = true) => {
+const selectChapter = (groupIndex: number, index: number) => {
   const group = walkthroughs[groupIndex];
   if (!group) return;
-  const nextIndex = Math.max(0, Math.min(index, group.slides.length - 1));
-  const changed = group.index !== nextIndex;
-  group.index = nextIndex;
+  group.index = Math.max(0, Math.min(index, group.slides.length - 1));
   group.buttons.forEach((button, i) => {
-    if (i === nextIndex) button.setAttribute('aria-current', 'step');
+    if (i === group.index) button.setAttribute('aria-current', 'step');
     else button.removeAttribute('aria-current');
   });
-  group.slides.forEach((slide, i) => { slide.inert = i !== nextIndex; });
-  if (scroll) {
-    const left = group.slides[nextIndex].offsetLeft - group.slides[0].offsetLeft;
-    group.pendingIndex = Math.abs(group.track.scrollLeft - left) > 2 ? nextIndex : null;
-    group.track.scrollTo({ left, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
-  }
-  if (changed && groupIndex === activeIndex) {
+  group.slides.forEach((slide, i) => { slide.hidden = i !== group.index; });
+  if (groupIndex === activeIndex) {
     elapsed = 0;
-    currentDemo()?.render(elapsed);
-    group.buttons[nextIndex].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    currentDemo()?.render(0);
     syncPlayback();
   }
 };
@@ -104,25 +93,15 @@ const selectTab = (index: number, focus = false) => {
     const panel = document.getElementById(tab.getAttribute('aria-controls')!);
     if (panel) panel.hidden = !selected;
   });
-  const group = walkthroughs[index];
-  if (group) {
-    // Hidden tracks have no layout; restore their last selected chapter after showing them.
-    group.pendingIndex = null;
-    group.track.scrollTo({ left: group.slides[group.index].offsetLeft - group.slides[0].offsetLeft, behavior: 'auto' });
-    selectChapter(index, group.index, false);
-  }
-  elapsed = 0;
-  currentDemo()?.render(elapsed);
+  selectChapter(index, walkthroughs[index].index);
   if (focus) tabs[index]?.focus();
-  syncPlayback();
 };
-
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => selectTab(index));
   tab.addEventListener('keydown', event => {
     let nextIndex: number;
-    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-    else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
     else if (event.key === 'Home') nextIndex = 0;
     else if (event.key === 'End') nextIndex = tabs.length - 1;
     else return;
@@ -131,46 +110,18 @@ tabs.forEach((tab, index) => {
   });
 });
 walkthroughs.forEach((group, groupIndex) => {
-  selectChapter(groupIndex, 0, false);
+  selectChapter(groupIndex, 0);
   group.buttons.forEach((button, index) => button.addEventListener('click', () => selectChapter(groupIndex, index)));
-  // A gesture takes over immediately from an in-progress button navigation.
-  group.track.addEventListener('pointerdown', () => { group.pendingIndex = null; }, { passive: true });
-  group.track.addEventListener('wheel', () => { group.pendingIndex = null; }, { passive: true });
-  group.track.addEventListener('scroll', () => {
-    if (group.scrollFrame !== null) return;
-    group.scrollFrame = requestAnimationFrame(() => {
-      group.scrollFrame = null;
-      if (groupIndex !== activeIndex || !group.track.clientWidth) return;
-      if (group.pendingIndex !== null) {
-        const target = group.slides[group.pendingIndex].offsetLeft - group.slides[0].offsetLeft;
-        if (Math.abs(target - group.track.scrollLeft) > 2) return;
-        group.pendingIndex = null;
-      }
-      let closest = 0;
-      let distance = Infinity;
-      group.slides.forEach((slide, index) => {
-        const candidate = Math.abs(slide.offsetLeft - group.slides[0].offsetLeft - group.track.scrollLeft);
-        if (candidate < distance) { distance = candidate; closest = index; }
-      });
-      if (closest !== group.index) selectChapter(groupIndex, closest, false);
-    });
-  }, { passive: true });
   group.track.addEventListener('keydown', event => {
-    // Player buttons retain normal keyboard behavior.
     if (event.target !== group.track) return;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft' || event.key === 'Home' || event.key === 'End') {
+    if (['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) {
       event.preventDefault();
-      const index = event.key === 'Home' ? 0 : event.key === 'End' ? group.slides.length - 1 : group.index + (event.key === 'ArrowRight' ? 1 : -1);
-      selectChapter(groupIndex, index);
+      selectChapter(groupIndex, event.key === 'Home' ? 0 : event.key === 'End' ? group.slides.length - 1 : group.index + (event.key === 'ArrowRight' ? 1 : -1));
     }
   });
 });
 demos.forEach(({ toggle, replay }) => {
-  toggle.addEventListener('click', () => {
-    paused = !paused;
-    if (!paused && elapsed >= duration) elapsed = 0;
-    syncPlayback();
-  });
+  toggle.addEventListener('click', () => { paused = !paused; syncPlayback(); });
   replay.addEventListener('click', () => {
     elapsed = 0;
     paused = false;
@@ -185,25 +136,15 @@ if (explorer && walkthroughs.length) {
     syncPlayback();
   }, { threshold: 0.1 });
   observer.observe(explorer.querySelector('.product-panels') ?? explorer);
-  const resizeObserver = new ResizeObserver(() => {
-    const group = walkthroughs[activeIndex];
-    group.pendingIndex = null;
-    group.track.scrollTo({ left: group.slides[group.index].offsetLeft - group.slides[0].offsetLeft, behavior: 'auto' });
-  });
-  resizeObserver.observe(explorer);
   document.addEventListener('visibilitychange', syncPlayback);
   reducedMotion.addEventListener('change', () => {
     paused = reducedMotion.matches;
     elapsed = 0;
-    currentDemo()?.render(elapsed);
+    currentDemo()?.render(0);
     syncPlayback();
   });
   window.addEventListener('pagehide', () => {
     if (frame !== null) cancelAnimationFrame(frame);
-    walkthroughs.forEach(group => {
-      if (group.scrollFrame !== null) cancelAnimationFrame(group.scrollFrame);
-      group.scrollFrame = null;
-    });
     frame = null;
     lastTimestamp = null;
   });

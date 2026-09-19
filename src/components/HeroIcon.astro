@@ -1,0 +1,7 @@
+---
+interface Props { name: string; }
+const paths: Record<string, string> = {
+  pause: 'M9 5v14 M15 5v14', replay: 'M3 10a9 9 0 1 1 2.4 8 M3 3v7h7',
+};
+---
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={paths[Astro.props.name]} /></svg>

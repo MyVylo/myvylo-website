@@ -1,0 +1,33 @@
+---
+import NativeCapture from './NativeCapture.astro';
+import ProductExcerpt from './ProductExcerpt.astro';
+import ActivityCategorization from './ActivityCategorization.astro';
+import BudgetTrackingJourney from './BudgetTrackingJourney.astro';
+import CategoryJourney from './CategoryJourney.astro';
+import AutoBuildJourney from './AutoBuildJourney.astro';
+import AssetJourney from './AssetJourney.astro';
+import AccountsJourney from './AccountsJourney.astro';
+interface Props { scene: string; }
+const { scene } = Astro.props;
+const size = { sourceWidth: 828, sourceHeight: 1799 };
+const native = (name: string) => name === 'net-worth' ? `/product/build83/${name}.png` : `/help/steps/ios/${name}.png`;
+---
+{scene === 'categorize' && <ActivityCategorization />}
+{scene === 'remember' && <>
+  <NativeCapture name="memory-activity" src="/product/build83/memory-activity-ca.png" srcUS="/product/build83/memory-activity-us.png" crop={[16, 860, 796, 500]} top={180} />
+  <div class="native-dimmer"></div>
+  <div class="native-sheet sequence-sheet"><ProductExcerpt {...size} src="/product/build83/memory-picker-off.png" crop={[16,755,796,760]} alt=""/><div class="memory-on-state"><ProductExcerpt {...size} src="/product/build83/memory-picker-on.png" crop={[16,755,796,760]} alt=""/></div></div>
+</>}
+{scene === 'categories' && <CategoryJourney />}
+{scene === 'reports' && <>
+  <div class="native-page sequence-base"><NativeCapture name="reports" crop={[16, 355, 796, 1000]} top={35} /></div>
+  <div class="native-page sequence-result sequence-push"><div class="native-page sequence-scroll"><NativeCapture name="report-detail" crop={[16, 245, 796, 1400]} top={35} /></div></div>
+</>}
+{scene === 'budget-build' && <AutoBuildJourney />}
+{scene === 'budget' && <BudgetTrackingJourney />}
+{scene === 'household' && <AccountsJourney />}
+{scene === 'shared' && <>
+  <div class="native-page sequence-base"><NativeCapture name="home" crop={[16, 927, 796, 660]} top={120} /></div>
+  <div class="native-page sequence-result sequence-push"><div class="native-page sequence-scroll"><NativeCapture name="activity" crop={[16, 282, 796, 1240]} top={25} /></div></div>
+</>}
+{scene === 'worth' && <AssetJourney />}

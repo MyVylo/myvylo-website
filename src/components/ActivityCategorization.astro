@@ -1,0 +1,55 @@
+---
+import { nativeActivity } from '../../scripts/hero-native-activity.mjs';
+import { createHeroDemo } from '../data/hero-demo.js';
+// Reuse the approved native Activity capture/row composition. This excerpt
+// focuses on the real filters and two rows; fictional data changes by market.
+const markets = ['CA', 'US'].map(market => {
+  const demo = createHeroDemo(market);
+  demo.transactions = market === 'CA'
+    ? [{ merchant: 'Farm Boy', initials: 'FB', amount: 7842, category: 'Groceries' }, { merchant: 'Pilot Coffee', initials: 'PC', amount: 675, category: 'Coffee & snacks' }]
+    : [{ merchant: 'Sprouts', initials: 'SP', amount: 7238, category: 'Groceries' }, { merchant: 'Stumptown Coffee', initials: 'SC', amount: 625, category: 'Coffee & snacks' }];
+  demo.history = [];
+  return { market, transactions: demo.transactions, html: nativeActivity(demo).replace('<span data-story-count>0</span>', '<span data-story-count>2</span>') };
+});
+---
+{markets.map(({market, html, transactions}) => <div class="auto-sort-surface" data-sort-market={market}>
+  <Fragment set:html={html} />
+  {transactions.map((tx,i)=><div class={`sort-receipt sort-receipt-${i}`}><span>{tx.merchant}</span><strong>${(tx.amount/100).toFixed(2)}</strong><small>Uncategorized</small></div>)}
+</div>)}
+
+<style is:global>
+  @font-face { font-family: 'Vylo Activity'; src: url('/product/hero/DM-Sans.ttf') format('truetype'); font-weight: 100 1000; font-display: swap; }
+  .auto-sort-surface { --activity-unit: calc(100cqw / 390); position: absolute; inset: 0; background: #1d1c22; color: #f8f7f2; font-family: 'Vylo Activity', sans-serif; }
+  html[data-screenshot-market="US"] [data-sort-market="CA"], html[data-screenshot-market="CA"] [data-sort-market="US"] { display: none; }
+  .auto-sort-surface .native-activity { position: absolute; inset: calc(-230 * var(--activity-unit)) 0 auto; height: calc(730 * var(--activity-unit)); }
+  .auto-sort-surface .native-capture { position: absolute; inset: 0; background: url('/product/iphone/activity.jpg') 0 calc(-48 * var(--activity-unit)) / 100% auto no-repeat; }
+  .auto-sort-surface .native-total, .auto-sort-surface .native-count, .auto-sort-surface .native-bottom-nav { display: none; }
+  .auto-sort-surface .native-ledger { position: absolute; left: calc(21 * var(--activity-unit)); right: calc(21 * var(--activity-unit)); top: calc(305 * var(--activity-unit)); height: calc(425 * var(--activity-unit)); background: #1d1c22; overflow: hidden; }
+  .auto-sort-surface .native-count-label { font-size: calc(12 * var(--activity-unit)); line-height: 1.5; margin: calc(6 * var(--activity-unit)) 0 calc(33 * var(--activity-unit)); }
+  .auto-sort-surface .native-date { font-size: calc(11 * var(--activity-unit)); line-height: 1.5; color: #b8b3c1; padding-bottom: calc(9 * var(--activity-unit)); border-bottom: 1px solid #45414e; }
+  .auto-sort-surface .native-rows { display: flex; flex-direction: column; }
+  .auto-sort-surface .native-transaction { order: 0 !important; height: calc(122 * var(--activity-unit)); flex-shrink: 0; }
+  .auto-sort-surface .native-row-inner { position: relative; box-sizing: border-box; height: calc(122 * var(--activity-unit)); padding-top: calc(29 * var(--activity-unit)); border-bottom: 1px solid #45414e; }
+  .auto-sort-surface .native-avatar { position: absolute; top: calc(30 * var(--activity-unit)); left: 0; width: calc(32 * var(--activity-unit)); height: calc(32 * var(--activity-unit)); display: grid; place-items: center; border-radius: calc(11 * var(--activity-unit)); background: #302e38; border: 1px solid #45414e; font-size: calc(11 * var(--activity-unit)); font-weight: 600; }
+  .auto-sort-surface .native-merchant { margin-left: calc(46 * var(--activity-unit)); font-size: calc(16 * var(--activity-unit)); font-weight: 600; line-height: calc(22 * var(--activity-unit)); }
+  .auto-sort-surface .native-amount { position: absolute; right: 0; top: calc(29 * var(--activity-unit)); font-size: calc(16 * var(--activity-unit)); font-weight: 600; line-height: calc(22 * var(--activity-unit)); }
+  .auto-sort-surface .native-account { margin: calc(6 * var(--activity-unit)) 0 calc(15 * var(--activity-unit)) calc(46 * var(--activity-unit)); font-size: calc(12 * var(--activity-unit)); line-height: calc(16 * var(--activity-unit)); }
+  .auto-sort-surface .native-category { display: inline-grid; margin-left: calc(46 * var(--activity-unit)); padding: calc(4 * var(--activity-unit)) calc(9 * var(--activity-unit)); border: 1px solid #45414e; border-radius: 20px; background: #2a2931; font-size: calc(12 * var(--activity-unit)); color: #f8f7f2; line-height: calc(16 * var(--activity-unit)); transform-origin: left center; }
+  .auto-sort-surface .native-category i { font-style: normal; color: #b8a9ff; font-size: calc(16 * var(--activity-unit)); margin-left: calc(8 * var(--activity-unit)); }
+  .sort-receipt { position:absolute; z-index:3; width:48%; left:10%; top:19%; padding:4.5cqw; border-radius:2cqw; background:#faf8f2; color:#28242f; border-top:3px solid #b8a9ff; box-shadow:0 15px 35px #0004; font-family:'Vylo Activity',sans-serif; transform:rotate(-6deg); }
+  .sort-receipt-1 { left:42%; top:52%; transform:rotate(5deg); }
+  .sort-receipt span { display:block; font-size:3.5cqw; font-weight:650; }
+  .sort-receipt strong { display:block; font-size:6cqw; margin-block:2cqw 3cqw; }
+  .sort-receipt small { display:block; border-top:1px dashed #62557050; padding-top:2.5cqw; color:#716676; font-size:3cqw; }
+  @media (prefers-reduced-motion: reduce) { .sort-receipt { display:none; } }
+  .sort-enhanced [data-native-row] { opacity:0; }
+  .sort-enhanced [data-story-count] { display:inline-grid; }
+  .sort-count { grid-area:1/1; opacity:0; }
+  .sort-count-0 { opacity:1; }
+  .sort-category-pending, .sort-category-result { grid-area: 1 / 1; }
+  .sort-category-pending { opacity: 0; color: #b8b3c1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .sort-enhanced .sort-category-pending { opacity: 1; }
+    .sort-enhanced .sort-category-result { opacity: 0; }
+  }
+</style>

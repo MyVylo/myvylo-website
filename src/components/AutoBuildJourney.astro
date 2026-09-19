@@ -1,0 +1,18 @@
+---
+import ProductExcerpt from './ProductExcerpt.astro';
+import NativeCapture from './NativeCapture.astro';
+const size={sourceWidth:828,sourceHeight:1799};
+---
+<div class="native-page auto-setup"><NativeCapture name="budget-setup" src="/product/build83/budget-setup.png" crop={[16,851,796,880]} top={30}/></div>
+<div class="native-page auto-generated">
+  <div class="budget-preview-header"><ProductExcerpt {...size} src="/product/build83/budget-auto.png" crop={[16,120,796,135]} alt=""/></div>
+  <div class="auto-total"><ProductExcerpt {...size} src="/product/build83/budget-auto.png" crop={[46,279,736,205]} alt=""/></div>
+  <div class="auto-categories-window"><div class="auto-categories-scroll">
+    <ProductExcerpt {...size} src="/product/build83/budget-auto.png" crop={[46,623,736,574]} alt=""/>
+    <div class="auto-category-gap"><ProductExcerpt {...size} src="/product/build83/budget-auto.png" crop={[46,1220,736,360]} alt=""/></div>
+    <div class="auto-category-gap"><ProductExcerpt {...size} src="/product/build83/budget-auto-lower.png" crop={[46,510,736,395]} alt=""/></div>
+    <div class="auto-category-gap"><ProductExcerpt {...size} src="/product/build83/budget-auto-lower.png" crop={[46,929,736,576]} alt=""/></div>
+  </div></div>
+  <div class="budget-preview-footer"><ProductExcerpt {...size} src="/product/build83/budget-auto.png" crop={[16,1615,796,113]} alt=""/></div>
+</div>
+<div class="native-page auto-applied"><NativeCapture name="budget-tracking" src="/product/build83/budget-tracking.png" crop={[16,250,796,1340]} top={35}/></div>
