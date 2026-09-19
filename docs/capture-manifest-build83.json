@@ -1,0 +1,242 @@
+[
+  {
+    "file": "accounts-ca.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "3c3379d2cd6a169bd2057923312bf135a412430a0a11555e110246beda21e71b"
+  },
+  {
+    "file": "accounts-connecting-ca.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "9df266249b3fbd55033ea558dc9bc6410c28e7df0ef907ab4b4f8a84b8507e2e"
+  },
+  {
+    "file": "accounts-connecting-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "9099773b63bb44747a75844ad0aaea03d7d5577b6e4796003ad4ad2181fbac80"
+  },
+  {
+    "file": "accounts-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "88be4b88a0e9c5505e50509768c25bf976e078f75a66e077bd394b48dad9531c"
+  },
+  {
+    "file": "asset-filled.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "de5d221a4bd6cc4007bf24c9e5236f1d7be913e4a808f17c883eebf30f9c45db"
+  },
+  {
+    "file": "asset-saved.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "13633c3320056eb7326c02d84f812044798fc71c17211f37aafe6a8d05c59372"
+  },
+  {
+    "file": "budget-auto-lower.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "a34b535859ef26b4d5cdd6c50182a2c4991352a95e8cbe1fb209d756a68df869"
+  },
+  {
+    "file": "budget-auto.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "0b5800579be0240fec61df16113b4a349cf44c38a93d57ca9b4c6b22ae3ea0d8"
+  },
+  {
+    "file": "budget-category-detail-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "1f77a656384287e7b4ee1dfe986afa9862f8f3c2ec0f84041e53d7f7ec5af408"
+  },
+  {
+    "file": "budget-category-detail.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "9b570329d99c2de246fbc114afdb9f6f5c4c717b00f9ecafaf5321079a63518e"
+  },
+  {
+    "file": "budget-digital.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "34cf61df25df0f104609ffa6f4318f3ff884ff1ffe0ac9a2243b12a5fe78c949"
+  },
+  {
+    "file": "budget-expanded.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b882aadd53c24d77de4604b8b3b8ba845867cb1384d5e411f71bde9702c3ec4b"
+  },
+  {
+    "file": "budget-fixed.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "3d951ea6f5a995e4d19d606b0a20778389baf2bea91091755bde2debd1b1589e"
+  },
+  {
+    "file": "budget-flexible.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b5723ef96b7553392878357344f468b253a7ef8d6f061e4b00a5fc4ef284efbb"
+  },
+  {
+    "file": "budget-groups.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "dbdec52cf476b9b8bbffd53bfc428da271bef044b09bd8813722ab99e90e4a84"
+  },
+  {
+    "file": "budget-nonmonthly.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "28d44b3d8c5028e57a7485ae3a4277cacad68d6bb750d0db1290d46663133433"
+  },
+  {
+    "file": "budget-setup.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "232f9b77dc3f09ea8a95b84e27ed15e863a98c43bd982f81886b9d58f1c18c85"
+  },
+  {
+    "file": "budget-tracking.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "e259590a4f57afe6c92d03202277a17316b6e6fd5d22ab0bc0cc5cdcf6adcb6f"
+  },
+  {
+    "file": "budget-trends-mix.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "699aa17eb232e106d834370383e1c269c61bbcdc59ceb4d55d7bda5b6ebcf11d"
+  },
+  {
+    "file": "budget-trends-selected.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "0d4f47488c58658c8b147d0bc14abedeb82ac1b9f6e940b10471b0846355e09e"
+  },
+  {
+    "file": "budget-trends.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "fef397ffa4350841a74b6d3d80de56952174c56dce74b0283bd6de371afacc00"
+  },
+  {
+    "file": "budget.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "14eab6f404b1184541f6491c2e961933eaec0f7b75346c3f5cece476d80e138f"
+  },
+  {
+    "file": "categories-baby-0.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "bb8776343583996c53f76ff21341661e857f28d77329462bb4b6ac385a911640"
+  },
+  {
+    "file": "categories-baby-1.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "7668dbbe83459d0e585ee85b162eafe470c74546a3fa232c0ffab56cb077fdfa"
+  },
+  {
+    "file": "categories-baby-2.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "295a29fca6c2806578c74fb626a1bcde08ab0351046571a6ce2615c5a9942e55"
+  },
+  {
+    "file": "categories-baby-3.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "fe0753dd76c097078cac2e32b4f0a30eb769b0a8e4d78396f31595a966abfbef"
+  },
+  {
+    "file": "category-baby-filled.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "a564a5a26e7bb30376785d25205128aeebf40bf615df793ced094eb598c23587"
+  },
+  {
+    "file": "group-baby-filled.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "5f8e34d53b71072d240e800ba2dfb712e6851a79632748df0ddbf02059bb5e03"
+  },
+  {
+    "file": "investment-detail-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "37f00554fd6c15700ae1662e0c7a31002566fd443003a89408710dc0dd8b9afa"
+  },
+  {
+    "file": "investment-detail.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "0a74462dc28816f6cd7e4ff42cf2afa87268d66b67f850c0811c51dcd891fed5"
+  },
+  {
+    "file": "liability-filled.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "39031f27012ea0900ca354a8ee0d1bc1c1f9364c44b72e81e5b2baec9b6de9f8"
+  },
+  {
+    "file": "liability-saved.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "2e07ff41fcd0c0b33ecb9909aac379b023a245d4b2c4290e7c74f7d1a2973ca9"
+  },
+  {
+    "file": "memory-activity-ca.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "b596f9b189c11648362eb911c0a7fdf695afb1817959560839c09013ab1c217d"
+  },
+  {
+    "file": "memory-activity-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "546ad047afd66a87d7380b56ce1ca1a8ff454a734f31bd05d92c5e7da18e5976"
+  },
+  {
+    "file": "memory-picker-off.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "ee4fee8c37edcaf16899b117a7f1c06018758af7486eac5bc66425a3cc080867"
+  },
+  {
+    "file": "memory-picker-on.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "d7ad273226dd63b5a85c7297271de308ee33f36802aa64acf207ce78c538bca6"
+  },
+  {
+    "file": "net-worth-accounts-us.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "a703ca06960b7776453ac1bbcaf7feba5a5771ffdee978c767a81d341c2478b4"
+  },
+  {
+    "file": "net-worth-accounts.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "57ebd7f308f32863610eeb4e3d25d19cf05a1b4266824751a9e5191bedfcdc21"
+  },
+  {
+    "file": "net-worth-history.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "f3f800c8e70806705a6ea20b82cf518b5f5cfaf0ed6d86a51b65cdb3ed49640f"
+  },
+  {
+    "file": "net-worth.png",
+    "width": 1320,
+    "height": 2868,
+    "sha256": "8e23ae09ad10d5562b20517daa3b00eca512eb60c601eaaca5806a7d31e09c41"
+  }
+]

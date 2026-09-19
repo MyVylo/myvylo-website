@@ -1,0 +1,451 @@
+--- a/VyloApp/App/AppContainer.swift
++++ b/VyloApp/App/AppContainer.swift
+@@ -1572,6 +1572,54 @@
+     private nonisolated(unsafe) static var signedInUITestDeletionPreviewCount = 0
+     private nonisolated static let onboardingJourneyUITestState = OnboardingJourneyUITestState()
+
++    private nonisolated(unsafe) static var websiteCreatedCategories: [[String: Any]] = []
++    private nonisolated(unsafe) static var websiteCreatedItems: [[String: Any]] = []
++    private nonisolated static let websiteUS = false
++    private nonisolated static let websiteConnecting = false
++    private nonisolated static func websiteBankStatus() -> [String: Any] {
++        var result = signedInUITestBankStatus()
++        if websiteConnecting {
++            result["onboardingImportStatus"] = ["phase":"syncing_recent", "experienceContext":"additional_connection", "connectionConfirmed":true, "connectedAccountsReady":true, "canEnterDashboard":true, "canReviewExistingTransactions":true, "historicalImportComplete":false, "reviewReady":true, "canUseBudgetAutobuild":false, "dataPreparationLocked":true, "activeInstitutionName":"TD Canada Trust", "progressRatio":0.45, "retrying":false, "failed":false, "aiPhase":"idle"]
++        }
++        return result
++    }
++    private nonisolated static func websiteLocalized(_ value: Any) -> Any {
++        guard websiteUS else { return value }
++        if let string = value as? String {
++            return string.replacingOccurrences(of:"CAD",with:"USD").replacingOccurrences(of:"America/Toronto",with:"America/New_York").replacingOccurrences(of:"RBC Royal Bank",with:"Chase").replacingOccurrences(of:"TD Canada Trust",with:"Capital One").replacingOccurrences(of:"RBC Rewards Visa",with:"Chase Freedom").replacingOccurrences(of:"Main Chequing",with:"Everyday Checking").replacingOccurrences(of:"TFSA Investments",with:"Roth IRA").replacingOccurrences(of:"Wealthsimple",with:"Fidelity").replacingOccurrences(of:"Pizzeria Libretto",with:"Little Star Pizza").replacingOccurrences(of:"Hydro One",with:"Con Edison").replacingOccurrences(of:"Farm Boy",with:"Sprouts")
++        }
++        if let array = value as? [Any] { return array.map(websiteLocalized) }
++        if let dictionary = value as? [String: Any] {
++            var result = dictionary.mapValues(websiteLocalized)
++            for key in ["accounts", "items"] {
++                if let accounts = result[key] as? [[String: Any]], accounts.allSatisfy({ $0["name"] is String }) { result[key] = accounts.sorted { ($0["name"] as! String).lowercased() < ($1["name"] as! String).lowercased() } }
++            }
++            return result
++        }
++        return value
++    }
++    private nonisolated static func websiteNetWorthState() -> [String: Any] {
++        var state = signedInUITestNetWorthState()
++        var summary = state["summary"] as! [String: Any]
++        var items = summary["manualItems"] as! [[String: Any]]
++        items.append(contentsOf: websiteCreatedItems)
++        summary["manualItems"] = items
++        var assets = (summary["totalAssets"] as! NSNumber).doubleValue
++        var liabilities = (summary["totalLiabilities"] as! NSNumber).doubleValue
++        var breakdown = summary["breakdown"] as! [String: Any]
++        for item in websiteCreatedItems {
++            let value = (item["estimatedValue"] as! NSNumber).doubleValue
++            let debt = item["itemType"] as? String == "liability"
++            if debt { liabilities += value } else { assets += value }
++            let key = debt ? "debt" : "otherAssets"
++            breakdown[key] = ((breakdown[key] as? NSNumber)?.doubleValue ?? 0) + value
++        }
++        summary["totalAssets"] = assets; summary["totalLiabilities"] = liabilities
++        summary["netWorth"] = assets - liabilities; summary["breakdown"] = breakdown
++        state["summary"] = summary
++        return state
++    }
++
+     private nonisolated static var signedInUITestTransport: APIClient.Transport {
+         { request in
+             try signedInUITestResponse(for: request)
+@@ -1593,6 +1641,49 @@
+                url: url
+            ) {
+             return journeyResponse
++        }
++
++        if method == "POST", path == "/categories/group" || path == "/categories" {
++            var item = (try? JSONSerialization.jsonObject(with: request.httpBody ?? Data())) as? [String: Any] ?? [:]
++            item["id"] = 500 + websiteCreatedCategories.count
++            item["type"] = path.hasSuffix("group") ? "group" : "category"
++            item["position"] = websiteCreatedCategories.count
++            item["budget"] = 0; item["isLocked"] = false; item["isSystem"] = false
++            item["rulesVisibility"] = "editable"
++            websiteCreatedCategories.append(item)
++            return try signedInUITestJSONResponse(["success": true, "category": item], url: url)
++        }
++        if method == "POST", path == "/net-worth/households/ui-test-household/items" {
++            var item = (try? JSONSerialization.jsonObject(with: request.httpBody ?? Data())) as? [String: Any] ?? [:]
++            item["id"] = 500 + websiteCreatedItems.count; item["version"] = 1
++            item["lastReviewedAt"] = "2026-09-18T12:00:00Z"
++            websiteCreatedItems.append(item)
++            return try signedInUITestJSONResponse(["item": item], url: url)
++        }
++        if method == "POST", path.hasSuffix("/budgets/auto-build/preview") {
++            let categories = signedInUITestCategories()
++            var preview: [String: Any] = [:]
++            for group in categories where group["type"] as? String == "group" {
++                let id = group["id"] as! Int
++                var children: [String: Any] = [:]
++                for category in categories where category["parentId"] as? Int == id {
++                    let amount = (category["budget"] as! NSNumber).doubleValue
++                    children[category["name"] as! String] = ["amount": amount, "last90Days": amount * 3, "monthlyAverage": amount, "confidence": "high", "transactionCount": 12]
++                }
++                preview[group["name"] as! String] = ["budget": group["budget"]!, "children": children]
++            }
++            return try signedInUITestJSONResponse(["preview": preview, "totalBudget": 3150, "windowDays": 90, "historicalImportComplete": true, "dataQuality": signedInUITestBudgetDataQuality()], url: url)
++        }
++        if method == "POST", path.hasSuffix("/budgets/auto-build/apply") {
++            return try signedInUITestJSONResponse(["success": true, "categoriesUpdated": 11, "totalBudget": 3150], url: url)
++        }
++        // Local website capture data only; product views are unchanged from Build 83.
++        if method == "GET", path == "/finance-trends/ui-test-household" {
++            let fixture = #"""
++            {"kind": "overview", "schemaVersion": 2, "meta": {"currency": "CAD", "timezone": "America/Toronto", "timezoneSource": "household", "timezoneRevision": 3, "asOf": "2026-08-22", "generatedAt": "2026-08-22T12:00:00.000Z", "range": "6m", "bucket": "month", "startDate": "2026-03-01", "endDateExclusive": "2026-09-01", "syncState": "ready", "qualityState": "complete", "returnedPointCount": 6, "historyRevision": 7, "policyVersion": "finance-v2", "incomeDefinition": "posted-eligible-income-transactions", "spendingDefinition": "posted-eligible-non-income-transactions", "savingsDefinition": "income-minus-spending", "budgetDefinition": "effective-dated-known-history-only"}, "cashFlow": [{"periodKey": "2026-03", "observedThrough": "2026-03-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-03-01", "observedThrough": "2026-03-31", "reasons": []}, "startDate": "2026-03-01", "endDateExclusive": "2026-04-01", "income": "8050.00", "spending": "6650.00", "savings": "1400.00", "savingsRate": "17.39", "savingsRateState": "computed"}, {"periodKey": "2026-04", "observedThrough": "2026-04-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-04-01", "observedThrough": "2026-04-30", "reasons": []}, "startDate": "2026-04-01", "endDateExclusive": "2026-05-01", "income": "8050.00", "spending": "6300.00", "savings": "1750.00", "savingsRate": "21.74", "savingsRateState": "computed"}, {"periodKey": "2026-05", "observedThrough": "2026-05-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-05-01", "observedThrough": "2026-05-31", "reasons": []}, "startDate": "2026-05-01", "endDateExclusive": "2026-06-01", "income": "8050.00", "spending": "6100.00", "savings": "1950.00", "savingsRate": "24.22", "savingsRateState": "computed"}, {"periodKey": "2026-06", "observedThrough": "2026-06-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-06-01", "observedThrough": "2026-06-30", "reasons": []}, "startDate": "2026-06-01", "endDateExclusive": "2026-07-01", "income": "8050.00", "spending": "5800.00", "savings": "2250.00", "savingsRate": "27.95", "savingsRateState": "computed"}, {"periodKey": "2026-07", "observedThrough": "2026-07-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-07-01", "observedThrough": "2026-07-31", "reasons": []}, "startDate": "2026-07-01", "endDateExclusive": "2026-08-01", "income": "8050.00", "spending": "5900.00", "savings": "2150.00", "savingsRate": "26.71", "savingsRateState": "computed"}, {"periodKey": "2026-08", "observedThrough": "2026-08-22", "isCalendarPartial": true, "isComparable": false, "dataCoverage": {"state": "complete", "observedFrom": "2026-08-01", "observedThrough": "2026-08-22", "reasons": []}, "startDate": "2026-08-01", "endDateExclusive": "2026-09-01", "income": "8050.00", "spending": "5600.00", "savings": "2450.00", "savingsRate": "30.43", "savingsRateState": "computed"}], "budgetPerformance": [{"periodKey": "2026-03", "observedThrough": "2026-03-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-03-01", "observedThrough": "2026-03-31", "reasons": []}, "actual": "6650.00", "budget": "6200.00", "variance": "-450.00", "overage": "450.00", "status": "over", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}, {"periodKey": "2026-04", "observedThrough": "2026-04-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-04-01", "observedThrough": "2026-04-30", "reasons": []}, "actual": "6300.00", "budget": "6200.00", "variance": "-100.00", "overage": "100.00", "status": "over", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}, {"periodKey": "2026-05", "observedThrough": "2026-05-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-05-01", "observedThrough": "2026-05-31", "reasons": []}, "actual": "6100.00", "budget": "6200.00", "variance": "100.00", "overage": "0.00", "status": "under", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}, {"periodKey": "2026-06", "observedThrough": "2026-06-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-06-01", "observedThrough": "2026-06-30", "reasons": []}, "actual": "5800.00", "budget": "6200.00", "variance": "400.00", "overage": "0.00", "status": "under", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}, {"periodKey": "2026-07", "observedThrough": "2026-07-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-07-01", "observedThrough": "2026-07-31", "reasons": []}, "actual": "5900.00", "budget": "6200.00", "variance": "300.00", "overage": "0.00", "status": "under", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}, {"periodKey": "2026-08", "observedThrough": "2026-08-22", "isCalendarPartial": true, "isComparable": false, "dataCoverage": {"state": "complete", "observedFrom": "2026-08-01", "observedThrough": "2026-08-22", "reasons": []}, "actual": "5600.00", "budget": "6200.00", "variance": "600.00", "overage": "0.00", "status": "in-progress", "budgetCoverage": "complete", "budgetKnownFrom": "2026-03", "budgetProvenance": "effective-override"}], "spendingMix": [{"periodKey": "2026-03", "observedThrough": "2026-03-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-03-01", "observedThrough": "2026-03-31", "reasons": []}, "total": "6650.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3990.00"}, {"key": "flexible", "name": "Flexible", "amount": "1995.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "532.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "133.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}, {"periodKey": "2026-04", "observedThrough": "2026-04-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-04-01", "observedThrough": "2026-04-30", "reasons": []}, "total": "6300.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3780.00"}, {"key": "flexible", "name": "Flexible", "amount": "1890.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "504.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "126.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}, {"periodKey": "2026-05", "observedThrough": "2026-05-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-05-01", "observedThrough": "2026-05-31", "reasons": []}, "total": "6100.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3660.00"}, {"key": "flexible", "name": "Flexible", "amount": "1830.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "488.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "122.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}, {"periodKey": "2026-06", "observedThrough": "2026-06-30", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-06-01", "observedThrough": "2026-06-30", "reasons": []}, "total": "5800.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3480.00"}, {"key": "flexible", "name": "Flexible", "amount": "1740.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "464.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "116.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}, {"periodKey": "2026-07", "observedThrough": "2026-07-31", "isCalendarPartial": false, "isComparable": true, "dataCoverage": {"state": "complete", "observedFrom": "2026-07-01", "observedThrough": "2026-07-31", "reasons": []}, "total": "5900.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3540.00"}, {"key": "flexible", "name": "Flexible", "amount": "1770.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "472.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "118.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}, {"periodKey": "2026-08", "observedThrough": "2026-08-22", "isCalendarPartial": true, "isComparable": false, "dataCoverage": {"state": "complete", "observedFrom": "2026-08-01", "observedThrough": "2026-08-22", "reasons": []}, "total": "5600.00", "groups": [{"key": "fixed", "name": "Fixed", "amount": "3360.00"}, {"key": "flexible", "name": "Flexible", "amount": "1680.00"}, {"key": "non_monthly", "name": "Non-monthly", "amount": "448.00"}, {"key": "digital_subscriptions", "name": "Digital subscriptions", "amount": "112.00"}, {"key": "uncategorized", "name": "Uncategorized", "amount": "0.00"}]}], "categoryIndex": {"items": [], "defaultCategoryKey": null, "nextCursor": null, "totalCount": 0}, "selectedCategory": null, "summary": {"completedComparablePeriodCount": 5, "averageIncome": "8050.00", "averageSpending": "6150.00", "averageSavings": "1900.00", "averageSavingsRate": "23.60"}, "insights": [{"ruleId": "cashflow.spending_change.v1", "fromPeriodKey": "2026-06", "toPeriodKey": "2026-07", "amountChange": "100.00", "percentChange": "1.72", "percentChangeState": "computed"}, {"ruleId": "spending_mix.group_change.v1", "groupKey": "fixed", "fromPeriodKey": "2026-06", "toPeriodKey": "2026-07", "amountChange": "60.00", "percentChange": "1.72", "percentChangeState": "computed"}]}
++            """#
++            let body = try JSONSerialization.jsonObject(with: Data(fixture.utf8)) as! [String: Any]
++            return try signedInUITestJSONResponse(body, url: url)
+         }
+
+         switch (method, path) {
+@@ -1773,7 +1864,7 @@
+         case ("GET", "/onboarding/progress"):
+             return try signedInUITestJSONResponse(signedInUITestOnboardingProgress(), url: url)
+         case ("GET", "/bank/status"):
+-            return try signedInUITestJSONResponse(signedInUITestBankStatus(), url: url)
++            return try signedInUITestJSONResponse(websiteBankStatus(), url: url)
+         case ("GET", "/transactions/ui-test-household/months"):
+             return try signedInUITestJSONResponse(["months": ["2026-03", signedInUITestMonthKey]], url: url)
+         case ("GET", "/alerts"):
+@@ -1818,7 +1909,7 @@
+                     url: url
+                 )
+             }
+-            return try signedInUITestJSONResponse(signedInUITestNetWorthState(), url: url)
++            return try signedInUITestJSONResponse(websiteNetWorthState(), url: url)
+         case ("GET", "/net-worth/households/ui-test-household/history")
+             where signedInUITestNetWorthTrendsPreviewEnabled:
+             return try signedInUITestJSONResponse(
+@@ -2210,7 +2301,7 @@
+             throw APIError.invalidResponse
+         }
+
+-        let data = try JSONSerialization.data(withJSONObject: payload)
++        let data = try JSONSerialization.data(withJSONObject: websiteLocalized(payload))
+         return (data, response)
+     }
+
+@@ -2742,68 +2833,7 @@
+     }
+
+     private nonisolated static func signedInUITestCategories() -> [[String: Any]] {
+-        return [
+-            [
+-                "id": 1,
+-                "parentId": NSNull(),
+-                "name": "Flexible",
+-                "type": "group",
+-                "budget": 1000,
+-                "position": 1,
+-                "isLocked": false,
+-                "isSystem": true,
+-                "isSystemDefaultModified": false,
+-                "rulesVisibility": "editable",
+-            ],
+-            [
+-                "id": 2,
+-                "parentId": 1,
+-                "name": "Groceries",
+-                "type": "category",
+-                "budget": 600,
+-                "position": 1,
+-                "isLocked": false,
+-                "isSystem": true,
+-                "isSystemDefaultModified": false,
+-                "rulesVisibility": "editable",
+-            ],
+-            [
+-                "id": 3,
+-                "parentId": 1,
+-                "name": "Restaurants",
+-                "type": "category",
+-                "budget": 400,
+-                "position": 2,
+-                "isLocked": false,
+-                "isSystem": true,
+-                "isSystemDefaultModified": false,
+-                "rulesVisibility": "editable",
+-            ],
+-            [
+-                "id": 10,
+-                "parentId": NSNull(),
+-                "name": "Income",
+-                "type": "income",
+-                "budget": 0,
+-                "position": 99,
+-                "isLocked": true,
+-                "isSystem": true,
+-                "isSystemDefaultModified": false,
+-                "rulesVisibility": "hidden",
+-            ],
+-            [
+-                "id": 11,
+-                "parentId": 10,
+-                "name": "Salary",
+-                "type": "income",
+-                "budget": 0,
+-                "position": 1,
+-                "isLocked": true,
+-                "isSystem": true,
+-                "isSystemDefaultModified": false,
+-                "rulesVisibility": "hidden",
+-            ],
+-        ]
++        return [["id": 1, "parentId": NSNull(), "name": "Fixed", "type": "group", "budget": 2050, "position": 0, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 2, "parentId": 1, "name": "Rent", "type": "category", "budget": 1800, "position": 0, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 3, "parentId": 1, "name": "Electricity", "type": "category", "budget": 150, "position": 1, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 4, "parentId": 1, "name": "Internet", "type": "category", "budget": 100, "position": 2, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 20, "parentId": NSNull(), "name": "Flexible", "type": "group", "budget": 760, "position": 1, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 21, "parentId": 20, "name": "Groceries", "type": "category", "budget": 500, "position": 0, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 22, "parentId": 20, "name": "Restaurants", "type": "category", "budget": 100, "position": 1, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 23, "parentId": 20, "name": "Transport", "type": "category", "budget": 160, "position": 2, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 30, "parentId": NSNull(), "name": "Non-monthly", "type": "group", "budget": 300, "position": 2, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 31, "parentId": 30, "name": "Dental care", "type": "category", "budget": 180, "position": 0, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 32, "parentId": 30, "name": "Gifts", "type": "category", "budget": 120, "position": 1, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 40, "parentId": NSNull(), "name": "Digital subscriptions", "type": "group", "budget": 40, "position": 3, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 41, "parentId": 40, "name": "Netflix", "type": "category", "budget": 20, "position": 0, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 42, "parentId": 40, "name": "Spotify", "type": "category", "budget": 15, "position": 1, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 43, "parentId": 40, "name": "Cloud storage", "type": "category", "budget": 5, "position": 2, "isLocked": false, "isSystem": true, "isSystemDefaultModified": false, "rulesVisibility": "editable"], ["id": 90, "parentId": NSNull(), "name": "Income", "type": "income", "budget": 0, "position": 99, "isLocked": true, "isSystem": true, "rulesVisibility": "hidden"], ["id": 91, "parentId": 90, "name": "Salary", "type": "income", "budget": 0, "position": 1, "isLocked": true, "isSystem": true, "rulesVisibility": "hidden"]] + websiteCreatedCategories
+     }
+
+     private nonisolated static func signedInUITestBudgetDataQuality() -> [String: Any] {
+@@ -2814,11 +2844,11 @@
+             "coverageDays": 90,
+             "totalSpend": 6140.25,
+             "categorizedSpend": 5984.10,
+-            "categorizedSpendRate": 0.9746,
++            "categorizedSpendRate": 1.0,
+             "totalTransactions": 142,
+             "categorizedTransactions": 138,
+-            "uncategorizedCount": 4,
+-            "uncategorizedSpend": 156.15,
++            "uncategorizedCount": 0,
++            "uncategorizedSpend": 0,
+             "eligibleForAutoBuild": true,
+             "autoBuildAvailable": true,
+             "autoBuildLockedReason": NSNull(),
+@@ -2826,7 +2856,7 @@
+             "autoBuildLockedMessage": NSNull(),
+             "recommendedPath": "auto-build",
+             "dataQualityTier": "high",
+-            "helperText": "Built from 90 days of spending. You can review every amount before applying it.",
++            "helperText": NSNull(),
+             "budgetReadiness": ["level": "high", "label": "Strong budget readiness"],
+             "reviewTransactionIds": ["104", "105"],
+         ]
+@@ -2846,87 +2876,7 @@
+     }
+
+     private nonisolated static func signedInUITestTransactions() -> [[String: Any]] {
+-        if signedInUITestFreshMonth {
+-            return []
+-        }
+-
+-        let source = signedInUITestBankSource
+-        let accountProvider = source.lowercased()
+-
+-        return [
+-            [
+-                "id": 101,
+-                "amount": 84.32,
+-                "transactionDate": "2026-04-13",
+-                "merchantName": "Market Basket",
+-                "accountId": "settled-account",
+-                "categoryId": 2,
+-                "categoryName": "Groceries",
+-                "parentCategoryName": "Flexible",
+-                "isPending": false,
+-                "isIncome": false,
+-                "reviewedAt": NSNull(),
+-                "categoryConfidence": 0.94,
+-                "categoryConfidenceBucket": "high",
+-                "source": source,
+-                "accountName": "Daily Checking",
+-                "accountProvider": accountProvider,
+-                "accountInstitutionName": "Vylo Test Bank",
+-                "accountType": "depository",
+-                "accountSubtype": "checking",
+-                "accountMask": "0000",
+-                "connectedInstitutionCount": 1,
+-                "incomeSplits": [],
+-            ],
+-            [
+-                "id": 102,
+-                "amount": 42.10,
+-                "transactionDate": "2026-04-12",
+-                "merchantName": "Blue Bottle",
+-                "accountId": "new-account",
+-                "categoryId": 3,
+-                "categoryName": "Restaurants",
+-                "parentCategoryName": "Flexible",
+-                "isPending": false,
+-                "isIncome": false,
+-                "reviewedAt": NSNull(),
+-                "categoryConfidence": 0.84,
+-                "categoryConfidenceBucket": "medium",
+-                "source": source,
+-                "accountName": "Daily Checking",
+-                "accountProvider": accountProvider,
+-                "accountInstitutionName": "Vylo Test Bank",
+-                "accountType": "depository",
+-                "accountSubtype": "checking",
+-                "accountMask": "0000",
+-                "connectedInstitutionCount": 1,
+-                "incomeSplits": [],
+-            ],
+-            [
+-                "id": 201,
+-                "amount": -4200,
+-                "transactionDate": "2026-04-01",
+-                "merchantName": "Payroll",
+-                "categoryId": 11,
+-                "categoryName": "Salary",
+-                "parentCategoryName": "Income",
+-                "isPending": false,
+-                "isIncome": true,
+-                "incomeType": "salary",
+-                "incomeLabel": "Salary",
+-                "incomeSource": "payroll",
+-                "reviewedAt": "2026-04-02T12:00:00.000Z",
+-                "source": source,
+-                "accountName": "Daily Checking",
+-                "accountProvider": accountProvider,
+-                "accountInstitutionName": "Vylo Test Bank",
+-                "accountType": "depository",
+-                "accountSubtype": "checking",
+-                "accountMask": "0000",
+-                "connectedInstitutionCount": 1,
+-                "incomeSplits": [],
+-            ],
+-        ]
++        return [["id": 102, "amount": 1800, "transactionDate": "2026-09-08", "merchantName": "Rent payment", "accountId": "settled-account", "categoryId": 2, "categoryName": "Rent", "parentCategoryName": "Fixed", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 103, "amount": 118.42, "transactionDate": "2026-09-09", "merchantName": "Hydro One", "accountId": "settled-account", "categoryId": 3, "categoryName": "Electricity", "parentCategoryName": "Fixed", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 104, "amount": 90, "transactionDate": "2026-09-10", "merchantName": "Bell", "accountId": "settled-account", "categoryId": 4, "categoryName": "Internet", "parentCategoryName": "Fixed", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 121, "amount": 400, "transactionDate": "2026-09-09", "merchantName": "Farm Boy", "accountId": "settled-account", "categoryId": 21, "categoryName": "Groceries", "parentCategoryName": "Flexible", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 122, "amount": 145, "transactionDate": "2026-09-10", "merchantName": "Pizzeria Libretto", "accountId": "settled-account", "categoryId": 22, "categoryName": "Restaurants", "parentCategoryName": "Flexible", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 123, "amount": 72.5, "transactionDate": "2026-09-11", "merchantName": "PRESTO", "accountId": "settled-account", "categoryId": 23, "categoryName": "Transport", "parentCategoryName": "Flexible", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 131, "amount": 120, "transactionDate": "2026-09-10", "merchantName": "Maple Dental", "accountId": "settled-account", "categoryId": 31, "categoryName": "Dental care", "parentCategoryName": "Non-monthly", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 132, "amount": 85, "transactionDate": "2026-09-11", "merchantName": "Indigo", "accountId": "settled-account", "categoryId": 32, "categoryName": "Gifts", "parentCategoryName": "Non-monthly", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 141, "amount": 19.99, "transactionDate": "2026-09-11", "merchantName": "Netflix", "accountId": "settled-account", "categoryId": 41, "categoryName": "Netflix", "parentCategoryName": "Digital subscriptions", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 142, "amount": 12.99, "transactionDate": "2026-09-12", "merchantName": "Spotify", "accountId": "settled-account", "categoryId": 42, "categoryName": "Spotify", "parentCategoryName": "Digital subscriptions", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 143, "amount": 3.99, "transactionDate": "2026-09-13", "merchantName": "Apple", "accountId": "settled-account", "categoryId": 43, "categoryName": "Cloud storage", "parentCategoryName": "Digital subscriptions", "isPending": false, "isIncome": false, "reviewedAt": "2026-09-18T12:00:00Z", "source": "PLAID", "accountName": "Chequing", "accountProvider": "plaid", "accountInstitutionName": "RBC Royal Bank", "accountType": "depository", "accountSubtype": "checking", "accountMask": "1082", "connectedInstitutionCount": 1, "incomeSplits": []], ["id": 201, "amount": -8050, "transactionDate": "2026-09-01", "merchantName": "Payroll", "categoryId": 91, "categoryName": "Salary", "parentCategoryName": "Income", "isPending": false, "isIncome": true, "incomeType": "salary", "incomeLabel": "Salary", "incomeSource": "payroll", "reviewedAt": "2026-09-02T12:00:00Z", "source": "PLAID", "incomeSplits": []]]
+     }
+
+     private nonisolated static func signedInUITestIncomeSummary() -> [String: Any] {
+@@ -3148,6 +3098,7 @@
+     }
+
+     private nonisolated static let signedInUITestNetWorthTrendAccounts: [NetWorthTrendsPreviewAccountSeed] = [
++        NetWorthTrendsPreviewAccountSeed(id: "bank-provider-account:104", name: "TFSA Investments", institution: "Wealthsimple", kind: "asset", category: "investments", startBalance: 86_400, endBalance: 100_000),
+         NetWorthTrendsPreviewAccountSeed(
+             id: "manual:4",
+             name: "Family Vehicle",
+@@ -3204,7 +3155,7 @@
+             "meta": signedInUITestNetWorthV2Meta(range: range, dates: dates),
+             "series": points,
+             "accounts": [
+-                "items": signedInUITestNetWorthTrendAccounts.map {
++                "items": signedInUITestNetWorthTrendAccounts.sorted { $0.name.lowercased() < $1.name.lowercased() }.map {
+                     signedInUITestNetWorthAccountDescriptor($0, dates: dates)
+                 },
+                 "nextCursor": NSNull(),
+@@ -3509,97 +3460,15 @@
+     }
+
+     private nonisolated static func signedInUITestConnectedInstitutions() -> [String: Any] {
+-        let onboardingScenario = signedInUITestOnboardingScenario()
+-        if onboardingScenario == "connected_loading" || onboardingScenario == "unconnected" {
+-            return [
+-                "accounts": [],
+-                "institutions": [],
+-            ]
+-        }
+-
+-        let accounts: [[String: Any]] = [
+-            [
+-                "accountId": "ui-test-account-1",
+-                "itemId": "ui-test-item",
+-                "name": "Daily Checking",
+-                "official_name": "Daily Checking",
+-                "mask": "0000",
+-                "subtype": "checking",
+-                "type": "depository",
+-                "currentBalance": 12000,
+-                "availableBalance": 11800,
+-                "balanceUpdatedAt": "2026-04-15T12:00:00.000Z",
+-                "institution_name": "Vylo Test Bank",
+-            ],
+-            [
+-                "accountId": "ui-test-account-2",
+-                "itemId": "ui-test-item",
+-                "name": "Family Savings",
+-                "official_name": "Family Savings",
+-                "mask": "0418",
+-                "subtype": "savings",
+-                "type": "depository",
+-                "currentBalance": 8450,
+-                "availableBalance": 8450,
+-                "balanceUpdatedAt": "2026-04-15T12:00:00.000Z",
+-                "institution_name": "Vylo Test Bank",
+-            ],
+-            [
+-                "accountId": "ui-test-account-3",
+-                "itemId": "ui-test-item",
+-                "name": "Rewards Card",
+-                "official_name": "Rewards Card",
+-                "mask": "3433",
+-                "subtype": "credit card",
+-                "type": "credit",
+-                "currentBalance": -1280,
+-                "availableBalance": NSNull(),
+-                "balanceUpdatedAt": "2026-04-15T12:00:00.000Z",
+-                "institution_name": "Vylo Test Bank",
+-            ],
+-            [
+-                "accountId": "ui-test-account-4",
+-                "itemId": "ui-test-item",
+-                "name": "Mortgage Loan",
+-                "official_name": "Mortgage Loan",
+-                "mask": "2201",
+-                "subtype": "mortgage",
+-                "type": "loan",
+-                "currentBalance": -624223.92,
+-                "availableBalance": NSNull(),
+-                "balanceUpdatedAt": "2026-04-15T12:00:00.000Z",
+-                "institution_name": "Vylo Test Bank",
+-            ],
+-            [
+-                "accountId": "ui-test-account-5",
+-                "itemId": "ui-test-item",
+-                "name": "Line of Credit",
+-                "official_name": "Line of Credit",
+-                "mask": "5001",
+-                "subtype": "line of credit",
+-                "type": "credit",
+-                "currentBalance": -7553.21,
+-                "availableBalance": NSNull(),
+-                "balanceUpdatedAt": "2026-04-15T12:00:00.000Z",
+-                "institution_name": "Vylo Test Bank",
+-            ],
+-        ]
+-
+-        var institution: [String: Any] = [
+-            "itemId": "ui-test-item",
+-            "institutionName": "Vylo Test Bank",
+-            "syncStatus": "connected",
+-            "lastSyncedAt": "2026-04-15T12:00:00.000Z",
+-            "accounts": accounts,
+-        ]
+-        if let state = ProcessInfo.processInfo.environment["VYLO_UI_TEST_RECONNECTION_STATE"] {
+-            institution["syncStatus"] = state == "restoring" ? "running" : state == "failed" ? "reconnect_required" : "active"
+-            institution["reconnection"] = [
+-                "id": ProcessInfo.processInfo.environment["VYLO_UI_TEST_RECONNECTION_ID"] ?? "ui-test-repair",
+-                "status": state,
+-            ]
+-        }
+-        return ["accounts": accounts, "institutions": [institution]]
++        let banks = [("RBC Royal Bank", "Main Chequing", "1082", 5420.21), ("TD Canada Trust", "Rainy Day Savings", "6644", 12200.0)]
++        var allAccounts: [[String: Any]] = []
++        var institutions: [[String: Any]] = []
++        for (i, bank) in banks.enumerated() {
++            let account: [String: Any] = ["accountId": "website-account-\(i)", "itemId": "website-bank-\(i)", "name": bank.1, "official_name": bank.1, "mask": bank.2, "subtype": i == 0 ? "checking" : "savings", "type": "depository", "currentBalance": bank.3, "availableBalance": bank.3, "balanceUpdatedAt": "2026-09-18T16:00:00.000Z", "institution_name": bank.0]
++            allAccounts.append(account)
++            institutions.append(["itemId": "website-bank-\(i)", "institutionName": bank.0, "syncStatus": "connected", "lastSyncedAt": "2026-09-18T16:00:00.000Z", "accounts": [account]])
++        }
++        return ["accounts": allAccounts, "institutions": institutions]
+     }
+
+     private nonisolated static var signedInUITestAccountIdentityReviewState: String {
+--- a/VyloApp/Features/NetWorth/NetWorthView.swift
++++ b/VyloApp/Features/NetWorth/NetWorthView.swift
+@@ -451,6 +451,7 @@
+             .padding(.top, SignedInSurfaceLayout.topContentPadding)
+             .padding(.bottom, 48)
+         }
++        .defaultScrollAnchor(.bottom)
+         .refreshable {
+             await refreshNetWorth(forceSnapshots: true)
+         }

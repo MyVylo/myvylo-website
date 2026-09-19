@@ -1,0 +1,104 @@
+.moment-demo { width: 100%; max-width: 400px; margin: auto; container-type: inline-size; outline: none; -webkit-tap-highlight-color: transparent; }
+.native-viewport { position: relative; aspect-ratio: 796 / 920; overflow: hidden; border-radius: 23px; background: #1e1d23; box-shadow: 0 18px 40px -20px #20182870, 0 0 0 1px #28233220; isolation: isolate; }
+.moment-demo:focus-visible .native-viewport { outline: 3px solid #7562bd; outline-offset: 6px; }
+.native-page { position: absolute; inset: 0; }
+.native-overview { transform: translateX(0); }
+.native-trends { left: 3.77%; right: 3.77%; top: 4%; bottom: auto; transform: translateX(112%); }
+.native-budget-health, .native-worth-total { position: absolute; left: 3.77%; right: 3.77%; top: 5%; }
+.native-budget-health { top: 16.4%; }
+.native-worth-total { top: 21%; }
+.native-review { position: absolute; left: 3.77%; right: 3.77%; top: 6%; overflow: hidden; border-radius: 17px; border: 1px solid #45404e; background: #26252e; box-shadow: 0 12px 28px #0002; transform-origin: center 80%; }
+.native-review .product-excerpt { width: calc(100% + 2px); margin-left: -1px; }
+.native-review-next { transform: translateY(10px) scale(.95); }
+.review-confirm-tint { position: absolute; inset: 0; background: #61ae8a; opacity: 0; pointer-events: none; }
+.native-members { position: absolute; top: 5%; left: 6%; right: 6%; }
+.native-invitation { position: absolute; top: 68%; left: 6%; right: 6%; opacity: 0; transform: translateY(18px); }
+.native-dimmer { position: absolute; inset: 0; background: #050407; opacity: 0; pointer-events: none; }
+.native-sheet { position: absolute; left: 0; right: 0; bottom: 0; overflow: hidden; border-radius: 20px 20px 0 0; box-shadow: 0 -14px 34px #0003; transform: translateY(105%); }
+.native-email { position: absolute; left: 8.8%; top: 32.4%; width: 78%; height: 10.5%; display: flex; align-items: center; padding-left: 1.5%; background: #302e3a; color: #f5f4f7; font: 400 4.25cqw / 1 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -.03em; opacity: 0; }
+.gesture-touch, .gesture-ripple { position: absolute; z-index: 5; pointer-events: none; left: 0; top: 0; opacity: 0; border-radius: 50%; }
+.gesture-touch { width: 5.3%; aspect-ratio: 1; background: #e7dcff80; border: 2px solid #fff; box-shadow: 0 0 0 5px #c3afff25, 0 2px 10px #0006; }
+.gesture-ripple { width: 5.3%; aspect-ratio: 1; border: 1.5px solid #f0e9ff; }
+@media (prefers-reduced-motion: reduce) { .gesture-touch, .gesture-ripple { display: none; } }
+
+.native-history-assets { margin-top: 6%; border-radius: 17px; overflow: hidden; }
+.native-invite-age { position: absolute; left: 18.7%; top: 65.5%; width: 45%; height: 17%; display: flex; align-items: center; background: #27262e; color: #aaa6b6; font: 400 3.35cqw / 1 -apple-system, BlinkMacSystemFont, sans-serif; }
+.native-capture { position: absolute; }
+.sequence-fade { opacity: 0; }
+.sequence-push { transform: translateX(105%); background: #1e1d23; }
+.native-category-name { position: absolute; left: 12.6%; top: 63.5%; width: 76%; height: 8%; display: flex; align-items: center; background: #302e3a; color: #f5f4f7; font: 400 4.25cqw / 1 -apple-system, BlinkMacSystemFont, sans-serif; opacity: 0; }
+
+.moment-demo[data-state="paused"] .gesture-touch, .moment-demo[data-state="paused"] .gesture-ripple { visibility: hidden; }
+
+/* Readable excerpts of the original auto-build summary, category card and
+   apply footer. The setup capture's test-only helper/banner is not used. */
+.demo-budget-build .native-viewport { background: #1d1c22; }
+.budget-preview-header { position: absolute; top: 1%; left: 0; right: 0; }
+.budget-preview-body { position: absolute; top: 17%; bottom: 17%; left: 3.77%; right: 3.77%; overflow: hidden; border-radius: 18px; }
+.budget-preview-group { margin-top: 4cqw; }
+.budget-preview-footer { position: absolute; bottom: 2%; left: 0; right: 0; background: #1d1c22; }
+
+.budget-tracking-expanded { opacity: 0; }
+
+html[data-screenshot-market="US"] [data-demo-market="CA"], html[data-screenshot-market="CA"] [data-demo-market="US"] { display:none !important; }
+.review-remaining { position:absolute; top:3.5%; left:0; right:0; height:5%; text-align:center; color:#f8f7f2; font:600 4cqw/1.4 -apple-system,BlinkMacSystemFont,sans-serif; }
+.review-remaining span { position:absolute; inset:0; opacity:0; }
+.review-remaining span:first-child { opacity:1; }
+.journey-review-card { top:11%; }
+.review-field { position:absolute; display:flex; align-items:center; background:#26252e; color:#f8f7f2; font-family:-apple-system,BlinkMacSystemFont,sans-serif; }
+.review-merchant { left:23.6%; top:3.3%; width:72%; height:10%; font-size:4.5cqw; line-height:1.12; font-weight:700; }
+.review-initials { left:8.1%; top:7.1%; width:9.3%; height:5.6%; justify-content:center; background:#302e3a; font-size:3cqw; font-weight:600; }
+.review-date { left:23.6%; top:13.1%; width:73%; height:7%; color:#b8b3c1; font-size:3.9cqw; }
+.review-amount { left:7%; top:22%; width:88%; height:15%; font-size:8.9cqw; line-height:1; font-weight:800; letter-spacing:-.04em; }
+.review-account { left:15.5%; top:36.3%; width:80%; height:7.5%; color:#b8b3c1; font-size:3.25cqw; white-space:nowrap; }
+.review-category-pending,.review-category-selected { position:absolute; left:7%; top:62.3%; width:86.6%; height:15.5%; }
+.review-category-pending { display:flex; align-items:center; gap:3cqw; border:1px solid #d9bb6b70; border-radius:4cqw; padding-inline:4cqw; background:#3a3427; color:#f0dca8; font:500 4.4cqw/1.2 -apple-system,BlinkMacSystemFont,sans-serif; }
+.review-category-pending > span { color:#edce80; width:5cqw; text-align:center; }
+.review-category-selected { opacity:0; }
+.review-memory-cover { position:absolute; top:79%; bottom:0; left:2%; right:2%; background:#26252e; }
+.review-swipe-check { position:absolute; top:1.5%; right:3%; width:10.5%; opacity:0; }
+.review-journey-dimmer { z-index:4; }
+.review-journey-sheet { z-index:5; }
+.review-picker-memory-off { position:absolute; left:81%; top:52.6%; width:14%; height:7.2%; border-radius:99px; background:#39383f; }
+.review-picker-memory-off span { position:absolute; left:4%; top:7%; height:86%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px #0003; }
+.review-completion { position:absolute; inset:0; z-index:4; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4cqw; background:#1e1d23; color:#f8f7f2; opacity:0; font-family:-apple-system,BlinkMacSystemFont,sans-serif; }
+.review-completion-check { display:grid; place-items:center; width:22cqw; aspect-ratio:1; border-radius:50%; border:2px solid #34d39966; color:#34d399; background:#10b9812e; }
+.review-completion-check svg { width:65%; }
+.review-completion strong { font-size:7cqw; letter-spacing:-.035em; }
+.review-completion p { color:#b8b3c1; margin:0; font-size:4cqw; }
+.native-completion-button { margin-top:3cqw; padding:3.5cqw 6cqw; border-radius:3cqw; background:#e2ee9c; color:#252626; font-size:4cqw; font-weight:600; }
+
+.memory-toggle { position:absolute; left:80.7%; top:41.5%; width:14.4%; height:6.6%; border-radius:99px; background:#39383f; }
+.memory-thumb { position:absolute; left:3.5%; top:6%; height:88%; aspect-ratio:1; border-radius:50%; background:#fff; box-shadow:0 1px 3px #0003; }
+
+.budget-chart-states { position:relative; }
+.budget-chart-unselected { position:absolute; inset:0; background:#1e1d23; }
+.budget-mix-chart { margin-top:5cqw; }
+
+.budget-track-step { opacity:0; background:#1e1d23; }
+.investment-sheet { top:0; height:100%; background:#1e1d23; }
+
+.category-created { opacity:0; background:#1e1d23; }
+.category-rows-cover { position:absolute; left:4%; right:4%; top:30%; bottom:0; background:#1e1d23; }
+.group-typed-field { position:absolute; left:12.6%; top:57%; width:76%; height:15%; display:flex; align-items:center; background:#302e3a; color:#f5f4f7; font:400 4.25cqw/1 -apple-system,BlinkMacSystemFont,sans-serif; opacity:0; }
+.category-group-tag { position:absolute; left:9.2%; top:34.8%; padding:1.4cqw 2.4cqw; border:1px solid #b8a9ff40; border-radius:6cqw; background:#b8a9ff20; color:#c8baff; font:400 3.8cqw/1.2 -apple-system,BlinkMacSystemFont,sans-serif; }
+
+/* Mask only fixture field values while the native form types them. */
+.group-create-sheet .group-typed-field, .category-create-sheet .native-category-name { opacity:1; }
+.group-create-sheet .group-typed-field { top:56%; height:13%; }
+.category-create-sheet .native-category-name { top:61%; height:11%; }
+
+.auto-generated { transform:translateX(105%); background:#1e1d23; }
+.auto-applied, .worth-saved { opacity:0; background:#1e1d23; }
+.auto-total { position:absolute; top:16%; left:3.77%; right:3.77%; }
+.auto-categories-window { position:absolute; top:43%; bottom:17%; left:3.77%; right:3.77%; overflow:hidden; border-radius:16px; }
+.auto-category-gap { margin-top:4cqw; }
+.worth-name-field,.worth-value-field { position:absolute; left:8.9%; width:83%; height:8.5%; display:flex; align-items:center; background:#302e3a; color:#f5f4f7; font:400 4.25cqw/1 -apple-system,BlinkMacSystemFont,sans-serif; }
+.worth-name-field { top:59.8%; }.worth-value-field { top:84.7%; }
+
+.account-preparing,.account-connected { opacity:0; background:#1e1d23; }
+
+.memory-on-state { position:absolute; inset:0; opacity:0; }
+
+.liability-us-label { position:absolute; top:115%; left:10.9%; width:62%; height:10%; padding-left:.3cqw; background:#26252e; display:flex; flex-direction:column; justify-content:center; gap:1cqw; font:400 2.8cqw/1.2 -apple-system,BlinkMacSystemFont,sans-serif; color:#b8b3c1; }
+.liability-us-label strong { color:#f8f7f2; font-size:3.3cqw; font-weight:600; }

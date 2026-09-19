@@ -1,0 +1,169 @@
+/* The camera presents unchanged product components in one app frame.
+   Receipts and timed account-event annotations are marketing animation layers. */
+html, body { margin:0; overflow:hidden; background:transparent!important; }
+.real-product-story { position:relative; height:var(--scene-height,780px); font-family:'DM Sans',sans-serif; --camera-scale:1; --camera-width:1100px; --camera-height:720px; }
+.story-board { position:absolute; top:24px; left:50%; width:calc(var(--camera-width) * var(--camera-scale)); height:calc(var(--camera-height) * var(--camera-scale)); transform:translateX(-50%); overflow:hidden; border:1px solid #ffffff19; border-radius:20px; background:var(--color-shell-bg); box-shadow:0 30px 65px -36px #332b455e, 0 3px 10px #332b4510; }
+.board-camera { position:relative; width:var(--camera-width); height:var(--camera-height); transform:scale(var(--camera-scale)); transform-origin:0 0; }
+.board-activity,.board-budget,.board-worth { position:absolute; inset:0; overflow:hidden; background:var(--color-shell-bg); }
+.board-budget,.board-worth { opacity:0; visibility:hidden; }
+.board-budget main { height:662px; max-height:662px; min-height:0; flex:none; overflow:hidden; scroll-behavior:auto; }
+.board-budget .budget-category-table { scroll-margin-top:20px; }
+.board-budget .budget-category-table tr { transition:none; }
+.board-camera .min-h-screen { min-height:var(--camera-height); }
+.board-camera aside { height:var(--camera-height); position:relative; }
+.board-camera .expense-tracker-shell > .flex > .flex > main { padding-top:16px; }
+.board-camera main > div > .mb-6 { margin-bottom:18px; }
+.board-camera .workflow-transaction-summary { padding-block:4px 20px; }
+.board-camera .workflow-transaction-metrics dt { font-size:12px; margin-bottom:7px; }
+.board-camera .workflow-transaction-metrics dd { font-size:30px; }
+.board-camera .workflow-transaction-tools { padding-block:18px 14px; }
+.board-camera .workflow-transactions-table th { padding-block:13px; }
+.board-camera .workflow-transactions-table td { padding-block:14px; }
+.board-camera .workflow-transactions-table { overflow:visible; }
+.board-camera .workflow-transactions-table tr { will-change:transform,opacity; }
+.board-camera .workflow-transactions-table tr > td { transition:none; }
+.board-camera .workflow-transactions-table [data-story-row] > td { padding-block:calc(14px * var(--row-open,1)); border-bottom-width:calc(1px * var(--row-open,1)); }
+.story-row-reveal { max-height:calc(40px * var(--row-open,1)); overflow:hidden; }
+.is-measuring [data-story-row] { --row-open:1!important; transform:none!important; }
+.board-camera .workflow-transactions-table col:last-child { width:160px; }
+.board-camera .workflow-transactions-table col:nth-child(4) { width:200px; }
+.board-camera button,.board-camera a,.board-camera input { pointer-events:none; }
+.board-camera .net-worth-review > div { opacity:1!important; transform:none!important; }
+.board-camera .net-worth-review section { grid-column:span 4/span 4; }
+.board-camera .net-worth-review .grid { gap:16px; }
+.board-camera .net-worth-review .vylo-section-card { padding:22px; }
+.story-tap { position:absolute; z-index:55; width:30px; height:30px; border:2px solid #d2c7ff; border-radius:50%; box-shadow:0 0 0 6px #b8a9ff1a; opacity:0; pointer-events:none; }
+.story-receipts { display:none; }.real-product-story[data-enhanced] .story-receipts { display:block; }
+.story-receipt { position:absolute; left:0; top:0; width:150px; height:202px; padding:18px 15px 13px; display:flex; flex-direction:column; align-items:center; color:#35303f; background:linear-gradient(115deg,#fffffb,#f1eee5); clip-path:polygon(0 0,100% 0,100% 97%,94% 100%,88% 97%,82% 100%,76% 97%,70% 100%,64% 97%,58% 100%,52% 97%,46% 100%,40% 97%,34% 100%,28% 97%,22% 100%,16% 97%,10% 100%,4% 97%,0 99%); border-radius:5px 5px 0 0; transform-origin:50% 50%; filter:drop-shadow(0 12px 12px #221b361a); will-change:transform,opacity; }
+.receipt-symbol { display:grid; place-items:center; width:22px; height:22px; font-size:19px; font-weight:600; color:#796d93; margin-bottom:9px; }
+.story-receipt strong { font-size:12px; font-weight:650; line-height:1.3; text-align:center; }
+.receipt-rule { width:100%; border-top:1px dashed #90859b63; margin:12px 0 10px; }
+.receipt-lines { display:grid; gap:5px; width:100%; margin-bottom:11px; }.receipt-lines i { display:block; height:3px; border-radius:2px; background:linear-gradient(90deg,#b0a9b460 60%,transparent 60%,transparent 82%,#b0a9b460 82%); }.receipt-lines i:nth-child(2) { width:80%; }.receipt-lines i:nth-child(3) { width:90%; }
+.receipt-amount { font-size:23px; letter-spacing:-.055em; font-weight:650; line-height:1; }.story-receipt small { margin-top:7px; font-size:8px; color:#83798c; }.receipt-barcode { margin-top:12px; width:72px; height:11px; opacity:.5; background:repeating-linear-gradient(90deg,#51475d 0 1px,transparent 1px 3px,#51475d 3px 5px,transparent 5px 7px,#51475d 7px 8px,transparent 8px 11px); }
+.story-receipt-income { background:linear-gradient(115deg,#fafceb,#e7ebd7); }
+@media(max-width:900px) {
+  .real-product-story { --camera-width:390px; --camera-height:730px; }
+  .story-board { top:65px; border-radius:15px; }
+  .board-camera aside { display:none; }
+  .board-camera .expense-tracker-shell > .flex > .flex > main { padding:14px 14px 20px; }
+  .board-camera header > div { padding:8px 14px; }
+  .board-camera h1 { font-size:20px; }
+  .board-camera main > div > .mb-6 { margin-bottom:16px; }
+  .board-camera .workflow-transaction-summary { padding-block:2px 16px; gap:12px; }
+  .board-camera .workflow-transaction-summary > button { display:none; }
+  .board-camera .workflow-transaction-metrics { gap:32px; }.board-camera .workflow-transaction-metrics dd { font-size:25px; }
+  .board-camera .workflow-transaction-tools { padding-block:14px 10px; gap:8px; flex-wrap:nowrap; }
+  .board-camera .workflow-transaction-tools > .relative:first-of-type { flex:1; min-width:0; }
+  .board-camera .workflow-transaction-tools > .relative:first-of-type input { width:100%; min-height:36px; padding-block:8px; font-size:11px; }
+  .board-camera .workflow-transaction-tools > .relative:nth-last-child(2) button { padding:8px; }.board-camera .workflow-transaction-tools > .relative:nth-last-child(2) span,.board-camera .workflow-transaction-tools > .relative:last-child,.board-camera .workflow-transaction-quick-filters { display:none; }
+  .board-camera .workflow-transactions-table table { min-width:0; table-layout:auto; }
+  .board-camera .workflow-transactions-table colgroup,.board-camera .workflow-transactions-table th:first-child,.board-camera .workflow-transactions-table td:first-child,.board-camera .workflow-transactions-table th:last-child,.board-camera .workflow-transactions-table td:last-child { display:none; }
+  .board-camera .workflow-transactions-table th { padding:12px 4px; font-size:8px; }.board-camera .workflow-transactions-table td { padding:10px 4px; font-size:11px; }
+  .board-camera .workflow-transactions-table [data-story-row] > td { padding-block:calc(10px * var(--row-open,1)); }
+  .board-camera .workflow-transactions-table td:nth-child(2) .text-xs { font-size:8px; }.board-camera .workflow-transactions-table td:nth-child(2) .gap-2 { gap:5px; }
+  .board-camera .workflow-transactions-table td:nth-child(4) span { font-size:8px; }.board-camera .workflow-transactions-table td:nth-child(4) button > span { padding-inline:4px; gap:3px; }.board-camera .workflow-transactions-table td:nth-child(4) svg { width:10px; height:10px; }
+  .board-camera .net-worth-review .vylo-section-card { padding:14px; }.board-camera .net-worth-review h2 { font-size:14px; }.board-camera .net-worth-review .grid { gap:8px; }.board-camera .net-worth-review section > div { padding:9px; min-height:0; border-radius:10px; }.board-camera .net-worth-review .text-5xl { font-size:26px; }.board-camera .net-worth-review .text-xl { font-size:17px; }.board-camera .net-worth-review .text-xs { font-size:8px; }.board-camera .net-worth-review .text-sm { font-size:10px; }.board-camera .net-worth-review .grid-cols-2 { grid-template-columns:1fr; }.board-camera .net-worth-mini { padding:0; min-height:0; }.board-camera .net-worth-mini .h-6 { display:none; }.board-camera .net-worth-mini p { margin-top:6px; }.board-camera .net-worth-mini:nth-child(n+3) { display:none; }.board-camera .net-worth-review section:last-child .net-worth-mini:nth-child(-n+2) { display:none; }.board-camera .net-worth-review section:last-child .net-worth-mini:last-child { display:flex; }
+  .story-receipt { width:126px; height:173px; padding:13px 12px 12px; }.receipt-symbol { margin-bottom:5px; height:17px; font-size:16px; }.story-receipt strong { font-size:11px; }.receipt-rule { margin-block:9px 8px; }.receipt-lines { gap:4px; margin-bottom:9px; }.receipt-amount { font-size:20px; }.receipt-barcode { margin-top:8px; height:8px; }
+}
+
+@media(max-width:900px) {
+  .board-worth .vylo-section-card > .flex > button,
+  .board-worth .vylo-section-card > .flex > div.flex.items-center.gap-2 { display:none; }
+  .board-camera .net-worth-review h2.text-xl { font-size:14px; }
+  .board-camera .net-worth-review .vylo-section-card > .flex { margin-bottom:14px; }
+  .board-camera .net-worth-review section:nth-child(2) .net-worth-mini:nth-child(2) { display:none; }
+  .board-camera .net-worth-review section:nth-child(2) .net-worth-mini:nth-child(3) { display:flex; }
+}
+
+/* Native capture + fictional values. See scripts/hero-native-activity.mjs. */
+.native-activity { display:none; position:absolute; inset:0; background:#1d1c22; color:#f8f7f2; }
+.native-capture { position:absolute; inset:0; background:url('/product/iphone/activity.jpg') 0 -48px / 390px auto no-repeat; }
+.native-total,.native-count { position:absolute; top:119px; height:43px; background:#1d1c22; font-size:23px; font-weight:650; line-height:40px; letter-spacing:-.4px; }
+.native-total { left:21px; width:175px; }.native-count { left:205px; width:160px; }
+.native-ledger { position:absolute; left:21px; right:21px; top:305px; height:380px; background:#1d1c22; overflow:hidden; }
+.native-count-label { font-size:12px; margin:6px 0 33px; }.native-date { font-size:11px; color:#b8b3c1; padding-bottom:9px; border-bottom:1px solid #45414e; }
+.native-rows { display:flex; flex-direction:column; }
+.native-transaction { height:calc(122px * var(--row-open,1)); overflow:hidden; flex-shrink:0; }
+.native-row-inner { position:relative; height:122px; padding-top:29px; border-bottom:1px solid #45414e; }
+.native-avatar { position:absolute; top:30px; left:0; width:32px; height:32px; display:grid; place-items:center; border-radius:11px; background:#302e38; border:1px solid #45414e; font-size:11px; font-weight:600; }
+.native-merchant { margin-left:46px; font-size:16px; font-weight:600; line-height:22px; }.native-amount { position:absolute; right:0; top:29px; font-size:16px; font-weight:600; }
+.native-account { margin:6px 0 15px 46px; font-size:12px; line-height:16px; }.native-category { display:inline-flex; align-items:center; gap:8px; margin-left:46px; padding:4px 9px; border:1px solid #45414e; border-radius:20px; background:#2a2931; font-size:12px; color:#f8f7f2; line-height:16px; }.native-category i { font-style:normal; color:#b8a9ff; font-size:16px; }
+.native-bottom-nav { position:absolute; left:0; right:0; bottom:0; height:97px; background:url('/product/iphone/activity.jpg') 0 -750px / 390px auto no-repeat; }
+.account-events { position:absolute; z-index:20; left:50%; bottom:65px; width:470px; height:104px; transform:translateX(-50%); pointer-events:none; }
+.account-event { position:absolute; inset:0; display:flex; gap:17px; align-items:center; padding:21px 24px; background:#f8f7f2; color:#282531; border:1px solid #ffffffad; border-radius:18px; box-shadow:0 15px 42px #0005,0 0 0 5px #ffffff08; opacity:0; visibility:hidden; }
+.account-event-icon { flex-shrink:0; width:40px; height:40px; display:grid; place-items:center; border-radius:13px; background:#e7e0f6; color:#655094; font-size:24px; }
+.account-event small { display:block; color:#766a84; font-size:11px; }.account-event strong { display:block; font-size:16px; font-weight:650; margin-top:2px; }.account-event p { font-size:10px; margin-top:5px; color:#766a84; }.account-event b { margin-left:auto; font-size:24px; letter-spacing:-.6px; font-weight:650; white-space:nowrap; }.account-event-gain .account-event-icon { background:#deeee5; color:#49785d; }.account-event-payment .account-event-icon { background:#e2e7f3; color:#576789; }
+@media(max-width:900px) {
+  .board-activity > .expense-tracker-shell { display:none; }.native-activity { display:block; }
+  .board-budget main { height:670px; max-height:670px; }
+  .board-budget .budget-category-table table { min-width:0; table-layout:fixed; }.board-budget .budget-category-table colgroup { display:none; }
+  .board-budget .budget-category-table td,.board-budget .budget-category-table th { padding:15px 7px; font-size:10px; }
+  .board-budget .budget-category-table td:first-child,.board-budget .budget-category-table th:first-child { width:43%; }.board-budget .budget-category-table td:nth-child(2),.board-budget .budget-category-table th:nth-child(2) { width:27%; }
+  .board-budget .budget-category-table td:nth-child(n+5),.board-budget .budget-category-table th:nth-child(n+5) { display:none; }
+  .board-budget .budget-category-table td:first-child .h-8 { display:none; }.board-budget .budget-category-table .text-sm { font-size:11px; }.board-budget .budget-category-table .w-40 { width:100%; }.board-budget .budget-category-table .w-\[48px\] { display:none; }
+  .board-budget .budget-category-table .gap-2 { gap:3px; }.board-budget .budget-category-table th { font-size:8px; }
+  .board-budget .budget-summary-pane { min-height:0; padding:12px; }.board-budget .grid.grid-cols-12 { gap:12px; }
+  .board-budget .workflow-budget-balance .text-5xl { font-size:29px; }.board-budget .workflow-budget-balance-caption { font-size:16px; }
+  .board-budget .budget-summary-pane .mt-4 { margin-top:8px; }.board-budget .budget-group-card { padding:10px; }
+  .account-events { width:354px; bottom:65px; height:100px; }.account-event { padding:17px; gap:12px; }.account-event strong { font-size:14px; }.account-event b { font-size:21px; }.account-event-icon { width:34px; height:34px; font-size:21px; }
+}
+@media(max-width:900px) {
+  .board-budget .budget-category-table td:nth-child(-n+4),.board-budget .budget-category-table th:nth-child(-n+4) { display:table-cell; }
+  .board-budget .budget-category-table td:first-child,.board-budget .budget-category-table th:first-child { width:38%; }
+  .board-budget .budget-category-table td:nth-child(2),.board-budget .budget-category-table th:nth-child(2) { width:24%; }
+  .board-budget .budget-category-table td:nth-child(3),.board-budget .budget-category-table th:nth-child(3),.board-budget .budget-category-table td:nth-child(4),.board-budget .budget-category-table th:nth-child(4) { width:19%; }
+  .board-budget .budget-category-table td button { padding:0; min-height:0; height:auto; font-size:11px; }
+  .board-budget [data-story-group-summary] { white-space:normal; font-size:10px; }
+  .board-camera .net-worth-review section:nth-child(2) .net-worth-mini:nth-child(2) { display:flex; }
+  .board-camera .net-worth-review section:nth-child(2) .net-worth-mini:nth-child(3) { display:none; }
+  .native-bottom-nav::before { content:''; position:absolute; inset:0 0 auto; height:26px; background:#1d1c22; }
+  .native-bottom-nav::after { content:''; position:absolute; top:0; left:174px; width:43px; height:44px; background:url('/product/iphone/activity.jpg') -174px -750px / 390px auto no-repeat; }
+}
+.board-trends { position:absolute; inset:0; overflow:hidden; background:var(--color-shell-bg); opacity:0; visibility:hidden; }
+.board-trends [data-testid="net-worth-main-chart-frame"] { height:200px; }
+.board-trends [data-trend-line] { stroke-dasharray:1; stroke-dashoffset:1; }
+@media(max-width:900px) {
+  .board-worth table { min-width:0; table-layout:fixed; }
+  .board-worth table colgroup,.board-worth table th:nth-child(n+3),.board-worth table td:nth-child(n+3) { display:none; }
+  .board-worth table th:first-child,.board-worth table td:first-child { width:67%; }
+  .board-worth table th,.board-worth table td { padding-inline:8px; font-size:11px; }
+  .board-worth table td .text-xs { font-size:9px; }.board-worth table td .h-8 { width:24px; height:24px; }
+  .board-trends section[aria-label="Net worth history"] > div:first-child { gap:12px; }
+  .board-trends [data-testid="net-worth-main-chart-frame"] { height:235px; }
+  .board-trends [data-testid="net-worth-main-chart-card"] { padding:14px!important; }
+  .board-trends section[aria-label="Net worth history"] > .grid { gap:10px; }
+  .board-trends section[aria-label="Net worth history"] > .grid .vylo-section-card { padding:14px!important; }
+  .board-trends .text-4xl { font-size:28px; }.board-trends .text-2xl { font-size:22px; }
+  .board-trends .text-xs { font-size:10px; }.board-trends .text-sm { font-size:12px; }
+  .board-trends .h-12 { height:38px; }
+}
+@media(max-width:900px) {
+  .board-camera .net-worth-review section:last-child .net-worth-mini { display:none!important; }
+  .board-camera .net-worth-review section:last-child .net-worth-mini:nth-child(2) { display:flex!important; }
+  .board-trends [data-testid="net-worth-main-chart-frame"] { height:170px; }
+}
+@media(max-width:900px) {
+  .board-trends [data-testid="net-worth-main-chart-frame"] { height:135px; }
+  .board-trends [data-testid="net-worth-main-chart-card"] .mt-4 { margin-top:8px; }
+  .board-trends section[aria-label="Net worth history"] > .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .board-trends section[aria-label="Net worth history"] > .grid .vylo-section-card > .flex { display:block; }
+  .board-trends section[aria-label="Net worth history"] > .grid .vylo-section-card > .flex > div { width:100%; }
+  .board-trends section[aria-label="Net worth history"] > .grid .text-2xl { font-size:17px; margin-top:8px; }
+  .board-trends section[aria-label="Net worth history"] > .grid .h-12 { height:22px; margin-top:6px; }
+  .board-trends section[aria-label="Net worth history"] > .grid .text-xs { font-size:9px; }
+}
+.board-home-trends,.board-budget-trends { position:absolute; inset:0; overflow:hidden; background:var(--color-shell-bg); opacity:0; visibility:hidden; }
+/* Focus the actual product's lead chart; retain its range control and shell. */
+.board-home-trends [data-trend-slot="summary"],.board-home-trends [data-trend-slot="monthly-savings"],.board-home-trends [data-trend-slot="spending-mix"],.board-budget-trends [data-trend-slot="budget-summary"],.board-budget-trends [data-trend-slot="spending-mix"] { display:none; }
+.board-home-trends .workflow-dashboard-trends > .grid,.board-budget-trends [data-budget-trends] > .grid { grid-template-columns:1fr; }
+.board-home-trends [data-trend-slot="income-spending"],.board-budget-trends [data-trend-slot="budget-vs-actual"] { min-height:440px; }
+@media(max-width:900px) {
+  .board-budget div:has(> [data-story-group-summary]) { flex-wrap:wrap; gap:8px; }
+  .board-budget [data-story-group-summary] { flex-basis:100%; flex-shrink:1; }
+  .board-budget .budget-group-tile { min-width:190px; max-width:100%; }
+  .board-home-trends [data-trend-slot="income-spending"],.board-budget-trends [data-trend-slot="budget-vs-actual"] { min-height:390px; padding:18px!important; }
+  .board-home-trends .workflow-dashboard-trends .h-\[280px\],.board-budget-trends [data-budget-trends] .h-\[300px\] { height:220px; }
+  .board-home-trends [data-trend-slot] svg text,.board-budget-trends [data-trend-slot] svg text { font-size:21px; }
+  .board-home-trends [data-trend-slot] h2,.board-budget-trends [data-trend-slot] h2 { font-size:16px; }
+  .board-home-trends .workflow-dashboard-trends > div:first-child,.board-budget-trends [data-budget-trends] > div:first-child { gap:12px; }
+}

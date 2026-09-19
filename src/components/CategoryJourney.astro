@@ -1,0 +1,10 @@
+---
+import NativeCapture from './NativeCapture.astro';
+import ProductExcerpt from './ProductExcerpt.astro';
+const size={sourceWidth:828,sourceHeight:1799};
+---
+<div class="native-page category-start"><NativeCapture name="categories-baby-0" src="/product/build83/categories-baby-0.png" crop={[16,250,796,140]} top={25}/><NativeCapture name="categories-baby-0" src="/product/build83/categories-baby-0.png" crop={[16,640,796,1050]} top={190}/></div>
+{[0,1,2,3].map(i=><div class={`native-page category-created category-created-${i}`}><NativeCapture name={`categories-baby-${i}`} src={`/product/build83/categories-baby-${i}.png`} crop={[16,250,796,1110]} top={25}/></div>)}
+<div class="native-dimmer"></div>
+<div class="native-sheet group-create-sheet"><ProductExcerpt {...size} src="/product/build83/group-baby-filled.png" crop={[16,859,796,450]} alt=""/><span class="group-typed-field"><span>Baby stuff</span></span></div>
+{['Diapers','Formula','Clothing'].map((name,i)=><div class={`native-sheet category-create-sheet category-create-${i}`}><ProductExcerpt {...size} src="/product/build83/category-baby-filled.png" crop={[16,859,796,545]} alt=""/><span class="native-category-name"><span class="native-typed-name">{name}</span></span></div>)}

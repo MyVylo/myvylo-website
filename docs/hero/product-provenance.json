@@ -1,0 +1,96 @@
+{
+  "source": "approved-design-20260911/web/expense-tracker-frontend",
+  "method": "Desktop: React renderToStaticMarkup of original product screens/components with fictional data. Native Activity: original iOS capture for chrome, source-matched repeated rows and fictional value overlays. Marketing receipts and account-event annotations are outside product UI.",
+  "sources": [
+    {
+      "file": "src/screens/desktop/TransactionsScreen.jsx",
+      "sha256": "64fe4eeae6dbb7407cd1d14f92d9b1cc4c1d0e123ab8126d33d33cae1968ec8d"
+    },
+    {
+      "file": "src/components/shell/AppShell.jsx",
+      "sha256": "3f3b576ea087371b20f59b39a1003afbc1263d57e75a6f713501329fcd655464"
+    },
+    {
+      "file": "src/components/shell/AppSidebarNav.jsx",
+      "sha256": "c4d2a3e5199b842f76a16358821e30a670a2485e9fef79fb339034bd859a862c"
+    },
+    {
+      "file": "src/components/shell/DesktopDashboardRouteShell.jsx",
+      "sha256": "54660139142e55fde62bbd5e636813f08b689d920c47091c1c19e6f17fffd54e"
+    },
+    {
+      "file": "src/components/budget/BudgetDetailPanel.jsx",
+      "sha256": "be1bac9fb89b947c97be4e97713123e00861c235e238bed7d823c2d749c102ed"
+    },
+    {
+      "file": "src/components/networth/NetWorthDashboardView.jsx",
+      "sha256": "7110c81d20180b265a5a61f20e2998f28b9707b79c743e33de93fad2744b838a"
+    },
+    {
+      "file": "src/components/networth/NetWorthHistoryPanel.jsx",
+      "sha256": "0fd67ae541586886f2a48f59564962775192024ae9a31ce65cce5baf5194d504"
+    },
+    {
+      "file": "src/components/trends/SimpleGapLineTrendChart.jsx",
+      "sha256": "09f653db229132381e6b0df9de16183112a8a43c85868399476b22d5dbf0e662"
+    },
+    {
+      "file": "src/components/dashboard/DashboardTrendsSurface.jsx",
+      "sha256": "8dce9d494b3ed11d10162aa4ea814927e628746be00bd0c5e57c70a02eb34517"
+    },
+    {
+      "file": "src/components/budget/BudgetTrendsSurface.jsx",
+      "sha256": "877379b8dd15f030d297da1d8ac1ca870c0457c6c4a8525d9bda5b5a170cb913"
+    },
+    {
+      "file": "src/components/trends/SimpleBarTrendChart.jsx",
+      "sha256": "794a73c9dfaa28e39322485dac3eb73d356b4f455e4b6f04887ab5770c3562e4"
+    },
+    {
+      "file": "src/components/ui/CategoryChip.jsx",
+      "sha256": "e78c1851eb489b2225e00917cd13e0173437a0c61868ac45015356208b9c0a73"
+    },
+    {
+      "file": "src/index.css",
+      "sha256": "d01c61f2c735886d764dfff20456271ad2d06a295ceb9795fccf322a8cec4527"
+    },
+    {
+      "file": "src/components/transactions/Transactions.css",
+      "sha256": "92e704d239c26c958fd296c5a66eb341bdfe041e79fc598b2e4e93409387d0b7"
+    },
+    {
+      "file": "src/components/dashboard/Dashboard.css",
+      "sha256": "39c2cd4b30da30ab85a9bda682529841f4869f316e2898d6feabd542c5f0a368"
+    },
+    {
+      "file": "src/components/budget/BudgetAppearance.css",
+      "sha256": "ed17b5c6e0ac9fd5a56726fc0f89d3f8bf9919c336ce4b3e88215a641095b416"
+    },
+    {
+      "file": "src/components/budget/BudgetBalanceSummary.css",
+      "sha256": "f6987fc724fbc2697d458e5b9551f12864233e4780f13c6781938db1608ef600"
+    },
+    {
+      "file": "src/components/networth/NetWorth.css",
+      "sha256": "f7fdfaad7a293db37df596ca354d96140f039c3ebe3dd4e7a45b4fe39a525d95"
+    }
+  ],
+  "nativeSources": [
+    {
+      "file": "Features/Activity/ActivityView.swift",
+      "sha256": "f6e6ced8ee98517ea4c6288d8099c7b24c7a5171492a709d7d96ba5ee7f9a54a"
+    },
+    {
+      "file": "Features/Shared/SurfaceChrome.swift",
+      "sha256": "2b72f95f733f6797794954028dd8cfea4e2987ffb3b21c5d7f300ca0d75da089"
+    },
+    {
+      "file": "Core/Design/DesignTokens.swift",
+      "sha256": "3c594fa3e4e94e64852afdc0d3ed1683c2b2c2b047438aac1c5be1e8bd439823"
+    }
+  ],
+  "nativeCapture": {
+    "file": "public/product/iphone/activity.jpg",
+    "sha256": "d6e572838cbbbbb22d0ab899b4cd25a8e8b7fc7def7675259fd508e871875aa3"
+  }
+}

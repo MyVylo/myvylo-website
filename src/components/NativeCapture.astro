@@ -1,0 +1,6 @@
+---
+import ProductExcerpt from './ProductExcerpt.astro';
+interface Props { name: string; src?: string; srcUS?: string; crop: [number, number, number, number]; top?: number; left?: number; width?: number; class?: string; }
+const {name, src, srcUS, crop, top = 0, left = 0, width = 796, class: className = ''} = Astro.props;
+---
+<div class={`native-capture ${className}`} style={`left:${left / 796 * 100}%;top:${top / 920 * 100}%;width:${width / 796 * 100}%`}><ProductExcerpt srcUS={srcUS} src={src ?? `/help/steps/ios/${name}.png`} crop={crop} sourceWidth={828} sourceHeight={1799} alt="" /></div>

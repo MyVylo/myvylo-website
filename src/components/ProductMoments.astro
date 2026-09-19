@@ -1,0 +1,33 @@
+---
+import '../styles/design-direction.css';
+import ProductMomentDemo from './ProductMomentDemo.astro';
+import { featureWalkthroughs } from '../data/feature-walkthroughs';
+const articleByScene: Record<string, string> = {
+  categorize: 'how-transactions-get-sorted', review: 'review-transactions', remember: 'remember-merchant', categories: 'category-basics', reports: 'monthly-reports',
+  'budget-build': 'build-a-budget', budget: 'edit-a-budget', 'budget-trends': 'budget-trends',
+  invite: 'invite-household', household: 'connect-a-bank', shared: 'household-visibility', worth: 'manual-assets', 'worth-history': 'net-worth-history',
+};
+const cards = featureWalkthroughs.map(view => ({
+  ...view,
+  color: ({overview: 'spending', budget: 'budget', household: 'household', worth: 'progress'})[view.id],
+  selected: ({overview: 'categorize', budget: 'budget', household: 'invite', worth: 'worth-history'})[view.id],
+}));
+---
+      <section class="moments-section page-width" id="inside-vylo" aria-labelledby="moments-title">
+        <div class="moments-heading"><h2 id="moments-title">Four questions.<br /><em>One app to answer them.</em></h2></div>
+        <div class="moments-grid">
+          {cards.map(card => <article class={`moment moment-${card.color}`} data-feature-card={card.id}>
+            <div class="moment-copy"><h3 id={`question-${card.id}`}>{card.question.replaceAll('“', '').replaceAll('”', '')}</h3></div>
+            <div class="moment-feature-tabs" role="tablist" aria-labelledby={`question-${card.id}`}>
+              {card.chapters.map(chapter => <button type="button" role="tab" id={`feature-${chapter.scene}`} data-feature-select={chapter.scene} aria-controls={`feature-panel-${chapter.scene}`} aria-selected={chapter.scene === card.selected} tabindex={chapter.scene === card.selected ? 0 : -1}>{chapter.label}</button>)}
+            </div>
+            <div class="moment-feature-panels">
+              {card.chapters.map(chapter => <div role="tabpanel" id={`feature-panel-${chapter.scene}`} aria-labelledby={`feature-${chapter.scene}`} data-feature-panel={chapter.scene} hidden={chapter.scene !== card.selected}>
+                <div class="moment-stage"><ProductMomentDemo scene={chapter.scene} /></div>
+                <div class="moment-feature-description"><p>{chapter.copy}</p><a href={`/help/articles/${articleByScene[chapter.scene]}/`} aria-label={`Read article: ${chapter.label}`}>Read article <span aria-hidden="true">↗</span></a></div>
+              </div>)}
+            </div>
+          </article>)}
+        </div>
+      </section>
+<script>import '../scripts/product-moment-demos';</script>

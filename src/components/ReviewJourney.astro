@@ -1,0 +1,30 @@
+---
+import ProductExcerpt from './ProductExcerpt.astro';
+// Native ReviewQueueCard capture; only fictional transaction fields change.
+// Ring/check and completion geometry follow Build 83 ReviewQueueCard/View.swift.
+const rows = [
+  { ca: 'SQ *MOOSE PANTRY', us: 'SQ *ODD CARROT', initials: 'MP', amount: '$42.90' },
+  { ca: 'THE HAPPY CABBAGE', us: 'HAPPY CABBAGE CO', initials: 'HC', amount: '$18.25' },
+  { ca: 'MKT *LITTLE MAPLE', us: 'MKT *LITTLE ACORN', initials: 'LM', amount: '$56.10' },
+];
+---
+<div class="review-remaining">{[3,2,1].map((n,i)=><span data-review-count={i}>{n} remaining</span>)}</div>
+{rows.map((row,i)=><div class={`native-review journey-review-card review-card-${i}`} style={`z-index:${3-i}`}>
+  <ProductExcerpt src="/help/steps/ios/review.png" sourceWidth={828} sourceHeight={1799} crop={[46,385,736,790]} alt="" />
+  <span class="review-field review-merchant"><span data-demo-market="CA">{row.ca}</span><span data-demo-market="US">{row.us}</span></span>
+  <span class="review-field review-initials">{row.initials}</span>
+  <span class="review-field review-date">Friday, Sep 18</span>
+  <span class="review-field review-amount">{row.amount}</span>
+  <span class="review-field review-account"><span data-demo-market="CA">RBC Royal Bank · Chequing · 1082</span><span data-demo-market="US">Chase · Checking · 1082</span></span>
+  <div class="review-category-pending"><span>?</span>Uncategorized</div>
+  <div class="review-category-selected"><ProductExcerpt src="/help/steps/ios/review.png" sourceWidth={828} sourceHeight={1799} crop={[98,878,640,122]} alt="" /></div>
+  <div class="review-memory-cover"></div>
+  <div class="review-confirm-tint"></div>
+  <svg class="review-swipe-check" viewBox="0 0 84 84" fill="none" aria-hidden="true"><circle cx="42" cy="42" r="36" stroke="#45414e" stroke-width="6"/><circle class="review-check-progress" cx="42" cy="42" r="36" stroke="#87d8b1" stroke-width="6" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 42 42)"/><path d="m28 42 10 10 20-22" stroke="#87d8b1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>)}
+<div class="native-dimmer review-journey-dimmer"></div>
+<div class="native-sheet review-sheet review-journey-sheet"><ProductExcerpt src="/help/steps/ios/review-category.png" sourceWidth={828} sourceHeight={1799} crop={[16,859,796,670]} alt="" /><div class="review-picker-memory-off"><span></span></div></div>
+<div class="review-completion">
+  <span class="review-completion-check"><svg viewBox="0 0 40 40" fill="none"><path d="m10 20 7 7 14-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <strong>You’re caught up</strong><p>3 transactions reviewed.</p><span class="native-completion-button">Back to Home</span>
+</div>
