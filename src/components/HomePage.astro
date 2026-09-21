@@ -3,6 +3,7 @@ import '../styles/founder-preview.css';
 import ClutterComparison from '../components/ClutterComparison.astro';
 import { marketCopy } from '../edge/screenshot-market.js';
 import SearchMetadata from '../components/SearchMetadata.astro';
+import SiteHeader from './SiteHeader.astro';
 import AppStoreBadge from '../components/AppStoreBadge.astro';
 import ProductHero from './ProductHero.astro';
 import ProductMoments from './ProductMoments.astro';
@@ -44,18 +45,7 @@ const questions = [
   </head>
   <body class="founder-preview product-moments-page">
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="masthead page-width">
-      <a href={homeHref} class="wordmark" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" /></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#the-story">Why Vylo</a>
-        <a href="#inside-vylo">Features</a>
-        <a href="#security">Security</a>
-        <a href="#pricing">Pricing</a>
-        <a href="/updates/">Updates</a>
-      <a href="/help/">Help</a>
-      </nav>
-      <div class="nav-actions"><a class="signin" href="https://app.myvylo.com/signin">Sign in</a><a class="button button-small" href={signup}>Try Vylo</a></div>
-    </header>
+    <SiteHeader homeHref={homeHref} />
 
     <main id="main">
       <section class="opening page-width" aria-labelledby="opening-title">

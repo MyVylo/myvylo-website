@@ -1,4 +1,3 @@
-.main-nav [aria-current="page"] { color: var(--purple); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
 .updates-intro { display: flex; align-items: flex-end; justify-content: space-between; gap: 50px; padding-block: 74px 63px; border-bottom: 1px solid var(--rule); }
 .updates-intro h1 { font-size: clamp(3.5rem, 7vw, 6.4rem); font-weight: 750; line-height: 1.04; letter-spacing: -.065em; }
 .updates-intro h1 em { font-family: 'Lora', Georgia, serif; color: var(--purple); font-weight: 500; }
@@ -24,10 +23,10 @@
 .coming-heading h2 { font-family: 'Lora', Georgia, serif; font-size: 44px; letter-spacing: -.05em; font-style: italic; font-weight: 500; color: var(--purple); line-height: 1.2; margin-bottom: 15px; }
 .coming-heading p { color: var(--muted); font-size: 17px; }
 .coming-heading > a { white-space: nowrap; margin-bottom: 4px; }
-.coming-items { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 65px; }
+.coming-items { max-width: 780px; }
 .coming-items article { border-top: 1px solid #c6bed2; padding-top: 24px; }
 .coming-items h3 { font-size: 21px; font-weight: 650; letter-spacing: -.035em; margin-bottom: 9px; }
-.coming-items p { font-size: 16px; line-height: 1.75; color: #5d5768; max-width: 480px; }
+.coming-items p { font-size: 16px; line-height: 1.75; color: #5d5768; max-width: 740px; }
 .updates-return { padding-block: 36px; text-align: right; }
 @media (max-width: 950px) {
   .updates-intro { gap: 30px; }
@@ -54,3 +53,5 @@
   .coming-heading > a { display: inline-block; margin-top: 18px; }
   .coming-items { grid-template-columns: 1fr; gap: 26px; }
 }
+
+.release-download { margin-top: 22px; }

@@ -1,0 +1,31 @@
+---
+import '../styles/site-header.css';
+interface Props { currentPage?: 'help' | 'updates'; homeHref?: string; }
+const { currentPage, homeHref = '/' } = Astro.props;
+const onHome = Astro.url.pathname === homeHref;
+const section = (id: string) => `${onHome ? '' : homeHref}#${id}`;
+---
+<header class="site-header" data-site-header>
+  <div class="site-header-inner page-width">
+    <a href={homeHref} class="site-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" /></a>
+    <nav class="site-navigation" id="site-navigation" aria-label="Main navigation">
+      <div class="site-nav-links">
+        <a href={section('the-story')}>Why Vylo</a>
+        <a href={section('inside-vylo')}>Features</a>
+        <a href={section('security')}>Security</a>
+        <a href={section('pricing')}>Pricing</a>
+        <a href="/updates/" aria-current={currentPage === 'updates' ? 'page' : undefined}>Updates</a>
+        <a href="/help/" aria-current={currentPage === 'help' ? 'page' : undefined}>Help</a>
+      </div>
+      <a class="site-mobile-signin" href="https://app.myvylo.com/signin">Sign in</a>
+    </nav>
+    <div class="site-header-actions">
+      <a class="site-desktop-signin" href="https://app.myvylo.com/signin">Sign in</a>
+      <a class="button button-small" href="https://app.myvylo.com/signup">Try Vylo</a>
+      <button class="site-menu-toggle" type="button" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false" hidden>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path class="menu-lines" d="M4 7h16M4 17h16"/><path class="menu-close" d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<script>import '../scripts/site-header';</script>
