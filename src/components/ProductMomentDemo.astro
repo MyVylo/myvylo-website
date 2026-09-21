@@ -2,6 +2,7 @@
 import ProductExcerpt from './ProductExcerpt.astro';
 import NativeFeatureSequence from './NativeFeatureSequence.astro';
 import ReviewJourney from './ReviewJourney.astro';
+import ProjectedSpendJourney from './ProjectedSpendJourney.astro';
 import '../styles/product-moment-demos.css';
 interface Props { scene: string; }
 const { scene } = Astro.props;
@@ -14,6 +15,7 @@ const descriptions: Record<string, string> = {
   categories: 'Vylo categories. Create Baby stuff, then add Diapers, Formula and Clothing.',
   reports: 'Vylo monthly reports. Open August and scroll through the spending, budget outcome, and month-to-month change.',
   'budget-build': 'Vylo auto-build budget. Choose Auto-build, review and scroll through the suggested categories, then apply the budget.',
+  'projected-spend': 'iPhone demo: open Projected Spend, expand upcoming recurring costs, ignore a $90 cost, then see the forecast change from $3,180 to $3,090 and the daily spending limit from $72 to $82.',
   budget: 'Vylo monthly budget. See what is left and what is over budget, then explore Fixed, Flexible, Non-monthly, and Digital subscriptions, and open Restaurants.',
   household: 'Vylo connected accounts. Add an account, wait for it to connect, then see both connected accounts.',
   shared: 'Vylo shared household spending. Open Recent Transactions and scroll through the household’s purchases.',
@@ -26,9 +28,10 @@ const descriptions: Record<string, string> = {
 ---
 <div class={`moment-demo demo-${scene}`} data-moment-demo={scene} data-state="idle" tabindex="0" role="img" aria-label={descriptions[scene]}>
   <div class="native-viewport" aria-hidden="true">
+    {scene === 'projected-spend' && <ProjectedSpendJourney />}
     {scene === 'review' && <ReviewJourney />}
     {scene === 'budget-trends' && <>
-      <div class="native-page native-overview"><div class="native-budget-health"><ProductExcerpt {...size} src="/product/build83/budget-tracking.png" crop={[46,269,736,618]} alt="" /></div></div>
+      <div class="native-page native-overview"><div class="native-budget-health"><ProductExcerpt sourceWidth={414} src="/product/projected-spend/ca/tracking-health.png" srcUS="/product/projected-spend/us/tracking-health.png" crop={[16,16,382,253]} alt="" /></div></div>
       <div class="native-page native-trends"><div class="budget-trend-scroll">
         <div class="budget-chart-states">
           <ProductExcerpt {...size} src="/product/build83/budget-trends-selected.png" crop={[46,415,736,960]} alt="" />

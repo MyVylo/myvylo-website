@@ -1,0 +1,16 @@
+---
+import ProductExcerpt from './ProductExcerpt.astro';
+const screen = (name: string) => ({ src: `/product/projected-spend/ca/${name}.png`, srcUS: `/product/projected-spend/us/${name}.png`, sourceWidth: 414 });
+---
+<div class="projection-home">
+  <ProductExcerpt {...screen('health')} crop={[0, 0, 414, 285]} alt="" />
+  <div class="projection-home-after"><ProductExcerpt {...screen('health-after')} crop={[0, 0, 414, 285]} alt="" /></div>
+</div>
+<div class="native-dimmer"></div>
+<div class="native-sheet projection-sheet">
+  <div class="projection-scroll">
+    <div class="projection-breakdown"><ProductExcerpt {...screen('projection')} crop={[16, 88, 382, 670]} alt="" /></div>
+    <div class="projection-expanded"><ProductExcerpt {...screen('projection-expanded')} crop={[16, 88, 382, 910]} alt="" /></div>
+    <div class="projection-adjusted"><ProductExcerpt {...screen('projection-expanded-after')} crop={[16, 88, 382, 910]} alt="" /></div>
+  </div>
+</div>

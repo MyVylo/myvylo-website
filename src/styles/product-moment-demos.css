@@ -102,3 +102,16 @@ html[data-screenshot-market="US"] [data-demo-market="CA"], html[data-screenshot-
 
 .liability-us-label { position:absolute; top:115%; left:10.9%; width:62%; height:10%; padding-left:.3cqw; background:#26252e; display:flex; flex-direction:column; justify-content:center; gap:1cqw; font:400 2.8cqw/1.2 -apple-system,BlinkMacSystemFont,sans-serif; color:#b8b3c1; }
 .liability-us-label strong { color:#f8f7f2; font-size:3.3cqw; font-weight:600; }
+
+/* Native September Budget Health and Projected Spend captures. */
+.demo-projected-spend .native-viewport { background:#1d1c22; }
+.projection-home { position:absolute; left:0; right:0; top:20%; }
+.projection-home-after { position:absolute; inset:0; opacity:0; }
+.projection-sheet { top:4%; bottom:0; padding:0 3.77%; background:#1d1c22; }
+.projection-scroll { position:relative; }
+.projection-expanded,.projection-adjusted { position:absolute; inset:0 0 auto; opacity:0; }
+
+.current-budget-overview { position:absolute; top:4%; left:3.77%; right:3.77%; }
+.current-budget-alerts { margin-top:6cqw; }
+
+.moment-demo-caption { display:block; margin:0 0 12px; color:#70677b; font-size:12px; }

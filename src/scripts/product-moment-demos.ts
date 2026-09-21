@@ -12,7 +12,7 @@ type Demo = { root: HTMLElement; card: HTMLElement; animations: Animation[]; sta
 const demos: Demo[] = [];
 
 function compose(demo: Demo) {
-  const durations: Record<string, number> = { review: 17500, categories: 22000, 'budget-build': 15500, budget: 23500, 'budget-trends': 14500, 'worth-history': 21500, worth: 25500, household: 12000, reports: 12500 };
+  const durations: Record<string, number> = { 'projected-spend': 21000, review: 17500, categories: 22000, 'budget-build': 15500, budget: 23500, 'budget-trends': 14500, 'worth-history': 21500, worth: 25500, household: 12000, reports: 12500 };
   const duration = durations[demo.root.dataset.momentDemo!] ?? defaultDuration;
   const touch: Point[] = [[0, { opacity: 0 }]];
   const ripple: Point[] = [[0, { opacity: 0 }]];
@@ -106,6 +106,20 @@ function compose(demo: Demo) {
       tap(1000, 690, 130);
       pushPage(1460);
       scrollPage(3700, 540);
+      break;
+    case 'projected-spend':
+      tap(1200, 580, 440);
+      sheet('.projection-sheet', 1650, 16450);
+      tap(3950, 720, 640);
+      animate('.projection-breakdown', [[0,{opacity:1}],[4400,{opacity:1}],[4680,{opacity:0}]]);
+      animate('.projection-expanded', [[0,{opacity:0}],[4400,{opacity:0}],[4680,{opacity:1}],[8500,{opacity:1}],[8750,{opacity:0}]]);
+      swipe(5450, [670,790], [670,565]);
+      tap(8050, 725, 638);
+      animate('.projection-adjusted', [[0,{opacity:0}],[8500,{opacity:0}],[8750,{opacity:1}]]);
+      swipe(10800, [665,790], [665,340]);
+      animate('.projection-scroll', [[0,{transform:'translateY(0)'}],[5750,{transform:'translateY(0)'}],[6450,{transform:'translateY(-28cqw)'}],[11100,{transform:'translateY(-28cqw)'}],[12000,{transform:'translateY(-131cqw)'}]]);
+      swipe(15150, [400,110], [400,730]);
+      animate('.projection-home-after', [[0,{opacity:0}],[16000,{opacity:0}],[16400,{opacity:1}]]);
       break;
     case 'budget-build':
       tap(850,420,365);
