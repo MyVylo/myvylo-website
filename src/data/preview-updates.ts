@@ -1,9 +1,13 @@
-interface ReleaseItem { title: string; description: string; appStore?: boolean; }
+interface ReleaseItem { title: string; description: string; appStore?: boolean; article?: string; }
 interface Release { month: string; items: ReleaseItem[]; }
 export const releases: Release[] = [
   {
     month: 'September 2026',
     items: [{
+      title: 'A new Home screen for iPhone',
+      article: 'projected-spending',
+      description: 'See your projected month-end spending and a daily spending limit to help you stay on track—or get back on track. Open Projected Spend from Home or Budget to check the breakdown and adjust upcoming recurring costs.',
+    }, {
       title: 'Vylo for iPhone is here',
       description: 'Out of beta and officially launched on September 18, 2026. Download Vylo from the App Store.',
       appStore: true,

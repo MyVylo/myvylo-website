@@ -14,6 +14,7 @@ export const featureWalkthroughs = [
     chapters: [
       { scene: 'budget-build', label: 'Auto-build', title: "Start with what you actually spend.", copy: "Auto-build suggests a budget from your past spending. Adjust the amounts and apply it when you’re ready." },
       { scene: 'budget', label: 'Budget tracking', title: "The budget updates as you spend.", copy: "New purchases update category totals and what’s left for the month, so you can adjust before you go over." },
+      { scene: 'projected-spend', label: 'Projected Spend', title: "Know what you can spend each day.", copy: "See where the month is heading and your daily spending limit to stay on track—or get back on track. Check upcoming costs and adjust what’s included in your forecast." },
       { scene: 'budget-trends', label: 'Budget trends', title: "See how your spending is changing.", copy: "Compare categories month to month. See what’s creeping up and where you’ve cut back. Building better habits takes time; small improvements count." },
     ],
   },

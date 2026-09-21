@@ -1,9 +1,10 @@
 ---
 import NativeCapture from './NativeCapture.astro';
+import CurrentBudgetOverview from './CurrentBudgetOverview.astro';
 const stages = [
   ['groups',650,915], ['fixed',650,970], ['flexible',287,960], ['nonmonthly',660,880], ['digital',690,890],
 ] as const;
 ---
-<div class="native-page budget-track-overview"><NativeCapture name="budget-tracking" src="/product/build83/budget-tracking.png" crop={[16,250,796,1340]} top={35} /></div>
+<div class="native-page budget-track-overview"><CurrentBudgetOverview /></div>
 {stages.map(([stage,y,height])=><div class={`native-page budget-track-${stage} budget-track-step`}><NativeCapture name={`budget-${stage}`} src={`/product/build83/budget-${stage}.png`} crop={[16,y,796,height]} top={35} /></div>)}
 <div class="native-page budget-track-detail budget-track-step"><NativeCapture name="budget-category-detail" src="/product/build83/budget-category-detail.png" srcUS="/product/build83/budget-category-detail-us.png" crop={[16,125,796,670]} top={55} /></div>

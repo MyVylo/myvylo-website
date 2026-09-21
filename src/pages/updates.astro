@@ -34,7 +34,7 @@ import AppStoreBadge from '../components/AppStoreBadge.astro';
         <div class="shipped-months">
           {releases.map((release, index) => <section class:list={['shipped-month', {'latest-release': index === 0}]} aria-labelledby={`month-${index}`}>
             <h3 id={`month-${index}`}><span>{release.month.split(' ')[0]}</span><span>{release.month.split(' ')[1]}</span></h3>
-            <div class="shipped-items">{release.items.map(item => <article><h4>{item.title}</h4><p>{item.description}</p>{item.appStore && <div class="release-download"><AppStoreBadge /></div>}</article>)}</div>
+            <div class="shipped-items">{release.items.map(item => <article><h4>{item.title}</h4><p>{item.description}</p>{item.article && <p><a class="release-article" href={`/help/articles/${item.article}/`}>How Projected Spend works <span aria-hidden="true">↗</span></a></p>}{item.appStore && <div class="release-download"><AppStoreBadge /></div>}</article>)}</div>
           </section>)}
         </div>
       </section>

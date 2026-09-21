@@ -1,0 +1,164 @@
+--- a/VyloApp/Features/Home/HomeView.swift
++++ b/VyloApp/Features/Home/HomeView.swift
+@@ -1915,6 +1915,7 @@
+ 
+     @MainActor
+     private func loadAnalytics() async {
++        if WebsiteCaptureFixture.enabled { projection = WebsiteCaptureFixture.projection; return }
+         guard let householdID, state.hasBudgetedCategories else {
+             projection = nil
+             return
+@@ -3226,8 +3227,8 @@
+     var onRestoreUpcomingItem: ((HomeBudgetProjection.UpcomingItem) -> Void)? = nil
+ 
+     @State private var showsPaceInfo = false
+-    @State private var showsUpcomingCosts = false
+-    @State private var showsIgnoredCosts = false
++    @State private var showsUpcomingCosts = WebsiteCaptureFixture.expanded
++    @State private var showsIgnoredCosts = WebsiteCaptureFixture.showIgnored
+ 
+     var body: some View {
+         ScrollView(showsIndicators: false) {
+@@ -4047,4 +4048,21 @@
+     static func percent(_ value: Double) -> String {
+         String(format: "%.1f%%", abs(value) < 0.05 ? 0.0 : value)
+     }
++}
++
++// Capture-only data. The native view bodies, tokens and layout are unchanged.
++@MainActor enum WebsiteCaptureFixture {
++ static var enabled = false
++ static var expanded = false
++ static var showIgnored = false
++ static var afterIgnore = false
++ static var projection: HomeBudgetProjection {
++  let items: [HomeBudgetProjection.UpcomingItem] = [
++   .init(id: "internet|fixed", merchant: "Internet", amount: 90, dateLabel: "Sep 25"),
++   .init(id: "insurance|fixed", merchant: "Car insurance", amount: 180, dateLabel: "Sep 27"),
++   .init(id: "subscriptions|digital", merchant: "Subscriptions", amount: 30, dateLabel: "Sep 28")
++  ]
++  let raw = HomeBudgetProjection(context: .current, posted: 2200, pending: 0, likelyUpcoming: 300, flexiblePace: 680, projectedTotal: 3180, likelyUpcomingItems: items)
++  return afterIgnore ? raw.filteringIgnoredRecurringItems(["internet|fixed"]) : raw
++ }
+ }
+--- a/VyloApp/Features/Spend/SpendView.swift
++++ b/VyloApp/Features/Spend/SpendView.swift
+@@ -637,6 +637,7 @@
+ 
+     @MainActor
+     private func loadAnalyticsIfNeeded() async {
++        if WebsiteCaptureFixture.enabled { analytics = HomeBudgetAnalytics(projection: WebsiteCaptureFixture.projection, groupSeries: [:]); return }
+         guard let householdID, state.hasBudgetedCategories else {
+             analytics = nil
+             return
+--- a/VyloApp/App/MainTabView.swift
++++ b/VyloApp/App/MainTabView.swift
+@@ -1675,7 +1675,7 @@
+     }
+ }
+ 
+-private struct ShellPrimaryActionButton: View {
++struct ShellPrimaryActionButton: View {
+     let action: () -> Void
+ 
+     var body: some View {
+--- a/VyloAppTests/PlaceholderTests.swift
++++ b/VyloAppTests/PlaceholderTests.swift
+@@ -18014,5 +18014,97 @@
+         XCTAssertTrue(container.obscuresSensitiveContent)
+         XCTAssertEqual(container.authService.phase, .launching)
+         XCTAssertNil(container.secureUnlockAttemptID)
++    }
++}
++
++import SwiftUI
++extension PlaceholderTests {
++ @MainActor func testWebsiteProductCaptures() async throws {
++  WebsiteCaptureFixture.enabled = true
++  let container = makeTestAppContainer()
++  let session = makeSignedInSession()
++  container.authService.phase = .signedIn(session)
++  let store = SignedInExperienceStore(authService: container.authService, dashboardService: container.dashboardService, performanceTracker: container.performanceTracker, session: session)
++  store.rootSurface = .app
++  store.selectedMonthKey = "2026-09"
++  store.availableMonths = ["2026-08", "2026-09"]
++  let prefs = SignedInSurfacePreferences(householdID: "website-demo", defaults: UserDefaults(suiteName:"website-demo-captures")!)
++  let trends = SignedInTrendDataService(authService:container.authService, dashboardService:container.dashboardService)
++  let date = Calendar(identifier:.gregorian).date(from:DateComponents(year:2026,month:9,day:21,hour:12))!
++  let visibility = ValueVisibilityState(hidesSensitiveValues:false)
++  for market in ["CA","US"] {
++   let currency = market == "CA" ? "CAD" : "USD"
++   let locale = Locale(identifier: market == "CA" ? "en_CA" : "en_US")
++   let groups: [SpendGroupState] = [
++    .init(id:1,key:"fixed",label:"Fixed",transactionCount:5,totalSpend:1500,budgetTotal:2050,canShowBudget:true,statusKey:"on_track",statusLabel:"On track",hiddenUnbudgetedCount:0,activityFilter:nil,subcategories:[.init(id:11,name:"Rent",spent:1200,budgetValue:1500,isBudgeted:true,isVisibleByDefault:true),.init(id:12,name:"Insurance",spent:200,budgetValue:350,isBudgeted:true,isVisibleByDefault:true),.init(id:13,name:"Internet",spent:100,budgetValue:200,isBudgeted:true,isVisibleByDefault:true)]),
++    .init(id:2,key:"flexible",label:"Flexible",transactionCount:19,totalSpend:500,budgetTotal:760,canShowBudget:true,statusKey:"on_track",statusLabel:"On track",hiddenUnbudgetedCount:0,activityFilter:nil,subcategories:[.init(id:21,name:"Groceries",spent:355,budgetValue:500,isBudgeted:true,isVisibleByDefault:true),.init(id:22,name:"Restaurants",spent:145,budgetValue:100,isBudgeted:true,isVisibleByDefault:true),.init(id:23,name:"Transport",spent:0,budgetValue:160,isBudgeted:true,isVisibleByDefault:true)]),
++    .init(id:3,key:"non_monthly",label:"Non-monthly",transactionCount:2,totalSpend:170,budgetTotal:300,canShowBudget:true,statusKey:"on_track",statusLabel:"On track",hiddenUnbudgetedCount:0,activityFilter:nil,subcategories:[.init(id:31,name:"Clothing",spent:110,budgetValue:200,isBudgeted:true,isVisibleByDefault:true),.init(id:32,name:"Gifts",spent:60,budgetValue:100,isBudgeted:true,isVisibleByDefault:true)]),
++    .init(id:4,key:"digital_subscriptions",label:"Digital subscriptions",transactionCount:2,totalSpend:30,budgetTotal:40,canShowBudget:true,statusKey:"on_track",statusLabel:"On track",hiddenUnbudgetedCount:0,activityFilter:nil,subcategories:[.init(id:41,name:"Streaming",spent:20,budgetValue:25,isBudgeted:true,isVisibleByDefault:true),.init(id:42,name:"Cloud storage",spent:10,budgetValue:15,isBudgeted:true,isVisibleByDefault:true)])
++   ]
++   store.spendState = SpendViewState(monthKey:"2026-09",monthTitle:"September",currencyCode:currency,totalSpend:2200,totalBudget:3150,hasBudgetedCategories:true,uncategorizedCount:0,uncategorizedSpend:0,overallStatusKey:"on_track",overallStatusLabel:"On track",groups:groups)
++   store.homeState = HomeViewState(monthKey:"2026-09",monthTitle:"September",currencyCode:currency,reportingDataReady:true,review:HomeReviewState(count:4,updatedLabel:"just now",isLocked:false,lockReason:nil,reviewReady:true,backgroundCategorizationRunning:false,preparationActive:false,preparationSuccess:false,preparationCycleKey:nil,preparationPhase:nil,experienceContext:"returning",preparationTimeLabel:nil,preparationProgress:0,activeImportInstitutionName:nil,queuedImportCount:0,progressMessages:[]),metrics:HomeMetricsState(totalIncome:8050,totalExpenses:2200,netSavings:5850,savingsRate:5850.0/8050.0*100),connection:HomeConnectionState(kind:.connected,headline:"Connected",summaryLabel:"",description:"",actionTitle:""),budget:HomeBudgetState(title:"Budget Health",spent:2200,budgeted:3150,uncategorizedCount:0,hasBudgetedCategories:true,alertState:.onTrack,alertMessage:nil,topGroups:[]),recent:HomeRecentActivityState(monthTitle:"September",emptyStateCopy:"",transactions:[.init(id:"1",merchant:market == "CA" ? "Loblaws" : "Whole Foods",merchantLogoURL:nil,fallbackLogoURL:nil,institutionName:market == "CA" ? "TD Canada Trust" : "Chase",categoryName:"Groceries",parentCategoryName:"Flexible",dateLabel:"Sep 21",amount:84.30),.init(id:"2",merchant:market == "CA" ? "Tim Hortons" : "Blue Bottle",merchantLogoURL:nil,fallbackLogoURL:nil,categoryName:"Coffee & snacks",parentCategoryName:"Flexible",dateLabel:"Sep 21",amount:5.25)]))
++   for after in [false,true] {
++    WebsiteCaptureFixture.afterIgnore = after
++    WebsiteCaptureFixture.expanded = false
++    WebsiteCaptureFixture.showIgnored = false
++    let suffix = after ? "-after" : ""
++    let card = BudgetHealthSummaryCard(monthKey:"2026-09",spent:2200,budget:3150,currencyCode:currency,projection:WebsiteCaptureFixture.projection,currentDate:date,onOpenBudget:{},onOpenProjection:{})
++    let renderedCard = card.padding(16).frame(width:414).background(VyloColor.background).environment(\.colorScheme,.dark).environment(\.locale,locale)
++    let renderer = ImageRenderer(content:renderedCard);renderer.scale = 3
++    let image = try XCTUnwrap(renderer.uiImage); let attachment = XCTAttachment(image:image);attachment.name="\(market)-health\(suffix)";attachment.lifetime = .keepAlways;add(attachment)
++    if !after {
++     let trackingProjection = HomeBudgetProjection(context:.current,posted:2867.89,pending:0,likelyUpcoming:100,flexiblePace:32.11,projectedTotal:3000,likelyUpcomingItems:[.init(id:"internet",merchant:"Internet",amount:100,dateLabel:"Sep 25")])
++     let tracking = BudgetHealthSummaryCard(monthKey:"2026-09",spent:2867.89,budget:3150,currencyCode:currency,projection:trackingProjection,currentDate:date,onOpenBudget:{},onOpenProjection:{})
++     let renderer = ImageRenderer(content:tracking.padding(16).frame(width:414).background(VyloColor.background).environment(\.colorScheme,.dark).environment(\.locale,locale));renderer.scale=3
++     let attachment=XCTAttachment(image:try XCTUnwrap(renderer.uiImage));attachment.name="\(market)-tracking-health";attachment.lifetime = .keepAlways;add(attachment)
++    }
++    let home = websiteShell(tab: 0) { HomeView(container:container,store:store,isActive:false,householdID:"website-demo",performanceTracker:container.performanceTracker,preferences:prefs,trendService:trends,trendsV2Enabled:true,onOpenReview:{},onOpenIncome:{},onOpenSpend:{},onOpenBudgetSetup:{},onOpenActivity:{},onOpenAccounts:{}) }
++    try await websiteRender(home, name:"\(market)-home\(suffix)",locale:locale)
++    if !after {
++     let spend = websiteShell(tab: 2) { SpendView(container:container,store:store,isActive:false,householdID:"website-demo",performanceTracker:container.performanceTracker,preferences:prefs,trendService:trends,trendsV2Enabled:true,onOpenReview:{_ in},onOpenCategories:{},budgetSheetRoute:.constant(nil)) }
++     try await websiteRender(spend,name:"\(market)-budget",locale:locale)
+     }
++    for expanded in [false,true] {
++     WebsiteCaptureFixture.expanded = expanded
++     let hidden: [HomeBudgetProjection.UpcomingItem] = after ? [.init(id:"internet|fixed",merchant:"Internet",amount:90,dateLabel:"Sep 25")] : []
++     let sheet = BudgetProjectionSheet(monthKey:"2026-09",currencyCode:currency,visibility:visibility,projection:WebsiteCaptureFixture.projection,budget:3150,hiddenRecurringItems:hidden,currentDate:date,onIgnoreUpcomingItem:{_ in},onRestoreUpcomingItem:{_ in})
++     try await websiteRender(sheet,name:"\(market)-projection\(expanded ? "-expanded" : "")\(suffix)",locale:locale,height:expanded ? 1000 : 760)
++    }
++   }
++  }
++ }
++ // Shell composition copied from MainTabView.signedInShell / signedInStack.
++ @MainActor private func websiteShell<V:View>(tab:Int,@ViewBuilder content:@escaping ()->V) -> some View {
++  ZStack(alignment:.bottom) {
++   VyloBackdrop()
++   TabView(selection:Binding.constant(tab)) {
++    ForEach(0..<4) { index in
++     Group {
++      if index == tab {
++       NavigationStack {
++        ZStack { VyloBackdrop(); content().frame(maxWidth:.infinity,maxHeight:.infinity,alignment:.topLeading) }
++        .navigationBarTitleDisplayMode(.inline)
++        .toolbar { ToolbarItem(placement:.topBarTrailing) { VyloToolbarIconButton(systemName:"slider.horizontal.3",accessibilityLabel:"Open settings",iconSize:9.1,controlSize:30.8,action:{}) } }
++       }.toolbarBackground(.hidden,for:.navigationBar)
++      } else { Color.clear }
++     }.tabItem { Label(["Home","Activity","Budget","Net Worth"][index],systemImage:["house.fill","list.bullet.rectangle","chart.bar.fill","wallet.pass.fill"][index]) }.tag(index)
++    }
++   }.tint(VyloColor.text).toolbarBackground(.visible,for:.tabBar).toolbarColorScheme(.dark,for:.tabBar)
++   ShellPrimaryActionButton {}.padding(.bottom,24)
++  }
++ }
++ @MainActor private func websiteRender<V: View>(_ view:V,name:String,locale:Locale,height:CGFloat = 896) async throws {
++  let hosted = UIHostingController(rootView:view.environment(\.colorScheme,.dark).environment(\.locale,locale).environment(\.valueVisibility,.init(hidesSensitiveValues:false)).background(VyloColor.background))
++  hosted.overrideUserInterfaceStyle = .dark
++  let window = UIWindow(frame:CGRect(x:0,y:0,width:414,height:height)); window.overrideUserInterfaceStyle = .dark
++  window.rootViewController = hosted; window.makeKeyAndVisible()
++  hosted.view.frame = window.bounds
++  hosted.view.setNeedsLayout(); hosted.view.layoutIfNeeded()
++  try await Task.sleep(for:.milliseconds(450))
++  hosted.view.layoutIfNeeded()
++  let format = UIGraphicsImageRendererFormat();format.scale=3
++  let image = UIGraphicsImageRenderer(size:window.bounds.size,format:format).image { _ in hosted.view.drawHierarchy(in:window.bounds,afterScreenUpdates:true) }
++  let attachment = XCTAttachment(image:image);attachment.name=name;attachment.lifetime = .keepAlways;add(attachment)
++  window.isHidden=true;window.rootViewController=nil
++ }
+ }

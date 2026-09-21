@@ -15,6 +15,11 @@ const apply=(market:string)=>{
   document.querySelectorAll<HTMLAnchorElement>('a[data-market-image-link]').forEach(link=>{
     link.href=screenshotUrl(link.getAttribute('href')!.split('/').pop()!,market);
   });
+  document.querySelectorAll<HTMLElement>('[data-native-market-ca][data-native-market-us]').forEach(element => {
+    const url = market === 'CA' ? element.dataset.nativeMarketCa! : element.dataset.nativeMarketUs!;
+    if (element instanceof HTMLImageElement) element.src = url;
+    else if (element instanceof HTMLAnchorElement) element.href = url;
+  });
   const copy=marketCopy(market);
   if(description)description.textContent=copy.viewing;
   if(countrySwitch){
