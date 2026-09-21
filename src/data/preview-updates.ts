@@ -1,10 +1,19 @@
-export const releases = [
+interface ReleaseItem { title: string; description: string; appStore?: boolean; }
+interface Release { month: string; items: ReleaseItem[]; }
+export const releases: Release[] = [
+  {
+    month: 'September 2026',
+    items: [{
+      title: 'Vylo for iPhone is here',
+      description: 'Out of beta and officially launched on September 18, 2026. Download Vylo from the App Store.',
+      appStore: true,
+    }],
+  },
   {
     month: 'July 2026',
     items: [{
       title: 'Monthly Reports',
       description: 'A monthly summary of spending and category changes, with comparisons to the month before.',
-      email: false,
     }],
   },
   {
@@ -12,8 +21,7 @@ export const releases = [
     items: [
       {
         title: 'iPhone App Beta',
-        description: 'Email hi@myvylo.com to ask about joining the iPhone beta.',
-        email: true,
+        description: 'The iPhone app entered beta testing.',
       },
     ],
   },
@@ -90,23 +98,7 @@ export const releases = [
 
 export const comingSoon = [
   {
-    title: 'AI spending insights',
-    description: 'A weekly summary of where your household spent more or less.',
-  },
-  {
-    title: 'AI budget recommendations',
-    description: 'AI recommendations to help refine your category budgets.',
-  },
-  {
-    title: 'Anomaly detection',
-    description: 'Spot duplicate payments and unusually large charges.',
-  },
-  {
-    title: 'Predictive spend forecasting',
-    description: 'Forecast month-end spending from your current pace and recurring purchases.',
-  },
-  {
-    title: 'Ask Vylo anything',
-    description: 'Ask “How much did we spend eating out last month?” and get an answer from your transactions.',
+    title: 'An AI assistant',
+    description: 'We’re building an AI assistant to spot recurring charges you no longer need and cancel them for you where supported, find better options for services you already use, and compare prices or negotiate a better deal on bigger purchases.',
   },
 ];

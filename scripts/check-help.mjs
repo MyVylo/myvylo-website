@@ -72,7 +72,11 @@ for(const [url,tree] of parsed){
 // Run the exact production search bundle against a minimal document fixture.
 // This checks event behavior and URL state without opening or controlling a browser.
 const home=parsed.get('/help/'), nodes=walk(home);
-const script=contents(nodes.find(n=>n.tagName==='script'&&attr(n,'type')==='module'));
+const scriptNode=nodes.find(n=>n.tagName==='script'&&attr(n,'type')==='module');
+// Astro extracts this bundle once the shared header is also imported. The
+// header's side-effect module has its own navigation checks; exercise search
+// here with the same production bundle and the existing focused DOM fixture.
+const script=(attr(scriptNode,'src')?fs.readFileSync(path.join(dist,attr(scriptNode,'src')),'utf8'):contents(scriptNode)).replace(/import\s*["'][^"']+["'];/g,'');
 class Element {
  constructor(node={}){this.tagName=node.tagName;this.attributes=new Map((node.attrs||[]).map(a=>[a.name,a.value]));this.dataset={};for(const[k,v]of this.attributes)if(k.startsWith('data-'))this.dataset[k.slice(5)]=v;this.hidden=this.attributes.has('hidden');this.open=this.attributes.has('open');this.textContent=contents(node);this.value='';this.children=[];this.handlers={};}
  addEventListener(event,fn){(this.handlers[event]||=[]).push(fn);}

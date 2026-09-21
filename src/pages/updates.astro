@@ -3,7 +3,8 @@ import '../styles/founder-preview.css';
 import '../styles/preview-updates.css';
 import { releases, comingSoon } from '../data/preview-updates';
 import SearchMetadata from '../components/SearchMetadata.astro';
-const signup = 'https://app.myvylo.com/signup';
+import SiteHeader from '../components/SiteHeader.astro';
+import AppStoreBadge from '../components/AppStoreBadge.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -22,18 +23,7 @@ const signup = 'https://app.myvylo.com/signup';
   </head>
   <body class="founder-preview">
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="masthead page-width">
-      <a href="/" class="wordmark" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" /></a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="/#the-story">Why Vylo</a>
-        <a href="/#inside-vylo">Features</a>
-        <a href="/#security">Security</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/updates/" aria-current="page">Updates</a>
-      <a href="/help/">Help</a>
-      </nav>
-      <div class="nav-actions"><a class="signin" href="https://app.myvylo.com/signin">Sign in</a><a class="button button-small" href={signup}>Try Vylo</a></div>
-    </header>
+    <SiteHeader currentPage="updates" />
     <main id="main" class="preview-updates">
       <header class="updates-intro page-width">
         <h1>What’s new<br /><em>in Vylo.</em></h1>
@@ -44,7 +34,7 @@ const signup = 'https://app.myvylo.com/signup';
         <div class="shipped-months">
           {releases.map((release, index) => <section class:list={['shipped-month', {'latest-release': index === 0}]} aria-labelledby={`month-${index}`}>
             <h3 id={`month-${index}`}><span>{release.month.split(' ')[0]}</span><span>{release.month.split(' ')[1]}</span></h3>
-            <div class="shipped-items">{release.items.map(item => <article><h4>{item.title}</h4>{item.email ? <p>Email <a href="mailto:hi@myvylo.com">hi@myvylo.com</a> to ask about joining the iPhone beta.</p> : <p>{item.description}</p>}</article>)}</div>
+            <div class="shipped-items">{release.items.map(item => <article><h4>{item.title}</h4><p>{item.description}</p>{item.appStore && <div class="release-download"><AppStoreBadge /></div>}</article>)}</div>
           </section>)}
         </div>
       </section>

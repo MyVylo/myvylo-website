@@ -1,0 +1,47 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import { transform } from 'esbuild';
+const product=process.env.VYLO_PRODUCT_SOURCE||'/Users/farazsworkmac/Desktop/Expense Tracker/implementation/approved-design-20260911/web/expense-tracker-frontend';
+const {JSDOM}=createRequire(path.join(product,'package.json'))('jsdom');
+const code=(await transform(fs.readFileSync('src/scripts/site-header.ts','utf8'),{loader:'ts'})).code;
+for (const route of ['/', '/help/', '/help/articles/rename-a-category/', '/updates/']) {
+  const dom=new JSDOM(fs.readFileSync(path.join('dist',route,'index.html'),'utf8'),{url:`https://www.myvylo.com${route}`,runScripts:'outside-only'});
+  const {window:w}=dom;
+  let resize;
+  const media={matches:true,addEventListener(_event,fn){resize=fn;}};
+  w.matchMedia=()=>media;
+  w.eval(code);
+  const menu=w.document.querySelector('#site-navigation');
+  const toggle=w.document.querySelector('.site-menu-toggle');
+  assert.deepEqual([...menu.querySelectorAll('.site-nav-links a')].map(a=>a.textContent.trim()),['Why Vylo','Features','Security','Pricing','Updates','Help']);
+  assert(menu.hidden&&menu.inert,'Closed mobile links must not be focusable');
+  toggle.click();
+  assert(!menu.hidden&&!menu.inert);
+  assert.equal(toggle.getAttribute('aria-expanded'),'true');
+  assert.equal(w.document.activeElement,menu.querySelector('a'),'Opening the menu moves keyboard focus to its first link');
+  menu.querySelector('a').focus();
+  w.document.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));
+  assert(menu.hidden&&menu.inert);
+  assert.equal(w.document.activeElement,toggle,'Escape returns focus to the menu button');
+  toggle.click();
+  w.document.querySelector('main').click();
+  assert(menu.hidden,'Clicking outside dismisses the menu');
+  toggle.click();
+  w.document.querySelector('main').dispatchEvent(new w.FocusEvent('focusin',{bubbles:true}));
+  menu.dispatchEvent(new w.FocusEvent('focusout',{relatedTarget:w.document.querySelector('main'),bubbles:true}));
+  assert(menu.hidden,'Moving focus out dismisses the menu');
+  toggle.click();
+  // Suppress JSDOM navigation while exercising the real menu selection handler.
+  menu.addEventListener('click',event=>event.preventDefault());
+  menu.querySelector('a').click();
+  assert(menu.hidden,'Selecting a destination closes the mobile menu');
+  if(route==='/') assert.equal(w.document.activeElement.id,'the-story','Same-page destination receives focus');
+  media.matches=false;resize();
+  assert(!menu.hidden&&!menu.inert&&toggle.hidden,'Desktop links must remain available after a resize');
+  media.matches=true;resize();
+  assert(menu.hidden&&menu.inert&&!toggle.hidden);
+  dom.window.close();
+}
+console.log('PASS: shared navigation on Home, Help, articles and Updates; mobile focus isolation, Escape, outside dismissal, section focus and responsive reset.');
