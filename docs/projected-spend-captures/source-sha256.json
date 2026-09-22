@@ -3,7 +3,7 @@
   "VyloApp/Features/Spend/SpendView.swift": "4bf6e21400f44daeb7cfbdd534cbdcbbb0515df0d2ef69ddc3907f5583415af2",
   "VyloApp/App/MainTabView.swift": "32bb377c45375c1c2b2306eba8b8e1727ee522a3f7057e595ed5101a42215f81",
   "VyloAppTests/PlaceholderTests.swift": "c8fbf9bea44edd4e05ae6d0dc645591b742a646491fbb99c9e821ca362ba32ce",
-  "VyloApp/Features/Shared/BudgetHealthSummaryCard.swift": "cf93cd3b87c15fc6d9bde4e69c624c6249e87a611fe7f9d67b5277fb6fa69dcd",
+  "VyloApp/Features/Shared/BudgetHealthSummaryCard.swift": "77d45cad373622bbb9c0c7c60a171f7366117c63d9d9b45ff9e408d255564cee",
   "VyloApp/Features/Shared/ProjectionExclusions.swift": "6733441c4cecff87eb24e98a0f24c9da9ca8f36b24643e689bebbbab51ac4405",
-  "VyloApp/Core/Design/DesignTokens.swift": "3c594fa3e4e94e64852afdc0d3ed1683c2b2c2b047438aac1c5be1e8bd439823"
+  "VyloApp/Core/Design/DesignTokens.swift": "da001fe69f8f88aecac710061ac753874aa3b6c902142f014d700cef351a561e"
 }

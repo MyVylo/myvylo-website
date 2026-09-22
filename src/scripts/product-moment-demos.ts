@@ -108,7 +108,7 @@ function compose(demo: Demo) {
       scrollPage(3700, 540);
       break;
     case 'projected-spend':
-      tap(1200, 580, 440);
+      tap(1200, 580, 590);
       sheet('.projection-sheet', 1650, 16450);
       tap(3950, 720, 640);
       animate('.projection-breakdown', [[0,{opacity:1}],[4400,{opacity:1}],[4680,{opacity:0}]]);

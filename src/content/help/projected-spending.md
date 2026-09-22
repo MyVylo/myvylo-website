@@ -20,7 +20,7 @@ related:
   - how-often-transactions-sync
 ---
 
-**Projected Spend** estimates where your spending will finish at the end of the month. The new Budget Health panel on iPhone shows that forecast beside **Left to spend**, with a daily spending limit underneath to help you stay on track—or get back on track.
+**Projected Spend** estimates where your spending will finish at the end of the month. The new Budget Health panel on iPhone shows that forecast beside **Left to spend**, with a daily spending tile above them to help you stay on track—or get back on track.
 
 You can open the same breakdown from **Home** or **Budget**. The panel appears when you have a budget; [build one first](/help/articles/build-a-budget/) if you haven’t added one yet.
 
@@ -83,7 +83,7 @@ Manual choices apply to that recurring series across months and are saved for th
 
 The amount can change when transactions arrive, your budget changes, upcoming costs are ignored or restored, or the number of remaining days changes.
 
-The Home and Budget panels don’t show a daily line when no days remain or there isn’t at least $1 available per day. Past months show recorded spending without a remaining-spend forecast. Future-month calculations use the days in that month and recent spending history.
+The Home and Budget panels don’t show the daily tile when no days remain or there isn’t at least $1 available per day. Past months show recorded spending without a remaining-spend forecast. Future-month calculations use the days in that month and recent spending history.
 
 ## Is this money I can safely spend from my account?
 

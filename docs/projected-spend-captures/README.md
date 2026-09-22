@@ -1,10 +1,10 @@
 # September 2026 Projected Spend captures
 
-Generated from the integrated native iOS candidate `release-20260921-evening-ios` on September 21, 2026. `source-sha256.json` identifies the original component versions. The real `HomeView`, `SpendView`, `BudgetHealthSummaryCard`, and `BudgetProjectionSheet` render the screenshots. No app layout, text, color, or type treatment was recreated in HTML.
+Refreshed September 22, 2026 using the approved native Budget Health component and design tokens from `0874a2c09658362359918a4cab51e95dbf99df98`. The existing capture fixture is based on `release-20260921-evening-ios`; its Home, Budget, and shell view sources are identical to the approved branch. `source-sha256.json` identifies the original component versions. The real `HomeView`, `SpendView`, `BudgetHealthSummaryCard`, and `BudgetProjectionSheet` render the screenshots. No app layout, text, color, or type treatment was recreated in HTML.
 
-`capture-fixtures.patch` applies only to an isolated copy of the iOS checkout. It seeds fictional CA/CAD and US/USD data, supplies the projection model, sets the initial disclosure state, and adds an XCTest image export. It does not modify the release checkout or connect to a real bank. The surrounding shell uses the same backdrop, toolbar, native tabs, and primary button composition as `MainTabView`. These are native view captures; the operating system status bar is outside the captured view.
+`capture-fixtures.patch` applies only to an isolated copy of the iOS checkout. It seeds fictional CA/CAD and US/USD data, supplies the projection model, sets the initial disclosure state, fixes the September 21 demo date in both Home and Budget, and adds an XCTest image export. Its capture window completes appearance/layout before export. The final set selects visually verified attachments from the settled-window and reusable-window passes; `asset-manifest-20260922.json` records the exact source attachment and hash for every image. Both passes use identical product views, tokens, and demo data. It does not modify the release checkout or connect to a real bank. The surrounding shell uses the same backdrop, toolbar, native tabs, and primary button composition as `MainTabView`. These are native view captures; the operating system status bar is outside the captured view.
 
-Reproduce by applying the patch to a matching copy, then running `VyloAppTests/PlaceholderTests/testWebsiteProductCaptures` with xcodebuild on an iPhone simulator. Export the result bundle with `xcrun xcresulttool export attachments`. Attachment names map to `public/product/projected-spend/{ca,us}/<name>.png`. Home/Budget exports are 1242×2688; the expanded breakdown is 1242×3000. No screenshot pixels are retouched.
+Reproduce by applying the patch to a matching copy, then running `VyloAppTests/PlaceholderTests/testWebsiteProductCaptures` with xcodebuild on an iPhone simulator. Export the result bundle with `xcrun xcresulttool export attachments`. Attachment names map to `public/product/projected-spend-20260922/{ca,us}/<name>.png`. Home/Budget exports are 1242×2688; health cards are 1242×973; the expanded breakdown is 1242×3000. The date-stamped path refreshes browser caches. The prior assets remain available for cached pages and existing image links. No screenshot pixels are retouched.
 
 ## Demo figures
 
@@ -12,7 +12,11 @@ The main walkthrough uses a September 21 date: $3,150 budget, $2,200 posted spen
 
 The existing Budget tracking / Auto-build examples retain their original ledger and category captures. Their replacement health card uses those same $2,867.89 actual / $3,150 budget figures, with a $3,000 forecast and $20 daily limit. It is a separate demo from the new Projected Spend walkthrough.
 
-## Refresh audit
+## September 22 refresh audit
+
+The daily amount leads the neutral grey tile above the two budget tiles. Budget tiles use the approved independent green/rose status fills. The after-ignore state uses two green tiles. All 20 CA/US captures were rendered again without changing fixture amounts. Card crops, the animated Projected Spend tap, help image dimensions, and callout positions match the new layout. Help references to the daily line underneath were updated to the daily tile above.
+
+## Existing placement coverage
 
 - New Projected Spend chip: native Budget Health → breakdown → expanded recurring costs → Ignore Internet → updated forecast → updated daily limit. Uses the existing tap/swipe compositor and lifecycle (pause offscreen, completed state for reduced motion).
 - Budget tracking, Auto-build result, Budget trends opening: old native health card replaced; existing category/trend surfaces remain unchanged.
