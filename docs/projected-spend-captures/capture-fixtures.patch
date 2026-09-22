@@ -1,6 +1,14 @@
 --- a/VyloApp/Features/Home/HomeView.swift
 +++ b/VyloApp/Features/Home/HomeView.swift
-@@ -1915,6 +1915,7 @@
+@@ -1874,6 +1874,7 @@
+             projection: displayedProjection,
+             isLoading: isLoadingAnalytics,
+             refreshFailed: analyticsRefreshFailed,
++            currentDate: Calendar(identifier: .gregorian).date(from: DateComponents(year: 2026, month: 9, day: 21, hour: 12))!,
+             onOpenBudget: onOpenSpend,
+             onOpenProjection: {
+                 guard displayedProjection != nil else { return }
+@@ -1915,6 +1916,7 @@
  
      @MainActor
      private func loadAnalytics() async {
@@ -8,7 +16,7 @@
          guard let householdID, state.hasBudgetedCategories else {
              projection = nil
              return
-@@ -3226,8 +3227,8 @@
+@@ -3226,8 +3228,8 @@
      var onRestoreUpcomingItem: ((HomeBudgetProjection.UpcomingItem) -> Void)? = nil
  
      @State private var showsPaceInfo = false
@@ -19,11 +27,10 @@
  
      var body: some View {
          ScrollView(showsIndicators: false) {
-@@ -4047,4 +4048,21 @@
-     static func percent(_ value: Double) -> String {
+@@ -4048,3 +4050,20 @@
          String(format: "%.1f%%", abs(value) < 0.05 ? 0.0 : value)
      }
-+}
+ }
 +
 +// Capture-only data. The native view bodies, tokens and layout are unchanged.
 +@MainActor enum WebsiteCaptureFixture {
@@ -40,10 +47,18 @@
 +  let raw = HomeBudgetProjection(context: .current, posted: 2200, pending: 0, likelyUpcoming: 300, flexiblePace: 680, projectedTotal: 3180, likelyUpcomingItems: items)
 +  return afterIgnore ? raw.filteringIgnoredRecurringItems(["internet|fixed"]) : raw
 + }
- }
++}
 --- a/VyloApp/Features/Spend/SpendView.swift
 +++ b/VyloApp/Features/Spend/SpendView.swift
-@@ -637,6 +637,7 @@
+@@ -563,6 +563,7 @@
+                     projection: analytics?.projection.filteringIgnoredRecurringItems(preferences.ignoredRecurringProjectionItemIDs),
+                     isLoading: isLoadingAnalytics,
+                     refreshFailed: analyticsRefreshFailed,
++            currentDate: Calendar(identifier: .gregorian).date(from: DateComponents(year: 2026, month: 9, day: 21, hour: 12))!,
+                     onOpenBudget: { VyloHaptics.shared.lightTap() },
+                     onOpenProjection: openProjectionSheet,
+                     onEditBudget: onEditBudget,
+@@ -637,6 +638,7 @@
  
      @MainActor
      private func loadAnalyticsIfNeeded() async {
@@ -64,12 +79,10 @@
      var body: some View {
 --- a/VyloAppTests/PlaceholderTests.swift
 +++ b/VyloAppTests/PlaceholderTests.swift
-@@ -18014,5 +18014,97 @@
-         XCTAssertTrue(container.obscuresSensitiveContent)
-         XCTAssertEqual(container.authService.phase, .launching)
+@@ -18016,3 +18016,99 @@
          XCTAssertNil(container.secureUnlockAttemptID)
-+    }
-+}
+     }
+ }
 +
 +import SwiftUI
 +extension PlaceholderTests {
@@ -117,7 +130,7 @@
 +    if !after {
 +     let spend = websiteShell(tab: 2) { SpendView(container:container,store:store,isActive:false,householdID:"website-demo",performanceTracker:container.performanceTracker,preferences:prefs,trendService:trends,trendsV2Enabled:true,onOpenReview:{_ in},onOpenCategories:{},budgetSheetRoute:.constant(nil)) }
 +     try await websiteRender(spend,name:"\(market)-budget",locale:locale)
-     }
++    }
 +    for expanded in [false,true] {
 +     WebsiteCaptureFixture.expanded = expanded
 +     let hidden: [HomeBudgetProjection.UpcomingItem] = after ? [.init(id:"internet|fixed",merchant:"Internet",amount:90,dateLabel:"Sep 25")] : []
@@ -147,18 +160,22 @@
 +   ShellPrimaryActionButton {}.padding(.bottom,24)
 +  }
 + }
++ @MainActor private static var websiteWindow: UIWindow?
 + @MainActor private func websiteRender<V: View>(_ view:V,name:String,locale:Locale,height:CGFloat = 896) async throws {
 +  let hosted = UIHostingController(rootView:view.environment(\.colorScheme,.dark).environment(\.locale,locale).environment(\.valueVisibility,.init(hidesSensitiveValues:false)).background(VyloColor.background))
 +  hosted.overrideUserInterfaceStyle = .dark
-+  let window = UIWindow(frame:CGRect(x:0,y:0,width:414,height:height)); window.overrideUserInterfaceStyle = .dark
++  let window = Self.websiteWindow ?? UIWindow(frame: CGRect(x:0,y:0,width:414,height:height))
++  Self.websiteWindow = window
++  window.frame = CGRect(x:0,y:0,width:414,height:height); window.overrideUserInterfaceStyle = .dark
 +  window.rootViewController = hosted; window.makeKeyAndVisible()
++  hosted.beginAppearanceTransition(true, animated: false); hosted.endAppearanceTransition()
 +  hosted.view.frame = window.bounds
 +  hosted.view.setNeedsLayout(); hosted.view.layoutIfNeeded()
-+  try await Task.sleep(for:.milliseconds(450))
++  try await Task.sleep(for:.seconds(2))
 +  hosted.view.layoutIfNeeded()
 +  let format = UIGraphicsImageRendererFormat();format.scale=3
 +  let image = UIGraphicsImageRenderer(size:window.bounds.size,format:format).image { _ in hosted.view.drawHierarchy(in:window.bounds,afterScreenUpdates:true) }
 +  let attachment = XCTAttachment(image:image);attachment.name=name;attachment.lifetime = .keepAlways;add(attachment)
-+  window.isHidden=true;window.rootViewController=nil
++
 + }
- }
++}

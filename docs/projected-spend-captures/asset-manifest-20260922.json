@@ -1,0 +1,166 @@
+{
+  "nativeCommit": "0874a2c09658362359918a4cab51e95dbf99df98",
+  "fixtureDate": "2026-09-21",
+  "assets": [
+    {
+      "file": "public/product/projected-spend-20260922/ca/budget.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "466b136d91ad5c38781270231409409feadaafcb656fc92a73c9471892610d64",
+      "resultBundle": "vylo-budget-health-site-settled-20260922.xcresult",
+      "attachment": "0DC69F31-F5C2-4221-AA02-C131EC9A648E.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/health-after.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "addc69ec9324e15cf6b047bf382bcc55e217739d83e08c47d8bd54ec2ce89cc6",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "6A4DEA6F-AF92-4AD1-8E84-25624E71593F.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/health.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "fc786e6b7d30c2f7bda4e2de59762abc0568324bff54e02a28185879a4245ff9",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "AB3C1314-E8AD-4A4B-9100-D1F1CAF023C4.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/home-after.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "a75afef50a7cc3d6dc51bb39a29c2aee00794a03aea01404d6742e2d00bb7c95",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "133DD0AD-63CF-4B4C-A5F9-946783409973.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/home.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "1251916fdadc2145e6ec94c8fae074b90a8046155dd3ae0f850e21ecd8be0c9a",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "14E2DCC2-804F-4B0B-B262-4868ABB16617.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/projection-after.png",
+      "width": 1242,
+      "height": 2280,
+      "sha256": "ebbf98cda0c5e4824ba6b6e12e5f7f26216328db15d12e0172f3c9cf69a7841b",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "78C6BC66-0DDC-4D3B-AF86-23DC2CD9CD6C.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/projection-expanded-after.png",
+      "width": 1242,
+      "height": 3000,
+      "sha256": "53854986100f2da7449f0ced0121c4d26c893321d3e80929366af68e8df6cbfa",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "61ED3D18-1DFE-44DB-A816-5E1FB8FCA503.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/projection-expanded.png",
+      "width": 1242,
+      "height": 3000,
+      "sha256": "af9ea2c12c93227c3923ef7469389c7317f2356d77f2ba71be80d32da75cc21d",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "F544AC74-9803-488C-A525-584046D37716.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/projection.png",
+      "width": 1242,
+      "height": 2280,
+      "sha256": "0f3670c51f9659cca6bf785b4c04036705de7bb41112b1a16724f481e2aa4441",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "C920A070-A262-481C-81ED-5A28D0D05A3F.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/ca/tracking-health.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "05c59a004ccf17685c2d745f19c68e9fccd9a7af6507215d119365bdba0461c4",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "3A3CA1D4-5337-49CD-A7E0-2A0FEFD58B5B.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/budget.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "466b136d91ad5c38781270231409409feadaafcb656fc92a73c9471892610d64",
+      "resultBundle": "vylo-budget-health-site-settled-20260922.xcresult",
+      "attachment": "6B4B13C0-687A-448A-82EB-1F7679603D61.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/health-after.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "addc69ec9324e15cf6b047bf382bcc55e217739d83e08c47d8bd54ec2ce89cc6",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "7E698979-F0EF-4883-95C8-FF54B1F6D354.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/health.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "fc786e6b7d30c2f7bda4e2de59762abc0568324bff54e02a28185879a4245ff9",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "6BE4E256-729F-49D2-99F4-DC8B93B9C1DF.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/home-after.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "a75afef50a7cc3d6dc51bb39a29c2aee00794a03aea01404d6742e2d00bb7c95",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "F3F4B332-07A4-4170-9822-D6D9BE5E9A7A.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/home.png",
+      "width": 1242,
+      "height": 2688,
+      "sha256": "1251916fdadc2145e6ec94c8fae074b90a8046155dd3ae0f850e21ecd8be0c9a",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "121F75EC-3B0A-44B9-B5B0-ED2CDE9544FB.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/projection-after.png",
+      "width": 1242,
+      "height": 2280,
+      "sha256": "ebbf98cda0c5e4824ba6b6e12e5f7f26216328db15d12e0172f3c9cf69a7841b",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "8926CF4E-0E47-48B9-9931-92912D1E0C30.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/projection-expanded-after.png",
+      "width": 1242,
+      "height": 3000,
+      "sha256": "53854986100f2da7449f0ced0121c4d26c893321d3e80929366af68e8df6cbfa",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "51A86117-EB6C-482F-97AB-6D64413A31DD.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/projection-expanded.png",
+      "width": 1242,
+      "height": 3000,
+      "sha256": "af9ea2c12c93227c3923ef7469389c7317f2356d77f2ba71be80d32da75cc21d",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "B5F6E7E6-F2BC-4BDA-ABB0-B4B3AE7D1AA6.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/projection.png",
+      "width": 1242,
+      "height": 2280,
+      "sha256": "0f3670c51f9659cca6bf785b4c04036705de7bb41112b1a16724f481e2aa4441",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "F44CA4DF-B261-4271-88CF-07A672AFD758.png"
+    },
+    {
+      "file": "public/product/projected-spend-20260922/us/tracking-health.png",
+      "width": 1242,
+      "height": 973,
+      "sha256": "05c59a004ccf17685c2d745f19c68e9fccd9a7af6507215d119365bdba0461c4",
+      "resultBundle": "vylo-budget-health-site-window-20260922.xcresult",
+      "attachment": "A5102DA1-881A-4727-8FAA-0870EC318E71.png"
+    }
+  ]
+}
