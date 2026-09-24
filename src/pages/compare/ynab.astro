@@ -1,0 +1,130 @@
+---
+import '../../styles/founder-preview.css';
+import '../../styles/comparison.css';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SearchMetadata from '../../components/SearchMetadata.astro';
+import { marketCopy } from '../../edge/screenshot-market.js';
+import { vyloWorkflows } from '../../data/comparisons';
+
+const countryCopy = marketCopy('US');
+
+const signup = 'https://app.myvylo.com/signup';
+const sources = {
+  pricing: 'https://www.ynab.com/pricing',
+  method: 'https://support.ynab.com/en_us/assigning-your-money-a-guide-SypgkrNJi',
+  features: 'https://www.ynab.com/features',
+  categories: 'https://support.ynab.com/en_us/adding-removing-and-customizing-categories-a-guide-HJFO5j909',
+  setup: 'https://support.ynab.com/en_us/does-ynab-create-targets-automatically-HJ4k1nBWfg',
+  importing: 'https://support.ynab.com/en_us/how-direct-import-works-H1IGYLgnxl',
+  sharing: 'https://www.ynab.com/features/subscription-sharing',
+  netWorth: 'https://support.ynab.com/en_us/net-worth-BkwQO5WA5',
+  review: 'https://support.ynab.com/en_us/approving-and-matching-transactions-a-guide-ByYNZaQ1i',
+  transition: 'https://support.ynab.com/en_us/transitioning-from-mint-HJJSQvW7a',
+  targets: 'https://support.ynab.com/en_us/underfunded-a-guide-BJwPhQO09',
+  spending: 'https://support.ynab.com/en_us/spending-breakdown-H1H7YxmD0',
+  income: 'https://support.ynab.com/en_us/income-v-expense-Byu1BYWRq',
+};
+const featureRows = [
+  { label: 'Accounts & transactions', vylo: 'Connect supported US and Canadian accounts. Transactions sort into categories automatically.', ynab: 'Connect supported banks and import transactions automatically, then review them in your plan.' },
+  { label: 'Your categories', vylo: 'Create your own categories and groups. Remember a merchant’s category for next time.', ynab: 'Create and organize your own categories and groups, with targets for spending and saving.' },
+  { label: 'Monthly budgets', vylo: 'Set monthly amounts for your categories, adjust them when you need to, and track what’s left.', ynab: 'Assign the money you have to categories before spending it. Do it yourself or use Auto-Assign.' },
+  { label: 'Getting started', vylo: 'Build a starting budget from your recent spending, then change the amounts to suit you.', ynab: 'For your first plan, mobile setup can suggest targets from 90 days of spending when you link accounts and enough data is available.' },
+  { label: 'Your recent history', vylo: 'Your first bank connection requests 90 days of transactions, so you can look back as well as start a budget. What arrives depends on your bank.', ynab: 'Start your active plan with today’s balances. History used to suggest initial targets isn’t added as past transactions to that plan.' },
+  { label: 'Reviewing purchases', vylo: vyloWorkflows.review, ynab: 'Approve and categorize imported transactions. On iPhone, card mode lets you swipe to approve or skip; web supports register and bulk review.' },
+  { label: 'Day-to-day guidance', vylo: vyloWorkflows.daily, ynab: 'Check the money available in each category before spending. Targets show what still needs funding.' },
+  { label: 'Looking ahead', vylo: vyloWorkflows.forecast, ynab: 'Scheduled transactions and targets help you prepare for upcoming costs. Assign money to cover them and adjust your categories as plans change.' },
+  { label: 'Household sharing', vylo: 'Separate logins, one shared household budget. No extra charge for members.', ynab: 'YNAB Together includes you and up to five other people, with separate logins, at no extra cost.' },
+  { label: 'Separate budgets', vylo: 'One household budget. A single login doesn’t manage multiple separate budgets.', ynab: 'Create multiple plans and choose which to share. The group manager can access members’ plans.' },
+  { label: 'Net worth', vylo: 'Track supported connected investment balances alongside cash, property and debts, including assets you add manually.', ynab: 'Track assets and debts in net-worth reports. YNAB recommends unlinked Tracking accounts for investments because Direct Import doesn’t fully support them.' },
+  { label: 'Monthly reviews', vylo: vyloWorkflows.reports, ynab: 'Explore spending breakdowns, income versus expenses and net worth. Category details let you inspect the purchases behind a total.' },
+  { label: 'Where you can use it', vylo: 'Web and iPhone.', ynab: 'Web, iPhone, iPad and Android.' },
+];
+const fitRows = [
+  { label: 'How you like to budget', vylo: 'You want to set a monthly budget, keep an eye on your spending and get on with your day.', ynab: 'You like deciding what each dollar is for before you spend it, then moving money between categories as plans change.' },
+  { label: 'What you’re planning for', vylo: 'You want a clear view of this month’s spending and your household’s net worth.', ynab: 'You want targets for future expenses and savings, or separate plans alongside a shared household budget.' },
+  { label: 'What you want to pay for', vylo: 'You’d rather pay less for everyday expense tracking and budgeting, with no annual commitment.', ynab: 'The budgeting method suits you, and you’ll use the planning tools enough to justify the extra cost.' },
+];
+const canonical = new URL('/compare/ynab/', Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': canonical, url: canonical, name: 'Vylo vs. YNAB: Pricing & Features', description: 'Compare Vylo’s monthly household budgets with YNAB’s approach to assigning your money, plus pricing, sharing and net-worth tracking.', dateModified: '2026-09-23', inLanguage: 'en', author: { '@type': 'Organization', name: 'Vylo', url: new URL('/', Astro.site).href } },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" data-screenshot-market="US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SearchMetadata title="Vylo vs. YNAB: Pricing & Features | Vylo" description="Compare Vylo and YNAB: monthly budgets vs. assigning every dollar, household sharing, net-worth tracking, and monthly and annual prices." />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  </head>
+  <body class="founder-preview comparison-site">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader currentPage="compare" />
+    <main id="main" class="comparison-content page-width">
+      <section class="comparison-intro" aria-labelledby="comparison-title">
+        <h1 id="comparison-title">Vylo vs. <em>YNAB.</em></h1>
+        <p><strong>Brass Tacks:</strong> If you want to keep up with everyday spending, set budgets that fit your life and share the load at home, go with Vylo. If you like giving every dollar a job, planning ahead with savings targets and keeping separate budgets—and don’t mind spending a few extra bucks—go with YNAB.</p>
+      </section>
+      <nav class="comparison-jump" aria-label="On this page"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#choosing">Which one’s right for you?</a></nav>
+
+      <section class="comparison-section" id="features" aria-labelledby="features-title">
+        <h2 id="features-title">Features</h2>
+        <div class="comparison-table-frame">
+          <table class="comparison-table" role="table">
+            <caption class="comparison-sr-only">Vylo and YNAB features compared</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What you get</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Vylo</span><span class="comparison-brand-note">Everyday household budgeting</span></th><th scope="col" role="columnheader"><span class="comparison-brand">YNAB</span><span class="comparison-brand-note">Give your money a job before you spend it</span></th></tr></thead>
+            <tbody role="rowgroup">{featureRows.map(row => <tr role="row"><th scope="row" role="rowheader">{row.label}</th><td role="cell">{row.vylo}</td><td role="cell">{row.ynab}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="comparison-note">Bank coverage depends on your institution and account type in either app. Both support bank connections in the US and Canada.</p>
+
+      </section>
+
+      <section class="comparison-section" id="pricing" aria-labelledby="pricing-title">
+        <div class="comparison-section-heading"><h2 id="pricing-title">Pricing</h2><p>Web subscriptions · per household</p></div>
+        <div class="comparison-table-frame">
+          <table class="comparison-table comparison-price-table" role="table">
+            <caption class="comparison-sr-only">Vylo and YNAB web subscription prices</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What you pay</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Vylo</span></th><th scope="col" role="columnheader"><span class="comparison-brand">YNAB</span><span class="comparison-brand-note comparison-usd-note">Billed in USD</span></th></tr></thead>
+            <tbody role="rowgroup">
+              <tr class="comparison-monthly-price" role="row"><th scope="row" role="rowheader">Paying monthly</th><td role="cell"><span class="comparison-price"><strong>$7</strong><span>/month</span></span><p>$2 for your first month.</p></td><td role="cell"><span class="comparison-price"><strong>$14.99</strong><span>/month</span></span><p>After the free trial.</p></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Trying it out</th><td role="cell">$2 for your first month. This is a paid introduction.</td><td role="cell">34 days free when you sign up on YNAB’s website. No credit card required.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Paying annually</th><td role="cell">No annual plan. Pay monthly and cancel anytime.</td><td role="cell"><strong>$109/year</strong>, paid upfront.<br />About $9.08/month.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">First 12 paid months</th><td role="cell"><strong>$79 total</strong><br />$2 + eleven $7 payments.</td><td role="cell"><strong>$109</strong> paid annually, or <strong>$179.88</strong> across 12 monthly payments.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Ongoing yearly cost</th><td role="cell"><strong>$84</strong> across 12 monthly payments.</td><td role="cell"><strong>$109</strong> paid annually, or <strong>$179.88</strong> across 12 monthly payments.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Household members</th><td role="cell"><span class="comparison-included"><span aria-hidden="true">✓</span> Included</span></td><td role="cell"><span class="comparison-included"><span aria-hidden="true">✓</span> Included</span><p>You and up to five other people.</p></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="comparison-section" id="choosing" aria-labelledby="choosing-title">
+        <h2 id="choosing-title">Which one’s right for you?</h2>
+        <div class="comparison-table-frame">
+          <table class="comparison-table comparison-fit-table" role="table">
+            <caption class="comparison-sr-only">Which budgeting app fits your household?</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What matters to you</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Choose Vylo if…</span></th><th scope="col" role="columnheader"><span class="comparison-brand">Choose YNAB if…</span></th></tr></thead>
+            <tbody role="rowgroup">{fitRows.map(row => <tr role="row"><th scope="row" role="rowheader">{row.label}</th><td role="cell">{row.vylo}</td><td role="cell">{row.ynab}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <div class="comparison-actions"><a class="button" href={signup}>Try Vylo for $2</a><a class="text-link" href="/#inside-vylo">See more of Vylo</a></div>
+      </section>
+
+      <details class="comparison-sources" id="sources"><summary>Sources and details</summary><div><p>We’re the team behind Vylo. This comparison uses our current features and YNAB’s published documentation, checked September 23, 2026.</p><p>YNAB: <a href={sources.pricing}>pricing and trial</a>, <a href={sources.method}>assigning money</a>, <a href={sources.categories}>custom categories</a>, <a href={sources.setup}>automatic target setup</a>, <a href={sources.importing}>bank connections</a>, <a href={sources.sharing}>sharing and separate plans</a>, <a href={sources.netWorth}>net worth</a> and <a href={sources.features}>features and reports</a>, <a href={sources.review}>transaction review</a>, <a href={sources.transition}>starting balances and investment accounts</a>, <a href={sources.targets}>upcoming funding needs</a>, <a href={sources.spending}>spending breakdowns</a> and <a href={sources.income}>income and expenses</a>.</p><p>Vylo: <a href="/help/articles/review-transactions/">transaction review</a>, <a href="/help/articles/projected-spending/">projected spend and daily guidance</a>, <a href="/help/articles/first-import/">imported history</a>, <a href="/help/articles/remember-merchant/">merchant preferences</a>, <a href="/help/articles/build-a-budget/">building a budget</a>, <a href="/help/articles/invite-household/">household sharing</a>, <a href="/help/articles/net-worth-history/">net worth</a>, <a href="/help/articles/monthly-reports/">monthly reports</a> and <a href="/updates/">release notes</a>.</p><p>Prices are for web subscriptions, before taxes and special offers. Vylo bills in your local currency: USD in the US and CAD in Canada. YNAB bills in USD in both countries. The 12-month totals cover paid subscription periods after YNAB’s free trial. App Store prices may differ.</p><p>Found something that has changed? <a href="mailto:hi@myvylo.com?subject=Vylo%20vs.%20YNAB%20comparison">Let us know</a>.</p></div></details>
+    </main>
+    <footer class="site-end page-width">
+      <div class="footer-top"><div><a href="/" class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="/#the-story">Why we built Vylo</a><a href="/#inside-vylo">Features</a><a href="/#pricing">Pricing</a><a href="/compare/">Compare</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="/help/">Help center</a><a href="mailto:hi@myvylo.com">Contact</a><a href="/#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-bottom"><span>© 2026 Vylo</span><div class="screenshot-market-choice"><span data-screenshot-market-description aria-live="polite">{countryCopy.viewing}</span><a data-screenshot-market-switch href={`?market=${countryCopy.next}`}>{countryCopy.switchLabel}</a></div></div>
+    </footer>
+    <script>import '../../scripts/screenshot-market';</script>
+  </body>
+</html>

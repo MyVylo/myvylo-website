@@ -1,6 +1,6 @@
 ---
 import '../styles/site-header.css';
-interface Props { currentPage?: 'help' | 'updates'; homeHref?: string; }
+interface Props { currentPage?: 'help' | 'updates' | 'compare'; homeHref?: string; }
 const { currentPage, homeHref = '/' } = Astro.props;
 const onHome = Astro.url.pathname === homeHref;
 const section = (id: string) => `${onHome ? '' : homeHref}#${id}`;
@@ -14,8 +14,19 @@ const section = (id: string) => `${onHome ? '' : homeHref}#${id}`;
         <a href={section('inside-vylo')}>Features</a>
         <a href={section('security')}>Security</a>
         <a href={section('pricing')}>Pricing</a>
-        <a href="/updates/" aria-current={currentPage === 'updates' ? 'page' : undefined}>Updates</a>
-        <a href="/help/" aria-current={currentPage === 'help' ? 'page' : undefined}>Help</a>
+        <details class="site-dropdown" data-active={currentPage === 'compare' ? 'true' : undefined}>
+          <summary><a href="/compare/" aria-current={Astro.url.pathname === '/compare/' ? 'page' : undefined}>Compare</a><svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m1 1 5 5 5-5" /></svg></summary>
+          <div class="site-dropdown-links">
+            {[['monarch', 'Monarch'], ['ynab', 'YNAB'], ['copilot', 'Copilot Money'], ['simplifi', 'Quicken Simplifi'], ['rocket-money', 'Rocket Money']].map(([slug, name]) => <a href={`/compare/${slug}/`} aria-current={Astro.url.pathname === `/compare/${slug}/` ? 'page' : undefined}>Vylo vs. {name}</a>)}
+          </div>
+        </details>
+        <details class="site-dropdown" data-active={currentPage === 'help' || currentPage === 'updates' ? 'true' : undefined}>
+          <summary>Resources<svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m1 1 5 5 5-5" /></svg></summary>
+          <div class="site-dropdown-links">
+            <a href="/help/" aria-current={currentPage === 'help' ? 'page' : undefined}>Help center</a>
+            <a href="/updates/" aria-current={currentPage === 'updates' ? 'page' : undefined}>What’s new</a>
+          </div>
+        </details>
       </div>
       <a class="site-mobile-signin" href="https://app.myvylo.com/signin">Sign in</a>
     </nav>
