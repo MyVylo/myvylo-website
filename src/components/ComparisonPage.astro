@@ -1,0 +1,53 @@
+---
+import '../styles/founder-preview.css';
+import '../styles/comparison.css';
+import SiteHeader from './SiteHeader.astro';
+import SearchMetadata from './SearchMetadata.astro';
+import ComparisonFooter from './ComparisonFooter.astro';
+import type { Comparison } from '../data/comparisons';
+interface Props { comparison: Comparison; }
+const { comparison: c } = Astro.props;
+const canonical = new URL(`/compare/${c.slug}/`, Astro.site).href;
+const structuredData = { '@context': 'https://schema.org', '@type': 'WebPage', '@id': canonical, url: canonical, name: `Vylo vs. ${c.name}: Pricing & Features`, description: c.description, dateModified: '2026-09-23', inLanguage: 'en', author: { '@type': 'Organization', name: 'Vylo', url: new URL('/', Astro.site).href } };
+const sections = [
+  { id: 'features', heading: 'Features', label: 'What you get', rows: c.features },
+  { id: 'pricing', heading: 'Pricing', label: 'What you pay', rows: c.prices },
+  { id: 'choosing', heading: 'Which one’s right for you?', label: 'What matters to you', rows: c.fit },
+];
+---
+<!doctype html>
+<html lang="en" data-screenshot-market="US">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#f8f7f2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SearchMetadata title={`Vylo vs. ${c.name}: Pricing & Features | Vylo`} description={c.description} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  </head>
+  <body class="founder-preview comparison-site">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader currentPage="compare" />
+    <main id="main" class="comparison-content page-width">
+      <section class="comparison-intro" aria-labelledby="comparison-title"><h1 id="comparison-title">Vylo vs. <em>{c.name}.</em></h1><p><strong>Brass Tacks:</strong> {c.intro}</p></section>
+      <nav class="comparison-jump" aria-label="On this page">{sections.map(section => <a href={`#${section.id}`}>{section.heading}</a>)}</nav>
+      {sections.map(section => <section class="comparison-section" id={section.id} aria-labelledby={`${section.id}-title`}>
+        <div class="comparison-section-heading"><h2 id={`${section.id}-title`}>{section.heading}</h2>{section.id === 'pricing' && <p>{c.pricingLabel}</p>}</div>
+        <div class="comparison-table-frame"><table class:list={['comparison-table', { 'comparison-price-table': section.id === 'pricing', 'comparison-fit-table': section.id === 'choosing' }]} role="table">
+          <caption class="comparison-sr-only">Vylo and {c.name}: {section.heading}</caption><colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+          <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">{section.label}</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">{section.id === 'choosing' ? 'Choose Vylo if…' : 'Vylo'}</span>{section.id === 'features' && <span class="comparison-brand-note">Everyday household budgeting</span>}</th><th scope="col" role="columnheader"><span class="comparison-brand">{section.id === 'choosing' ? `Choose ${c.shortName} if…` : c.shortName}</span>{section.id === 'features' && <span class="comparison-brand-note">{c.tagline}</span>}{section.id === 'pricing' && c.usOnly && <span class="comparison-brand-note">U.S. only</span>}</th></tr></thead>
+          <tbody role="rowgroup">{section.rows.map(row => <tr role="row" class:list={{ 'comparison-monthly-price': row.featured }}><th scope="row" role="rowheader">{row.label}</th>{[row.vylo, row.competitor].map(cell => <td role="cell">{(cell.ca ? [{ ...cell, market: 'US' }, { ...cell.ca, market: 'CA' }] : [{ ...cell, market: undefined }]).map(value => <div class:list={{ 'comparison-market-us': value.market === 'US', 'comparison-market-ca': value.market === 'CA' }}>{value.amount && <span class="comparison-price"><strong>{value.amount}</strong>{value.unit && <span>{value.unit}</span>}</span>}<p>{value.text}</p>{value.link && <a href={value.link.href}>{value.link.label}</a>}</div>)}</td>)}</tr>)}</tbody>
+        </table></div>
+        {section.id === 'features' && <p class="comparison-note">{c.availability}</p>}
+        {section.id === 'choosing' && <div class="comparison-actions"><a class="button" href="https://app.myvylo.com/signup">Try Vylo for $2</a><a class="text-link" href="/#inside-vylo">See more of Vylo</a></div>}
+      </section>)}
+      <details class="comparison-sources" id="sources"><summary>Sources and details</summary><div>
+        <p>We’re the team behind Vylo. This comparison uses our current features and {c.name}’s published documentation, checked September 23, 2026.</p>
+        <p>{c.name}: {c.sources.map((source, index) => <>{index > 0 && ', '}<a href={source.href}>{source.label}</a></>)}.</p>
+        <p>Vylo: <a href="/help/articles/review-transactions/">transaction review</a>, <a href="/help/articles/projected-spending/">projected spend and daily guidance</a>, <a href="/help/articles/build-a-budget/">budgets</a>, <a href="/help/articles/invite-household/">household sharing</a>, <a href="/help/articles/net-worth-history/">net worth</a>, <a href="/help/articles/monthly-reports/">reports</a> and <a href="/updates/">release notes</a>.</p>
+        {c.details.map(detail => <p>{detail}</p>)}
+        <p>Found something that has changed? <a href={`mailto:hi@myvylo.com?subject=${encodeURIComponent(`Vylo vs. ${c.name} comparison`)}`}>Let us know</a>.</p>
+      </div></details>
+    </main>
+    <ComparisonFooter />
+    <script>import '../scripts/screenshot-market';</script>
+  </body>
+</html>

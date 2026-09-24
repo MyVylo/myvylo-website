@@ -4,7 +4,7 @@ import { articleUrl } from '../lib/help';
 
 export const GET: APIRoute = async ({ site }) => {
   const articles = await getCollection('help');
-  const paths = ['/', '/help/', '/updates/', ...articles.map(article => articleUrl(article.slug)).sort()];
+  const paths = ['/', '/help/', '/updates/', '/compare/', '/compare/monarch/', '/compare/ynab/', '/compare/copilot/', '/compare/simplifi/', '/compare/rocket-money/', ...articles.map(article => articleUrl(article.slug)).sort()];
   const escapeXml = (value: string) => value.replace(/[<>&"']/g, character => ({
     '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;',
   })[character]!);

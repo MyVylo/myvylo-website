@@ -1,0 +1,123 @@
+---
+import '../../styles/founder-preview.css';
+import '../../styles/comparison.css';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SearchMetadata from '../../components/SearchMetadata.astro';
+import { marketCopy } from '../../edge/screenshot-market.js';
+import { vyloWorkflows } from '../../data/comparisons';
+
+const countryCopy = marketCopy('US');
+
+const signup = 'https://app.myvylo.com/signup';
+const sources = {
+  canada: 'https://www.monarch.com/canada',
+  pricing: 'https://help.monarch.com/hc/en-us/articles/44815447567636-Updating-Your-Subscription',
+  tracking: 'https://www.monarch.com/features/tracking',
+  budgeting: 'https://www.monarch.com/features/budgeting',
+  sharing: 'https://help.monarch.com/hc/en-us/articles/19985735202068-Monarch-FAQs',
+  review: 'https://help.monarch.com/hc/en-us/articles/5528707082516-Reviewing-Transactions',
+  flex: 'https://help.monarch.com/hc/en-us/articles/32125337244052-Understanding-Flex-Budgeting',
+  forecast: 'https://help.monarch.com/hc/en-us/articles/360051885292-Budget-Forecast',
+  reports: 'https://help.monarch.com/hc/en-us/articles/4402543752468-Monthly-Progress-Report',
+  mobileReports: 'https://www.monarch.com/blog/june-product-update',
+};
+const featureRows = [
+  { label: 'Accounts & transactions', vylo: 'Connect supported US and Canadian accounts. Transactions sort into categories automatically.', monarch: 'Connect supported US and Canadian accounts, with automatic transaction categorization.' },
+  { label: 'Your categories', vylo: 'Create your own categories and groups. Remember a merchant’s category for next time.', monarch: 'Customize categories and groups, with rules for how transactions are organized.' },
+  { label: 'Monthly budgets', vylo: 'Start from your recent spending, adjust the amounts, and track what’s left for the month.', monarch: 'Choose Category or Flex budgeting, with rollovers and savings goals for planning ahead.' },
+  { label: 'Reviewing purchases', vylo: vyloWorkflows.review, monarch: 'Review transactions on web or swipe through them on mobile. You can assign a purchase to a specific household member to review.' },
+  { label: 'Day-to-day guidance', vylo: vyloWorkflows.daily, monarch: 'Flex budgeting gives you one remaining amount for flexible spending, separate from fixed and non-monthly expenses.' },
+  { label: 'Looking ahead', vylo: vyloWorkflows.forecast, monarch: 'The web budget forecast lets you plan future months. Recurring payments and savings goals provide other ways to plan ahead.' },
+  { label: 'Household sharing', vylo: 'Separate logins, one shared household budget. No extra charge for members.', monarch: 'Separate logins and a shared household view. No extra charge for members.' },
+  { label: 'Net worth', vylo: 'Track cash, investments, property and debts over time, including assets you add manually.', monarch: 'Track your assets, debts and net worth over time, with investment allocation views too.' },
+  { label: 'Monthly reviews', vylo: vyloWorkflows.reports, monarch: 'A monthly progress report covers cash flow, budgets, spending trends and net worth. Detailed reports and spending visuals are available on web and mobile.' },
+  { label: 'Where you can use it', vylo: 'Web and iPhone.', monarch: 'Web, iPhone and Android.' },
+];
+const fitRows = [
+  { label: 'How you like to budget', vylo: 'You want to build good everyday money habits, with categories and budgets that fit your life.', monarch: 'You want more ways to plan ahead, including savings goals and budget rollovers.' },
+  { label: 'How much detail you want', vylo: 'You want to know what needs reviewing, where this month’s spending is heading and what to aim for each day on iPhone.', monarch: 'You like in-depth spending visuals, more report filters and investment allocation views.' },
+  { label: 'What you want to pay for', vylo: 'You’d rather pay less for the things you use regularly, with no annual commitment.', monarch: 'You’ll use the extra tools, and the higher price fits your budget.' },
+];
+const canonical = new URL('/compare/monarch/', Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': canonical, url: canonical, name: 'Vylo vs. Monarch Money: Pricing & Features', description: 'A comparison of Vylo and Monarch for household budgeting, with pricing, shared features and differences.', dateModified: '2026-09-23', inLanguage: 'en', author: { '@type': 'Organization', name: 'Vylo', url: new URL('/', Astro.site).href } },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en" data-screenshot-market="US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SearchMetadata title="Vylo vs. Monarch Money: Pricing & Features | Vylo" description="Compare Vylo and Monarch Money for household budgeting: monthly and annual costs, shared features, and the differences worth knowing before you choose." />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  </head>
+  <body class="founder-preview comparison-site">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <SiteHeader currentPage="compare" />
+    <main id="main" class="comparison-content page-width">
+      <section class="comparison-intro" aria-labelledby="comparison-title">
+        <h1 id="comparison-title">Vylo vs. <em>Monarch.</em></h1>
+        <p><strong>Brass Tacks:</strong> If you want to focus on building good everyday money-saving habits, go with Vylo. If you want more advanced features, like detailed spending visuals, investment allocation and savings goals—and don’t mind spending a few extra bucks—go with Monarch.</p>
+      </section>
+      <nav class="comparison-jump" aria-label="On this page"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#choosing">Which one’s right for you?</a></nav>
+
+      <section class="comparison-section" id="features" aria-labelledby="features-title">
+        <h2 id="features-title">Features</h2>
+        <div class="comparison-table-frame">
+          <table class="comparison-table" role="table">
+            <caption class="comparison-sr-only">Vylo and Monarch features compared</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What you get</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Vylo</span><span class="comparison-brand-note">Everyday household budgeting</span></th><th scope="col" role="columnheader"><span class="comparison-brand">Monarch</span><span class="comparison-brand-note">More ways to dig into the details</span></th></tr></thead>
+            <tbody role="rowgroup">{featureRows.map(row => <tr role="row"><th scope="row" role="rowheader">{row.label}</th><td role="cell">{row.vylo}</td><td role="cell">{row.monarch}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="comparison-note">Bank coverage depends on your institution and account type in either app.</p>
+
+      </section>
+
+      <section class="comparison-section" id="pricing" aria-labelledby="pricing-title">
+        <div class="comparison-section-heading"><h2 id="pricing-title">Pricing</h2><p>Web subscriptions · per household</p></div>
+        <div class="comparison-table-frame">
+          <table class="comparison-table comparison-price-table" role="table">
+            <caption class="comparison-sr-only">Vylo and Monarch Core web subscription prices</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What you pay</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Vylo</span></th><th scope="col" role="columnheader"><span class="comparison-brand">Monarch Core</span><span class="comparison-brand-note comparison-usd-note">Billed in USD</span></th></tr></thead>
+            <tbody role="rowgroup">
+              <tr class="comparison-monthly-price" role="row"><th scope="row" role="rowheader">Paying monthly</th><td role="cell"><span class="comparison-price"><strong>$7</strong><span>/month</span></span><p>$2 for your first month.</p></td><td role="cell"><span class="comparison-price"><strong>$14.99</strong><span>/month</span></span><p>At the regular monthly rate.</p></td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Paying annually</th><td role="cell">No annual plan. Pay monthly and cancel anytime.</td><td role="cell"><strong>$99.99/year</strong>, paid upfront.<br />About $8.33/month.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">First 12 months</th><td role="cell"><strong>$79 total</strong><br />$2 + eleven $7 payments.</td><td role="cell"><strong>$99.99</strong> paid annually, or <strong>$179.88</strong> across 12 monthly payments.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">After the first year</th><td role="cell"><strong>$84</strong> across 12 monthly payments.</td><td role="cell"><strong>$99.99</strong> paid annually, or <strong>$179.88</strong> across 12 monthly payments.</td></tr>
+              <tr role="row"><th scope="row" role="rowheader">Household members</th><td role="cell"><span class="comparison-included"><span aria-hidden="true">✓</span> Included</span></td><td role="cell"><span class="comparison-included"><span aria-hidden="true">✓</span> Included</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="comparison-section" id="choosing" aria-labelledby="choosing-title">
+        <h2 id="choosing-title">Which one’s right for you?</h2>
+        <div class="comparison-table-frame">
+          <table class="comparison-table comparison-fit-table" role="table">
+            <caption class="comparison-sr-only">Which budgeting app fits your household?</caption>
+            <colgroup><col class="comparison-label-column" /><col /><col /></colgroup>
+            <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">What matters to you</th><th scope="col" role="columnheader"><span class="comparison-brand vylo-brand">Choose Vylo if…</span></th><th scope="col" role="columnheader"><span class="comparison-brand">Choose Monarch if…</span></th></tr></thead>
+            <tbody role="rowgroup">{fitRows.map(row => <tr role="row"><th scope="row" role="rowheader">{row.label}</th><td role="cell">{row.vylo}</td><td role="cell">{row.monarch}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <div class="comparison-actions"><a class="button" href={signup}>Try Vylo for $2</a><a class="text-link" href="/#inside-vylo">See more of Vylo</a></div>
+      </section>
+
+      <details class="comparison-sources" id="sources"><summary>Sources and details</summary><div><p>This comparison is from the Vylo team, using our current features and Monarch’s published documentation. We checked the details on September 23, 2026.</p><p>Monarch: <a href={sources.pricing}>pricing</a>, <a href={sources.tracking}>tracking and reports</a>, <a href={sources.budgeting}>budgeting</a>, <a href={sources.sharing}>product FAQ</a>, <a href={sources.review}>transaction review</a>, <a href={sources.flex}>Flex budgeting</a>, <a href={sources.forecast}>budget forecast</a>, <a href={sources.reports}>monthly progress report</a> and <a href={sources.mobileReports}>mobile reports</a>.</p><p>Vylo: <a href="/help/articles/review-transactions/">transaction review</a>, <a href="/help/articles/projected-spending/">projected spend and daily guidance</a>, <a href="/help/articles/first-import/">imported history</a>, <a href="/help/articles/remember-merchant/">merchant preferences</a>, <a href="/help/articles/build-a-budget/">building a budget</a>, <a href="/help/articles/invite-household/">household sharing</a>, <a href="/help/articles/net-worth-history/">net worth</a>, <a href="/help/articles/monthly-reports/">monthly reports</a> and <a href="/updates/">release notes</a>.</p><p>Prices are for web subscriptions, before taxes and special offers. Vylo bills in your local currency: USD in the US and CAD in Canada. Monarch bills in USD in both countries; the comparison covers its Core plan. App Store prices may differ. See <a href={sources.canada}>Monarch’s Canadian billing details</a>.</p><p>Found something that has changed? <a href="mailto:hi@myvylo.com?subject=Vylo%20vs.%20Monarch%20comparison">Let us know</a>.</p></div></details>
+    </main>
+    <footer class="site-end page-width">
+      <div class="footer-top"><div><a href="/" class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="/#the-story">Why we built Vylo</a><a href="/#inside-vylo">Features</a><a href="/#pricing">Pricing</a><a href="/compare/">Compare</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="/help/">Help center</a><a href="mailto:hi@myvylo.com">Contact</a><a href="/#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-bottom"><span>© 2026 Vylo</span><div class="screenshot-market-choice"><span data-screenshot-market-description aria-live="polite">{countryCopy.viewing}</span><a data-screenshot-market-switch href={`?market=${countryCopy.next}`}>{countryCopy.switchLabel}</a></div></div>
+    </footer>
+    <script>import '../../scripts/screenshot-market';</script>
+  </body>
+</html>

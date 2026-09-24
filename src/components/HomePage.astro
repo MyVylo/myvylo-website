@@ -20,6 +20,7 @@ const questions = [
   { q: 'Can Vylo move my money?', a: 'No. Connections are read-only: Vylo can see balances and transactions, but cannot make payments or transfers. It does not store your banking password.' },
   { q: 'What if a transaction lands in the wrong category?', a: 'Change the category, and the budget updates too. You can also create, rename, or merge categories and update several transactions at once.' },
   { q: 'What does it cost after the first month?', a: 'After your $2 first month, it’s $7/month for the whole household. All features are included. No annual commitment; cancel anytime.' },
+  { q: 'How does Vylo compare to other apps?', a: 'If you’ve tried Monarch, YNAB or another budgeting app and thought, “This is too much stuff—and too expensive,” Vylo might be for you. We focus on everyday household budgeting, without piling on features you don’t need.', link: { href: '/compare/', label: 'Read the detailed comparisons.' } },
   { q: 'Where can I ask a question before signing up?', a: 'Email hi@myvylo.com with any questions.' },
 ];
 ---
@@ -114,13 +115,13 @@ const questions = [
 
       <section class="questions-chapter page-width" id="faq" aria-labelledby="faq-title">
         <div class="questions-heading"><h2 id="faq-title">Before you<br />connect an account.</h2><a class="all-faqs-link" href="/help/">Browse all FAQs</a><p>For anything else:<br /><a href="mailto:hi@myvylo.com">hi@myvylo.com</a></p></div>
-        <div class="question-list">{questions.map(({ q, a }) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>
+        <div class="question-list">{questions.map(({ q, a, link }) => <details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}{link && <> <a href={link.href}>{link.label}</a></>}</p></details>)}</div>
       </section>
 
       <section class="closing-chapter page-width" aria-labelledby="closing-title"><h2 id="closing-title">Ready to give<br /><em>Vylo a try?</em></h2><a href={signup} class="button">Try Vylo for $2</a><p class="price-note">$2 for your first month, then $7/month after that. No annual commitments. Cancel anytime.</p></section>
     </main>
     <footer class="site-end page-width">
-      <div class="footer-top"><div><a href={homeHref} class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="#the-story">Why we built Vylo</a><a href="#inside-vylo">Features</a><a href="#pricing">Pricing</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
+      <div class="footer-top"><div><a href={homeHref} class="footer-brand" aria-label="Vylo home"><img src="/vylo-light-logo.svg" alt="Vylo" width="282" height="129" loading="lazy" /></a><p>Household accounts, spending,<br />budgets, and net worth.</p></div><div class="footer-directory"><nav aria-label="Explore Vylo"><span>VYLO</span><a href="#the-story">Why we built Vylo</a><a href="#inside-vylo">Features</a><a href="#pricing">Pricing</a><a href="/compare/">Compare</a><a href="/updates/">What’s new</a></nav><nav aria-label="Support and policies"><span>HELP & POLICIES</span><a href="mailto:hi@myvylo.com">Contact</a><a href="#security">Security</a><a href="https://app.myvylo.com/privacy-policy">Privacy policy</a><a href="https://app.myvylo.com/terms-of-use">Terms of use</a></nav></div></div>
       <div class="footer-download"><AppStoreBadge /></div>
       <div class="footer-bottom"><span>© 2026 Vylo</span><div class="screenshot-market-choice"><span data-screenshot-market-description aria-live="polite">{countryCopy.viewing}</span><a data-screenshot-market-switch href={`?market=${countryCopy.next}`}>{countryCopy.switchLabel}</a></div></div>
       <p class="apple-trademark">Apple and the Apple logo are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>

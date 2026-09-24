@@ -1,0 +1,35 @@
+---
+import '../../styles/founder-preview.css';
+import '../../styles/comparison.css';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SearchMetadata from '../../components/SearchMetadata.astro';
+import ComparisonFooter from '../../components/ComparisonFooter.astro';
+const comparisons = [
+  { slug: 'monarch', name: 'Monarch', focus: 'Everyday budgets or a deeper dive?', description: 'Compare spending visuals, investment tools, household sharing and the price of each plan.' },
+  { slug: 'ynab', name: 'YNAB', focus: 'Two different ways to budget.', description: 'Monthly category budgets or a job for every dollar? See how the approaches, sharing and prices differ.' },
+  { slug: 'copilot', name: 'Copilot Money', focus: 'Sharing, devices and investments.', description: 'Compare separate household logins, native Apple apps, investment views and U.S. availability.' },
+  { slug: 'simplifi', name: 'Quicken Simplifi', focus: 'Monthly flexibility or an annual plan?', description: 'See how budgets, the Spending Plan, savings goals and household access stack up.' },
+  { slug: 'rocket-money', name: 'Rocket Money', focus: 'A household plan or free basics?', description: 'Compare budgeting, subscription help and what’s included in the free and paid plans.' },
+];
+const canonical = new URL('/compare/', Astro.site).href;
+const structuredData = { '@context': 'https://schema.org', '@type': 'CollectionPage', '@id': canonical, url: canonical, name: 'Compare Vylo with other budgeting apps', mainEntity: { '@type': 'ItemList', itemListElement: comparisons.map((c, index) => ({ '@type': 'ListItem', position: index + 1, name: `Vylo vs. ${c.name}`, url: new URL(`/compare/${c.slug}/`, Astro.site).href })) } };
+---
+<!doctype html>
+<html lang="en" data-screenshot-market="US">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#f8f7f2" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SearchMetadata title="Compare Vylo with Monarch, YNAB & Other Budgeting Apps" description="Compare Vylo with Monarch, YNAB, Copilot Money, Quicken Simplifi and Rocket Money. Features, household sharing and pricing, side by side." />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  </head>
+  <body class="founder-preview comparison-site">
+    <a class="skip-link" href="#main">Skip to content</a><SiteHeader currentPage="compare" />
+    <main id="main" class="comparison-content page-width comparison-hub">
+      <section class="comparison-intro" aria-labelledby="comparison-title"><h1 id="comparison-title">How does Vylo <em>compare?</em></h1><p>There’s more than one good way to manage your money. See what each app does, what it costs, and which one makes sense for your household.</p></section>
+      <div class="comparison-grid">{comparisons.map(c => <a class="comparison-card" href={`/compare/${c.slug}/`}>
+        <div class="comparison-card-pair" aria-hidden="true"><span>Vylo</span><span>vs.</span><span>{c.name}</span></div>
+        <div class="comparison-card-copy"><h2>Vylo vs. {c.name}</h2><p class="comparison-card-focus">{c.focus}</p><p>{c.description}</p><span class="comparison-card-link">Read the comparison <span aria-hidden="true">↗</span></span></div>
+      </a>)}</div>
+    </main>
+    <ComparisonFooter /><script>import '../../scripts/screenshot-market';</script>
+  </body>
+</html>
