@@ -11,12 +11,15 @@ keywords:
   - verification
   - MFA
 related:
+  - bank-updates
   - how-often-transactions-sync
   - unsupported-bank
   - duplicate-accounts
 ---
 
 Banks sometimes need fresh authorization or another verification step. Use **Reconnect** on the existing institution so you keep working with that connection.
+
+Seeing **Latest sync failed** without a reconnect action? That is different. Read [why a bank update can fail](/help/articles/bank-updates/) before disconnecting or adding the bank again.
 
 The provider will guide you through any bank sign-in, code, or approval it needs. When you return to Vylo, let the import finish before checking recent purchases.
 

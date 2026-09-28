@@ -18,6 +18,7 @@ keywords:
   - 15 minutes
   - frequency
 related:
+  - bank-updates
   - missing-transactions
   - reconnect-a-bank
   - pending-transactions
@@ -38,5 +39,7 @@ It tells you when Vylo last checked for available bank data. A successful check 
 On the web, open **Transactions**, then the three-dot menu beside **Filter**, and choose **Trigger Manual Sync**. Manual requests are normally limited to one every 15 minutes; the app shows when another request is available.
 
 ## When is a delay worth checking?
+
+If Accounts shows **Sync failed** or **Latest sync failed**, see [what that message means and what to do next](/help/articles/bank-updates/). A failed update does not automatically mean you need to reconnect.
 
 If a purchase has posted at the bank and is still missing after another day, follow [the missing-transaction checks](/help/articles/missing-transactions/) or email **hi@myvylo.com** with the bank name and transaction date.

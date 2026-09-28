@@ -6,7 +6,7 @@ import { transform } from 'esbuild';
 const product=process.env.VYLO_PRODUCT_SOURCE||'/Users/farazsworkmac/Desktop/Expense Tracker/implementation/approved-design-20260911/web/expense-tracker-frontend';
 const {JSDOM}=createRequire(path.join(product,'package.json'))('jsdom');
 const code=(await transform(fs.readFileSync('src/scripts/site-header.ts','utf8'),{loader:'ts'})).code;
-for (const route of ['/', '/help/', '/help/articles/rename-a-category/', '/updates/']) {
+for (const route of ['/', '/help/', '/help/articles/rename-a-category/', '/help/articles/bank-updates/', '/updates/']) {
   const dom=new JSDOM(fs.readFileSync(path.join('dist',route,'index.html'),'utf8'),{url:`https://www.myvylo.com${route}`,runScripts:'outside-only'});
   const {window:w}=dom;
   let resize;
@@ -15,7 +15,7 @@ for (const route of ['/', '/help/', '/help/articles/rename-a-category/', '/updat
   w.eval(code);
   const menu=w.document.querySelector('#site-navigation');
   const toggle=w.document.querySelector('.site-menu-toggle');
-  assert.deepEqual([...menu.querySelectorAll('.site-nav-links a')].map(a=>a.textContent.trim()),['Why Vylo','Features','Security','Pricing','Updates','Help']);
+  assert.deepEqual([...menu.querySelectorAll('.site-nav-links a')].map(a=>a.textContent.trim()),['Why Vylo','Features','Security','Pricing','Compare','Vylo vs. Monarch','Vylo vs. YNAB','Vylo vs. Copilot Money','Vylo vs. Quicken Simplifi','Vylo vs. Rocket Money','Help center','What’s new']);
   assert(menu.hidden&&menu.inert,'Closed mobile links must not be focusable');
   toggle.click();
   assert(!menu.hidden&&!menu.inert);
