@@ -18,7 +18,7 @@ const dist = path.resolve('dist');
 const articles = fs.readdirSync('src/content/help').filter(n => n.endsWith('.md')).map(n => ({slug:n.slice(0,-3),...matter(fs.readFileSync(`src/content/help/${n}`,'utf8')).data}));
 const slugs = new Set(articles.map(a=>a.slug));
 const topics = new Set(articles.map(a=>a.category));
-assert.equal(articles.length,72);
+assert.equal(articles.length,73);
 assert.equal(topics.size,10);
 for(const a of articles){
   for(const related of a.related) assert(slugs.has(related),`${a.slug}: missing related article ${related}`);
@@ -101,6 +101,9 @@ function fixture(query='',mobile=false){
 }
 let f=fixture();assert(f.get('search-results').hidden);assert(!f.get('topic-sections').hidden);
 const searches=[
+ ['sync failed','bank-updates'],
+ ['latest sync failed','bank-updates'],
+ ['bank disconnected','bank-updates'],
  ['default categories','default-categories'],
  ['Income','income-basics'],
  ['side hustle','side-gig-income-and-expenses'],
@@ -119,6 +122,12 @@ const searches=[
  ['how do I download my data','download-your-data'],
 ];
 for(const[q,expected]of searches){f.submit(q);assert(f.results().slice(0,5).includes(`/help/articles/${expected}/`),`${q}: expected ${expected}; got ${f.results().slice(0,5)}`);assert(f.get('results-heading').focused);assert.equal(f.location.searchParams.get('q'),q);}
+const bankHelp=walk(parsed.get('/help/articles/bank-updates/'));
+assert(bankHelp.some(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'&&attr(n,'href')==='https://www.myvylo.com/help/articles/bank-updates/'),'Bank help must use the public website canonical URL');
+assert(bankHelp.some(n=>n.tagName==='a'&&attr(n,'href')==='https://www.monarch.com/connection-status'),'Bank help keeps the provider-status reference');
+assert(bankHelp.some(n=>n.tagName==='a'&&attr(n,'href')==='mailto:help@myvylo.com?subject=Bank%20update%20help'),'Bank help has the approved support contact');
+assert(!bankHelp.some(n=>n.tagName==='a'&&attr(n,'href')?.includes('app.myvylo.com/help/')),'Help content must not send readers back to an app-hosted article');
+assert(fs.readFileSync(path.join(dist,'sitemap.xml'),'utf8').includes('https://www.myvylo.com/help/articles/bank-updates/'),'Bank help is discoverable in the public sitemap');
 f.submit('zxqv nothing matches');assert.equal(f.results().length,0);assert(!f.get('no-results').hidden);
 f.get('reset-search').emit('click');assert(f.get('search-results').hidden);assert.equal(f.location.search,'');
 f.els.find(e=>e.dataset.topic==='categories').emit('click');assert.equal(f.location.searchParams.get('topic'),'categories');assert.equal(f.els.filter(e=>e.dataset.section&&!e.hidden).length,1);
