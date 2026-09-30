@@ -31,6 +31,7 @@ for(const [selector,attrs,key,value] of [
  ['img[data-market-image]',{'data-market-image':'transactions.jpg'},'src','/product/current-20260914/ca/transactions.jpg'],
  ['[data-screen-frame]',{'data-image':'/product/current-20260914/us/review.jpg'},'data-image','/product/current-20260914/ca/review.jpg'],
  ['a[data-market-image-link]',{'data-market-image-link':'review.jpg'},'href','/product/current-20260914/ca/review.jpg'],
+ ['iframe[data-story-frame]',{src:'/product/hero/us.html'},'src','/product/hero/ca.html'],
  ['[data-screenshot-market-description]',{},'textContent','You’re viewing the Canadian site.'],
  ['[data-screenshot-market-switch]',{},'href','?market=US'],
  ['[data-screenshot-market-switch]',{},'textContent','Switch to the U.S. site'],

@@ -3,20 +3,39 @@ if (root) {
   const frame = root.querySelector<HTMLIFrameElement>('[data-story-frame]')!;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let visible = false;
+  let ready = false;
   const send = (type: string, extra = {}) => frame.contentWindow?.postMessage({ type, ...extra }, location.origin);
   const playback = () => {
-    send('vylo-story-playback', { playing: visible && !document.hidden && !reduced.matches, reduced: reduced.matches });
+    send('vylo-story-playback', { playing: ready && visible && !document.hidden && !reduced.matches, reduced: reduced.matches });
+  };
+  const settle = async () => {
+    const expectedMarket = frame.dataset.storyMarket;
+    const child = frame.contentDocument;
+    if (!expectedMarket || child?.querySelector<HTMLElement>('.real-product-story')?.dataset.market !== expectedMarket) return;
+    try { await child.fonts?.ready; } catch { /* The load event still gives us a stable fallback. */ }
+    await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+    if (frame.dataset.storyMarket !== expectedMarket || frame.contentDocument?.querySelector<HTMLElement>('.real-product-story')?.dataset.market !== expectedMarket) return;
+    ready = true;
+    root.dataset.storyReady = 'true';
+    playback();
   };
   const market = () => {
     const region = document.documentElement.dataset.screenshotMarket === 'CA' ? 'ca' : 'us';
     const src = `/product/hero/${region}.html`;
-    if (frame.getAttribute('src') !== src) frame.src = src;
+    frame.dataset.storyMarket = region.toUpperCase();
+    if (frame.getAttribute('src') !== src) {
+      ready = false;
+      delete root.dataset.storyReady;
+      playback();
+      frame.src = src;
+    }
     root.querySelector('[data-story-description]')!.textContent = `Fictional ${region === 'ca' ? 'Canadian' : 'US'} purchases enter Vylo’s ${innerWidth <= 900 ? 'native Activity list' : 'Transactions screen'} and receive categories, followed by income-versus-spending history. A second set of purchases updates their budget categories, followed by Budget Trends. Payroll and investment growth increase assets; a mortgage principal payment reduces cash and debt equally. The sequence ends with Vylo’s actual net-worth history chart. Figures and institutions are localized to ${region === 'ca' ? 'CAD and Canada' : 'USD and the United States'}.`;
   };
+  frame.addEventListener('load', () => { void settle(); });
   market();
-  new MutationObserver(market).observe(document.documentElement, { attributes: true, attributeFilter: ['data-screenshot-market'] });
+  if (frame.contentDocument?.readyState === 'complete') void settle();
+  window.addEventListener('vylo-market-change', market);
   new IntersectionObserver(entries => { visible = entries[0].isIntersecting && entries[0].intersectionRatio >= 0.15; playback(); }, { threshold: 0.15 }).observe(frame);
-  frame.addEventListener('load', playback);
   document.addEventListener('visibilitychange', playback);
   reduced.addEventListener('change', playback);
   root.querySelectorAll<HTMLElement>('[data-story-beat]').forEach((beat,i)=>beat.addEventListener('click',()=>{ send('vylo-story-seek',{beat:i}); playback(); }));

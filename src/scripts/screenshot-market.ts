@@ -28,6 +28,7 @@ const apply=(market:string)=>{
     url.searchParams.set('market',copy.next);
     countrySwitch.href=url.pathname+url.search+url.hash;
   }
+  window.dispatchEvent(new CustomEvent('vylo-market-change',{detail:{market}}));
 };
 const requested=validMarket(new URL(location.href).searchParams.get('market'));
 const saved=validMarket(document.cookie.match(/(?:^|;\s*)vylo_examples=(CA|US)(?:;|$)/i)?.[1]);
