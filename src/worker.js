@@ -21,6 +21,7 @@ export default {
       .on('img[data-market-image]', {element(el){el.setAttribute('src',screenshotUrl(el.getAttribute('data-market-image'),market));}})
       .on('[data-screen-frame]', {element(el){const file=el.getAttribute('data-image')?.split('/').pop();if(file)el.setAttribute('data-image',screenshotUrl(file,market));}})
       .on('a[data-market-image-link]', {element(el){el.setAttribute('href',screenshotUrl(el.getAttribute('data-market-image-link'),market));}})
+      .on('iframe[data-story-frame]', {element(el){el.setAttribute('src',`/product/hero/${market.toLowerCase()}.html`);}})
       .on('[data-screenshot-market-description]', {element(el){el.setInnerContent(copy.viewing);}})
       .on('[data-screenshot-market-switch]', {element(el){el.setAttribute('href',`?market=${copy.next}`);el.setInnerContent(copy.switchLabel);}})
       .transform(html);
